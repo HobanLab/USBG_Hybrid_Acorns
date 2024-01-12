@@ -31,11 +31,3 @@ The Paternity_Analysis folder includes the cleaned data file used for analysis a
   - Results → This folder contains a R Markdown script written by Mikaely Evans that was used to create the final figures for this project. These figures were used in her symposium presentation, but are now outdated because this project is still in process. This folder also contains "UHA_parentage_results.csv" which is the csv file used to create these figures. It includes variables like Offspring ID, Mother ID, Candidate father ID, and Candidate father species.
   
   - UHA_nomd_CERVUS_Analysis → This folder contains the final no missing data parentage analysis input and output files from this study. CERVUS is a software made specifically for parentage analysis and it uses the three specific data sets mentioned in the CERVUS_Input_Files folder.
-
-
-
-
-
-
-
-
