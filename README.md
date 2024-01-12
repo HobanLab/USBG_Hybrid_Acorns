@@ -1,9 +1,3 @@
----
-title: "USBG Hybrid Acorns Project README file"
-author: "Mikaely Evans"
-date: "2023-11-28"
----
-
 ## Project Description
 This github project analyzes oak seedlings to detect hybridization using DNA markers. Oak trees are critical ecosystem creators and are of very high conservation value. Additionally, oaks are an exceptional species, meaning they cannot be seedbanked using traditional methods and can only be conserved in living collections like botanic gardens or arboreta. Maintaining living collections of rare and endangered oaks is a challenging task because they may frequently hybridize with other oak species. In other words, seedlings collected from a maternal tree in a botanic garden may be unintentional hybrid offspring that are not ideal for conservation purposes. This limits conservationists ability to use seeds produced in ex situ collections for restoration of threatened and endangered plant species unless the parentage is verified and the seedlings are not hybrids. 
 
