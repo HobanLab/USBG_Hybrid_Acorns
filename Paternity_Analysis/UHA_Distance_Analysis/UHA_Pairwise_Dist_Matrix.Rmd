@@ -2,7 +2,7 @@
 title: "UHA_Pairwise_Dist_Matrix"
 author: "Mikaely Evans"
 date: "2024-01-10"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -11,177 +11,241 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Loading in necessary libraries and data
 ```{r}
-UHA_Tissue_Database <- read.csv("ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
 library(tidyverse)
 library(geosphere)
-library(tidyr)
+
+wd <- getwd()
+
+UHA_Tissue_Database <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")) %>% #raw dataset containing all individuals that were sequenced/collected 
+    filter(!is.na(Longitude) | !is.na(Latitude)) #filter any individuals that we don't have Lat/Long for
+
+parentage_results <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/UHA_full_parentage.csv")) %>% #dataset from parentage analyses 
+  rename(Mother_ID = Mother.ID, 
+         Father_ID = Candidate.father.ID) %>%
+  filter(!is.na(Father_ID)) #something weird happened in the cervus bit that led to this file having a single mother/offspring pair get repeated over and over with no candidate fathers
+
+
 ```
 
-# Crossing and deduplicating the data set to include all combinations of mothers and fathers with their distances in a data set called combo_dedup
+
+# Get all possible combinations of trees in the Tissue Database and save it in a df called "potential_combo_dedup"
 ```{r}
-UHA_Tissue_Database_2 <- UHA_Tissue_Database %>%
-  filter(!is.na(Longitude)) %>%
-  filter(!is.na(Latitude)) %>%
-  select(Tissue.ID, Accession.Number, Longitude, Latitude, Species) %>% 
-  mutate(Tissue.ID.2 = Tissue.ID)
+all_potential_combo <- crossing(UHA_Tissue_Database$Tissue.ID, UHA_Tissue_Database$Tissue.ID) #create every possible pairwise combination of the 2 vectors it is fed, we feed it all Tissue ID's twice
+colnames(all_potential_combo) <- c("Parent_1", "Parent_2") #assign names to columns of all the possible combos of individuals
 
-all_combo <- crossing(UHA_Tissue_Database_2$Tissue.ID, UHA_Tissue_Database_2$Tissue.ID.2) 
-colnames(all_combo) <- c("Parent_1", "Parent_2")
+# No longer deduplicating because it makes downstream analyses more cimplicated and only takes a little longer to run
+#combo_dedup <- all_combo[!duplicated(apply(all_combo, 1, sort), MARGIN = 2),] #remove any duplicates of pairings (i.e. crossing considers UHA-001 + UHA-002 to be different than UHA-002 + UHA-001 and this line will purge that second one)
 
-combo_dedup <- all_combo[!duplicated(apply(all_combo, 1, sort), MARGIN = 2),]
-combo_dedup$dist <- NA
+potential_combo_dedup <- filter(all_potential_combo, Parent_1 != Parent_2)  #remove rows where the parents are the same individual (selfing)
 
+#make columns to store important data (distances and parent species)
+potential_combo_dedup$dist <- NA 
+potential_combo_dedup$Parent_1_species <- NA
+potential_combo_dedup$Parent_2_species <- NA
 
-# combo_dedup %>% filter(str_detect(Parent_1, "UHA-0002"))
-for(d in 1:nrow(combo_dedup)){
-  Parent_1 <- combo_dedup$Parent_1[d]
-  Parent_2 <- combo_dedup$Parent_2[d]
-  Parent_1_Database_row <- UHA_Tissue_Database_2 %>% filter(Tissue.ID == Parent_1)
-  Parent_2_Database_row <- UHA_Tissue_Database_2 %>% filter(Tissue.ID == Parent_2)
-  combo_dedup$dist[d] <- distm(c(Parent_1_Database_row$Longitude, Parent_1_Database_row$Latitude),
-                               c(Parent_2_Database_row$Longitude, Parent_2_Database_row$Latitude),
-                              fun=distGeo)
+#loop through every pair of individuals in the deduplicated combinations data set (combo_dedup) and get the distance between those individuals using distGeo and the species of each individual
+for(d in 1:nrow(potential_combo_dedup)){
+  Parent_1 <- potential_combo_dedup$Parent_1[d]
+  Parent_2 <- potential_combo_dedup$Parent_2[d]
+  
+  #access the original tissue database via the parents
+  Parent_1_Database_row <- filter(UHA_Tissue_Database, Tissue.ID == Parent_1)
+  Parent_2_Database_row <- filter(UHA_Tissue_Database, Tissue.ID == Parent_2)
+  
+  #use distGeo to get distance in m between the lat long points of the 2 parents
+  potential_combo_dedup$dist[d] <- distGeo(c(Parent_1_Database_row$Longitude, Parent_1_Database_row$Latitude),
+                               c(Parent_2_Database_row$Longitude, Parent_2_Database_row$Latitude)) 
+  
+  #record the species of both parents
+  potential_combo_dedup$Parent_1_species[d] <- Parent_1_Database_row$Species 
+  potential_combo_dedup$Parent_2_species[d] <- Parent_2_Database_row$Species
 
 }
 
 ```
 
-# Adding species informaiton to combo_dedup data
+
+# Edit the potential_combo_dedup df to ensure consistent naming and create a column that indicates if the 2 parents are conspecifics or heterospecifics
 ```{r}
-combo_dedup$Parent_1_species <- NA
-combo_dedup$Parent_2_species <- NA
-
-# Next, adding species for both parent_1 and parent_2 to combo_dedup
-for(i in 1:nrow(combo_dedup)){
-  Parent_1 <- combo_dedup$Parent_1[i]
-  Parent_2 <- combo_dedup$Parent_2[i]
-  Parent_1_Database_row <- UHA_Tissue_Database_2 %>% filter(Tissue.ID == Parent_1)
-  Parent_2_Database_row <- UHA_Tissue_Database_2 %>% filter(Tissue.ID == Parent_2)
-  combo_dedup$Parent_1_species[i] <- Parent_1_Database_row$Species
-  combo_dedup$Parent_2_species[i] <- Parent_2_Database_row$Species
-}
-```
-
-# Creating new data set called species combos which includes information from combo_dedup and wether or not the mom/dad pair is a conspecific or heterospecific match.
-```{r}
-species_combos$Parental_Species_Match <- NA
-species_combos <- combo_dedup %>%
-  mutate(Parent_1_species = str_replace_all(Parent_1_species, "Quercus", "Q.")) %>%
-  mutate(Parent_2_species = str_replace_all(Parent_2_species, "Quercus", "Q.")) %>%
-  filter(Parent_1 != Parent_2) %>%
-  mutate('Parental_Species_Match' = case_when(Parent_1_species == Parent_2_species ~ "Conspecific",
-                                              Parent_1_species != Parent_2_species ~ "Heterospecific"))
-```
-
-# Created a new data table called relevant_species_combos to preparing this data for relevance to our study by including the mothers that produced offspring, this will include the mothers and all possible fathers for each mother.
-```{r}
-relevant_species_combos <- species_combos %>%
-  filter(Parent_1 %in% c('UHA-0010', 'UHA-0013', 'UHA-0012', 'UHA-0014', 'UHA-0016', 'UHA-0257', 'UHA-0260', 'UHA-0261')) %>%
-  group_by(Parent_1, Parental_Species_Match)
-
-# Adding proportion of conspecific matchings and heterospecific matchings for each mother
-full_parentage <- read_csv("UHA_full_parentage.csv")
-full_parentage2 <- full_parentage %>%
-  filter(!is.na(`Candidate Father Species`))
-
-proportion_hybrids <- full_parentage2%>%
-  group_by(`Mother ID`) %>%
-  summarise(Mean_Distance = mean(distance_between_parents, na.rm=TRUE), Proportion_Hybrids = mean(Hybrid, na.rm = TRUE))
-
-# Used relevant_species_combos and proportion_hybrids to create a new data set called mean_summary to be used in analysis later that includes the mean distance between Mother trees and all possible conspecific and heterospecific fathers and including the proportion of hybrid offspring produced by that mother.
-mean_summary <- relevant_species_combos %>% 
-  summarise(Mean_Distance = mean(dist, na.rm=TRUE),) %>%
-  left_join(., proportion_hybrids, by=join_by(`Parent_1` == `Mother ID`)) %>%
-  select(Parent_1, Parental_Species_Match, Mean_Distance.x, Proportion_Hybrids) %>%
-  rename(Mean_Distance = Mean_Distance.x)
-
-# Used relevant_species_combos to create a new data set called min_summary to be used in analysis later that includes the distance of the closest possible conspecific and heterospecific father to the specified maternal tree and includes the proportion of hybrid offspring produced by that mother.
-min_summary <- relevant_species_combos %>% summarise(Min_Distance = min(dist, na.rm=TRUE)) %>%
-   left_join(., proportion_hybrids, by=join_by(`Parent_1` == `Mother ID`)) %>%
-  select(Parent_1, Parental_Species_Match, Min_Distance, Proportion_Hybrids)
-
-
-# Created mean_min_summary which is a table including the mean distance of the 5 closest possible fathers to each maternal tree along with the proportion of hybrids for each mother. 
-mean_min_summary <- relevant_species_combos%>%
-  filter(!Parent_1 %in% c('UHA-0013', 'UHA-0016')) %>%
-  group_by(Parent_1, Parental_Species_Match) %>%
-  top_n(-5, dist) %>%
-  summarise(Mean_Min_Distance = mean(dist, na.rm=TRUE)) %>%
-  left_join(., proportion_hybrids, by=join_by(`Parent_1` == `Mother ID`)) %>%
-  select(Parent_1, Parental_Species_Match, Mean_Min_Distance, Proportion_Hybrids)
+potential_combo_info <- potential_combo_dedup %>%
+  mutate(Parent_1_species = str_replace_all(Parent_1_species, "Quercus", "Q."), 
+         Parent_2_species = str_replace_all(Parent_2_species, "Quercus", "Q.")) %>% #replace all instances of Quercus with Q. to ensure all species names are formatted the same
+  mutate(Parental_species_match = case_when(Parent_1_species == Parent_2_species ~ "Conspecific",
+                                            Parent_1_species != Parent_2_species ~ "Heterospecific")) #if the species of the two parents matches then they are conspecific, if not they are heterospecific
 ```
 
 
+# Make some changes to the potential_combo_info and parentage_results dfs to make them more relevant to analyses
 ```{r}
-# Moved this code up so it was before the other summaries
-# full_parentage <- read_csv("UHA_full_parentage.csv")
-# full_parentage2 <- full_parentage %>%
-#   filter(!is.na(`Candidate Father Species`))
-# 
-# proportion_hybrids <- full_parentage2%>%
-#   group_by(`Mother ID`) %>%
-#   summarise(Mean_Distance = mean(distance_between_parents, na.rm=TRUE), Proportion_Hybrids = mean(Hybrid, na.rm = TRUE))
+mom_IDs <- unique(parentage_results$Mother_ID) #get all unique mother ID's from the df that contains the results of the parentage analyses
+
+relevant_potential_combos <- potential_combo_info %>%
+  filter(Parent_1 %in% mom_IDs) #filter from the total set of combinations for all possible trees down to just combinations where Parent_1 is one of the real moms in our data
+
+
+relevant_parentage_results <- left_join(parentage_results, select(relevant_potential_combos, c(Parent_1, Parent_2, dist)), join_by(Mother_ID == Parent_1, Father_ID == Parent_2)) #add columns that contains distances between 2 individuals by matching both parents (from the relevant_potential_combos df)
 ```
 
-# The linear models for the mean summary, min summary, and mean min (top 5 closest fathers) summary are included below
-```{r}
-summary(lm(formula = Proportion_Hybrids~Mean_Distance, data=filter(mean_summary, Parental_Species_Match == "Conspecific")))
 
-summary(lm(formula = Proportion_Hybrids~Mean_Distance, data=filter(mean_summary, Parental_Species_Match == "Heterospecific")))
+# Make temporary dfs that contain the mean distance of the 5 shortest distances from the mothers to the fatners for both the real (relevant_parentage_results) and potential (relevant_potential_combos) datasets
+```{r}
+#create df that has the mean distance of the 5 closest potential conspecific and heterospecific fathers to each maternal tree along with the proportion of hybrids for each mother. 
+potential_fathers_mean_small_summary <- relevant_potential_combos%>%
+  group_by(Parent_1, Parental_species_match) %>%
+  top_n(-5, dist) %>% #keeps only the smallest 5 dist values in each of the unique groups
+  summarise(Mean_smallest_potential_dists = mean(dist, na.rm=TRUE))
+
+
+
+#make a dataset that contains only the mothers from which there are less than 5 unique dads so I can make a different mean_smallest_dists summary (necessary bc top_n ignores entries with less than the specified number of matches)
+#top_n isn't actually going to work since it allows ties and doesn't count them toward the 5 so we need to use something else
+inds_w_few_fathers <- relevant_parentage_results %>%
+  group_by(Mother_ID, Father_ID) %>%
+  summarize(num_off = n()) %>%
+  group_by(Mother_ID) %>%
+  summarize(num_dads = n()) %>%
+  filter(num_dads < 5)
+
+#SHOULD I BE TAKING THE MEAN OF THE SUCCESSFUL DADS OR THE MEAN OF ALL OF THE OFFSPRING (bc repeats will bring a mean toward that value)?
+
+#summarize the mean distance of all the distances for the mothers with less than 5 unique dads bc these can be used as the mean_smallest_dists 
+inds_w_few_fathers_summary <- relevant_parentage_results %>%
+  filter(Mother_ID %in% inds_w_few_fathers$Mother_ID) %>%
+  group_by(Mother_ID) %>%
+  summarise(Mean_smallest_real_dists = mean(dist, na.rm=TRUE))
+
+
+#create df that has the mean distance of the 5 closest real fathers to each maternal tree (including those with less than 5 offspring)
+real_fathers_mean_small_summary <- relevant_parentage_results%>%
+  filter(!Mother_ID %in% inds_w_few_fathers$Mother_ID) %>%
+  group_by(Mother_ID) %>%
+  slice_min(dist, n =5, with_ties = F) %>%
+  summarise(Mean_smallest_real_dists = mean(dist, na.rm=TRUE)) %>%
+  rbind(., inds_w_few_fathers_summary) #rbind the dataframe that has the mean distances of the individuals that have less than 5 unique fathers
+
+#create df that has the mean distance of the 5 closest possible fathers to each maternal tree (including those with less than 5 offspring)
+potential_fathers_mean_small_summary <- relevant_potential_combos%>%
+  group_by(Parent_1, Parental_species_match) %>%
+  slice_min(dist, n =5, with_ties = F) %>%
+  summarise(Mean_smallest_potential_dists = mean(dist, na.rm=TRUE))
+```  
+
+# Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the real parentage data (mean distance of real fathers, minimum distance of real fathers, mean distance of closest 5 real fathers). NOTE: this is based off of the offspring data meaning that the 5 closest fathers might be the same 5 fathers and the mean distance is weighted by the number of offspring fathered by each dad.
+```{r}
+#summarize data by mean and min distance to real fathers and by proportion of offspring that are hybrids (with heterospecific fathers)
+real_fathers_summary <- relevant_parentage_results%>%
+  group_by(Mother_ID) %>%
+  summarise(Mean_real_dist = mean(dist, na.rm=TRUE), 
+            Min_real_dist = min(dist, na.rm=TRUE), 
+            Prop_hybrids = mean(Hybrid, na.rm = TRUE)) %>%
+  left_join(., real_fathers_mean_small_summary, join_by(Mother_ID == Mother_ID)) #add the Mean_smallest_dists datd
 ```
 
-```{r}
-summary(lm(formula = Proportion_Hybrids~Min_Distance, data=filter(min_summary, Parental_Species_Match == "Conspecific")))
 
-summary(lm(formula = Proportion_Hybrids~Min_Distance, data=filter(min_summary, Parental_Species_Match == "Heterospecific")))
+# Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the possible combinations of mothers and fathers data (mean distance of potential fathers, minimum distance of potential fathers, mean distance of closest 5 potential fathers). NOTE: this is NOT based off of the offspring data meaning that the 5 closest fathers will be unique and the mean distance to fathers will be unweighted 
+```{r}
+#summarize data from data with all combos of possible conspecific and heterospefic individuals with each real mom
+potential_fathers_summary <- relevant_potential_combos %>% 
+  group_by(Parent_1, Parental_species_match) %>%
+  summarise(Mean_potential_dist = mean(dist, na.rm=TRUE), 
+            Min_potential_dist = min(dist, na.rm=TRUE))  %>%
+  left_join(., potential_fathers_mean_small_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists datd
+  left_join(., select(real_fathers_summary, c(Mother_ID, Prop_hybrids)), join_by(Parent_1 == Mother_ID)) #add the proportion of hybrids had by each mother (from real_fathers_summary)
 ```
 
-```{r}
-summary(lm(formula = Proportion_Hybrids~Mean_Min_Distance, data=filter(mean_min_summary, Parental_Species_Match == "Conspecific")))
 
-summary(lm(formula = Proportion_Hybrids~Mean_Min_Distance, data=filter(mean_min_summary, Parental_Species_Match == "Heterospecific")))
+# The linear model for the mean distance of real fathers to a given mother
+```{r}
+summary(lm(formula = Prop_hybrids~Mean_real_dist, data=real_fathers_summary))
 ```
 
-# Bootstrapping
+# The linear model for the smallest distance of a real father to a given mother
 ```{r}
-# creating new table for bootstrapping with empty columns titled Mom, Dad, and dist
+summary(lm(formula = Prop_hybrids~Min_real_dist, data=real_fathers_summary))
+```
+
+# The linear model for the mean distance of the shortest 5 distances of real fathers to a given mother
+```{r}
+summary(lm(formula = Prop_hybrids~Mean_smallest_real_dists, data=real_fathers_summary))
+```
+
+
+# The linear model for the mean distance of a potential fathers to a given mother split by conspecific and heterospecific fathers
+```{r}
+summary(lm(formula = Prop_hybrids~Mean_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
+
+summary(lm(formula = Prop_hybrids~Mean_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Heterospecific")))
+```
+
+
+# The linear model for the smallest distance of a potential father to a given mother split by conspecific and heterospecific fathers
+```{r}
+summary(lm(formula = Prop_hybrids~Min_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
+
+summary(lm(formula = Prop_hybrids~Min_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Heterospecific")))
+```
+
+
+# The linear model for the mean distance of the shortest 5 distances of potential fathers to a given mother split by conspecific and heterospecific fathers
+```{r}
+summary(lm(formula = Prop_hybrids~Mean_smallest_potential_dists, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
+
+summary(lm(formula = Prop_hybrids~Mean_smallest_potential_dists, data=filter(potential_fathers_summary, Parental_species_match == "Heterospecific")))
+```
+
+
+
+# A for loop that, across each mom, randomly samples the pool of the potential dads 1000 times and records the distance between that dad and the given mom and stores the results in "parents_dists_table_full"
+
+```{r}
+set.seed(2024) #since we are using the sample function, set the seed for repeatability 
+
+#create the table that will hold the results of the for loop with 3 columns: Mom, Dad, and dist
 parents_dists_table_full <- tibble(Mom = character(), Dad = character(), dist = character())
 
-for(i in 1:length(unique(relevant_species_combos$Parent_1))){
-  parents_dists_table_small <- tibble(Mom = character(), Dad = character(), dist = character()) # small table for loop
-  mom <- unique(relevant_species_combos$Parent_1)[i]  # selecting mom from loop iteration and saving to small table
-  mom_specific_combos <- species_combos %>%
-    filter(Parent_1 == mom | Parent_2 == mom) %>%  # finding the combos for this mother
-    filter(Parental_Species_Match == "Conspecific")  # selecting only the conspecific combos for analysis
-  possible_dads <- c(mom_specific_combos$Parent_1, mom_specific_combos$Parent_2)[c(mom_specific_combos$Parent_1, mom_specific_combos$Parent_2) != mom]  # finding all possible dads
-  dads <- sample(possible_dads, size=1000, replace=T)  # sampling with replaecment 1000 times from these dads
+
+for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
+  parents_dists_table_small <- tibble(Mom = character(), Dad = character(), dist = character()) #make a small version of the final table that will be overwritten with each new mom
+  mom <- unique(relevant_potential_combos$Parent_1)[i]  #get the ID of the given mom
+  mom_specific_combos <- relevant_potential_combos %>%
+    filter(Parent_1 == mom) %>%  #filter all possible combos to only those with the given mom as Parent_1
+    filter(Parental_species_match == "Conspecific")  #filter all possible combos with the given mom to only those that are the same species as the given mom
+  
+  possible_dads <- mom_specific_combos$Parent_2 #make a vector with a list of all of the possible dads by pulling the Parent_2 column of the mom_specific_combos df
+  
+  dads <- sample(possible_dads, size=1000, replace=T)  #randomly draw 1000 samples from all possible dads with replacement
+  
+  #a for loop that will loop through each of the 1000 sampled dads will make and add a row for the parents_dists_table_small 
   for(x in 1:length(dads)){
-    dad <- dads[x]
-    species_combo_row_for_table <- tibble(Mom = NA, Dad = NA, dist = NA)  # creating output table for each row in loop
-    species_combo_row_for_table$Mom <- mom  # adding mom to table
-    species_combo_row_for_table$Dad <- dad  # adding dad to table
-    species_combo_row_for_table$dist <- filter(species_combos, Parent_1 == mom & Parent_2 == dad | Parent_1 == dad & Parent_2 == mom )$dist  # adding dist from mom to dad in table
+    dad <- dads[x] #get the ID of the given dad
+    parent_combo_row_for_table <- tibble(Mom = character(), Dad = character(), dist = character()) #creating table that will be a single row and will be overwritten during each iteration of the loop
+    parent_combo_row_for_table$Mom <- mom #add ID of the given mom to table
+    parent_combo_row_for_table$Dad <- dad #add ID of the given dad to table
+    parent_combo_row_for_table$dist <- filter(mom_specific_combos, Parent_1 == mom & Parent_2 == dad)$dist #add dist from mom to dad in table (by matching the mom and dad's IDs to the mom_specific_combos df)
     
-    parents_dists_table_small <- rbind(parents_dists_table_small, species_combo_row_for_table) # bind to small table
+    parents_dists_table_small <- rbind(parents_dists_table_small, parent_combo_row_for_table) #bind the row of the given dad to the  table of the given mom
   }
-  parents_dists_table_full <- rbind(parents_dists_table_full, parents_dists_table_small)  # binding to full table
+  parents_dists_table_full <- rbind(parents_dists_table_full, parents_dists_table_small)  #bind the table of the given given to the  table of all the moms
 }
-# output parents_dists_table_full is a data table with 8,000 entries that have sampled 1,000 possible fathers for each mother tree that produced offspring in our study. 
+```
 
-# including full_parentage for histogram figures so we can compare the data from the actual mother and father pairs that produced offspring in the study to the bootstrap approach
-full_parentage_for_hists <- full_parentage2 %>%
-  rename(Mom = "Mother ID", 
-         Dad = "Candidate father ID", 
-         dist = distance_between_parents) %>%
+
+# Make a plot that compares the real distances between parents (from relevant_parentage_results) to the potential distance between parents (from parents_dists_table_full)
+```{r}
+#edit relevant_parentage_results to have the same formatting as parents_dists_table_full for easier histogram plotting 
+parentage_results_for_hists <- relevant_parentage_results %>%
+  rename(Mom = Mother_ID, 
+         Dad = Father_ID) %>%
   select(Mom, Dad, dist, Hybrid) %>%
-  filter(Hybrid == F) %>%  # Since we are selecting for only conspecific pairs in this analysis
-  filter(!is.na(dist))  # Removed entries where dist was NA because some trees do not have long/lat values and weren't used in the study
+  filter(Hybrid == F) %>%  #we are only looking at distance between conspecific pairs in this analysis (no hydrbid offspring)
+  filter(!is.na(dist))  #remove entries where dist is NA because some trees that we have tissue from do not have long/lat values
 
-# Creating the histogram for visualization to see if our results were what we would expect.
+#Create the a histogram that shows the difference in the real and theoretical distances between parents 
 ggplot() +
-  geom_histogram(data = parents_dists_table_full, aes(x = dist, y = ..density..), fill = "red", alpha = .5) +
-  geom_histogram(data = full_parentage_for_hists, aes(x = dist, y = ..density..), fill = "blue", alpha = .5) +
-  geom_histogram(data = ) +
+  geom_histogram(data = parents_dists_table_full, aes(x = dist, y = ..density.., fill = "theoretical"), alpha = .5) +
+  geom_histogram(data = parentage_results_for_hists, aes(x = dist, y = ..density.., fill = "real"), alpha = .5) +
+  labs(fill = "data set") + 
+  scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
   #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
   theme_classic()
 ```
