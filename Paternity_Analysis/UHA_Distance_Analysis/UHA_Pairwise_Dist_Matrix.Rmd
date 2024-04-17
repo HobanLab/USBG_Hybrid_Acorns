@@ -16,10 +16,10 @@ library(geosphere)
 
 wd <- getwd()
 
-UHA_Tissue_Database <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")) %>% #raw dataset containing all individuals that were sequenced/collected 
+UHA_Tissue_Database <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")) %>% #raw dataset containing all individuals that were sequenced/collected  
     filter(!is.na(Longitude) | !is.na(Latitude)) #filter any individuals that we don't have Lat/Long for
 
-parentage_results <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/UHA_full_parentage.csv")) %>% #dataset from parentage analyses 
+parentage_results <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/UHA_full_parentage.csv")) %>% #dataset from parentage analyses --> NOTE FOR EM THAT THIS CSV APPEARS TO HAVE OFF WITH SAME OFF_ID AS HAVING 2 DIFF SETS OF PARENTS
   rename(Mother_ID = Mother.ID, 
          Father_ID = Candidate.father.ID) %>%
   filter(!is.na(Father_ID)) #something weird happened in the cervus bit that led to this file having a single mother/offspring pair get repeated over and over with no candidate fathers
@@ -33,7 +33,7 @@ parentage_results <- read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clea
 all_potential_combo <- crossing(UHA_Tissue_Database$Tissue.ID, UHA_Tissue_Database$Tissue.ID) #create every possible pairwise combination of the 2 vectors it is fed, we feed it all Tissue ID's twice
 colnames(all_potential_combo) <- c("Parent_1", "Parent_2") #assign names to columns of all the possible combos of individuals
 
-# No longer deduplicating because it makes downstream analyses more cimplicated and only takes a little longer to run
+# No longer deduplicating because it makes downstream analyses more complicated and only takes a little longer to run
 #combo_dedup <- all_combo[!duplicated(apply(all_combo, 1, sort), MARGIN = 2),] #remove any duplicates of pairings (i.e. crossing considers UHA-001 + UHA-002 to be different than UHA-002 + UHA-001 and this line will purge that second one)
 
 potential_combo_dedup <- filter(all_potential_combo, Parent_1 != Parent_2)  #remove rows where the parents are the same individual (selfing)
@@ -87,50 +87,27 @@ relevant_parentage_results <- left_join(parentage_results, select(relevant_poten
 ```
 
 
-# Make temporary dfs that contain the mean distance of the 5 shortest distances from the mothers to the fatners for both the real (relevant_parentage_results) and potential (relevant_potential_combos) datasets
+# Make temporary dfs that contain the mean distance of the 5 shortest distances from the mothers to the fathers for both the real (relevant_parentage_results) and potential (relevant_potential_combos) datasets
 ```{r}
-#create df that has the mean distance of the 5 closest potential conspecific and heterospecific fathers to each maternal tree along with the proportion of hybrids for each mother. 
-potential_fathers_mean_small_summary <- relevant_potential_combos%>%
-  group_by(Parent_1, Parental_species_match) %>%
-  top_n(-5, dist) %>% #keeps only the smallest 5 dist values in each of the unique groups
-  summarise(Mean_smallest_potential_dists = mean(dist, na.rm=TRUE))
+#SHOULD I BE TAKING THE MEAN OF THE SUCCESSFUL DADS OR THE MEAN OF ALL OF THE OFFSPRING (bc repeats will bring a mean toward that value)? --> right now just taking the mean dist of sucessful dads vs possible dads
 
-
-
-#make a dataset that contains only the mothers from which there are less than 5 unique dads so I can make a different mean_smallest_dists summary (necessary bc top_n ignores entries with less than the specified number of matches)
-#top_n isn't actually going to work since it allows ties and doesn't count them toward the 5 so we need to use something else
-inds_w_few_fathers <- relevant_parentage_results %>%
-  group_by(Mother_ID, Father_ID) %>%
-  summarize(num_off = n()) %>%
+# HERE IN THE CODE WITH EM, note that I deleted code above here bc it was useless now that I added distinct which keeps only unique mom dad combos to take care of the ties problem
+#create df that has the mean distance of the 5 closest real fathers to each maternal tree (without ties, only possible with slice_min, using that instead of top_n)
+real_fathers_mean_small_summary <- relevant_parentage_results%>%
+  #distinct(Mother_ID, Father_ID, .keep_all = T) %>%
   group_by(Mother_ID) %>%
-  summarize(num_dads = n()) %>%
-  filter(num_dads < 5)
-
-#SHOULD I BE TAKING THE MEAN OF THE SUCCESSFUL DADS OR THE MEAN OF ALL OF THE OFFSPRING (bc repeats will bring a mean toward that value)?
-
-#summarize the mean distance of all the distances for the mothers with less than 5 unique dads bc these can be used as the mean_smallest_dists 
-inds_w_few_fathers_summary <- relevant_parentage_results %>%
-  filter(Mother_ID %in% inds_w_few_fathers$Mother_ID) %>%
-  group_by(Mother_ID) %>%
+  slice_min(dist, n =5, with_ties = FALSE) %>%
   summarise(Mean_smallest_real_dists = mean(dist, na.rm=TRUE))
 
-
-#create df that has the mean distance of the 5 closest real fathers to each maternal tree (including those with less than 5 offspring)
-real_fathers_mean_small_summary <- relevant_parentage_results%>%
-  filter(!Mother_ID %in% inds_w_few_fathers$Mother_ID) %>%
-  group_by(Mother_ID) %>%
-  slice_min(dist, n =5, with_ties = F) %>%
-  summarise(Mean_smallest_real_dists = mean(dist, na.rm=TRUE)) %>%
-  rbind(., inds_w_few_fathers_summary) #rbind the dataframe that has the mean distances of the individuals that have less than 5 unique fathers
-
-#create df that has the mean distance of the 5 closest possible fathers to each maternal tree (including those with less than 5 offspring)
+#create df that has the mean distance of the 5 closest possible fathers to each maternal tree (including those with less than 5 offspring) 
+#Note that I don't need to call distinct here because there is only one entry per mother/father combo
 potential_fathers_mean_small_summary <- relevant_potential_combos%>%
   group_by(Parent_1, Parental_species_match) %>%
-  slice_min(dist, n =5, with_ties = F) %>%
+  slice_min(dist, n =5, with_ties = FALSE) %>%
   summarise(Mean_smallest_potential_dists = mean(dist, na.rm=TRUE))
 ```  
 
-# Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the real parentage data (mean distance of real fathers, minimum distance of real fathers, mean distance of closest 5 real fathers). NOTE: this is based off of the offspring data meaning that the 5 closest fathers might be the same 5 fathers and the mean distance is weighted by the number of offspring fathered by each dad.
+# Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the real parentage data (mean distance of real fathers, minimum distance of real fathers, mean distance of closest 5 real fathers). NOTE: this is based off of the offspring data meaning that the 5 closest fathers might be the same 5 fathers and the mean distance is weighted by the number of offspring fathered by each dad while the potential_fathers data will always consist of only a single entry per potential father
 ```{r}
 #summarize data by mean and min distance to real fathers and by proportion of offspring that are hybrids (with heterospecific fathers)
 real_fathers_summary <- relevant_parentage_results%>%
@@ -138,18 +115,18 @@ real_fathers_summary <- relevant_parentage_results%>%
   summarise(Mean_real_dist = mean(dist, na.rm=TRUE), 
             Min_real_dist = min(dist, na.rm=TRUE), 
             Prop_hybrids = mean(Hybrid, na.rm = TRUE)) %>%
-  left_join(., real_fathers_mean_small_summary, join_by(Mother_ID == Mother_ID)) #add the Mean_smallest_dists datd
+  left_join(., real_fathers_mean_small_summary, join_by(Mother_ID == Mother_ID)) #add the Mean_smallest_dists data but notes that this is the only 
 ```
 
 
-# Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the possible combinations of mothers and fathers data (mean distance of potential fathers, minimum distance of potential fathers, mean distance of closest 5 potential fathers). NOTE: this is NOT based off of the offspring data meaning that the 5 closest fathers will be unique and the mean distance to fathers will be unweighted 
+# Make dataset ("potential_fathers_summary") containing all of the desired summarized categories from the possible combinations of mothers and fathers data (mean distance of potential fathers, minimum distance of potential fathers, mean distance of closest 5 potential fathers). NOTE: this is NOT based off of the offspring data meaning that the 5 closest fathers will be unique and the mean distance to fathers will be unweighted (because we have no way to know potential fathers relative success (i.e. how many offspring they may produce))
 ```{r}
 #summarize data from data with all combos of possible conspecific and heterospefic individuals with each real mom
 potential_fathers_summary <- relevant_potential_combos %>% 
   group_by(Parent_1, Parental_species_match) %>%
   summarise(Mean_potential_dist = mean(dist, na.rm=TRUE), 
             Min_potential_dist = min(dist, na.rm=TRUE))  %>%
-  left_join(., potential_fathers_mean_small_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists datd
+  left_join(., potential_fathers_mean_small_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists dats
   left_join(., select(real_fathers_summary, c(Mother_ID, Prop_hybrids)), join_by(Parent_1 == Mother_ID)) #add the proportion of hybrids had by each mother (from real_fathers_summary)
 ```
 
@@ -201,7 +178,7 @@ summary(lm(formula = Prop_hybrids~Mean_smallest_potential_dists, data=filter(pot
 
 
 
-# A for loop that, across each mom, randomly samples the pool of the potential dads 1000 times and records the distance between that dad and the given mom and stores the results in "parents_dists_table_full"
+# A for loop that, across each mom, randomly samples the pool of the possible conspecific dads (of which there are 20 out of the 280 adult individuals we have data on) 1000 times and records the distance between that dad and the given mom and stores the results in "parents_dists_table_full"
 
 ```{r}
 set.seed(2024) #since we are using the sample function, set the seed for repeatability 
@@ -224,7 +201,7 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
   #a for loop that will loop through each of the 1000 sampled dads will make and add a row for the parents_dists_table_small 
   for(x in 1:length(dads)){
     dad <- dads[x] #get the ID of the given dad
-    parent_combo_row_for_table <- tibble(Mom = character(), Dad = character(), dist = character()) #creating table that will be a single row and will be overwritten during each iteration of the loop
+    parent_combo_row_for_table <- tibble(Mom = NA, Dad = NA, dist = NA) #creating table that will be a single row and will be overwritten during each iteration of the loop
     parent_combo_row_for_table$Mom <- mom #add ID of the given mom to table
     parent_combo_row_for_table$Dad <- dad #add ID of the given dad to table
     parent_combo_row_for_table$dist <- filter(mom_specific_combos, Parent_1 == mom & Parent_2 == dad)$dist #add dist from mom to dad in table (by matching the mom and dad's IDs to the mom_specific_combos df)
@@ -254,9 +231,10 @@ ggplot() +
   scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
   #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
   theme_classic()
+```
 
-
-
+Getting some summary stats that Sean asked for
+```{r}
 UHA_Tissue_Database %>%
   mutate(Species = str_replace_all(Species, "muehlenbergii ", "muehlenbergii")) %>%
   mutate(Species = str_replace_all(Species, "Quercus", "Q.")) %>%
