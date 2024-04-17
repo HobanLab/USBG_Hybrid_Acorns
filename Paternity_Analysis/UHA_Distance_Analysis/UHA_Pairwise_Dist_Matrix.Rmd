@@ -154,23 +154,29 @@ potential_fathers_summary <- relevant_potential_combos %>%
 ```
 
 
-# The linear model for the mean distance of real fathers to a given mother
+# The linear model for the mean distance of real fathers to a given mother is significant with a positive slope indicating that the higher the proportion of hybrid offspring a mother has, the greater the mean realized pollination dsitance for that mother
 ```{r}
 summary(lm(formula = Prop_hybrids~Mean_real_dist, data=real_fathers_summary))
+
+real_fathers_summary %>%
+  ggplot() +
+  geom_point(aes(x = Prop_hybrids, y = Mean_real_dist)) +
+  geom_smooth(aes(x = Prop_hybrids, y = Mean_real_dist), method='lm', formula= y~x) +
+  theme_classic()
 ```
 
-# The linear model for the smallest distance of a real father to a given mother
+# The linear model for the smallest distance of a real father to a given mother shows no relationship between the dsitance of the closest realized father to a given mother and the proportion of offspring that were hybrids for that mother
 ```{r}
 summary(lm(formula = Prop_hybrids~Min_real_dist, data=real_fathers_summary))
 ```
 
-# The linear model for the mean distance of the shortest 5 distances of real fathers to a given mother
+# The linear model for the mean distance of the shortest 5 distances of real fathers to a given mother shows no relationship between the dsitance of the closest 5 realized fathers to a given mother and the proportion of offspring that were hybrids for that mother.
 ```{r}
 summary(lm(formula = Prop_hybrids~Mean_smallest_real_dists, data=real_fathers_summary))
 ```
 
 
-# The linear model for the mean distance of a potential fathers to a given mother split by conspecific and heterospecific fathers
+# The linear model for the mean distance of a potential fathers to a given mother split by conspecific and heterospecific fathers. There is no relationship between the proportion of hybrid offspring and the mean distances of all potential het or con fathers.
 ```{r}
 summary(lm(formula = Prop_hybrids~Mean_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
 
@@ -178,7 +184,7 @@ summary(lm(formula = Prop_hybrids~Mean_potential_dist, data=filter(potential_fat
 ```
 
 
-# The linear model for the smallest distance of a potential father to a given mother split by conspecific and heterospecific fathers
+# The linear model for the smallest distance of a potential father to a given mother split by conspecific and heterospecific fathers. There is no relationship between the proportion of hybrid offspring and the minimum distances of all potential het or con fathers.
 ```{r}
 summary(lm(formula = Prop_hybrids~Min_potential_dist, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
 
@@ -186,7 +192,7 @@ summary(lm(formula = Prop_hybrids~Min_potential_dist, data=filter(potential_fath
 ```
 
 
-# The linear model for the mean distance of the shortest 5 distances of potential fathers to a given mother split by conspecific and heterospecific fathers
+# The linear model for the mean distance of the shortest 5 distances of potential fathers to a given mother split by conspecific and heterospecific fathers. There is no relationship between the proportion of hybrid offspring and the 5 smallest distances of all potential het or con fathers.
 ```{r}
 summary(lm(formula = Prop_hybrids~Mean_smallest_potential_dists, data=filter(potential_fathers_summary, Parental_species_match == "Conspecific")))
 
@@ -248,6 +254,22 @@ ggplot() +
   scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
   #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
   theme_classic()
+
+
+
+UHA_Tissue_Database %>%
+  mutate(Species = str_replace_all(Species, "muehlenbergii ", "muehlenbergii")) %>%
+  mutate(Species = str_replace_all(Species, "Quercus", "Q.")) %>%
+  filter(Extracted. == "X") %>%
+  #group_by(Species) %>%
+  summarise(n =n())
+
+read.csv(paste0(wd,"/../../Data_Files/Clean_Data_Files/Clean_csv/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")) %>%
+  filter(Parent.or.offspring...P.O. == "P") %>%
+  filter(is.na(Latitude) | is.na(Longitude))
+  #filter(Extracted. == "X") %>%
+  #group_by(Species) %>%
+  #summarise(n =n())
 ```
 
 
