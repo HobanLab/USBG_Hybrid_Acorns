@@ -89,7 +89,7 @@ relevant_parentage_results <- left_join(parentage_results, select(relevant_poten
 
 # Make temporary dfs that contain the mean distance of the 5 shortest distances from the mothers to the fathers for both the real (relevant_parentage_results) and potential (relevant_potential_combos) datasets
 ```{r}
-#SHOULD I BE TAKING THE MEAN OF THE SUCCESSFUL DADS OR THE MEAN OF ALL OF THE OFFSPRING (bc repeats will bring a mean toward that value)? --> right now just taking the mean dist of sucessful dads vs possible dads
+#SHOULD I BE TAKING THE MEAN OF THE SUCCESSFUL DADS OR THE MEAN OF ALL OF THE OFFSPRING (bc repeats will bring a mean toward that value)? --> right now just taking the mean dist of successful dads vs possible dads
 
 # HERE IN THE CODE WITH EM, note that I deleted code above here bc it was useless now that I added distinct which keeps only unique mom dad combos to take care of the ties problem
 #create df that has the mean distance of the 5 closest real fathers to each maternal tree (without ties, only possible with slice_min, using that instead of top_n)
@@ -99,12 +99,25 @@ real_fathers_mean_small_summary <- relevant_parentage_results%>%
   slice_min(dist, n =5, with_ties = FALSE) %>%
   summarise(Mean_smallest_real_dists = mean(dist, na.rm=TRUE))
 
+#same as above but doing 5 furthest dists
+real_fathers_mean_large_summary <- relevant_parentage_results%>%
+  #distinct(Mother_ID, Father_ID, .keep_all = T) %>%
+  group_by(Mother_ID) %>%
+  slice_max(dist, n =5, with_ties = FALSE) %>%
+  summarise(Mean_largest_real_dists = mean(dist, na.rm=TRUE))
+
 #create df that has the mean distance of the 5 closest possible fathers to each maternal tree (including those with less than 5 offspring) 
 #Note that I don't need to call distinct here because there is only one entry per mother/father combo
 potential_fathers_mean_small_summary <- relevant_potential_combos%>%
   group_by(Parent_1, Parental_species_match) %>%
   slice_min(dist, n =5, with_ties = FALSE) %>%
   summarise(Mean_smallest_potential_dists = mean(dist, na.rm=TRUE))
+
+#same as abovebut with 5 largest dists
+potential_fathers_mean_large_summary <- relevant_potential_combos%>%
+  group_by(Parent_1, Parental_species_match) %>%
+  slice_max(dist, n =5, with_ties = FALSE) %>%
+  summarise(Mean_largest_potential_dists = mean(dist, na.rm=TRUE))
 ```  
 
 # Make dataset ("real_fathers_summary") containing all of the desired summarized categories from the real parentage data (mean distance of real fathers, minimum distance of real fathers, mean distance of closest 5 real fathers). NOTE: this is based off of the offspring data meaning that the 5 closest fathers might be the same 5 fathers and the mean distance is weighted by the number of offspring fathered by each dad while the potential_fathers data will always consist of only a single entry per potential father
@@ -114,8 +127,10 @@ real_fathers_summary <- relevant_parentage_results%>%
   group_by(Mother_ID) %>%
   summarise(Mean_real_dist = mean(dist, na.rm=TRUE), 
             Min_real_dist = min(dist, na.rm=TRUE), 
+            Max_real_dist = max(dist, na.rm=TRUE), 
             Prop_hybrids = mean(Hybrid, na.rm = TRUE)) %>%
-  left_join(., real_fathers_mean_small_summary, join_by(Mother_ID == Mother_ID)) #add the Mean_smallest_dists data but notes that this is the only 
+  left_join(., real_fathers_mean_small_summary, join_by(Mother_ID == Mother_ID)) %>% #add the Mean_smallest_dists data 
+  left_join(., real_fathers_mean_large_summary, join_by(Mother_ID == Mother_ID)) #add the Mean_largest_dists data 
 ```
 
 
@@ -125,8 +140,10 @@ real_fathers_summary <- relevant_parentage_results%>%
 potential_fathers_summary <- relevant_potential_combos %>% 
   group_by(Parent_1, Parental_species_match) %>%
   summarise(Mean_potential_dist = mean(dist, na.rm=TRUE), 
-            Min_potential_dist = min(dist, na.rm=TRUE))  %>%
-  left_join(., potential_fathers_mean_small_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists dats
+            Min_potential_dist = min(dist, na.rm=TRUE), 
+            Max_potential_dist = max(dist, na.rm=TRUE))  %>%
+  left_join(., potential_fathers_mean_small_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists data
+  left_join(., potential_fathers_mean_large_summary, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_largest_dists data
   left_join(., select(real_fathers_summary, c(Mother_ID, Prop_hybrids)), join_by(Parent_1 == Mother_ID)) #add the proportion of hybrids had by each mother (from real_fathers_summary)
 ```
 
@@ -137,19 +154,33 @@ summary(lm(formula = Prop_hybrids~Mean_real_dist, data=real_fathers_summary))
 
 real_fathers_summary %>%
   ggplot() +
-  geom_point(aes(x = Prop_hybrids, y = Mean_real_dist)) +
-  geom_smooth(aes(x = Prop_hybrids, y = Mean_real_dist), method='lm', formula= y~x) +
+  geom_point(aes(y = Prop_hybrids, x = Mean_real_dist)) +
+  geom_smooth(aes(y = Prop_hybrids, x = Mean_real_dist), method='lm', formula= y~x) +
   theme_classic()
 ```
 
 # The linear model for the smallest distance of a real father to a given mother shows no relationship between the dsitance of the closest realized father to a given mother and the proportion of offspring that were hybrids for that mother
 ```{r}
 summary(lm(formula = Prop_hybrids~Min_real_dist, data=real_fathers_summary))
+
+summary(lm(formula = Prop_hybrids~Max_real_dist, data=real_fathers_summary))
 ```
 
 # The linear model for the mean distance of the shortest 5 distances of real fathers to a given mother shows no relationship between the dsitance of the closest 5 realized fathers to a given mother and the proportion of offspring that were hybrids for that mother.
 ```{r}
 summary(lm(formula = Prop_hybrids~Mean_smallest_real_dists, data=real_fathers_summary))
+
+summary(lm(formula = Prop_hybrids~Mean_largest_real_dists, data=real_fathers_summary))
+
+real_fathers_summary %>%
+  #filter(Mean_largest_real_dists < 500) %>% #to remove the largest value individual if you want
+  ggplot() +
+  geom_point(aes(y = Prop_hybrids, x = Mean_largest_real_dists)) +
+  geom_smooth(aes(y = Prop_hybrids, x = Mean_largest_real_dists), method='lm', formula= y~x) +
+  theme_classic()
+
+# note that when you remove the mom with the largest values (> 500), the significance disappears but the R2 is still pretty good
+summary(lm(formula = Prop_hybrids~Mean_largest_real_dists, data=filter(real_fathers_summary, Mean_largest_real_dists < 500)))
 ```
 
 
