@@ -17,7 +17,7 @@ setwd("../Data_Files")
 UHA_genind <- read.genepop("Genotype_Files/2024_UHA_genepop.gen", ncode = 2)
 
 #load CERVUS data files
-UHA_CERVUS_prep <- read.csv("Parentage_Files/2024_04_22_CERVUS_scores.csv")
+UHA_CERVUS_prep <- read.csv("Parentage_Files/2024_04_22_CERVUS_Prep.csv")
 
 ###############################
 #     Data Cleaning steps     #
@@ -45,20 +45,3 @@ null_all_df <- signif(data.frame(UHA_null_all$null.allele.freq$summary2),3)*100
 UHA_ld <- pair.ia(UHA_genind_nomd, sample = 1000)
 #convert to a data frame
 UHA_ld_df <- data.frame(round(UHA_ld, digits = 2))
-
-##write out data files
-#null alls
-write.csv(null_all_df, "../Results/Preliminary_Genotyping_Analysis/null_all_df.csv")
-#LD
-write.csv(UHA_ld_df, "../Results/Preliminary_Genotyping_Analysis/UHA_ld_df.csv")
-
-#######################
-#     Remove Loci     #
-#######################
-##list loci with too high a percent of null alleles 
-##above 20% 
-loci_rm <- c(4, 8, 9, 10)
-UHA_genind_clean <- UHA_genind_nomd[loc = -loci_rm]
-
-#write out genind file
-genind2genalex(UHA_genind_clean, "CSV_Files/UHA_clean_FL_genalex.csv")
