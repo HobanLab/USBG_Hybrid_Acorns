@@ -1,3 +1,10 @@
+###This code was updated on 5/5/24 by Emily Schumacher. This code was worked on by
+##Mikaely Evans as well as Ash Hamilton to generate a data file, UHA_full_parentage
+#which summarizes the results of parentage analysis and the remaining analyses of the project
+#are run on. This data file combines information about the assigned father, 
+#mother, distance between them, whether the offspring is a hybrid, 
+#and how far apart the parents are, as well as if the parents are half-siblings. 
+
 #####################
 #     Libraries     #
 #####################
