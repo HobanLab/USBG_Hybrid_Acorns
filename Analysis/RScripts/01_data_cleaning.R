@@ -19,6 +19,9 @@ UHA_genind <- read.genepop("Genotype_Files/2024_UHA_genepop.gen", ncode = 2)
 #load CERVUS data files
 UHA_CERVUS_prep <- read.csv("Parentage_Files/2024_04_22_CERVUS_Prep.csv")
 
+#load score df
+UHA_scores_df <- read.csv("CSV_Files/UHA_score_df.csv")
+
 ###############################
 #     Data Cleaning steps     #
 ###############################
@@ -29,7 +32,14 @@ UHA_genind_nomd <- missingno(UHA_genind, type = "geno",
 
 #write out genind object as a genalex file
 genind2genalex(UHA_genind_nomd,
-               "CSV_Files/UHA_Final_Scores_clean.csv")
+               "CSV_Files/UHA_Final_Scores_genalex_clean.csv")
+
+#limit by the cleaned individuals
+UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in% 
+                                       rownames(UHA_genind_nomd@tab),]
+
+#write out 
+write.csv(UHA_scores_clean_df, "CSV_Files/UHA_score_clean_df.csv")
 
 ###########################
 #     Score Analysis      #

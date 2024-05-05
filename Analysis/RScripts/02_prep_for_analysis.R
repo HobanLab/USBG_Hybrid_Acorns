@@ -20,32 +20,64 @@ setwd("../..")
 #write in the parentage results summary 
 par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
 
+#replace periods with underscones 
+colnames(par_results) <-  gsub('\\.', '_', colnames(par_results))
 
-par_genotyoes <- read.csv("UHA_score_database_nomd_genotype - UHA_score_database_nomd_genotype.csv") #read in genotype file to use species information of maternal and paternal trees.
-tissue_info <- read.csv("TCB_Tissue_Database.csv")
-full_parentage <- left_join(spatial_parentage_results, genotypes, by=c('Offspring ID'='Tissue_ID')) # joining the spatial parentage results and genotypes to create the full_parentage data set that will be have spatial data, hybrid status, and half sibling status.
-```
+#parentage df 
+par_df <- read.csv("Data_Files/CSV_Files/UHA_score_clean_df.csv")
+#remove first column
+par_df <- par_df[,-1]
 
-Adding in Species Information for Maternal and Paternal trees
-```{r}
-keeps <- c("Offspring ID","Mother ID", "Candidate father ID")
-full_parentage <- full_parentage[keeps]  # Narrowing full_parentage data set to only include the necessary information
-full_parentage <- left_join(full_parentage, genotypes, by=c('Mother ID' = 'Tissue_ID'))  # Including mother species in the data, full_parentage2 is not necessary for further analysis
-keeps <- c("Offspring ID","Mother ID", "Candidate father ID", "Species")
-full_parentage <- full_parentage[keeps] # Narrowing the data again after the join of data sets
+#rename offspring ID to tissue ID
+colnames(off_df)[1] <- "Offspring_ID"
+
+#limit to offspring 
+off_df <- par_df[par_df$Parent_Offspring == "O",]
+
+
+#par_genotyoes <- read.csv("UHA_score_database_nomd_genotype - UHA_score_database_nomd_genotype.csv") #read in genotype file to use species information of maternal and paternal trees.
+#tissue_info <- read.csv("TCB_Tissue_Database.csv")
+
+#################################################
+#     Data Cleaning Post Parentage Analysis     #
+#################################################
+
+###add parental species to the data frame 
+
+#joining the genotypes with the parentage results 
+#to create the full_parentage data set that will be have spatial data, 
+#hybrid status, and half sibling status.
+full_parentage <- left_join(off_df, par_results, by='Offspring_ID') 
+
+#Adding in Species Information for Maternal and Paternal trees
+keep_col_ID <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", "Species")
+
+# Narrowing the data again after the join of data sets
+full_parentage <- full_parentage[keep_col_ID] 
 full_parentage <- full_parentage %>%
-  rename('Mother Species' = 'Species')  # Renaming Species to Mother Species to be more specific
+                    rename('Mother_Species' = 'Species')  
 
-full_parentage <- left_join(full_parentage, genotypes, by=c('Candidate father ID'='Tissue_ID'))  # Completing same steps again to join Candidate Father Species
-keeps <- c("Offspring ID","Mother ID", "Candidate father ID", "Mother Species", "Species")
-full_parentage <- full_parentage[keeps]
+# #create data frame with father species 
+# paternal_assignment <-  par_df[par_df$Tissue_ID %in% 
+#                                  par_results$Candidate_father_ID,]
+
+#add paternal species 
+full_parentage <- left_join(full_parentage, par_df, 
+                             by=c('Candidate_father_ID' = 'Tissue_ID'))  
+
+#now reduce columns 
+keep_col_ID2 <- c("Offspring_ID","Mother_ID","Candidate_father_ID", "Mother_Species", "Species")
+
+#reduce data frame by populated columns
+full_parentage <- full_parentage[keep_col_ID2]
+#rename columns 
 full_parentage <- full_parentage %>%
-  rename('Candidate Father Species' = 'Species')
-```
+                    rename('Candidate_Father_Species' = 'Species')
 
+###add geographic information for both parents to the data frame 
 
-Adding in Maternal Accession and Longitude/Latitude information from TCB Tissue Database
-```{r}
+# #Adding in Maternal Accession and Longitude/Latitude information from TCB Tissue Database
+# ```{r}
 full_parentage <- read_csv("UHA_full_parentage.csv")
 archived_tissues <- read_csv("ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
 full_parentage <- left_join(full_parentage, archived_tissues, by=c('Mother ID' = 'Tissue ID'))
@@ -53,22 +85,22 @@ keeps <- c("Offspring ID","Mother ID", "Candidate father ID", "Mother Species", 
 full_parentage <- full_parentage[keeps] # Narrowing the data again after the join of data sets
 full_parentage <- full_parentage %>%
   rename('Maternal Longitude' = 'Longitude', 'Maternal Latitude' = 'Latitude')
-# This is giving me some issues when I join data sets, sometimes the columns are titled with .x at the end and this affects the keeps values. If you rerun this code the keeps values might need to be adjusted
-```
-
-Adding in Candidate Father Accession and Longitude/Latitude information from TCB Tissue Database
-```{r}
+# # This is giving me some issues when I join data sets, sometimes the columns are titled with .x at the end and this affects the keeps values. If you rerun this code the keeps values might need to be adjusted
+# ```
+# 
+# Adding in Candidate Father Accession and Longitude/Latitude information from TCB Tissue Database
+# ```{r}
 full_parentage <- left_join(full_parentage, archived_tissues, by=c('Candidate father ID' = 'Tissue ID'))
 keeps <- c("Offspring ID","Mother ID", "Candidate father ID", "Mother Species", "Candidate Father Species", "Mother Accession", "Maternal Longitude", "Maternal Latitude", "Accession Number", "Longitude", "Latitude")
 full_parentage <- full_parentage[keeps] # Narrowing the data again after the join of data sets
 full_parentage <- full_parentage %>%
   rename('Candidate Father Accession' = 'Accession Number', 'Candidate Father Longitude' = 'Longitude', 'Candidate Father Latitude' = 'Latitude')
-# This has the same issues, sometimes the columns are titled with .x at the end and this affects the keeps values. If you rerun this code the keeps value might need to be adjusted
-```
-
-
-Assigning Half Siblings in the data set
-```{r}
+# # This has the same issues, sometimes the columns are titled with .x at the end and this affects the keeps values. If you rerun this code the keeps value might need to be adjusted
+# ```
+# 
+# 
+# Assigning Half Siblings in the data set
+# ```{r}
 # Mikaely Evans code for creating a new column to assign half sibling status to all the offspring
 full_parentage$'Half Siblings' <- NA  # Made three new columns for this analysis
 full_parentage$M_Accession_Abrv <- NA  
@@ -85,12 +117,12 @@ full_parentage <- full_parentage %>%
   mutate('Half Siblings' = case_when(M_Accession_Abrv == F_Accession_Abrv ~ TRUE,
                                      M_Accession_Abrv != F_Accession_Abrv ~ FALSE))
 # This chunk above uses mutate to change the 'Half Siblings' column to represent the cases when the maternal accession and paternal accession match, and when they don't. They are represented by short phrases that are easier for readers to understand when they are graphed below.
-
-```
-
-
-Creating Distance Matrix
-```{r}
+# 
+# ```
+# 
+# 
+# Creating Distance Matrix
+# ```{r}c
 ## Emily Schumacher code for creating distance matrix
 # Mikaely Evans edited to use for the full_parentage data set
 ##calculate distances
