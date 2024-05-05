@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Allele frequency analysis completed 4/22/2024 10:10:12 AM
+Allele frequency analysis completed 4/28/2024 2:21:13 PM
 
 
 **** Summary statistics ****
@@ -38,11 +38,11 @@ Combined non-exclusion probability (sib identity):             0.00003524
 **** Files ****
 
 Input
-  Genotype data file:             2024_04_22_CERVUS_scores.csv
+  Genotype data file:             UHA_scores.csv
 
 Output
-  Summary text file:              2024_04_22_allfreq.txt
-  Allele frequency file:          2024_04_22_allfreq.alf
+  Summary text file:              UHA_allfreq.txt
+  Allele frequency file:          UHA_allfreq.alf
 
 
 **** Loci ****

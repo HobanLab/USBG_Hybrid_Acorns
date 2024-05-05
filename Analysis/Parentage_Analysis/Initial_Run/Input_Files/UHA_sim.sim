@@ -9,29 +9,29 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eksch\OneDrive\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Input_Files\2024_04_22_simulation.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.sim
 FileType=.sim
-CreationDate=4/22/2024 10:14:13 AM
+CreationDate=4/28/2024 2:21:59 PM
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eksch\OneDrive\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Input_Files\2024_04_22_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_allfreq.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
 NOffspring=10000
 NCandidateMales=163
-PropCandidateMalesSampled=0.8
+PropCandidateMalesSampled=1
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.8
-PropLociMistyped=0.1
+PropLociTyped=1
+PropLociMistyped=0.01
 MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.1
-CriticalStatisticName=LOD
-TruncateAtZero=0
+LikelihoodErrorRate=0.01
+CriticalStatisticName=Delta
+TruncateAtZero=1
 RelaxedConfidence=80
 StrictConfidence=95
 SimulateInbreeding=0
@@ -48,10 +48,10 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 
 [SimulationSummaryFile]
-FileName=C:\Users\eksch\OneDrive\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Input_Files\2024_04_22_simulation.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eksch\OneDrive\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Input_Files\2024_04_22_simulation.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -68,10 +68,10 @@ MaxStatistic=0
 FileName=
 
 [MaleParentAlone]
-RelaxedCriterion=5.00537109375
-StrictCriterion=6.8427734375
-NRelaxed=3246
-NStrict=1286
+RelaxedCriterion=0
+StrictCriterion=0
+NRelaxed=9982
+NStrict=9982
 
 [FemaleParentAlone]
 RelaxedCriterion=999
@@ -80,10 +80,10 @@ NRelaxed=0
 NStrict=0
 
 [MaleParentGivenFemaleParent]
-RelaxedCriterion=4.380859375
-StrictCriterion=6.51513671875
-NRelaxed=5620
-NStrict=2826
+RelaxedCriterion=0
+StrictCriterion=0
+NRelaxed=9998
+NStrict=9998
 
 [FemaleParentGivenMaleParent]
 RelaxedCriterion=999
