@@ -51,14 +51,20 @@ mf_boxplot
 
 dev.off()
 
+#create a column for the renamed cases for half siblings
+full_parentage <- full_parentage %>%
+  mutate(`Parents Are` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
+                     TRUE ~ "Half Siblings")
+  )
+
 #graph of half-sibling matings group by maternal ID
 png("Results/half_sibs_jitter.png", res = 600,
-    width = 4000, height = 3500)
+    width = 5000, height = 3500)
 full_parentage %>%
-  group_by(`Half Siblings`) %>%  # group by half siblings to compare the status
+  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
   filter(!is.na(`Candidate_father_ID`)) %>%
-  filter(!is.na(`Half_Sibs`)) %>%
-  ggplot(aes(x = Mother_ID, y = distance_between_parents, color = Half_Sibs)) +  
+  filter(!is.na(`Parents Are`)) %>%
+  ggplot(aes(x = Mother_ID, y = distance_between_parents, color = `Parents Are`)) +  
   geom_jitter(width = 0.2) +
   expand_limits(y = c(0, 650)) +  # set limits for graph
   scale_color_manual(values = c("cadetblue", "navy")) +
@@ -66,5 +72,20 @@ full_parentage %>%
   theme_bw()
 dev.off()
 
-##
+#organize data frame for hybrid status
+full_parentage <- full_parentage %>%
+  mutate(`Offspring Hybrid Status` = case_when(Hybrid_Status == FALSE ~ "Not Hybrid",
+                                   TRUE ~ "Hybrid"))
 
+#barplot of the percentage of hybrids 
+png("Results/hybrid_offpring.png", res = 600,
+    width = 5000, height = 3500)
+ggplot(data = full_parentage, aes(x = fct_rev(fct_infreq(Mother_ID)), 
+                                    y = distance_between_parents, 
+                                  fill = `Offspring Hybrid Status`)) +  
+  geom_boxplot() +
+  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+  expand_limits(y = c(0, 650)) +  # set limits for graph
+  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+  theme_bw() 
+dev.off()
