@@ -30,3 +30,66 @@ UHA_clean_df <- UHA_db[UHA_db$Tissue_ID %in% UHA_score_clean_df$Tissue_ID,]
 #remove offspring from the data frame
 UHA_par_df <- UHA_clean_df %>% 
                 filter(!is.na(Longitude) | !is.na(Latitude))
+
+#update parentage analysis df
+UHA_clean_par_df <- parentage_results %>% 
+                      rename(Father_ID = Candidate_father_ID) %>%
+                            filter(!is.na(Father_ID)) 
+
+#########################################
+#     Prepare for Distance Analysis     #
+#########################################
+
+#Create a column of the crosses of every parent individual
+all_potential_combo <- crossing(UHA_clean_df$Tissue_ID, 
+                                UHA_clean_df$Tissue_ID)
+colnames(all_potential_combo) <- c("Parent_1", "Parent_2")
+
+#remove rows where the parents are the same individual (selfing)
+potential_combo_dedup <- filter(all_potential_combo, Parent_1 != Parent_2)
+
+#make columns to store distance between parents and parent species
+potential_combo_dedup$dist <- NA 
+potential_combo_dedup$Parent_1_species <- NA
+potential_combo_dedup$Parent_2_species <- NA
+
+#loop to calculate distance between parents 
+for(d in 1:nrow(potential_combo_dedup)){
+  Parent_1 <- potential_combo_dedup$Parent_1[d]
+  Parent_2 <- potential_combo_dedup$Parent_2[d]
+  
+  #access the original tissue database via the parents
+  Parent_1_Database_row <- filter(UHA_clean_df, Tissue_ID == Parent_1)
+  Parent_2_Database_row <- filter(UHA_clean_df, Tissue_ID == Parent_2)
+  
+  #use distGeo to get distance in m between the lat long points of the 2 parents
+  potential_combo_dedup$dist[d] <- distGeo(c(Parent_1_Database_row$Longitude, Parent_1_Database_row$Latitude),
+                                           c(Parent_2_Database_row$Longitude, Parent_2_Database_row$Latitude)) 
+  
+  #record the species of both parents
+  potential_combo_dedup$Parent_1_species[d] <- Parent_1_Database_row$Species 
+  potential_combo_dedup$Parent_2_species[d] <- Parent_2_Database_row$Species
+  
+}
+
+
+#reorganize the combination data frame to fix species naming conventions and to
+#have a hybrid column 
+potential_combo_info <- potential_combo_dedup %>%
+  mutate(Parent_1_species = str_replace_all(Parent_1_species, "Quercus", "Q."), 
+         Parent_2_species = str_replace_all(Parent_2_species, "Quercus", "Q.")) %>% #replace all instances of Quercus with Q. to ensure all species names are formatted the same
+  mutate(Parental_species_match = case_when(Parent_1_species == Parent_2_species ~ "Conspecific",
+                                            Parent_1_species != Parent_2_species ~ "Heterospecific")) #if the species of the two parents matches then they are conspecific, if not they are heterospecific
+
+#list of maternal names
+mom_IDs <- unique(parentage_results$Mother_ID) 
+#filter combintation df by the possible mothers 
+relevant_potential_combos <- potential_combo_info %>%
+  filter(Parent_1 %in% mom_IDs) 
+
+#combine all columns for distance analysis 
+par_results_df <- left_join(UHA_clean_par_df, 
+                                        select(relevant_potential_combos, 
+                                               c(Parent_1, Parent_2, dist)), 
+                                                  join_by(Mother_ID == Parent_1,
+                                                      Father_ID == Parent_2))
