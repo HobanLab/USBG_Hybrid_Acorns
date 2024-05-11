@@ -89,3 +89,16 @@ ggplot(data = full_parentage, aes(x = fct_rev(fct_infreq(Mother_ID)),
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
   theme_bw() 
 dev.off()
+
+#table to present the candidate fathers 
+species_count <- as.data.frame(table(full_parentage$Candidate_Father_Species))
+names(species_count) <- c("Species", "Count")
+species_count$Species <- factor(species_count$Species, 
+                                levels=species_count$Species[order(-species_count$Count)])
+#now plot species count table
+species_count %>%
+  ggplot(aes(x = Species, y=Count))+
+  geom_bar(stat = "identity", fill = "darkgreen") + 
+  labs(title="Count of Candidate Father Trees per Species", 
+       x="Candidate Father Species") +
+  theme_bw()
