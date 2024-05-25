@@ -172,20 +172,35 @@ pf_df <- relevant_potential_combos %>%
 #the greater the mean realized pollination dsitance for that mother
 
 ###create a data frame to save the adjusted R-squared and p-value
-hybrid_pop_df <- matrix(nrow = 1, ncol = 1)
+rf_hybrid_prop <- matrix(nrow = 3, ncol = 2)
 
-#adjusted R-squared and 
-hybrid_pop_df <- t(as.data.frame(c(summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))[[9]],
-                                   summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))$coefficients[8])))
+# #adjusted R-squared and 
+# hybrid_pop_df <- t(as.data.frame(c(summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))[[9]],
+#                                    summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))$coefficients[8])))
+
+#save p-values and r-squared results
+rf_hybrid_prop[1,1] <- summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))$adj.r.squared
+rf_hybrid_prop[1,2] <- summary(lm(formula = Prop_hybrids~Mean_real_dist, data=rf_df))$coefficients[2,4]
+rf_hybrid_prop[2,1] <- summary(lm(formula = Prop_hybrids~Min_real_dist, data=rf_df))$adj.r.squared
+rf_hybrid_prop[2,2] <- summary(lm(formula = Prop_hybrids~Min_real_dist, data=rf_df))$coefficients[2,4]
+rf_hybrid_prop[3,1] <- summary(lm(formula = Prop_hybrids~Max_real_dist, data=rf_df))$adj.r.squared
+rf_hybrid_prop[3,2] <- summary(lm(formula = Prop_hybrids~Max_real_dist, data=rf_df))$coefficients[2,4]
 
 #add columns and row labels
-rownames(hybrid_pop_df) <- "Case"
+rownames(rf_hybrid_pop) <- c("Mean_Par_Dist", "Min_Par_Dist", "Max_Par_Dist")
 colnames(hybrid_pop_df) <- c("R2", "p-value")
 
 #write out plot comparing real fathers plot
+png("Results/Pairwise_Distance_Analysis/rf_dist_par_prop.png", width = 900,
+    height = 600)
 rf_df %>%
   ggplot() +
   geom_point(aes(y = Prop_hybrids, x = Mean_real_dist)) +
   geom_smooth(aes(y = Prop_hybrids, x = Mean_real_dist), method='lm', formula= y~x) +
   xlab("Mean Distance Between Parents (m)") + ylab("Proportion of Hybrid Offspring") +
   theme_classic()
+dev.off()
+
+
+
+
