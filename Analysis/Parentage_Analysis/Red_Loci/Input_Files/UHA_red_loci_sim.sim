@@ -9,24 +9,24 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.sim
 FileType=.sim
-CreationDate=4/28/2024 2:21:59 PM
+CreationDate=6/2/2024 2:24:09 PM
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_all_freq.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
-NOffspring=10000
+NOffspring=100000
 NCandidateMales=163
-PropCandidateMalesSampled=1
+PropCandidateMalesSampled=0.8
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=1
+PropLociTyped=0.8
 PropLociMistyped=0.01
-MinTypedLoci=6
+MinTypedLoci=4
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
 LikelihoodErrorRate=0.01
@@ -48,10 +48,10 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Initial_Run\Input_Files\UHA_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -68,10 +68,10 @@ MaxStatistic=0
 FileName=
 
 [MaleParentAlone]
-RelaxedCriterion=0
-StrictCriterion=0
-NRelaxed=9982
-NStrict=9982
+RelaxedCriterion=1.5751953125
+StrictCriterion=3.863525390625
+NRelaxed=48575
+NStrict=20325
 
 [FemaleParentAlone]
 RelaxedCriterion=999
@@ -80,10 +80,10 @@ NRelaxed=0
 NStrict=0
 
 [MaleParentGivenFemaleParent]
-RelaxedCriterion=0
-StrictCriterion=0
-NRelaxed=9998
-NStrict=9998
+RelaxedCriterion=0.7684326171875
+StrictCriterion=3.4114990234375
+NRelaxed=78061
+NStrict=47021
 
 [FemaleParentGivenMaleParent]
 RelaxedCriterion=999

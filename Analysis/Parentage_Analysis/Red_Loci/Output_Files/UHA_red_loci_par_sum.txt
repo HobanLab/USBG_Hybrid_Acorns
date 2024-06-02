@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 4/28/2024 12:25:24 PM
+Parentage analysis completed 6/2/2024 2:27:57 PM
 
 
 **** Summary statistics ****
@@ -12,18 +12,18 @@ Father alone (all offspring):
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            3.99       12 (      4)      17%    (  5%)
-Relaxed              80.00            2.30       25 (     12)      36%    ( 17%)
-Unassigned                                       45 (     58)      64%    ( 83%)
+Strict               95.00            3.86       26 (     14)      37%    ( 20%)
+Relaxed              80.00            1.58       43 (     34)      61%    ( 49%)
+Unassigned                                       27 (     36)      39%    ( 51%)
 Total                                            70 (     70)     100%    (100%)
 
 Father given known mother:
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            3.71       27 (     11)      39%    ( 16%)
-Relaxed              80.00            1.83       43 (     25)      61%    ( 36%)
-Unassigned                                       27 (     45)      39%    ( 64%)
+Strict               95.00            3.41       31 (     33)      44%    ( 47%)
+Relaxed              80.00            0.77       47 (     55)      67%    ( 78%)
+Unassigned                                       23 (     15)      33%    ( 22%)
 Total                                            70 (     70)     100%    (100%)
 
 
@@ -45,27 +45,28 @@ Candidate fathers (total):                                   163
 **** Files ****
 
 Input
-  Offspring file:                 UHA_2024_04_28_fathers_FL.csv
+  Offspring file:                 UHA_offspring.csv
     (includes candidate parent data)
-  Genotype file:                  UHA_2024_04_28_scores_FL.csv
-  Allele frequency file:          UHA_2024_04_28_allfreq_LF.alf
-  Simulation data file:           UHA_2024_04_28_sim_LF.sim
+  Genotype file:                  UHA_red_loci_genotype_df.csv
+  Allele frequency file:          UHA_red_loci_all_freq.alf
+  Simulation data file:           UHA_red_loci_sim.sim
 
 Output
-  Parentage summary file:         UHA_2024_04_28_parentage_sum.txt
-  Parentage data file:            UHA_2024_04_28_parentage_sum.csv
+  Parentage summary file:         UHA_red_loci_par_sum.txt
+  Parentage data file:            UHA_red_loci_par_sum.csv
 
 
 **** Loci ****
 
-       1  QS03797_
-       2  MSQ13_
-       3  QrZAG20_
-       4  QpZAG9_
-       5  QS1904_
-       6  MSQ4_
-       7  QpZAG1-5_
-       8  QM6-2M1_
+       1  "QS03797...1
+       2  "MSQ13...1
+       3  "QrZAG20...1
+       4  "QpZAG9...1
+       5  "QS1904...1
+       6  "QS03297...1
+       7  "MSQ4...1
+       8  "QpZAG1.5...1
+       9  "QM69.2M1...1
 
 
 **** Simulation parameters ****
@@ -76,8 +77,8 @@ Input
   Proportion of candidate fathers sampled:                     0.8000
 
   Proportion of loci typed:                                    0.80000000
-  Proportion of loci mistyped:                                 0.10000000
-  Error rate in likelihood calculations:                       0.10000000
+  Proportion of loci mistyped:                                 0.01000000
+  Error rate in likelihood calculations:                       0.01000000
   Minimum number of typed loci:                                4
 
 Output
@@ -168,39 +169,41 @@ TOTAL: 70
 **** Known parent-offspring mismatches ****
 
 Locus name  Offspring ID     Genotype        Known parent ID  Genotype        Null
-MSQ4_       UHA-0091         198     206     UHA-0014         200     200     
-QrZAG20_    UHA-0112         177     177     UHA-0257         155     173     
-QpZAG9_     UHA-0112         253     255     UHA-0257         257     265     
-MSQ4_       UHA-0112         200     200     UHA-0257         208     210     
-QM6-2M1_    UHA-0112         232     236     UHA-0257         222     222     
-MSQ4_       UHA-0113         200     216     UHA-0257         208     210     
-QpZAG1-5_   UHA-0113         171     171     UHA-0257         159     169     
-QM6-2M1_    UHA-0113         230     234     UHA-0257         222     222     
-MSQ4_       UHA-0123         210     214     UHA-0010         198     216     
-QM6-2M1_    UHA-0139         228     228     UHA-0010         222     230     
-MSQ4_       UHA-0148         198     198     UHA-0012         200     242     
-MSQ4_       UHA-0154         212     212     UHA-0012         200     242     
-MSQ4_       UHA-0156         202     202     UHA-0012         200     242     
-QpZAG1-5_   UHA-0163         169     169     UHA-0012         167     171     
-MSQ13_      UHA-0167         216     216     UHA-0016         230     234     
-QrZAG20_    UHA-0167         157     179     UHA-0016         165     177     
+"MSQ4...1   UHA-0091         198     206     UHA-0014         200     200     
+"QrZAG20...1  UHA-0112         177     177     UHA-0257         155     173     
+"QpZAG9...1  UHA-0112         253     255     UHA-0257         257     265     
+"MSQ4...1   UHA-0112         200     200     UHA-0257         208     210     
+"QM69.2M1...1  UHA-0112         232     236     UHA-0257         222     222     
+"MSQ4...1   UHA-0113         200     216     UHA-0257         208     210     
+"QpZAG1.5...1  UHA-0113         171     171     UHA-0257         159     169     
+"QM69.2M1...1  UHA-0113         230     234     UHA-0257         222     222     
+"MSQ4...1   UHA-0123         210     214     UHA-0010         198     216     
+"QS03297...1  UHA-0139         210     210     UHA-0010         214     214     Y   
+"QM69.2M1...1  UHA-0139         228     228     UHA-0010         222     230     
+"MSQ4...1   UHA-0148         198     198     UHA-0012         200     242     
+"MSQ4...1   UHA-0154         212     212     UHA-0012         200     242     
+"MSQ4...1   UHA-0156         202     202     UHA-0012         200     242     
+"QpZAG1.5...1  UHA-0163         169     169     UHA-0012         167     171     
+"MSQ13...1  UHA-0167         216     216     UHA-0016         230     234     
+"QrZAG20...1  UHA-0167         157     179     UHA-0016         165     177     
 
-TOTAL: 16
+TOTAL: 17
 
 
 **** Error rate analysis ****
 
 Locus name  N compared  N mismatching  N null   Detection prob.  Est. error rate
-QS03797_            70              0        0       0.05866531       0.00000000
-MSQ13_              70              1        0       0.59824199       0.01193975
-QrZAG20_            70              2        0       0.69862866       0.02044822
-QpZAG9_             70              1        0       0.73063248       0.00977627
-QS1904_             70              0        0       0.03000221       0.00000000
-MSQ4_               63              7        0       0.58344413       0.09522001
-QpZAG1-5_           70              2        0       0.56942702       0.02508788
-QM6-2M1_            70              3        0       0.55927844       0.03831467
+"QS03797...1          70              0        0       0.05866531       0.00000000
+"MSQ13...1          70              1        0       0.59824199       0.01193975
+"QrZAG20...1          70              2        0       0.69862866       0.02044822
+"QpZAG9...1          70              1        0       0.73063248       0.00977627
+"QS1904...1          70              0        0       0.03000221       0.00000000
+"QS03297...1          23              1        1       0.15571277       0.13961046
+"MSQ4...1           63              7        0       0.58956249       0.09423184
+"QpZAG1.5...1          70              2        0       0.56942702       0.02508788
+"QM69.2M1...1          70              3        0       0.55927844       0.03831467
 
-Mean observed error rate across loci:                          0.02509835
+Mean observed error rate across loci:                          0.03771212
   (assumes all known parent-offspring pairs are equally independent)
 
 

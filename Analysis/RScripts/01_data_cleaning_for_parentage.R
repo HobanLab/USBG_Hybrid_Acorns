@@ -78,10 +78,14 @@ na_loci <- rownames(na_reorg_df[which(na_reorg_df$`Observed frequency` > 15),])
 na_loci <- gsub('_[^_]*$', '', na_loci)
 
 #generate input data frame for parentage - all loci
-write.csv(UHA_scores_clean_df, "Analysis/Parentage_Analysis/All_Loci/Input_Files/UHA_all_loci_par_df.csv",
+write.csv(UHA_scores_clean_df, "Analysis/Parentage_Analysis/All_Loci/Input_Files/UHA_all_loci_genotype_df.csv",
           row.names = FALSE)
 
-#generate a data frame removing alleles with high null allele %
+#generate a data frame removing loci with high null allele %
 UHA_red_loci_df <- UHA_scores_clean_df %>%
                     select(-contains(na_loci))
+
+#generate parentage input data without loci with high null allele %
+write.csv(UHA_red_loci_df, "Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv",
+          row.names = FALSE)
 
