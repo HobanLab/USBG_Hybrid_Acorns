@@ -30,7 +30,8 @@
 # # 
 # # # Get all possible combinations of trees in the Tissue Database and save it in a df called "potential_combo_dedup"
 # # ```{r}
-# # all_potential_combo <- crossing(UHA_Tissue_Database$Tissue.ID, UHA_Tissue_Database$Tissue.ID) #create every possible pairwise combination of the 2 vectors it is fed, we feed it all Tissue ID's twice
+# # all_potential_combo <- crossing(UHA_Tissue_Database$Tissue.ID, 
+#UHA_Tissue_Database$Tissue.ID) #create every possible pairwise combination of the 2 vectors it is fed, we feed it all Tissue ID's twice
 # # colnames(all_potential_combo) <- c("Parent_1", "Parent_2") #assign names to columns of all the possible combos of individuals
 # # 
 # # # No longer deduplicating because it makes downstream analyses more complicated and only takes a little longer to run
@@ -242,7 +243,7 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
 
 
 # Make a plot that compares the real distances between parents (from relevant_parentage_results) to the potential distance between parents (from parents_dists_table_full)
-```{r}
+
 #edit relevant_parentage_results to have the same formatting as parents_dists_table_full for easier histogram plotting 
 parentage_results_for_hists <- relevant_parentage_results %>%
   rename(Mom = Mother_ID, 
@@ -259,7 +260,7 @@ ggplot() +
   scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
   #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
   theme_classic()
-```
+
 
 Getting some summary stats that Sean asked for
 ```{r}

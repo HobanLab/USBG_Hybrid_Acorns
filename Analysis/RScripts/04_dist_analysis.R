@@ -231,7 +231,7 @@ rf_df %>%
   theme_classic()
 
 # note that when you remove the mom with the largest values (> 500), 
-#the significance disappears but the R2 is still pretty good
+#still significant
 summary(lm(formula = Prop_hybrids~Mean_largest_real_dists, 
            data=filter(rf_df, Mean_largest_real_dists < 500)))
 
@@ -318,3 +318,38 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
   }
   parents_dists_table_full <- rbind(parents_dists_table_full, parents_dists_table_small)  #bind the table of the given given to the  table of all the moms
 }
+
+
+# Make a plot that compares the real distances between parents 
+#(from relevant_parentage_results) to the potential distance between
+#parents (from parents_dists_table_full)
+
+parentage_results_for_hists <- par_results_df %>%
+  rename(Mom = Mother_ID, 
+         Dad = Father_ID) %>%
+  select(Mom, Dad, dist, Hybrid) %>%
+  filter(Hybrid == F) %>%  #we are only looking at distance between conspecific pairs in this analysis (no hydrbid offspring)
+  filter(!is.na(dist))  #remove entries where dist is NA because some trees that we have tissue from do not have long/lat values
+
+#Create the a histogram that shows the difference in the real and theoretical distances between parents 
+
+dist_hist <- ggplot() +
+  geom_histogram(data = parents_dists_table_full, 
+                 aes(x = dist, y = ..density.., fill = "theoretical"), 
+                 alpha = .5) +
+  geom_histogram(data = parentage_results_for_hists, 
+                 aes(x = dist, y = ..density.., fill = "real"), 
+                 alpha = .5) +
+  labs(fill = "data set") + 
+  scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
+  #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
+  theme_classic()
+
+##write out histogram 
+png("Results/Pairwise_Distance_Analysis/sim_real_dist_hist.png", width = 1000, height = 850)
+
+dist_hist
+
+dev.off()
+
+
