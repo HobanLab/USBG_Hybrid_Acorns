@@ -20,32 +20,95 @@ library(geosphere)
 #     Load Data Files     #
 ###########################
 #set working directory 
-setwd("../..")
+#setwd("../..")
 
 # parentage_results <- read_csv("UHA_11_14_23_parentage_analysis.csv")  # reading in parentage_results
 #spatial_parentage_results <- read_csv("UHA_11_14_23_parentage_analysis.csv")  # reading in parentage results again for future addition of spatial data
 #write in the parentage results summary 
-par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
+#par results list
+all_loc_par_sum <- read.csv("Analysis/Parentage_Analysis/All_Loci/Output_Files/UHA_all_loci_par_sum.csv",
+                            row.names=NULL)
+#reorg colnames - remove periods add _
+colnames(all_loc_par_sum) <-  gsub('\\.', '_', colnames(all_loc_par_sum))
 
-#replace periods with underscones 
-colnames(par_results) <-  gsub('\\.', '_', colnames(par_results))
+#reduced par sum load in
+red_loc_par_sum <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Output_Files/UHA_red_loci_par_sum.csv")
+#rename cols
+colnames(red_loc_par_sum) <-  gsub('\\.', '_', colnames(red_loc_par_sum))
 
-#parentage df 
-par_df <- read.csv("Data_Files/CSV_Files/UHA_score_clean_df.csv")
-#remove first column
-par_df <- par_df[,-1]
+#create a list of the parentage summary data frames 
+par_sum_list <- list(all_loc_par_sum, red_loc_par_sum)
 
-#rename offspring ID to tissue ID
-colnames(off_df)[1] <- "Offspring_ID"
+##for both red and full loci datasets, load in score dfs
+#all loci
+all_loc_score_df <- read.csv("Analysis/Parentage_Analysis/All_Loci/Input_Files/UHA_all_loci_genotype_df.csv")
 
-#limit to offspring 
-off_df <- par_df[par_df$Parent_Offspring == "O",]
+#rename Tissue_ID to offspring ID
+colnames(all_loc_score_df)[[1]] <- "Offspring_ID"
 
-#load data file with geographic information 
-UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
+#load score df for red loc
+red_loc_df <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv")
 
-#par_genotyoes <- read.csv("UHA_score_database_nomd_genotype - UHA_score_database_nomd_genotype.csv") #read in genotype file to use species information of maternal and paternal trees.
-#tissue_info <- read.csv("TCB_Tissue_Database.csv")
+#rename first col
+colnames(red_loc_df)[[1]] <- "Offspring_ID" 
+
+#create list of score dfs
+score_dfs_list <- list(all_loc_score_df,
+                       red_loc_df)
+
+#create a list of offspring score data frames 
+off_score_df_list <- list()
+
+for(o in 1:length(score_dfs_list)){
+  
+  off_score_df_list[[o]] <- score_dfs_list[[o]][score_dfs_list[[o]]$Parent_Offspring == "O",]
+  
+}
+
+###################################
+#     Analyze Post Parentage      #
+###################################
+#sum df 
+null_all_comp_df <- matrix(nrow = length(all_loc_par_sum$Candidate_father_ID),
+                           ncol = 3)
+#compare the two columns
+null_all_comp_df[,1] <- all_loc_par_sum$Candidate_father_ID == red_loc_par_sum$Candidate_father_ID #true is 1, false is 0
+
+#add a column for all loci pair LOD score
+null_all_comp_df[,2] <- all_loc_par_sum$Pair_LOD_score
+
+#add a column for red loci pair LOD score
+null_all_comp_df[,3] <- red_loc_par_sum$Pair_LOD_score
+
+colnames(null_all_comp_df) <- c("Assigned_Father_Same", "All_Loc_LOD", "Red_Loc_LOD")
+rownames(null_all_comp_df) <- all_loc_par_sum$Offspring_ID
+
+
+
+#subset by mismatch
+null_all_dif_df <- as.data.frame(null_all_comp_df[null_all_comp_df[,1] == FALSE,])
+
+#add column greater
+null_all_dif_df$loc_greater <- NA
+
+for(n in 1:length(null_all_dif_df[,1])){
+  if(null_all_dif_df[n,2] > null_all_dif_df[n,3]){
+    
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[2]]  
+    
+  }else{
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[3]]  
+  }
+}
+
+#save as a data frame 
+null_all_comp_df <- as.data.frame(null_all_comp_df)
+
+#summarize - how many rows are false?
+mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
+mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
+#15 individuals with 
+
 
 #################################################
 #     Data Cleaning Post Parentage Analysis     #
@@ -53,9 +116,9 @@ UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue
 
 ###add parental species to the data frame 
 
-#joining the genotypes with the parentage results 
-#to create the full_parentage data set that will be have spatial data, 
-#hybrid status, and half sibling status.
+
+
+
 full_parentage <- left_join(off_df, par_results, by="Offspring_ID")
 
 #Adding in Species Information for Maternal and Paternal trees
