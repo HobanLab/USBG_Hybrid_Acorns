@@ -20,7 +20,7 @@ library(geosphere)
 #     Load Data Files     #
 ###########################
 #set working directory 
-setwd("../..")
+#setwd("../..")
 
 #load parentage results - replacing:
 #par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
@@ -97,11 +97,75 @@ for(o in 1:length(score_df_list)){
   
 }
 
-#load data file with geographic information 
-UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
 
+#load score df for red loc
+red_loc_df <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv")
+
+#rename first col
+colnames(red_loc_df)[[1]] <- "Offspring_ID" 
+
+#create list of score dfs
+score_dfs_list <- list(all_loc_score_df,
+                       red_loc_df)
+
+#create a list of offspring score data frames 
+off_score_df_list <- list()
+
+for(o in 1:length(score_dfs_list)){
+  
+  off_score_df_list[[o]] <- score_dfs_list[[o]][score_dfs_list[[o]]$Parent_Offspring == "O",]
+  
+}
+
+###################################
+#     Analyze Post Parentage      #
+###################################
+#sum df 
+null_all_comp_df <- matrix(nrow = length(all_loc_par_sum$Candidate_father_ID),
+                           ncol = 3)
+#compare the two columns
+null_all_comp_df[,1] <- all_loc_par_sum$Candidate_father_ID == red_loc_par_sum$Candidate_father_ID #true is 1, false is 0
+
+#add a column for all loci pair LOD score
+null_all_comp_df[,2] <- all_loc_par_sum$Pair_LOD_score
+
+#add a column for red loci pair LOD score
+null_all_comp_df[,3] <- red_loc_par_sum$Pair_LOD_score
+
+colnames(null_all_comp_df) <- c("Assigned_Father_Same", "All_Loc_LOD", "Red_Loc_LOD")
+rownames(null_all_comp_df) <- all_loc_par_sum$Offspring_ID
+
+
+
+#subset by mismatch
+null_all_dif_df <- as.data.frame(null_all_comp_df[null_all_comp_df[,1] == FALSE,])
+
+#add column greater
+null_all_dif_df$loc_greater <- NA
+
+for(n in 1:length(null_all_dif_df[,1])){
+  if(null_all_dif_df[n,2] > null_all_dif_df[n,3]){
+    
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[2]]  
+    
+  }else{
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[3]]  
+  }
+}
+
+#save as a data frame 
+null_all_comp_df <- as.data.frame(null_all_comp_df)
+
+#summarize - how many rows are false?
+mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
+mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
+#15 individuals with 
+
+<<<<<<< HEAD
 #scenarios
 scen <- c("All_Loci", "Red_Loci")
+=======
+>>>>>>> 0ee18f3605bd971d0381ccbdb816942b9b6a19cf
 
 #################################################
 #     Data Cleaning Post Parentage Analysis     #
@@ -109,6 +173,13 @@ scen <- c("All_Loci", "Red_Loci")
 
 ###add parental species to the data frame 
 
+<<<<<<< HEAD
+=======
+
+
+
+full_parentage <- left_join(off_df, par_results, by="Offspring_ID")
+>>>>>>> 0ee18f3605bd971d0381ccbdb816942b9b6a19cf
 
 
 for(sc in 1:length(scen)){
