@@ -97,163 +97,67 @@ for(o in 1:length(score_df_list)){
   
 }
 
+#load UHA database 
+UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
 
-#load score df for red loc
-red_loc_df <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv")
+######### Create analysis data frame -------------------
 
-#rename first col
-colnames(red_loc_df)[[1]] <- "Offspring_ID" 
+#all scenarios 
+full_scen <- c("LCF_all_loci", "all_loci", 
+               "LCF_red_loci", "red_loci")
 
-#create list of score dfs
-score_dfs_list <- list(all_loc_score_df,
-                       red_loc_df)
-
-#create a list of offspring score data frames 
-off_score_df_list <- list()
-
-for(o in 1:length(score_dfs_list)){
+#loop over four scenarios
+for(sc in 1:length(full_scen)){
   
-  off_score_df_list[[o]] <- score_dfs_list[[o]][score_dfs_list[[o]]$Parent_Offspring == "O",]
+  #store temporary data frame 
+  par_temp_df <- par_sum_df_list[[sc]]
   
-}
-
-###################################
-#     Analyze Post Parentage      #
-###################################
-#sum df 
-null_all_comp_df <- matrix(nrow = length(all_loc_par_sum$Candidate_father_ID),
-                           ncol = 3)
-#compare the two columns
-null_all_comp_df[,1] <- all_loc_par_sum$Candidate_father_ID == red_loc_par_sum$Candidate_father_ID #true is 1, false is 0
-
-#add a column for all loci pair LOD score
-null_all_comp_df[,2] <- all_loc_par_sum$Pair_LOD_score
-
-#add a column for red loci pair LOD score
-null_all_comp_df[,3] <- red_loc_par_sum$Pair_LOD_score
-
-colnames(null_all_comp_df) <- c("Assigned_Father_Same", "All_Loc_LOD", "Red_Loc_LOD")
-rownames(null_all_comp_df) <- all_loc_par_sum$Offspring_ID
-
-
-
-#subset by mismatch
-null_all_dif_df <- as.data.frame(null_all_comp_df[null_all_comp_df[,1] == FALSE,])
-
-#add column greater
-null_all_dif_df$loc_greater <- NA
-
-for(n in 1:length(null_all_dif_df[,1])){
-  if(null_all_dif_df[n,2] > null_all_dif_df[n,3]){
-    
-    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[2]]  
-    
-  }else{
-    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[3]]  
-  }
-}
-
-#save as a data frame 
-null_all_comp_df <- as.data.frame(null_all_comp_df)
-
-#summarize - how many rows are false?
-mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
-mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
-#15 individuals with 
-
-<<<<<<< HEAD
-#scenarios
-scen <- c("All_Loci", "Red_Loci")
-=======
->>>>>>> 0ee18f3605bd971d0381ccbdb816942b9b6a19cf
-
-#################################################
-#     Data Cleaning Post Parentage Analysis     #
-#################################################
-
-###add parental species to the data frame 
-
-<<<<<<< HEAD
-=======
-
-
-
-full_parentage <- left_join(off_df, par_results, by="Offspring_ID")
->>>>>>> 0ee18f3605bd971d0381ccbdb816942b9b6a19cf
-
-
-for(sc in 1:length(scen)){
+  #replace periods with underscores
+  colnames(par_temp_df) <- gsub("\\.", "_", colnames(par_temp_df))
+  
+  #join maternal information with the parentage summary 
+  par_temp_df <- left_join(par_temp_df, UHA_database, 
+                           by=c('Mother_ID' = 'Tissue_ID'))
+  
+  #rename the species data frame to the maternal species 
+  par_temp_df <- par_temp_df %>% rename("Maternal_Species" = "Species",
+                                        "Maternal_Longitude" = "Longitude",
+                                        "Maternal_Latitude" = "Latitude",
+                                        "Maternal_Accession" = "Accession.Number")
+  
   
   ##reorg data frame 
   #Adding in Species Information for Maternal and Paternal trees
-  keep_col_ID <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", "Species")
+  keep_col_ID <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", 
+                   "Maternal_Species", "Maternal_Longitude",
+                   "Maternal_Latitude", "Maternal_Accession")
   
   # Narrowing the data again after the join of data sets
-  par_df <- par_df[keep_col_ID] 
-  par_df <- par_df %>% rename('Mother_Species' = 'Species')  
+  par_temp_df <- par_temp_df[keep_col_ID] 
   
-  #add paternal species name
-  par_df <- left_join(par_df, UHA_database, 
+  #add paternal information 
+  par_temp_df <- left_join(par_temp_df, UHA_database, 
                               by=c('Candidate_father_ID' = 'Tissue_ID'))  
   
   #rename columns 
-  par_df <- par_df %>% rename('Candidate_Father_Species' = 'Species')
+  par_temp_df <- par_temp_df %>% rename('Candidate_Father_Species' = 'Species',
+                              "Candidate_Father_Longitude" = "Longitude",
+                              "Candidate_Father_Latitude" = "Latitude",
+                              "Candidate_Father_Accession" = "Accession.Number")
   
   #reduce by empty columns 
-  keep_col_ID2 <- c("Offspring_ID","Mother_ID","Candidate_father_ID", 
-                    "Mother_Species", "Species")
+  keep_col_ID2 <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", 
+                    "Maternal_Species", "Maternal_Longitude",
+                    "Maternal_Latitude", "Candidate_Father_Species", 
+                    "Candidate_Father_Longitude", "Candidate_Father_Latitude",
+                    "Candidate_Father_Accession")
   
   #reduce data frame by populated columns
-  par_df <- par_df[keep_col_ID2]
+  par_temp_df <- par_temp_df[keep_col_ID2]
   
   
 }
 
-
-
-
-
-
-
-
-
-###add geographic information for both parents to the data frame 
-
-#Adding in Maternal Accession and Longitude/Latitude information from TCB Tissue Database
-full_parentage <- left_join(full_parentage, UHA_database, 
-                                    by=c('Mother_ID' = 'Tissue_ID'))
-
-#rename accession column 
-full_parentage <- full_parentage %>%
-                    rename("Maternal_Accession" = "Accession.Number")
-
-#remove added columns
-keep_col_ID3 <- c("Offspring_ID", "Mother_ID", "Candidate_father_ID",
-                  "Mother_Species", "Candidate_Father_Species",
-                  "Maternal_Accession", "Longitude", "Latitude")
-      
-full_parentage <- full_parentage[keep_col_ID3] 
-
-#rename longitude and latitude 
-full_parentage <- full_parentage %>%
-  rename(c('Maternal_Longitude' = 'Longitude', "Maternal_Latitude" = "Latitude"))
-
-#Adding in Candidate Father Accession and Longitude/Latitude information from TCB Tissue Database
-full_parentage <- left_join(full_parentage, 
-                            UHA_database, by=c('Candidate_father_ID' = 'Tissue_ID'))
-
-#column IDs to keep 
-keep_col_ID4 <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", 
-                   "Mother_Species", "Candidate_Father_Species", "Maternal_Accession", 
-                    "Maternal_Longitude", "Maternal_Latitude", "Accession.Number", 
-                      "Longitude", "Latitude")
-
-full_parentage <- full_parentage[keep_col_ID4] # Narrowing the data again after the join of data sets
-
-full_parentage <- full_parentage %>%
-  rename('Candidate_Father_Accession' = 'Accession.Number', 
-         'Candidate_Father_Longitude' = 'Longitude', 
-         'Candidate_Father_Latitude' = 'Latitude')
 
 ###Assigning Half Siblings in the data set
 # Mikaely Evans code for creating a new column to assign half sibling status to all the offspring
@@ -311,3 +215,48 @@ full_parentage <- full_parentage %>%
 #write to file 
 write.csv(full_parentage, "Data_Files/CSV_Files/UHA_full_parentage.csv",
           row.names = FALSE)
+
+
+###################################
+#     Analyze Post Parentage      #
+###################################
+#sum df 
+null_all_comp_df <- matrix(nrow = length(all_loc_par_sum$Candidate_father_ID),
+                           ncol = 3)
+#compare the two columns
+null_all_comp_df[,1] <- all_loc_par_sum$Candidate_father_ID == red_loc_par_sum$Candidate_father_ID #true is 1, false is 0
+
+#add a column for all loci pair LOD score
+null_all_comp_df[,2] <- all_loc_par_sum$Pair_LOD_score
+
+#add a column for red loci pair LOD score
+null_all_comp_df[,3] <- red_loc_par_sum$Pair_LOD_score
+
+colnames(null_all_comp_df) <- c("Assigned_Father_Same", "All_Loc_LOD", "Red_Loc_LOD")
+rownames(null_all_comp_df) <- all_loc_par_sum$Offspring_ID
+
+
+
+#subset by mismatch
+null_all_dif_df <- as.data.frame(null_all_comp_df[null_all_comp_df[,1] == FALSE,])
+
+#add column greater
+null_all_dif_df$loc_greater <- NA
+
+for(n in 1:length(null_all_dif_df[,1])){
+  if(null_all_dif_df[n,2] > null_all_dif_df[n,3]){
+    
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[2]]  
+    
+  }else{
+    null_all_dif_df$loc_greater[[n]] <- colnames(null_all_dif_df)[[3]]  
+  }
+}
+
+#save as a data frame 
+null_all_comp_df <- as.data.frame(null_all_comp_df)
+
+#summarize - how many rows are false?
+mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
+mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
+#15 individuals with 
