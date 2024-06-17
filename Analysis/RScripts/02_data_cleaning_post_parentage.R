@@ -146,35 +146,40 @@ for(sc in 1:length(full_scen)){
                               "Candidate_Father_Accession" = "Accession.Number")
   
   #reduce by empty columns 
-  keep_col_ID2 <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", 
-                    "Maternal_Species", "Maternal_Longitude",
-                    "Maternal_Latitude", "Candidate_Father_Species", 
+  keep_col_ID2 <- c("Offspring_ID","Mother_ID", "Candidate_father_ID",
+                    "Maternal_Species", "Maternal_Longitude", "Maternal_Latitude",
+                    "Maternal_Accession", "Candidate_Father_Species", 
                     "Candidate_Father_Longitude", "Candidate_Father_Latitude",
                     "Candidate_Father_Accession")
   
   #reduce data frame by populated columns
   par_temp_df <- par_temp_df[keep_col_ID2]
   
+  ###do half sibling analysis 
+  ##Mikaely Evans code 
+  #initialize columns in the data frame 
+  par_temp_df$Half_Sibs <- NA  # Made three new columns for this analysis
+  par_temp_df$M_Accession_Abrv <- NA  
+  par_temp_df$F_Accession_Abrv <- NA
+  
+  #Abbreviating the accession numbers for the maternal and paternal trees was necessary to assign half sibling status because it is only necessary to look at the first 6 characters in the accession number to know if the trees came from the same lineage.
+  par_temp_df$M_Accession_Abrv <- substr(par_temp_df$Maternal_Accession, 0, 6)
+  
+  #This line adds the Maternal accession abbreviation to the M_Accession_Abrv column
+  par_temp_df$F_Accession_Abrv <- substr(par_temp_df$Candidate_Father_Accession, 0, 6)
+  
+  #This line adds the paternal accession abbreviation to the F_Accession_Abrv column
+  par_temp_df <- par_temp_df %>%
+    mutate("Half_Sibs" = case_when(M_Accession_Abrv == F_Accession_Abrv ~ TRUE,
+                                   M_Accession_Abrv != F_Accession_Abrv ~ FALSE))
+  
+  ##Add geographic information 
+  #Emily Schumacher code for distance calculation
+  
+  
   
 }
 
-
-###Assigning Half Siblings in the data set
-# Mikaely Evans code for creating a new column to assign half sibling status to all the offspring
-full_parentage$Half_Sibs <- NA  # Made three new columns for this analysis
-full_parentage$M_Accession_Abrv <- NA  
-full_parentage$F_Accession_Abrv <- NA
-
-#Abbreviating the accession numbers for the maternal and paternal trees was necessary to assign half sibling status because it is only necessary to look at the first 6 characters in the accession number to know if the trees came from the same lineage.
-full_parentage$M_Accession_Abrv <- substr(full_parentage$Maternal_Accession, 0, 6)
-
-#This line adds the Maternal accession abbreviation to the M_Accession_Abrv column
-full_parentage$F_Accession_Abrv <- substr(full_parentage$Candidate_Father_Accession, 0, 6)
-
-#This line adds the paternal accession abbreviation to the F_Accession_Abrv column
-full_parentage <- full_parentage %>%
-  mutate("Half_Sibs" = case_when(M_Accession_Abrv == F_Accession_Abrv ~ TRUE,
-                                     M_Accession_Abrv != F_Accession_Abrv ~ FALSE))
 
 # Creating Distance Matrix
 # ```{r}c
