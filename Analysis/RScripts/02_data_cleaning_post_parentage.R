@@ -174,54 +174,30 @@ for(sc in 1:length(full_scen)){
                                    M_Accession_Abrv != F_Accession_Abrv ~ FALSE))
   
   ##Add geographic information 
-  #Emily Schumacher code for distance calculation
+  #create a column for distance between mom and dad 
+  par_temp_df$dist_par <- NA
   
+  #loop to calculate distance between parents
+  for(dist in 1:nrow(par_temp_df)){
+    
+    par_temp_df$dist_par[dist] <- distm(par_temp_df[dist,5:6], 
+                                        par_temp_df[dist,9:10],
+                                        fun=distGeo)
+    
+  }
+  
+  ###Code to add hybrid status 
+  par_temp_df$Hybrid_Status <- NA
+  par_temp_df <- par_temp_df %>%
+    mutate(Hybrid_Status = case_when(Maternal_Species == Candidate_Father_Species ~ FALSE,
+                                     Maternal_Species != Candidate_Father_Species ~ TRUE))
+  
+  #write to file 
+  write.csv(par_temp_df, paste0("Data_Files/CSV_Files/UHA_",full_scen[[sc]], "_analysis_df.csv"),
+            row.names = FALSE)
   
   
 }
-
-
-# Creating Distance Matrix
-# ```{r}c
-## Emily Schumacher code for creating distance matrix
-# Mikaely Evans edited to use for the full_parentage data set
-##calculate distances
-#create a column for distance between mom and dad 
-full_parentage$dist_par <- NA
-
-#loop to calculate distance between parents
-for(d in 1:nrow(full_parentage)){
-  
-  full_parentage$dist_par[d] <- distm(full_parentage[d,7:8], 
-                                            full_parentage[d,10:11],
-                                                      fun=distGeo)
-  
-}
-
-#calculate mean distance between parents 
-UHA_dist_matrix <- matrix(nrow = length(unique(full_parentage$Mother_ID)),
-                          ncol = 1)
-
-for(m in 1:length(unique(full_parentage$Mother_ID))){
-  
-  UHA_dist_matrix[m,1] <- mean(full_parentage[full_parentage$Mother_ID == unique(full_parentage$Mother_ID)[[m]],][,11])
-  
-}
-
-#name matrix 
-rownames(UHA_dist_matrix) <- unique(full_parentage$Mother_ID)
-colnames(UHA_dist_matrix) <- "Mean_Dist_Parents"
-
-full_parentage$Hybrid_Status <- NA
-full_parentage <- full_parentage %>%
-  mutate(Hybrid_Status = case_when(Mother_Species == Candidate_Father_Species ~ FALSE,
-                            Mother_Species != Candidate_Father_Species ~ TRUE))
-
-#write to file 
-write.csv(full_parentage, "Data_Files/CSV_Files/UHA_full_parentage.csv",
-          row.names = FALSE)
-
-
 ###################################
 #     Analyze Post Parentage      #
 ###################################
@@ -258,10 +234,20 @@ for(n in 1:length(null_all_dif_df[,1])){
   }
 }
 
+############ NOT IN USE -----------
 #save as a data frame 
-null_all_comp_df <- as.data.frame(null_all_comp_df)
+#null_all_comp_df <- as.data.frame(null_all_comp_df)
 
 #summarize - how many rows are false?
-mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
-mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
+#mismatch_names <- rownames(null_all_comp_df[null_all_comp_df[,1] == 0,])
+#mismatch_num <- length(null_all_comp_df[null_all_comp_df[,1] == 0,][,1])
 #15 individuals with 
+# #calculate mean distance between parents 
+# UHA_dist_matrix <- matrix(nrow = length(unique(full_parentage$Mother_ID)),
+#                           ncol = 1)
+# 
+# for(m in 1:length(unique(full_parentage$Mother_ID))){
+#   
+#   UHA_dist_matrix[m,1] <- mean(full_parentage[full_parentage$Mother_ID == unique(full_parentage$Mother_ID)[[m]],][,11])
+#   
+# }
