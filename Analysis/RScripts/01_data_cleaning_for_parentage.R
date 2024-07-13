@@ -5,6 +5,7 @@
 library(adegenet)
 library(poppr)
 library(PopGenReport)
+library(tidyverse)
 
 ###########################
 #     Load Data Files     #
@@ -14,10 +15,10 @@ library(PopGenReport)
 setwd("../..")
 
 #load in genepop file as a genind object
-UHA_genind <- read.genepop("Data_Files/Genotype_Files/2024_UHA_genepop.gen", ncode = 2)
+UHA_genind <- read.genepop("Data_Files/Genotype_Files/2024_07_genepop.gen", ncode = 2)
 
 #load score df
-UHA_scores_df <- read.csv("Data_Files/CSV_Files/UHA_score_df.csv")
+UHA_scores_df <- read.csv("Data_Files/CSV_Files/2024_07_UHA_database.csv")
 
 ###############################
 #     Data Cleaning steps     #
@@ -29,7 +30,7 @@ UHA_genind_nomd <- missingno(UHA_genind, type = "geno",
 
 #write out genind object as a genalex file
 genind2genalex(UHA_genind_nomd,
-               "Data_Files/CSV_Files/UHA_Final_Scores_genalex_clean.csv")
+               "Data_Files/CSV_Files/UHA_genalex_clean.csv")
 
 #limit by the cleaned individuals
 UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in% 
@@ -83,7 +84,7 @@ write.csv(UHA_scores_clean_df, "Analysis/Parentage_Analysis/All_Loci/Input_Files
 
 #generate a data frame removing loci with high null allele %
 UHA_red_loci_df <- UHA_scores_clean_df %>%
-                    select(-contains(na_loci))
+                    dplyr::select(-contains(na_loci))
 
 #generate parentage input data without loci with high null allele %
 write.csv(UHA_red_loci_df, "Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv",
