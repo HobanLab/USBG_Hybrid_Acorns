@@ -9,17 +9,17 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Output_Files\UHA_red_loci_parentage.crv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\all_loci_parentage.crv
 FileType=.crv
-CreationDate=6/2/2024 2:28:23 PM
+CreationDate=7/16/2024 8:29:28 AM
 
 [GenotypeFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_genotype_df.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\UHA_all_loci_genotype_df.csv
 HeaderRow=1
 ReadLocusNames=1
-FirstAlleleColumnNumber=5
+FirstAlleleColumnNumber=4
 IDColumnNumber=1
-NLoci=9
+NLoci=13
 PropLociTyped=0
 ColumnsPerLocus=2
 SexColumn=0
@@ -29,10 +29,10 @@ UnknownSexLabel=
 FileName=
 HeaderRow=1
 UseSameCodingForAllLoci=1
-GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_genotype_df.csv
+GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\UHA_all_loci_genotype_df.csv
 
 [AlleleFrequencySummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_all_freq.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\all_loci_sim.txt
 DoHardyWeinberg=1
 HWMinExpectedFrequency=5
 UseYatesCorrection=1
@@ -40,19 +40,19 @@ UseBonferroniCorrection=1
 DoNullAllele=1
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_all_freq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\all_loci_sim.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
-NOffspring=100000
-NCandidateMales=163
-PropCandidateMalesSampled=0.8
+NOffspring=10000
+NCandidateMales=252
+PropCandidateMalesSampled=0.9
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.8
+PropLociTyped=0.9
 PropLociMistyped=0.01
-MinTypedLoci=4
+MinTypedLoci=6
 CriticalStatisticName=Delta
 TruncateAtZero=1
 RelaxedConfidence=80
@@ -74,10 +74,10 @@ UseMistypingRateAsLikelihoodErrorRate=1
 LikelihoodErrorRate=0.01
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\all_loci_sim2.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\all_loci_sim2.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -98,7 +98,7 @@ AnalysisType=Paternity
 UseSimulationParameters=1
 CalculateConfidenceLevels=1
 AlwaysTestSelfing=0
-MinTypedLoci=4
+MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=0
 LikelihoodErrorRate=0.01
@@ -106,7 +106,7 @@ CriticalStatisticName=Delta
 TruncateAtZero=1
 
 [OffspringFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_offspring.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Input_Files\UHA_offspring2.csv
 HeaderRow=1
 OffspringIDColumnNumber=1
 IncludesKnownParents=1
@@ -129,13 +129,13 @@ OffspringIDColumnNumber=0
 CandidateParentIDColumnNumber=0
 
 [ParentageSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Output_Files\UHA_red_loci_par_sum.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Output_Files\all_loci_par_sum.txt
 
 [ParentageDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Output_Files\UHA_red_loci_par_sum.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\All_Loci\Output_Files\all_loci_par_sum.csv
 OutputType=The most-likely parent
 SortedBy=Joint LOD score
-IncludeNonExclusionProbabilities=0
+IncludeNonExclusionProbabilities=1
 
 [IdentityParameters]
 TestSexesSeparately=0

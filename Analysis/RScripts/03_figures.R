@@ -43,8 +43,7 @@ for(df in 1:length(par_scen_df_list)){
 ####barplots of candidate fathers for each mother, over scenario 
 
 #plot bar graphs of the offspring count for each mother and which individual is the father
-png(paste0("Results/Figures/", full_scen[[1]], "_CF_permom.png"),
-    res = 600, width = 5000, height = 3500)
+png("Results/Figures/AL_CF_permom.png", width = 5000, height = 3500)
 par_scen_df[[1]] %>%
   ggplot() +
   geom_bar(aes(y = sort(Candidate_father_ID))) +

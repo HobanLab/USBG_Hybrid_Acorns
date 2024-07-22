@@ -1,0 +1,608 @@
+Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
+Distributed by Field Genetics Ltd - www.fieldgenetics.com
+Licensed for non-commercial use only
+
+Allele frequency analysis completed 7/16/2024 8:40:26 AM
+
+
+**** Summary statistics ****
+
+
+Locus       k    N        HObs   HExp   PIC    NE-1P  NE-2P  NE-PP  NE-I   NE-SI  HW   F(Null)
+QS03797...   10      409  0.445  0.596  0.545  0.803  0.643  0.465  0.214  0.506  ***   0.1403
+MSQ13...     20      413  0.656  0.857  0.842  0.440  0.281  0.114  0.035  0.331  ***   0.1308
+QrZAG20...   21      415  0.860  0.913  0.905  0.304  0.179  0.052  0.015  0.298  ***   0.0295
+QS00314...   26      387  1.000  0.899  0.889  0.339  0.204  0.065  0.019  0.306  ***  -0.0566
+QpZAG9...    24      405  1.000  0.760  0.748  0.579  0.393  0.177  0.069  0.388  ***  -0.1983
+QS1904...    23      402  1.000  0.800  0.780  0.540  0.364  0.169  0.059  0.365  ***  -0.1360
+MSQ4...      18      388  0.920  0.878  0.866  0.392  0.243  0.088  0.026  0.318  ***  -0.0260
+QS00562...   40      355  1.000  0.843  0.833  0.441  0.281  0.100  0.034  0.338  ***  -0.1080
+QpZAG119...   55      392  0.982  0.858  0.851  0.400  0.249  0.075  0.026  0.328  ***  -0.0894
+QpZAG1.5...   14      417  0.707  0.860  0.844  0.442  0.281  0.117  0.035  0.329  ***   0.0974
+QM69.2M1...   20      416  0.702  0.854  0.837  0.453  0.290  0.123  0.037  0.333  ***   0.1026
+
+Number of individuals:                                       417
+Number of loci:                                               11
+Mean number of alleles per locus:                             24.636
+Mean proportion of loci typed:                                 0.9590
+Mean expected heterozygosity:                                  0.8290
+Mean polymorphic information content (PIC):                    0.8128
+Combined non-exclusion probability (first parent):             0.00015803
+Combined non-exclusion probability (second parent):            0.00000131
+Combined non-exclusion probability (parent pair):              5.059E-0011
+Combined non-exclusion probability (identity):                 2.545E-0016
+Combined non-exclusion probability (sib identity):             0.00000833
+
+
+**** Files ****
+
+Input
+  Genotype data file:             UHA_red_loci_genotype_df.csv
+
+Output
+  Summary text file:              red_loci_allfreq.txt
+  Allele frequency file:          red_loci_allfreq.alf
+
+
+**** Loci ****
+
+       1  QS03797...
+       2  MSQ13...
+       3  QrZAG20...
+       4  QS00314...
+       5  QpZAG9...
+       6  QS1904...
+       7  MSQ4...
+       8  QS00562...
+       9  QpZAG119...
+      10  QpZAG1.5...
+      11  QM69.2M1...
+
+
+**** Locus QS03797... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   138        2        2        0  0.0024  0.0024
+   142       65       51        7  0.0795  0.0721
+   144      470      156      157  0.5746  0.5002
+   146      208      110       49  0.2543  0.2133
+   148       40       14       13  0.0489  0.0329
+   150        4        4        0  0.0049  0.0048
+   152        3        1        1  0.0037  0.0024
+   176        1        1        0  0.0012  0.0012
+   184       24       24        0  0.0293  0.0292
+   192        1        1        0  0.0012  0.0012
+
+Number of individuals typed:                                 409
+  Heterozygotes:                                             182
+  Homozygotes:                                               227
+Number of alleles:                                            10
+Observed heterozygosity:                                       0.4450
+Expected heterozygosity:                                       0.5963
+Polymorphic information content (PIC):                         0.5453
+Average non-exclusion probability (first parent):              0.8031
+Average non-exclusion probability (second parent):             0.6429
+Average non-exclusion probability (parent pair):               0.4645
+Average non-exclusion probability (identity):                  0.2139
+Average non-exclusion probability (sib identity):              0.5057
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                           53.0274
+  Degrees of freedom:                                          3
+  P-value:                                                     1.810E-0011
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                                0.1403
+
+
+**** Locus MSQ13... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   202        1        1        0  0.0012  0.0012
+   204        4        4        0  0.0048  0.0048
+   206      130       22       54  0.1574  0.0949
+   208       10       10        0  0.0121  0.0120
+   210       14        8        3  0.0169  0.0132
+   216       58       46        6  0.0702  0.0639
+   218        6        0        3  0.0073  0.0036
+   220       14       14        0  0.0169  0.0168
+   222       10       10        0  0.0121  0.0120
+   224       11        9        1  0.0133  0.0120
+   226       35       27        4  0.0424  0.0376
+   228       19       13        3  0.0230  0.0192
+   230      216      142       37  0.2615  0.2424
+   232      111       77       17  0.1344  0.1189
+   234      124       98       13  0.1501  0.1422
+   236       23       21        1  0.0278  0.0265
+   238       15       15        0  0.0182  0.0180
+   240       20       20        0  0.0242  0.0241
+   242        2        2        0  0.0024  0.0024
+   244        3        3        0  0.0036  0.0036
+
+Number of individuals typed:                                 413
+  Heterozygotes:                                             271
+  Homozygotes:                                               142
+Number of alleles:                                            20
+Observed heterozygosity:                                       0.6562
+Expected heterozygosity:                                       0.8572
+Polymorphic information content (PIC):                         0.8416
+Average non-exclusion probability (first parent):              0.4401
+Average non-exclusion probability (second parent):             0.2809
+Average non-exclusion probability (parent pair):               0.1138
+Average non-exclusion probability (identity):                  0.0352
+Average non-exclusion probability (sib identity):              0.3307
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          298.3895
+  Degrees of freedom:                                         10
+  P-value:                                                     0.000E+0000
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                                0.1308
+
+
+**** Locus QrZAG20... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   155       58       52        3  0.0699  0.0686
+   157       61       59        1  0.0735  0.0750
+   159       12       10        1  0.0145  0.0133
+   161       47       39        4  0.0566  0.0532
+   163      112       78       17  0.1349  0.1218
+   165       73       65        4  0.0880  0.0868
+   167       28       26        1  0.0337  0.0330
+   169       70       58        6  0.0843  0.0803
+   171       23       21        1  0.0277  0.0268
+   173       57       51        3  0.0687  0.0673
+   175       55       51        2  0.0663  0.0660
+   177       90       82        4  0.1084  0.1095
+   179      113       91       11  0.1361  0.1314
+   181        4        4        0  0.0048  0.0048
+   183       11       11        0  0.0133  0.0133
+   185        7        7        0  0.0084  0.0085
+   187        2        2        0  0.0024  0.0024
+   189        1        1        0  0.0012  0.0012
+   191        1        1        0  0.0012  0.0012
+   193        4        4        0  0.0048  0.0048
+   203        1        1        0  0.0012  0.0012
+
+Number of individuals typed:                                 415
+  Heterozygotes:                                             357
+  Homozygotes:                                                58
+Number of alleles:                                            21
+Observed heterozygosity:                                       0.8602
+Expected heterozygosity:                                       0.9127
+Polymorphic information content (PIC):                         0.9049
+Average non-exclusion probability (first parent):              0.3044
+Average non-exclusion probability (second parent):             0.1791
+Average non-exclusion probability (parent pair):               0.0523
+Average non-exclusion probability (identity):                  0.0146
+Average non-exclusion probability (sib identity):              0.2978
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                           22.8336
+  Degrees of freedom:                                          3
+  P-value:                                                     0.00004377
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                                0.0295
+
+
+**** Locus QS00314... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   170      105      105        0  0.1357  0.1459
+   173      150      150        0  0.1938  0.2166
+   176       21       21        0  0.0271  0.0274
+   179      107      107        0  0.1382  0.1489
+   185        3        3        0  0.0039  0.0039
+   200        1        1        0  0.0013  0.0013
+   227        2        2        0  0.0026  0.0026
+   231        2        2        0  0.0026  0.0026
+   233        6        6        0  0.0078  0.0078
+   235       12       12        0  0.0155  0.0156
+   237        7        7        0  0.0090  0.0091
+   241        8        8        0  0.0103  0.0104
+   243       68       68        0  0.0879  0.0918
+   245       22       22        0  0.0284  0.0287
+   247       18       18        0  0.0233  0.0235
+   249       39       39        0  0.0504  0.0516
+   251       44       44        0  0.0568  0.0584
+   253       61       61        0  0.0788  0.0819
+   255       16       16        0  0.0207  0.0208
+   257       51       51        0  0.0659  0.0680
+   259       10       10        0  0.0129  0.0130
+   261        6        6        0  0.0078  0.0078
+   263        7        7        0  0.0090  0.0091
+   265        4        4        0  0.0052  0.0052
+   267        2        2        0  0.0026  0.0026
+   269        2        2        0  0.0026  0.0026
+
+Number of individuals typed:                                 387
+  Heterozygotes:                                             387
+  Homozygotes:                                                 0
+Number of alleles:                                            26
+Observed heterozygosity:                                       1.0000
+Expected heterozygosity:                                       0.8987
+Polymorphic information content (PIC):                         0.8893
+Average non-exclusion probability (first parent):              0.3387
+Average non-exclusion probability (second parent):             0.2040
+Average non-exclusion probability (parent pair):               0.0647
+Average non-exclusion probability (identity):                  0.0188
+Average non-exclusion probability (sib identity):              0.3059
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          297.8956
+  Degrees of freedom:                                          6
+  P-value:                                                     0.000E+0000
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.0566
+
+
+**** Locus QpZAG9... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   135       15       15        0  0.0185  0.0180
+   137      376      376        0  0.4642  0.6712
+   139       13       13        0  0.0160  0.0155
+   141        1        1        0  0.0012  0.0012
+   233        2        2        0  0.0025  0.0024
+   235        1        1        0  0.0012  0.0012
+   237        1        1        0  0.0012  0.0012
+   241        3        3        0  0.0037  0.0036
+   243       13       13        0  0.0160  0.0155
+   245       10       10        0  0.0123  0.0119
+   247        5        5        0  0.0062  0.0059
+   249       19       19        0  0.0235  0.0228
+   251       20       20        0  0.0247  0.0240
+   253       42       42        0  0.0519  0.0511
+   255       37       37        0  0.0457  0.0449
+   257       80       80        0  0.0988  0.0999
+   259       35       35        0  0.0432  0.0424
+   261       26       26        0  0.0321  0.0313
+   263       22       22        0  0.0272  0.0264
+   265       50       50        0  0.0617  0.0612
+   267        6        6        0  0.0074  0.0071
+   269       17       17        0  0.0210  0.0204
+   271       15       15        0  0.0185  0.0180
+   281        1        1        0  0.0012  0.0012
+
+Number of individuals typed:                                 405
+  Heterozygotes:                                             405
+  Homozygotes:                                                 0
+Number of alleles:                                            24
+Observed heterozygosity:                                       1.0000
+Expected heterozygosity:                                       0.7604
+Polymorphic information content (PIC):                         0.7482
+Average non-exclusion probability (first parent):              0.5795
+Average non-exclusion probability (second parent):             0.3933
+Average non-exclusion probability (parent pair):               0.1766
+Average non-exclusion probability (identity):                  0.0691
+Average non-exclusion probability (sib identity):              0.3876
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value (using Yates' correction):                300.5177
+  Degrees of freedom:                                          1
+  P-value:                                                     0.000E+0000
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.1983
+
+
+**** Locus QS1904... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   135        3        3        0  0.0037  0.0037
+   137      305      305        0  0.3794  0.4947
+   139       64       64        0  0.0796  0.0814
+   141        7        7        0  0.0087  0.0086
+   143        1        1        0  0.0012  0.0012
+   147        1        1        0  0.0012  0.0012
+   149       20       20        0  0.0249  0.0247
+   157        1        1        0  0.0012  0.0012
+   194        1        1        0  0.0012  0.0012
+   196        6        6        0  0.0075  0.0074
+   198       92       92        0  0.1144  0.1194
+   200      142      142        0  0.1766  0.1917
+   202       32       32        0  0.0398  0.0399
+   204       12       12        0  0.0149  0.0148
+   206       22       22        0  0.0274  0.0272
+   208       26       26        0  0.0323  0.0323
+   210       30       30        0  0.0373  0.0373
+   212        7        7        0  0.0087  0.0086
+   214        5        5        0  0.0062  0.0061
+   216       21       21        0  0.0261  0.0260
+   218        2        2        0  0.0025  0.0024
+   220        3        3        0  0.0037  0.0037
+   234        1        1        0  0.0012  0.0012
+
+Number of individuals typed:                                 402
+  Heterozygotes:                                             402
+  Homozygotes:                                                 0
+Number of alleles:                                            23
+Observed heterozygosity:                                       1.0000
+Expected heterozygosity:                                       0.7999
+Polymorphic information content (PIC):                         0.7803
+Average non-exclusion probability (first parent):              0.5400
+Average non-exclusion probability (second parent):             0.3636
+Average non-exclusion probability (parent pair):               0.1692
+Average non-exclusion probability (identity):                  0.0590
+Average non-exclusion probability (sib identity):              0.3653
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          245.1710
+  Degrees of freedom:                                          6
+  P-value:                                                     0.000E+0000
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.1360
+
+
+**** Locus MSQ4... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   198       27       27        0  0.0348  0.0354
+   200      182      156       13  0.2345  0.2485
+   202      120      108        6  0.1546  0.1595
+   204       48       44        2  0.0619  0.0611
+   206       47       43        2  0.0606  0.0597
+   208       60       54        3  0.0773  0.0763
+   210       68       62        3  0.0876  0.0875
+   212       34       32        1  0.0438  0.0434
+   214       60       58        1  0.0773  0.0791
+   216       90       90        0  0.1160  0.1235
+   218        9        9        0  0.0116  0.0117
+   220        9        9        0  0.0116  0.0117
+   222        6        6        0  0.0077  0.0078
+   228        3        3        0  0.0039  0.0039
+   230        1        1        0  0.0013  0.0013
+   232        3        3        0  0.0039  0.0039
+   234        4        4        0  0.0052  0.0052
+   242        5        5        0  0.0064  0.0065
+
+Number of individuals typed:                                 388
+  Heterozygotes:                                             357
+  Homozygotes:                                                31
+Number of alleles:                                            18
+Observed heterozygosity:                                       0.9201
+Expected heterozygosity:                                       0.8781
+Polymorphic information content (PIC):                         0.8657
+Average non-exclusion probability (first parent):              0.3924
+Average non-exclusion probability (second parent):             0.2432
+Average non-exclusion probability (parent pair):               0.0884
+Average non-exclusion probability (identity):                  0.0263
+Average non-exclusion probability (sib identity):              0.3181
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          154.2391
+  Degrees of freedom:                                          6
+  P-value:                                                     9.817E-0031
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.0260
+
+
+**** Locus QS00562... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+    54        3        3        0  0.0042  0.0042
+    56        2        2        0  0.0028  0.0028
+    58       15       15        0  0.0211  0.0211
+    60       15       15        0  0.0211  0.0211
+    62       17       17        0  0.0239  0.0240
+    64       35       35        0  0.0493  0.0500
+    66       29       29        0  0.0408  0.0412
+    68       44       44        0  0.0620  0.0632
+    70        7        7        0  0.0099  0.0098
+    72       10       10        0  0.0141  0.0140
+    74        6        6        0  0.0085  0.0084
+    76        4        4        0  0.0056  0.0056
+    78       16       16        0  0.0225  0.0225
+    80        2        2        0  0.0028  0.0028
+    82        1        1        0  0.0014  0.0014
+    84       12       12        0  0.0169  0.0168
+    86       11       11        0  0.0155  0.0154
+    88        2        2        0  0.0028  0.0028
+    90       42       42        0  0.0592  0.0603
+    92        2        2        0  0.0028  0.0028
+    94        5        5        0  0.0070  0.0070
+    96        7        7        0  0.0099  0.0098
+    98       18       18        0  0.0254  0.0254
+   100        4        4        0  0.0056  0.0056
+   102        2        2        0  0.0028  0.0028
+   104        5        5        0  0.0070  0.0070
+   106        1        1        0  0.0014  0.0014
+   108        1        1        0  0.0014  0.0014
+   110        6        6        0  0.0085  0.0084
+   112       12       12        0  0.0169  0.0168
+   114        5        5        0  0.0070  0.0070
+   116        7        7        0  0.0099  0.0098
+   118        3        3        0  0.0042  0.0042
+   122        3        3        0  0.0042  0.0042
+   142        1        1        0  0.0014  0.0014
+   221        3        3        0  0.0042  0.0042
+   223      251      251        0  0.3535  0.4512
+   225       93       93        0  0.1310  0.1391
+   227        6        6        0  0.0085  0.0084
+   229        2        2        0  0.0028  0.0028
+
+Number of individuals typed:                                 355
+  Heterozygotes:                                             355
+  Homozygotes:                                                 0
+Number of alleles:                                            40
+Observed heterozygosity:                                       1.0000
+Expected heterozygosity:                                       0.8431
+Polymorphic information content (PIC):                         0.8329
+Average non-exclusion probability (first parent):              0.4415
+Average non-exclusion probability (second parent):             0.2813
+Average non-exclusion probability (parent pair):               0.1001
+Average non-exclusion probability (identity):                  0.0340
+Average non-exclusion probability (sib identity):              0.3375
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          312.6669
+  Degrees of freedom:                                          3
+  P-value:                                                     0.000E+0000
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.1080
+
+
+**** Locus QpZAG119... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+100         277      265        6  0.3533  0.4395
+102          54       54        0  0.0689  0.0708
+104          23       21        1  0.0293  0.0282
+106           6        6        0  0.0077  0.0076
+108           4        4        0  0.0051  0.0051
+110          17       17        0  0.0217  0.0217
+112          31       31        0  0.0395  0.0400
+114          54       54        0  0.0689  0.0708
+115           3        3        0  0.0038  0.0038
+116          16       16        0  0.0204  0.0205
+118           7        7        0  0.0089  0.0089
+120          13       13        0  0.0166  0.0166
+122           8        8        0  0.0102  0.0102
+123          10       10        0  0.0128  0.0127
+124           7        7        0  0.0089  0.0089
+126           1        1        0  0.0013  0.0013
+127           1        1        0  0.0013  0.0013
+128           2        2        0  0.0026  0.0025
+130           6        6        0  0.0077  0.0076
+132           2        2        0  0.0026  0.0025
+134           1        1        0  0.0013  0.0013
+135           2        2        0  0.0026  0.0025
+137           4        4        0  0.0051  0.0051
+140           3        3        0  0.0038  0.0038
+142           5        5        0  0.0064  0.0063
+143           4        4        0  0.0051  0.0051
+145           4        4        0  0.0051  0.0051
+150           3        3        0  0.0038  0.0038
+151           1        1        0  0.0013  0.0013
+154           9        9        0  0.0115  0.0115
+155           2        2        0  0.0026  0.0025
+160           2        2        0  0.0026  0.0025
+58            1        1        0  0.0013  0.0013
+60            3        3        0  0.0038  0.0038
+62            7        7        0  0.0089  0.0089
+64           15       15        0  0.0191  0.0192
+66           21       21        0  0.0268  0.0269
+68           19       19        0  0.0242  0.0243
+70           16       16        0  0.0204  0.0205
+72           12       12        0  0.0153  0.0153
+74            3        3        0  0.0038  0.0038
+76            4        4        0  0.0051  0.0051
+78            4        4        0  0.0051  0.0051
+80            8        8        0  0.0102  0.0102
+82            1        1        0  0.0013  0.0013
+84            7        7        0  0.0089  0.0089
+86           12       12        0  0.0153  0.0153
+88           10       10        0  0.0128  0.0127
+90           16       16        0  0.0204  0.0205
+92            2        2        0  0.0026  0.0025
+93            1        1        0  0.0013  0.0013
+94            1        1        0  0.0013  0.0013
+96           14       14        0  0.0179  0.0179
+98           24       24        0  0.0306  0.0308
+NA            1        1        0  0.0013  0.0013
+
+Number of individuals typed:                                 392
+  Heterozygotes:                                             385
+  Homozygotes:                                                 7
+Number of alleles:                                            55
+Observed heterozygosity:                                       0.9821
+Expected heterozygosity:                                       0.8575
+Polymorphic information content (PIC):                         0.8515
+Average non-exclusion probability (first parent):              0.4000
+Average non-exclusion probability (second parent):             0.2492
+Average non-exclusion probability (parent pair):               0.0745
+Average non-exclusion probability (identity):                  0.0256
+Average non-exclusion probability (sib identity):              0.3282
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value (using Yates' correction):                 88.0327
+  Degrees of freedom:                                          1
+  P-value:                                                     6.850E-0021
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                               -0.0894
+
+
+**** Locus QpZAG1.5... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   155       14       14        0  0.0168  0.0168
+   157        2        0        1  0.0024  0.0012
+   159      118       86       16  0.1415  0.1295
+   161       27       25        1  0.0324  0.0314
+   163       11        9        1  0.0132  0.0119
+   165       92       62       15  0.1103  0.0961
+   167      135       93       21  0.1619  0.1461
+   169      193      121       36  0.2314  0.2081
+   171       99       63       18  0.1187  0.1013
+   173       80       64        8  0.0959  0.0895
+   175        9        5        2  0.0108  0.0083
+   176        1        1        0  0.0012  0.0012
+   181       52       46        3  0.0624  0.0600
+   188        1        1        0  0.0012  0.0012
+
+Number of individuals typed:                                 417
+  Heterozygotes:                                             295
+  Homozygotes:                                               122
+Number of alleles:                                            14
+Observed heterozygosity:                                       0.7074
+Expected heterozygosity:                                       0.8603
+Polymorphic information content (PIC):                         0.8438
+Average non-exclusion probability (first parent):              0.4420
+Average non-exclusion probability (second parent):             0.2813
+Average non-exclusion probability (parent pair):               0.1172
+Average non-exclusion probability (identity):                  0.0352
+Average non-exclusion probability (sib identity):              0.3292
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          114.2565
+  Degrees of freedom:                                         15
+  P-value:                                                     2.445E-0017
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                                0.0974
+
+
+**** Locus QM69.2M1... ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   212        4        4        0  0.0048  0.0048
+   214        6        6        0  0.0072  0.0072
+   217        1        1        0  0.0012  0.0012
+   219        1        1        0  0.0012  0.0012
+   220        5        5        0  0.0060  0.0060
+   222      210       88       61  0.2524  0.1965
+   224        1        1        0  0.0012  0.0012
+   226       14       14        0  0.0168  0.0168
+   228      114       78       18  0.1370  0.1216
+   230      117      103        7  0.1406  0.1407
+   232       82       62       10  0.0986  0.0896
+   234      130       90       20  0.1563  0.1407
+   236       27       27        0  0.0325  0.0326
+   238       75       65        5  0.0901  0.0870
+   240       16       14        1  0.0192  0.0180
+   242        3        3        0  0.0036  0.0036
+   244       11        9        1  0.0132  0.0120
+   246       11       11        0  0.0132  0.0132
+   249        2        0        1  0.0024  0.0012
+   252        2        2        0  0.0024  0.0024
+
+Number of individuals typed:                                 416
+  Heterozygotes:                                             292
+  Homozygotes:                                               124
+Number of alleles:                                            20
+Observed heterozygosity:                                       0.7019
+Expected heterozygosity:                                       0.8543
+Polymorphic information content (PIC):                         0.8373
+Average non-exclusion probability (first parent):              0.4525
+Average non-exclusion probability (second parent):             0.2902
+Average non-exclusion probability (parent pair):               0.1226
+Average non-exclusion probability (identity):                  0.0375
+Average non-exclusion probability (sib identity):              0.3327
+Hardy-Weinberg equilibrium test
+  Minimum expected frequency:                                  5.0
+  Chi-square value:                                          121.2693
+  Degrees of freedom:                                         10
+  P-value:                                                     2.796E-0021
+  Significance (with Bonferroni correction):                 ***
+Null allele frequency estimate:                                0.1026
+
+
+********************************************************************************
