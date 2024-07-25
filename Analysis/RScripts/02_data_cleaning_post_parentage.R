@@ -155,11 +155,6 @@ for(sc in 1:length(full_scen)){
   #reduce data frame by populated columns
   par_temp_df <- par_temp_df[keep_col_ID2]
   
-  ##replace Q. with quercus
-  par_temp_df$Candidate_Father_Species <- gsub("Q.", "Quercus",
-                                               par_temp_df$Candidate_Father_Species)
-  
-  
   ###do half sibling analysis 
   ##Mikaely Evans' code 
   #initialize columns in the data frame 
