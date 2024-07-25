@@ -2,24 +2,24 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Allele frequency analysis completed 7/16/2024 8:40:26 AM
+Allele frequency analysis completed 7/16/2024 8:34:30 AM
 
 
 **** Summary statistics ****
 
 
 Locus       k    N        HObs   HExp   PIC    NE-1P  NE-2P  NE-PP  NE-I   NE-SI  HW   F(Null)
-QS03797...   10      409  0.445  0.596  0.545  0.803  0.643  0.465  0.214  0.506  ***   0.1403
-MSQ13...     20      413  0.656  0.857  0.842  0.440  0.281  0.114  0.035  0.331  ***   0.1308
-QrZAG20...   21      415  0.860  0.913  0.905  0.304  0.179  0.052  0.015  0.298  ***   0.0295
-QS00314...   26      387  1.000  0.899  0.889  0.339  0.204  0.065  0.019  0.306  ***  -0.0566
-QpZAG9...    24      405  1.000  0.760  0.748  0.579  0.393  0.177  0.069  0.388  ***  -0.1983
-QS1904...    23      402  1.000  0.800  0.780  0.540  0.364  0.169  0.059  0.365  ***  -0.1360
-MSQ4...      18      388  0.920  0.878  0.866  0.392  0.243  0.088  0.026  0.318  ***  -0.0260
-QS00562...   40      355  1.000  0.843  0.833  0.441  0.281  0.100  0.034  0.338  ***  -0.1080
-QpZAG119...   55      392  0.982  0.858  0.851  0.400  0.249  0.075  0.026  0.328  ***  -0.0894
-QpZAG1.5...   14      417  0.707  0.860  0.844  0.442  0.281  0.117  0.035  0.329  ***   0.0974
-QM69.2M1...   20      416  0.702  0.854  0.837  0.453  0.290  0.123  0.037  0.333  ***   0.1026
+"QS03797...1   10      409  0.445  0.596  0.545  0.803  0.643  0.465  0.214  0.506  ***   0.1403
+"MSQ13...1   20      413  0.656  0.857  0.842  0.440  0.281  0.114  0.035  0.331  ***   0.1308
+"QrZAG20...1   21      415  0.860  0.913  0.905  0.304  0.179  0.052  0.015  0.298  ***   0.0295
+"QS00314...2   26      387  1.000  0.899  0.889  0.339  0.204  0.065  0.019  0.306  ***  -0.0566
+"QpZAG9...2   24      405  1.000  0.760  0.748  0.579  0.393  0.177  0.069  0.388  ***  -0.1983
+"QS1904...2   23      402  1.000  0.800  0.780  0.540  0.364  0.169  0.059  0.365  ***  -0.1360
+"MSQ4...2    18      388  0.920  0.878  0.866  0.392  0.243  0.088  0.026  0.318  ***  -0.0260
+"QS00562...2   40      355  1.000  0.843  0.833  0.441  0.281  0.100  0.034  0.338  ***  -0.1080
+"QpZAG119...2   55      392  0.982  0.858  0.851  0.400  0.249  0.075  0.026  0.328  ***  -0.0894
+"QpZAG1.5...1   14      417  0.707  0.860  0.844  0.442  0.281  0.117  0.035  0.329  ***   0.0974
+"QM69.2M1...1   20      416  0.702  0.854  0.837  0.453  0.290  0.123  0.037  0.333  ***   0.1026
 
 Number of individuals:                                       417
 Number of loci:                                               11
@@ -46,20 +46,20 @@ Output
 
 **** Loci ****
 
-       1  QS03797...
-       2  MSQ13...
-       3  QrZAG20...
-       4  QS00314...
-       5  QpZAG9...
-       6  QS1904...
-       7  MSQ4...
-       8  QS00562...
-       9  QpZAG119...
-      10  QpZAG1.5...
-      11  QM69.2M1...
+       1  "QS03797...1
+       2  "MSQ13...1
+       3  "QrZAG20...1
+       4  "QS00314...2
+       5  "QpZAG9...2
+       6  "QS1904...2
+       7  "MSQ4...2
+       8  "QS00562...2
+       9  "QpZAG119...2
+      10  "QpZAG1.5...1
+      11  "QM69.2M1...1
 
 
-**** Locus QS03797... ****
+**** Locus "QS03797...1 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    138        2        2        0  0.0024  0.0024
@@ -94,7 +94,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                                0.1403
 
 
-**** Locus MSQ13... ****
+**** Locus "MSQ13...1 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    202        1        1        0  0.0012  0.0012
@@ -139,7 +139,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                                0.1308
 
 
-**** Locus QrZAG20... ****
+**** Locus "QrZAG20...1 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    155       58       52        3  0.0699  0.0686
@@ -185,7 +185,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                                0.0295
 
 
-**** Locus QS00314... ****
+**** Locus "QS00314...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    170      105      105        0  0.1357  0.1459
@@ -236,7 +236,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.0566
 
 
-**** Locus QpZAG9... ****
+**** Locus "QpZAG9...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    135       15       15        0  0.0185  0.0180
@@ -285,7 +285,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.1983
 
 
-**** Locus QS1904... ****
+**** Locus "QS1904...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    135        3        3        0  0.0037  0.0037
@@ -333,7 +333,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.1360
 
 
-**** Locus MSQ4... ****
+**** Locus "MSQ4...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    198       27       27        0  0.0348  0.0354
@@ -376,7 +376,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.0260
 
 
-**** Locus QS00562... ****
+**** Locus "QS00562...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
     54        3        3        0  0.0042  0.0042
@@ -441,7 +441,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.1080
 
 
-**** Locus QpZAG119... ****
+**** Locus "QpZAG119...2 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
 100         277      265        6  0.3533  0.4395
@@ -521,7 +521,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                               -0.0894
 
 
-**** Locus QpZAG1.5... ****
+**** Locus "QpZAG1.5...1 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    155       14       14        0  0.0168  0.0168
@@ -560,7 +560,7 @@ Hardy-Weinberg equilibrium test
 Null allele frequency estimate:                                0.0974
 
 
-**** Locus QM69.2M1... ****
+**** Locus "QM69.2M1...1 ****
 
 Allele  Count    Hets     Homs     Freq    Freq with null
    212        4        4        0  0.0048  0.0048

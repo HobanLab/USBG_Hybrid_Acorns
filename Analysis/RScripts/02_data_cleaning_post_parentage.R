@@ -50,10 +50,10 @@ for(sc in 1:length(scen)){
   temp_df <- par_res_list[[sc]]
   
   #first, join genotype files with parentage results 
-  lcf_df  <- temp_df[((temp_df$Pair_LOD_score > 0) & (temp_df$Trio_LOD_score > 0)),]
+  HCF_df  <- temp_df[((temp_df$Pair_LOD_score > 0) & (temp_df$Trio_LOD_score > 0)),]
   
   #write out data frame 
-  write.csv(lcf_df, paste0("Data_Files/CSV_Files/UHA_", scen[[sc]], "_HCF_par_sum.csv"))
+  write.csv(HCF_df, paste0("Data_Files/CSV_Files/UHA_", scen[[sc]], "_HCF_par_sum.csv"))
   
 }
  
@@ -155,8 +155,13 @@ for(sc in 1:length(full_scen)){
   #reduce data frame by populated columns
   par_temp_df <- par_temp_df[keep_col_ID2]
   
+  ##replace Q. with quercus
+  par_temp_df$Candidate_Father_Species <- gsub("Q.", "Quercus",
+                                               par_temp_df$Candidate_Father_Species)
+  
+  
   ###do half sibling analysis 
-  ##Mikaely Evans code 
+  ##Mikaely Evans' code 
   #initialize columns in the data frame 
   par_temp_df$Half_Sibs <- NA  # Made three new columns for this analysis
   par_temp_df$M_Accession_Abrv <- NA  

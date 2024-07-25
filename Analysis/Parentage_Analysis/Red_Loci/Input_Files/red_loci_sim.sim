@@ -11,7 +11,7 @@ Code=
 [FileInfo]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_sim.sim
 FileType=.sim
-CreationDate=7/16/2024 8:41:16 AM
+CreationDate=7/16/2024 8:35:19 AM
 
 [AlleleFrequencyDataFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_allfreq.alf
@@ -20,7 +20,7 @@ HeaderRow=1
 [SimulationParameters]
 AnalysisType=Paternity
 NOffspring=10000
-NCandidateMales=262
+NCandidateMales=252
 PropCandidateMalesSampled=0.9
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
@@ -69,9 +69,9 @@ FileName=
 
 [MaleParentAlone]
 RelaxedCriterion=0
-StrictCriterion=1.578125
-NRelaxed=9644
-NStrict=8649
+StrictCriterion=1.546875
+NRelaxed=9652
+NStrict=8677
 
 [FemaleParentAlone]
 RelaxedCriterion=999
@@ -82,8 +82,8 @@ NStrict=0
 [MaleParentGivenFemaleParent]
 RelaxedCriterion=0
 StrictCriterion=0
-NRelaxed=9259
-NStrict=9259
+NRelaxed=9224
+NStrict=9224
 
 [FemaleParentGivenMaleParent]
 RelaxedCriterion=999
