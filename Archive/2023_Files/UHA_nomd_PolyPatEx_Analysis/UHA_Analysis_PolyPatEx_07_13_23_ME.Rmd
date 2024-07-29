@@ -1,0 +1,52 @@
+---
+title: "UHA_Analysis_PolyPatEx_Final_Scores"
+author: "Mikaely Evans"
+date: "2023-07-13"
+output: html_document
+---
+
+```{r, message=FALSE}
+library(PolyPatEx)
+library(readr)
+library(gtools)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+setwd("C:/Users/MEvans/Documents/UHA_Analysis")
+system.file("extdata", package = "PolyPatEx")
+# fixCSV("UHA_Final_Scores_PolyPatEx.csv", overwrite=TRUE)
+UHA_final_scores <- inputData("UHA_Final_Scores_PolyPatEx.csv",
+                              numLoci = 14,
+                              ploidy = 2,
+                              dataType = "genotype",
+                              dioecious = FALSE,
+                              selfCompatible = FALSE,
+                              lociMin = 10,
+                              matMismatches = 1)
+
+# Turn NA values into 0
+UHA_final_scores[UHA_final_scores == 0] <- NA
+
+# Filtering out the extra NA values from the bottom of the UHA_Final_Scores_PolyPatEx.csv data file
+UHA_final_scores <- filter(UHA_final_scores, rowSums(is.na(UHA_final_scores)) != ncol(UHA_final_scores))
+
+# By hand filtering out the rows with more than 25% missing data
+# UHA_final_scores <- UHA_final_scores[-c(8), ])
+
+# Filtering out the rows with more than 25% missing data
+UHA_final_scores <- filter(UHA_final_scores, rowSums(is.na(UHA_final_scores)) >= 4)
+
+# Code below performs paternity exclusion analysis on genotypic data
+ppe1 <- genotPPE(UHA_final_scores)
+write.csv(potentialFatherCounts(ppe1),file="pFatherCounts.csv")
+write.csv(potentialFatherIDs(ppe1),file="pFatherIDs.csv")
+```
+
+
+
+
+
+
+

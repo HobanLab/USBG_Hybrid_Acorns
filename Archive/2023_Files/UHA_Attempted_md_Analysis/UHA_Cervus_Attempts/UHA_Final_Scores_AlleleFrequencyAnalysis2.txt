@@ -1,0 +1,545 @@
+Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
+Distributed by Field Genetics Ltd - www.fieldgenetics.com
+Licensed for non-commercial use only
+
+Allele frequency analysis completed 7/13/2023 1:58:13 PM
+
+
+**** Summary statistics ****
+
+
+Locus       k    N        HObs   HExp   PIC    NE-1P  NE-2P  NE-PP  NE-I   NE-SI  F(Null)
+QS03797 -     7      180  0.261  0.342  0.329  0.937  0.803  0.658  0.447  0.691   0.1397
+MSQ13 -      20      181  0.691  0.883  0.870  0.382  0.236  0.084  0.025  0.316   0.1223
+QrZAG20 -    19      184  0.821  0.916  0.907  0.299  0.176  0.050  0.014  0.297   0.0546
+QS00314 -     7      176  0.216  0.642  0.575  0.777  0.626  0.458  0.195  0.478   0.5101
+QpZAG9 -     22      180  0.883  0.930  0.923  0.256  0.147  0.036  0.010  0.289   0.0242
+QS1904 -      6      178  0.152  0.184  0.179  0.983  0.902  0.819  0.671  0.826   0.0832
+qs03297 -     7      123  0.089  0.545  0.501  0.841  0.682  0.508  0.251  0.542   0.7271
+MSQ4 -       20      163  0.638  0.871  0.858  0.403  0.252  0.091  0.028  0.323   0.1579
+QpZAG110 -    10      167  0.455  0.831  0.807  0.510  0.339  0.162  0.051  0.349   0.2985
+QS00562 -     5      131  0.130  0.398  0.341  0.921  0.815  0.702  0.419  0.657   0.5153
+QpZAG119 -    34      179  0.648  0.948  0.943  0.197  0.109  0.021  0.006  0.279   0.1883
+QrZAG87 -    23      172  0.262  0.525  0.500  0.838  0.666  0.468  0.251  0.551   0.3746
+QpZAG1/5 -    14      188  0.686  0.868  0.851  0.429  0.271  0.110  0.033  0.326   0.1152
+QM69-2M1 -    17      174  0.707  0.871  0.854  0.420  0.265  0.105  0.031  0.324   0.1053
+
+Number of individuals:                                       212
+Number of loci:                                               14
+Mean number of alleles per locus:                             15.071
+Mean proportion of loci typed:                                 0.8005
+Mean expected heterozygosity:                                  0.6967
+Mean polymorphic information content (PIC):                    0.6739
+Combined non-exclusion probability (first parent):             0.00009933
+Combined non-exclusion probability (second parent):            0.00000068
+Combined non-exclusion probability (parent pair):              2.210E-0011
+Combined non-exclusion probability (identity):                 4.393E-0017
+Combined non-exclusion probability (sib identity):             0.00000479
+
+
+**** Files ****
+
+Input
+  Genotype data file:             UHA_Final_Scores_Fixed.csv
+
+Output
+  Summary text file:              UHA_Final_Scores_AlleleFrequencyAnalysis2.txt
+  Allele frequency file:          UHA_Final_Scores_AlleleFrequencyAnalysis2.alf
+
+
+**** Loci ****
+
+       1  QS03797 - 
+       2  MSQ13 - 
+       3  QrZAG20 - 
+       4  QS00314 - 
+       5  QpZAG9 - 
+       6  QS1904 - 
+       7  qs03297 - 
+       8  MSQ4 - 
+       9  QpZAG110 - 
+      10  QS00562 - 
+      11  QpZAG119 - 
+      12  QrZAG87 - 
+      13  QpZAG1/5 - 
+      14  QM69-2M1 - 
+
+
+**** Locus QS03797 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   140        7        7        0  0.0194  0.0193
+   142       25       23        1  0.0694  0.0677
+   144      290       42      124  0.8056  0.6905
+   146       22        6        8  0.0611  0.0389
+   148        3        3        0  0.0083  0.0082
+   150        4        4        0  0.0111  0.0110
+   182        9        9        0  0.0250  0.0248
+
+Number of individuals typed:                                 180
+  Heterozygotes:                                              47
+  Homozygotes:                                               133
+Number of alleles:                                             7
+Observed heterozygosity:                                       0.2611
+Expected heterozygosity:                                       0.3423
+Polymorphic information content (PIC):                         0.3286
+Average non-exclusion probability (first parent):              0.9371
+Average non-exclusion probability (second parent):             0.8030
+Average non-exclusion probability (parent pair):               0.6575
+Average non-exclusion probability (identity):                  0.4466
+Average non-exclusion probability (sib identity):              0.6910
+Null allele frequency estimate:                                0.1397
+
+
+**** Locus MSQ13 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   202        1        1        0  0.0028  0.0027
+   204        2        2        0  0.0055  0.0055
+   206       60       12       24  0.1657  0.1033
+   208        3        3        0  0.0083  0.0082
+   210        1        1        0  0.0028  0.0027
+   216       34       24        5  0.0939  0.0823
+   218        6        0        3  0.0166  0.0082
+   220        9        9        0  0.0249  0.0248
+   222       10       10        0  0.0276  0.0276
+   224        7        7        0  0.0193  0.0192
+   226       25       19        3  0.0691  0.0618
+   228       16       12        2  0.0442  0.0388
+   230       80       56       12  0.2210  0.2063
+   232       40       30        5  0.1105  0.1003
+   234       38       34        2  0.1050  0.1033
+   236       11       11        0  0.0304  0.0304
+   238        9        9        0  0.0249  0.0248
+   240        8        8        0  0.0221  0.0220
+   242        1        1        0  0.0028  0.0027
+   244        1        1        0  0.0028  0.0027
+
+Number of individuals typed:                                 181
+  Heterozygotes:                                             125
+  Homozygotes:                                                56
+Number of alleles:                                            20
+Observed heterozygosity:                                       0.6906
+Expected heterozygosity:                                       0.8832
+Polymorphic information content (PIC):                         0.8700
+Average non-exclusion probability (first parent):              0.3824
+Average non-exclusion probability (second parent):             0.2360
+Average non-exclusion probability (parent pair):               0.0839
+Average non-exclusion probability (identity):                  0.0249
+Average non-exclusion probability (sib identity):              0.3159
+Null allele frequency estimate:                                0.1223
+
+
+**** Locus QrZAG20 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   155       23       17        3  0.0625  0.0557
+   157       24       24        0  0.0652  0.0673
+   159       10        8        1  0.0272  0.0247
+   161       25       19        3  0.0679  0.0615
+   163       54       30       12  0.1467  0.1211
+   165       24       20        2  0.0652  0.0615
+   167       12       12        0  0.0326  0.0331
+   169       38       30        4  0.1033  0.0968
+   171       17       15        1  0.0462  0.0443
+   173       22       20        1  0.0598  0.0586
+   175       22       22        0  0.0598  0.0615
+   177       39       33        3  0.1060  0.1028
+   179       45       39        3  0.1223  0.1211
+   181        1        1        0  0.0027  0.0027
+   183        4        4        0  0.0109  0.0109
+   185        2        2        0  0.0054  0.0054
+   189        2        2        0  0.0054  0.0054
+   191        1        1        0  0.0027  0.0027
+   193        3        3        0  0.0082  0.0082
+
+Number of individuals typed:                                 184
+  Heterozygotes:                                             151
+  Homozygotes:                                                33
+Number of alleles:                                            19
+Observed heterozygosity:                                       0.8207
+Expected heterozygosity:                                       0.9157
+Polymorphic information content (PIC):                         0.9068
+Average non-exclusion probability (first parent):              0.2991
+Average non-exclusion probability (second parent):             0.1756
+Average non-exclusion probability (parent pair):               0.0502
+Average non-exclusion probability (identity):                  0.0140
+Average non-exclusion probability (sib identity):              0.2969
+Null allele frequency estimate:                                0.0546
+
+
+**** Locus QS00314 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   167        1        1        0  0.0028  0.0021
+   170      127        5       61  0.3608  0.1499
+   173      163       29       67  0.4631  0.2277
+   176       17       13        2  0.0483  0.0320
+   179       39       25        7  0.1108  0.0697
+   185        4        2        1  0.0114  0.0063
+   200        1        1        0  0.0028  0.0021
+
+Number of individuals typed:                                 176
+  Heterozygotes:                                              38
+  Homozygotes:                                               138
+Number of alleles:                                             7
+Observed heterozygosity:                                       0.2159
+Expected heterozygosity:                                       0.6425
+Polymorphic information content (PIC):                         0.5746
+Average non-exclusion probability (first parent):              0.7775
+Average non-exclusion probability (second parent):             0.6261
+Average non-exclusion probability (parent pair):               0.4583
+Average non-exclusion probability (identity):                  0.1952
+Average non-exclusion probability (sib identity):              0.4785
+Null allele frequency estimate:                                0.5101
+
+
+**** Locus QpZAG9 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   227        2        2        0  0.0056  0.0056
+   231        2        2        0  0.0056  0.0056
+   233        7        7        0  0.0194  0.0196
+   235       13       13        0  0.0361  0.0368
+   237        2        2        0  0.0056  0.0056
+   241        7        5        1  0.0194  0.0168
+   243       31       23        4  0.0861  0.0780
+   245       18       10        4  0.0500  0.0397
+   247       16       12        2  0.0444  0.0397
+   249       32       30        1  0.0889  0.0901
+   251       32       30        1  0.0889  0.0901
+   253       43       35        4  0.1194  0.1149
+   255       24       24        0  0.0667  0.0690
+   257       39       33        3  0.1083  0.1055
+   259       24       24        0  0.0667  0.0690
+   261       20       20        0  0.0556  0.0572
+   263       10       10        0  0.0278  0.0282
+   265       16       14        1  0.0444  0.0425
+   267        2        2        0  0.0056  0.0056
+   269       15       15        0  0.0417  0.0425
+   271        4        4        0  0.0111  0.0112
+   281        1        1        0  0.0028  0.0028
+
+Number of individuals typed:                                 180
+  Heterozygotes:                                             159
+  Homozygotes:                                                21
+Number of alleles:                                            22
+Observed heterozygosity:                                       0.8833
+Expected heterozygosity:                                       0.9301
+Polymorphic information content (PIC):                         0.9229
+Average non-exclusion probability (first parent):              0.2562
+Average non-exclusion probability (second parent):             0.1468
+Average non-exclusion probability (parent pair):               0.0362
+Average non-exclusion probability (identity):                  0.0099
+Average non-exclusion probability (sib identity):              0.2887
+Null allele frequency estimate:                                0.0242
+
+
+**** Locus QS1904 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   135        9        3        3  0.0253  0.0169
+   137      321       27      147  0.9017  0.8290
+   139       17       15        1  0.0478  0.0457
+   141        3        3        0  0.0084  0.0084
+   147        1        1        0  0.0028  0.0028
+   149        5        5        0  0.0140  0.0140
+
+Number of individuals typed:                                 178
+  Heterozygotes:                                              27
+  Homozygotes:                                               151
+Number of alleles:                                             6
+Observed heterozygosity:                                       0.1517
+Expected heterozygosity:                                       0.1843
+Polymorphic information content (PIC):                         0.1786
+Average non-exclusion probability (first parent):              0.9826
+Average non-exclusion probability (second parent):             0.9023
+Average non-exclusion probability (parent pair):               0.8191
+Average non-exclusion probability (identity):                  0.6714
+Average non-exclusion probability (sib identity):              0.8260
+Null allele frequency estimate:                                0.0832
+
+
+**** Locus qs03297 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   211      157        5       76  0.6382  0.1696
+   213       32        6       13  0.1301  0.0371
+   215       44        2       21  0.1789  0.0451
+   217        2        2        0  0.0081  0.0038
+   225        2        2        0  0.0081  0.0038
+   227        8        4        2  0.0325  0.0116
+   229        1        1        0  0.0041  0.0019
+
+Number of individuals typed:                                 123
+  Heterozygotes:                                              11
+  Homozygotes:                                               112
+Number of alleles:                                             7
+Observed heterozygosity:                                       0.0894
+Expected heterozygosity:                                       0.5448
+Polymorphic information content (PIC):                         0.5005
+Average non-exclusion probability (first parent):              0.8412
+Average non-exclusion probability (second parent):             0.6817
+Average non-exclusion probability (parent pair):               0.5084
+Average non-exclusion probability (identity):                  0.2513
+Average non-exclusion probability (sib identity):              0.5415
+Null allele frequency estimate:                                0.7271
+
+
+**** Locus MSQ4 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   195        1        1        0  0.0031  0.0030
+   197       14        6        4  0.0429  0.0304
+   199       90       40       25  0.2761  0.2182
+   201       49       29       10  0.1503  0.1244
+   203       29       19        5  0.0890  0.0746
+   205       11        9        1  0.0337  0.0304
+   207       17       17        0  0.0521  0.0522
+   209       18       14        2  0.0552  0.0491
+   211       29       17        6  0.0890  0.0713
+   213        8        8        0  0.0245  0.0242
+   215       19       15        2  0.0583  0.0522
+   217       18       14        2  0.0552  0.0491
+   219        4        4        0  0.0123  0.0120
+   221        6        2        2  0.0184  0.0120
+   223        3        3        0  0.0092  0.0090
+   229        1        1        0  0.0031  0.0030
+   231        4        4        0  0.0123  0.0120
+   233        2        2        0  0.0061  0.0060
+   235        2        2        0  0.0061  0.0060
+   243        1        1        0  0.0031  0.0030
+
+Number of individuals typed:                                 163
+  Heterozygotes:                                             104
+  Homozygotes:                                                59
+Number of alleles:                                            20
+Observed heterozygosity:                                       0.6380
+Expected heterozygosity:                                       0.8714
+Polymorphic information content (PIC):                         0.8580
+Average non-exclusion probability (first parent):              0.4034
+Average non-exclusion probability (second parent):             0.2519
+Average non-exclusion probability (parent pair):               0.0906
+Average non-exclusion probability (identity):                  0.0280
+Average non-exclusion probability (sib identity):              0.3226
+Null allele frequency estimate:                                0.1579
+
+
+**** Locus QpZAG110 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   198        8        6        1  0.0240  0.0193
+   200       79       13       33  0.2365  0.1345
+   202       82       28       27  0.2455  0.1633
+   204       57       31       13  0.1707  0.1282
+   206       41       25        8  0.1228  0.0945
+   208       21       11        5  0.0629  0.0446
+   210       23       19        2  0.0689  0.0590
+   212       14       12        1  0.0419  0.0361
+   214        6        6        0  0.0180  0.0165
+   220        3        1        1  0.0090  0.0055
+
+Number of individuals typed:                                 167
+  Heterozygotes:                                              76
+  Homozygotes:                                                91
+Number of alleles:                                            10
+Observed heterozygosity:                                       0.4551
+Expected heterozygosity:                                       0.8306
+Polymorphic information content (PIC):                         0.8065
+Average non-exclusion probability (first parent):              0.5099
+Average non-exclusion probability (second parent):             0.3386
+Average non-exclusion probability (parent pair):               0.1619
+Average non-exclusion probability (identity):                  0.0512
+Average non-exclusion probability (sib identity):              0.3487
+Null allele frequency estimate:                                0.2985
+
+
+**** Locus QS00562 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   222        6        4        1  0.0229  0.0141
+   224      195       15       90  0.7443  0.3588
+   226       58       12       23  0.2214  0.1035
+   228        2        2        0  0.0076  0.0056
+   230        1        1        0  0.0038  0.0028
+
+Number of individuals typed:                                 131
+  Heterozygotes:                                              17
+  Homozygotes:                                               114
+Number of alleles:                                             5
+Observed heterozygosity:                                       0.1298
+Expected heterozygosity:                                       0.3980
+Polymorphic information content (PIC):                         0.3414
+Average non-exclusion probability (first parent):              0.9208
+Average non-exclusion probability (second parent):             0.8146
+Average non-exclusion probability (parent pair):               0.7019
+Average non-exclusion probability (identity):                  0.4193
+Average non-exclusion probability (sib identity):              0.6566
+Null allele frequency estimate:                                0.5153
+
+
+**** Locus QpZAG119 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+    51        2        2        0  0.0056  0.0054
+    55        1        1        0  0.0028  0.0027
+    57       13       11        1  0.0363  0.0329
+    59       17        9        4  0.0475  0.0357
+    61       14        8        3  0.0391  0.0301
+    63       33       19        7  0.0922  0.0727
+    65       31       17        7  0.0866  0.0669
+    67       42       18       12  0.1173  0.0844
+    69       18       12        3  0.0503  0.0413
+    71       14        8        3  0.0391  0.0301
+    73        3        3        0  0.0084  0.0081
+    75        3        3        0  0.0084  0.0081
+    77        7        3        2  0.0196  0.0136
+    79        4        4        0  0.0112  0.0108
+    81       12        8        2  0.0335  0.0273
+    85       12        6        3  0.0335  0.0246
+    87        5        5        0  0.0140  0.0136
+    89       23       19        2  0.0642  0.0583
+    91        2        2        0  0.0056  0.0054
+    93        1        1        0  0.0028  0.0027
+    95        8        6        1  0.0223  0.0190
+    97       13        7        3  0.0363  0.0273
+    99        4        4        0  0.0112  0.0108
+   101        5        5        0  0.0140  0.0136
+   103        5        3        1  0.0140  0.0108
+   105        4        2        1  0.0112  0.0081
+   107        3        3        0  0.0084  0.0081
+   109        7        7        0  0.0196  0.0190
+   111       16        8        4  0.0447  0.0329
+   113       18       14        2  0.0503  0.0441
+   115        7        7        0  0.0196  0.0190
+   119        4        2        1  0.0112  0.0081
+   123        6        4        1  0.0168  0.0136
+   125        1        1        0  0.0028  0.0027
+
+Number of individuals typed:                                 179
+  Heterozygotes:                                             116
+  Homozygotes:                                                63
+Number of alleles:                                            34
+Observed heterozygosity:                                       0.6480
+Expected heterozygosity:                                       0.9482
+Polymorphic information content (PIC):                         0.9430
+Average non-exclusion probability (first parent):              0.1965
+Average non-exclusion probability (second parent):             0.1094
+Average non-exclusion probability (parent pair):               0.0206
+Average non-exclusion probability (identity):                  0.0056
+Average non-exclusion probability (sib identity):              0.2786
+Null allele frequency estimate:                                0.1883
+
+
+**** Locus QrZAG87 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+    91        2        0        1  0.0058  0.0025
+    95        2        2        0  0.0058  0.0050
+    99      231       21      105  0.6715  0.3915
+   101       53       29       12  0.1541  0.1083
+   103        8        6        1  0.0233  0.0176
+   111        2        2        0  0.0058  0.0050
+   113        2        0        1  0.0058  0.0025
+   117        2        2        0  0.0058  0.0050
+   121        1        1        0  0.0029  0.0025
+   123        8        4        2  0.0233  0.0151
+   125        6        6        0  0.0174  0.0151
+   127        1        1        0  0.0029  0.0025
+   129        5        1        2  0.0145  0.0075
+   131        1        1        0  0.0029  0.0025
+   135        1        1        0  0.0029  0.0025
+   137        3        3        0  0.0087  0.0075
+   139        2        2        0  0.0058  0.0050
+   141        3        1        1  0.0087  0.0050
+   143        2        2        0  0.0058  0.0050
+   145        1        1        0  0.0029  0.0025
+   149        3        1        1  0.0087  0.0050
+   153        1        1        0  0.0029  0.0025
+   155        4        2        1  0.0116  0.0075
+
+Number of individuals typed:                                 172
+  Heterozygotes:                                              45
+  Homozygotes:                                               127
+Number of alleles:                                            23
+Observed heterozygosity:                                       0.2616
+Expected heterozygosity:                                       0.5246
+Polymorphic information content (PIC):                         0.4995
+Average non-exclusion probability (first parent):              0.8385
+Average non-exclusion probability (second parent):             0.6658
+Average non-exclusion probability (parent pair):               0.4683
+Average non-exclusion probability (identity):                  0.2510
+Average non-exclusion probability (sib identity):              0.5512
+Null allele frequency estimate:                                0.3746
+
+
+**** Locus QpZAG1/5 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   155        7        7        0  0.0186  0.0185
+   159       68       44       12  0.1809  0.1597
+   161       14       12        1  0.0372  0.0347
+   163        8        6        1  0.0213  0.0185
+   165       29       21        4  0.0771  0.0679
+   167       68       44       12  0.1809  0.1597
+   169       65       47        9  0.1729  0.1597
+   171       44       26        9  0.1170  0.0965
+   173       45       31        7  0.1197  0.1053
+   175        4        2        1  0.0106  0.0079
+   177        1        1        0  0.0027  0.0026
+   181       21       15        3  0.0559  0.0484
+   183        1        1        0  0.0027  0.0026
+   189        1        1        0  0.0027  0.0026
+
+Number of individuals typed:                                 188
+  Heterozygotes:                                             129
+  Homozygotes:                                                59
+Number of alleles:                                            14
+Observed heterozygosity:                                       0.6862
+Expected heterozygosity:                                       0.8676
+Polymorphic information content (PIC):                         0.8506
+Average non-exclusion probability (first parent):              0.4289
+Average non-exclusion probability (second parent):             0.2710
+Average non-exclusion probability (parent pair):               0.1104
+Average non-exclusion probability (identity):                  0.0328
+Average non-exclusion probability (sib identity):              0.3256
+Null allele frequency estimate:                                0.1152
+
+
+**** Locus QM69-2M1 - ****
+
+Allele  Count    Hets     Homs     Freq    Freq with null
+   212        3        3        0  0.0086  0.0086
+   214        2        2        0  0.0057  0.0057
+   216        1        1        0  0.0029  0.0028
+   220        1        1        0  0.0029  0.0028
+   222       57       23       17  0.1638  0.1210
+   226       10       10        0  0.0287  0.0288
+   228       70       42       14  0.2011  0.1743
+   230       39       35        2  0.1121  0.1113
+   232       44       36        4  0.1264  0.1210
+   234       56       36       10  0.1609  0.1406
+   236       15       15        0  0.0431  0.0436
+   238       28       24        2  0.0805  0.0768
+   240        7        7        0  0.0201  0.0201
+   242        2        2        0  0.0057  0.0057
+   244        6        4        1  0.0172  0.0143
+   246        5        5        0  0.0144  0.0143
+   248        2        0        1  0.0057  0.0028
+
+Number of individuals typed:                                 174
+  Heterozygotes:                                             123
+  Homozygotes:                                                51
+Number of alleles:                                            17
+Observed heterozygosity:                                       0.7069
+Expected heterozygosity:                                       0.8705
+Polymorphic information content (PIC):                         0.8541
+Average non-exclusion probability (first parent):              0.4205
+Average non-exclusion probability (second parent):             0.2647
+Average non-exclusion probability (parent pair):               0.1054
+Average non-exclusion probability (identity):                  0.0314
+Average non-exclusion probability (sib identity):              0.3238
+Null allele frequency estimate:                                0.1053
+
+
+********************************************************************************
