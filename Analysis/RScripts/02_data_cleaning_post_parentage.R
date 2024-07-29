@@ -53,15 +53,18 @@ for(sc in 1:length(scen)){
   HCF_df  <- temp_df[((temp_df$Pair_LOD_score > 0) & (temp_df$Trio_LOD_score > 0)),]
   
   #write out data frame 
-  write.csv(HCF_df, paste0("Data_Files/CSV_Files/UHA_", scen[[sc]], "_HCF_par_sum.csv"))
+  write.csv(HCF_df, paste0("Data_Files/CSV_Files/", scen[[sc]], "_HCF_par_sum.csv"))
   
 }
  
 #load in all parentage summary data frames 
 par_sum_list <- list.files(path = "Data_Files/CSV_Files/", pattern = "par_sum")
 
-#read CSVs 
+#reorder list 
+par_sum_list <- list(par_sum_list[[2]], par_sum_list[[1]], 
+                     par_sum_list[[4]], par_sum_list[[3]])
 
+#read CSVs 
 par_sum_df_list <- list()
 
 #Loop over 
@@ -103,8 +106,8 @@ UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue
 ######### Create analysis data frame -------------------
 
 #all scenarios 
-full_scen <- c("HCF_all_loci", "all_loci", 
-               "HCF_red_loci", "red_loci")
+full_scen <- c("all_loci", "HCF_all_loci", 
+               "red_loci", "HCF_red_loci")
 
 #loop over four scenarios
 for(sc in 1:length(full_scen)){
@@ -123,7 +126,7 @@ for(sc in 1:length(full_scen)){
   par_temp_df <- par_temp_df %>% rename("Maternal_Species" = "Species",
                                         "Maternal_Longitude" = "Longitude",
                                         "Maternal_Latitude" = "Latitude",
-                                        "Maternal_Accession" = "Accession.Number")
+                                        "Maternal_Accession" = "Accession_Number")
   
   
   ##reorg data frame 
@@ -143,7 +146,7 @@ for(sc in 1:length(full_scen)){
   par_temp_df <- par_temp_df %>% rename('Candidate_Father_Species' = 'Species',
                               "Candidate_Father_Longitude" = "Longitude",
                               "Candidate_Father_Latitude" = "Latitude",
-                              "Candidate_Father_Accession" = "Accession.Number")
+                              "Candidate_Father_Accession" = "Accession_Number")
   
   #reduce by empty columns 
   keep_col_ID2 <- c("Offspring_ID","Mother_ID", "Candidate_father_ID",

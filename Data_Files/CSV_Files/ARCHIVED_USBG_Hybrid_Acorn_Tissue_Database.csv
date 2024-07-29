@@ -1,476 +1,418 @@
-Tissue_ID,DNA_ID,Temporary_Name,,Accession Number,Parent or offspring? (P/O),Species,Extracted?,Diluted and PCRs run?,MP1 Amplified?,MP2 Amplified?,MP3 Amplified?,Notes,Date of Collection,Longitude,Latitude
-UHA-0001,SH-Q2612,QUAL-MT1,,755-79*1,P,Quercus alba,X,X,X,X,X,,,-88.066243,41.814518
-UHA-0002,SH-Q2613,QUAL-MT2,,755-79*5,P,Quercus alba,X,X,X,X,X,,,-88.071058,41.815203
-UHA-0003,SH-Q2614,QUAL-MT3,,134-U*72,P,Quercus alba,X,X,X,X,X,,,-88.068732,41.815779
-UHA-0004,SH-Q2615,QUBI-MT1,,463-84*5,P,Quercus bicolor,X,X,X,X,X,,,-88.066721,41.814783
-UHA-0005,SH-Q2616,QUBI-MT4,,789-2004*3,P,Quercus bicolor,X,X,X,X,X,,,-88.064352,41.817355
-UHA-0006,SH-Q2617,QUBI-MT6,,789-2004*2,P,Quercus bicolor,X,X,X,X,X,,,-88.070812,41.815453
-UHA-0007,SH-Q2618,QUMA-MT1,,478-2001*2,P,Quercus macrocarpa,X,X,X,X,X,,,-88.065814,41.815105
-UHA-0008,SH-Q2619,QUMA-MT2,,527-2000*2,P,Quercus macrocarpa,X,X,X,X,X,,,-88.06698,41.81485
-UHA-0009,SH-Q2775,QUMU-MT1,,704-46*5,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.069397,41.814984
-UHA-0010,SH-Q2776,QUMU-MT2,,704-46*8,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.067413,41.816572
-UHA-0011,SH-Q2777,QUMU-MT3,,704-46*7,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.068655,41.815796
-UHA-0012,SH-Q2778,QUMU-MT4,,704-46*1,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.066633,41.81118
-UHA-0013,SH-Q2779,QUMU-MT6,,704-46*6,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.06758,41.815615
-UHA-0014,SH-Q2780,QUMU-MT8,,704-46*13,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.063177,41.811685
-UHA-0015,SH-Q2781,QUMU-MT9,,704-46*12,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.063254,41.81167
-UHA-0016,SH-Q2782,QUMU-MT13,,704-46*14,P,Quercus muehlenbergii,X,X,X,X,X,,,-88.063069,41.811735
-UHA-0017,SH-Q2783,QUMA-MT4,,1443-2004*1,P,Quercus macrocarpa,X,X,X,X,X,,,-88.071193,41.815018
-UHA-0018,SH-Q2784,QUMA-MT7,,316-85*1,P,Quercus macrocarpa,X,X,X,X,X,,,,
-UHA-0019,SH-Q2785,QUMU-MT16-0001,,570-78*3-0001,O,Quercus muehlenbergii,X,X,X,Rerun,Rerun,,,,
-UHA-0020,SH-Q2626,QUMU-MT16-0002,,570-78*3-0002,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0021,SH-Q2977,QUMU-MT16-0003,,570-78*3-0003,O,Quercus muehlenbergii,X,X,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0022,SH-Q2978,QUMU-MT16-0004,,570-78*3-0004,O,Quercus muehlenbergii,X,X,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0023,SH-Q2627,QUMU-MT16-0005,,570-78*3-0005,O,Quercus muehlenbergii,X,X,X,Rerun,X,,,,
-UHA-0024,SH-Q2979,QUMU-MT16-0006,,570-78*3-0006,O,Quercus muehlenbergii,X,X,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0025,SH-Q2628,QUMU-MT16-0007,,570-78*3-0007,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0026,SH-Q2629,QUMU-MT16-0008,,570-78*3-0008,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0027,SH-Q2630,QUMU-MT16-0009,,570-78*3-0009,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0028,SH-Q2631,QUMU-MT16-0010,,570-78*3-0010,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0029,SH-Q2789,QUMU-MT16-0011,,570-78*3-0011,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0030,,QUMU-MT16-1-0004,,570-78*3-0012,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0031,,QUMU-MT16-1-0010,,570-78*3-0013,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0032,,QUMU-MT16-1-0013,,570-78*3-0014,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0033,SH-Q2793,QUMU-MT16-1-0002,,570-78*3-0015,O,Quercus muehlenbergii,X,X,X,X,Rerun,,,,
-UHA-0034,SH-Q3001,QUMU-MT16-1-0003,,570-78*3-0016,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0035,SH-Q3002,QUMU-MT16-1-0004,,570-78*3-0017,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0036,SH-Q3003,QUMU-MT16-1-0006,,570-78*3-0018,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0037,SH-Q3004,QUMU-MT16-1-0007,,570-78*3-0019,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0038,SH-Q3005,QUMU-MT16-1-0008,,570-78*3-0020,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0039,SH-Q2791,QUMU-MT16-1-0010,,570-78*3-0021,O,Quercus muehlenbergii,X,X,Rerun,Rerun,Rerun,,,,
-UHA-0040,SH-Q3007,QUMU-MT16-1-0011,,570-78*3-0022,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0041,SH-Q3008,QUMU-MT16-1-0013,,570-78*3-0023,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0042,,QUMU-MT16-0018,,570-78*3-0024,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0043,SH-Q2794,QUMU-MT7-1-0001,,570-78*1-0001,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0044,SH-Q2795,QUMU-MT7-1-0002,,570-78*1-0002,O,Quercus muehlenbergii,X,X,X,Rerun,Rerun,,,,
-UHA-0045,SH-Q2796,QUMU-MT7-1-0006,,570-78*1-0003,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0046,SH-Q2982,QUMU-MT7-1-0007,,570-78*1-0004,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0047,SH-Q2798,QUMU-MT7-1-0009,,570-78*1-0005,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0048,SH-Q2983,QUMU-MT7-1-0010,,570-78*1-0006,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0049,SH-Q2984,QUMU-MT7-1-0011,,570-78*1-0007,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0050,SH-Q2801,QUMU-MT7-1-0012,,570-78*1-0008,O,Quercus muehlenbergii,X,X,X,Rerun,Rerun,,,,
-UHA-0051,SH-Q2802,QUMU-MT7-1-0015,,570-78*1-0009,O,Quercus muehlenbergii,X,X,X,Rerun,X,,,,
-UHA-0052,SH-Q2803,QUMU-MT7-1-0016,,570-78*1-0010,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0053,SH-Q2985,QUMU-MT7-1-0019,,570-78*1-0011,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0054,SH-Q2986,QUMU-MT7-1-0020,,570-78*1-0012,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0055,SH-Q2987,QUMU-MT7-1-0021,,570-78*1-0013,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0056,SH-Q2807,QUMU-MT7-1-0022,,570-78*1-0014,O,Quercus muehlenbergii,X,X,X,Rerun,X,,,,
-UHA-0057,,QUMU-MT7-1-0024,,570-78*1-0015,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0058,SH-Q2625,QUMU-MT7-1-0025,,570-78*1-0016,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0059,SH-Q3010,QUMU-MT7-1-0037,,570-78*1-0017,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0060,SH-Q3011,QUMU-MT7-1-0038,,570-78*1-0018,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0061,SH-Q3012,QUMU-MT7-1-0041,,570-78*1-0019,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0062,SH-Q3013,QUMU-MT7-1-0045,,570-78*1-0020,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0063,SH-Q3014,QUMU-MT7-1-0047,,570-78*1-0021,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0064,SH-Q3015,QUMU-MT7-1-0050,,570-78*1-0022,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0065,SH-Q3016,QUMU-MT7-1-0051,,570-78*1-0023,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0066,SH-Q3017,QUMU-MT7-1-0054,,570-78*1-0024,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0067,SH-Q2988,QUMU-MT8-0001,,704-46*13-0001,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0068,SH-Q2809,QUMU-MT8-0002,,704-46*13-0002,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0069,SH-Q2989,QUMU-MT8-0003,,704-46*13-0003,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0070,SH-Q2811,QUMU-MT8-1-0008,,704-46*13-0004,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0071,SH-Q2812,QUMU-MT8-0005,,704-46*13-0005,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0072,SH-Q2990,QUMU-MT8-0006,,704-46*13-0006,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0073,SH-Q2991,QUMU-MT8-0007,,704-46*13-0007,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0074,SH-Q2992,QUMU-MT8-0009,,704-46*13-0008,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0075,SH-Q2816,QUMU-MT8-0010,,704-46*13-0009,O,Quercus muehlenbergii,X,X,X,Rerun,X,,,,
-UHA-0076,SH-Q2993,QUMU-MT8-0011,,704-46*13-0010,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0077,SH-Q2818,QUMU-MT8-0012,,704-46*13-0011,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0078,SH-Q2994,QUMU-MT8-0013,,704-46*13-0012,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0079,SH-Q2820,QUMU-MT8-0017,,704-46*13-0013,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0080,SH-Q2821,QUMU-MT8-0019,,704-46*13-0014,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0081,SH-Q2822,QUMU-MT8-0021,,704-46*13-0015,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0082,SH-Q3018,QUMU-MT8-1-0017,,704-46*13-0016,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0083,SH-Q3019,QUMU-MT8-0022,,704-46*13-0017,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0084,SH-Q3020,QUMU-MT8-0024,,704-46*13-0018,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0085,SH-Q3021,QUMU-MT8-0025,,704-46*13-0019,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0086,SH-Q3022,QUMU-MT8-1-0004,,704-46*13-0020,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0087,SH-Q3023,QUMU-MT8-1-0005,,704-46*13-0021,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0088,SH-Q3024,QUMU-MT8-1-0006,,704-46*13-0022,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0089,SH-Q3006,QUMU-MT8-1-0007,,704-46*13-0023,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0090,SH-Q3009,QUMU-MT8-1-0018,,704-46*13-0024,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0091,SH-Q3067,QUMU-MT8-1-0019,,704-46*13-0025,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0092,SH-Q2823,QUMU-MT9-1-0002,,704-46*12-0001,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0093,SH-Q2824,QUMU-MT9-1-0003,,704-46*12-0002,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0094,SH-Q2825,QUMU-MT9-1-0004,,704-46*12-0003,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0095,SH-Q2826,QUMU-MT9-1-0005,,704-46*12-0004,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0096,SH-Q2827,QUMU-MT9-1-0006,,704-46*12-0005,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0097,SH-Q2828,QUMU-MT9-0028,,704-46*12-0006,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0098,SH-Q2829,QUMU-MT17-0001,,549-82*4-0001,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0099,SH-Q2632,QUMU-MT17-0002,,549-82*4-0002,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0100,SH-Q2995,QUMU-MT17-0003,,549-82*4-0003,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0101,SH-Q2831,QUMU-MT17-0004,,549-82*4-0004,O,Quercus muehlenbergii,X,X,X,X,Rerun,,,,
-UHA-0102,SH-Q2996,QUMU-MT17-0005,,549-82*4-0005,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0103,SH-Q2997,QUMU-MT17-0006,,549-82*4-0006,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0104,SH-Q2833,QUMU-MT17-0009,,549-82*4-0007,O,Quercus muehlenbergii,X,X,X,Rerun,Rerun,,,,
-UHA-0105,SH-Q2834,QUMU-MT17-0011,,549-82*4-0008,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0106,SH-Q2998,QUMU-MT17-0014,,549-82*4-0009,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0107,SH-Q2835,QUMU-MT17-0015,,549-82*4-0010,O,Quercus muehlenbergii,X,X,Rerun,Rerun,Rerun,,,,
-UHA-0108,SH-Q2999,QUMU-MT17-0016,,549-82*4-0011,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0109,SH-Q2837,QUMU-MT17-0017,,549-82*4-0012,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0110,SH-Q3000,QUMU-MT17-0018,,549-82*4-0013,O,Quercus muehlenbergii,X,,,,,"Re-extracted because initial DNA was discolored, did not amplify with PCR",,,
-UHA-0111,SH-Q2838,QUMU-MT17-0019,,549-82*4-0014,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0112,SH-Q2839,QUMU-MT17-0020,,549-82*4-0015,O,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0113,SH-Q3068,QUMU-MT17-0021,,549-82*4-0016,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0114,SH-Q3069,QUMU-MT17-0023,,549-82*4-0017,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0115,SH-Q3070,QUMU-MT18-0001,,549-82*5-0001,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0116,SH-Q3071,QUMU-MT18-0002,,549-82*5-0002,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0117,,QUMU-MT18-0003,,549-82*5-0003,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0118,SH-Q3072,QUMU-MT18-1-0002,,549-82*5-0004,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0119,SH-Q3073,QUMU-MT18-1-0007,,549-82*5-0005,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0120,SH-Q3074,QUMU-MT18-1-0018,,549-82*5-0006,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0121,SH-Q3075,QUMU-MT18-1-0021,,549-82*5-0007,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0122,SH-Q3076,QUMU-MT18-1-0022,,549-82*5-0008,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0123,SH-Q3077,QUMU-MT2-1-0001,,704-46*8-0001,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0124,SH-Q3078,QUMU-MT2-1-0005,,704-46*8-0002,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0125,SH-Q3079,QUMU-MT2-1-0007,,704-46*8-0003,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0126,SH-Q2620,QUMU-MT2-1-0009,,704-46*8-0004,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0127,SH-Q2621,QUMU-MT2-1-0010,,704-46*8-0005,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0128,SH-Q3080,QUMU-MT2-1-0011,,704-46*8-0006,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0129,SH-Q3081,QUMU-MT2-1-0012,,704-46*8-0007,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0130,SH-Q3082,QUMU-MT2-1-0014,,704-46*8-0008,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0131,SH-Q3083,QUMU-MT2-1-0015,,704-46*8-0009,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0132,SH-Q3084,QUMU-MT2-1-0016,,704-46*8-0010,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0133,SH-Q3085,QUMU-MT2-1-0018,,704-46*8-0011,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0134,SH-Q3086,QUMU-MT2-1-0024,,704-46*8-0012,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0135,SH-Q2622,QUMU-MT2-1-0025,,704-46*8-0013,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0136,SH-Q3087,QUMU-MT2-1-0026,,704-46*8-0014,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0137,SH-Q3088,QUMU-MT2-1-0030,,704-46*8-0015,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0138,SH-Q3089,QUMU-MT2-1-0032,,704-46*8-0016,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0139,SH-Q3090,QUMU-MT2-1-0036,,704-46*8-0017,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0140,SH-Q3091,QUMU-MT2-1-0051,,704-46*8-0018,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0141,SH-Q3092,QUMU-MT2-1-0042,,704-46*8-0019,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0142,SH-Q3093,QUMU-MT2-1-0044,,704-46*8-0020,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0143,SH-Q3094,QUMU-MT2-1-0045,,704-46*8-0021,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0144,SH-Q3095,QUMU-MT2-1-0046,,704-46*8-0022,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0145,SH-Q3096,QUMU-MT2-1-0048,,704-46*8-0023,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0146,SH-Q3097,QUMU-MT2-1-0049,,704-46*8-0024,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0147,SH-Q3098,QUMU-MT2-1-0050,,704-46*8-0025,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0148,SH-Q3121,QUMU-MT4-0002,,704-46*1-0001,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0149,,QUMU-MT4-0004,,704-46*1-0002,O,Quercus muehlenbergii,No tissue,,,,,,,,
-UHA-0150,SH-Q3099,QUMU-MT4-0005,,704-46*1-0003,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0151,SH-Q3122,QUMU-MT4-0007,,704-46*1-0004,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0152,SH-Q3123,QUMU-MT4-0009,,704-46*1-0005,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0153,SH-Q3124,QUMU-MT4-0010,,704-46*1-0006,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0154,SH-Q3125,QUMU-MT4-0012,,704-46*1-0007,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0155,SH-Q3126,QUMU-MT4-0014,,704-46*1-0008,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0156,SH-Q3127,QUMU-MT4-0015,,704-46*1-0009,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0157,SH-Q3128,QUMU-MT4-0016,,704-46*1-0010,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0158,SH-Q3129,QUMU-MT4-0018,,704-46*1-0011,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0159,SH-Q3130,QUMU-MT4-0019,,704-46*1-0012,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0160,SH-Q3131,QUMU-MT4-0020,,704-46*1-0013,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0161,SH-Q3132,QUMU-MT4-0021,,704-46*1-0014,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0162,SH-Q3102,QUMU-MT4-0023,,704-46*1-0015,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0163,SH-Q3103,QUMU-MT4-0025,,704-46*1-0016,O,Quercus muehlenbergii,X,,,,,Resampled 9/6/23 due to tissue necrosis ,,,
-UHA-0164,SH-Q3104,QUMU-MT13-0004,,704-46*14-0001,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0165,SH-Q3105,QUMU-MT13-0006,,704-46*14-0002,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0166,SH-Q2623,QUMU-MT6-0001,,704-46*6-0001,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0167,SH-Q3106,QUMU-MT6-0014,,704-46*6-0002,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0168,SH-Q3107,QUMU-MT6-0018,,704-46*6-0003,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0169,SH-Q2624,QUMU-MT6-0019,,704-46*6-0004,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0170,SH-Q3108,QUMU-MT6-0020,,704-46*6-0005,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0171,SH-Q3109,QUMU-MT18-0020,,549-82*5-0009,O,Quercus muehlenbergii,X,,,,,,,,
-UHA-0172,SH-Q3110,,,NA,P,Quercus x humidicola,X,,,,,,9/1/2023,-88.06630278,41.81127634
-UHA-0173,SH-Q3111,,,NA,P,Quercus x humidicola,X,,,,,,9/1/2023,-88.06641166,41.81106623
-UHA-0174,SH-Q3112,,,NA,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.0668092,41.8109505
-UHA-0175,SH-Q3113,,,NA,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.06674185,41.81093655
-UHA-0176,SH-Q3114,,,NA,P,Quercus x humidicola,X,,,,,,9/1/2023,-88.0663978,41.8109425
-UHA-0177,SH-Q3115,,,NA,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.06620011,41.8109599
-UHA-0178,SH-Q3116,,,NA,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.06612306,41.81090792
-UHA-0179,SH-Q3117,,,NA,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.06617062,41.81120789
-UHA-0180,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06016294,41.81331623
-UHA-0181,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.05990421,41.81349473
-UHA-0182,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.0599728,41.8137023
-UHA-0183,SH-Q2840,,,1277-2004*1,P,Quercus alba,X,X,X,X,X,,1-Jun,-88.069844,41.813993
-UHA-0184,SH-Q2841,,,1277-2004*3,P,Quercus alba,X,X,X,X,Rerun,,7-Jun,-88.069869,41.814047
-UHA-0185,,,,134-U*1,P,Quercus alba,No tissue,,,,,Couldn't find (5/31) - possibly removed,,-88.065154,41.818153
-UHA-0186,SH-Q2842,,,239-42*1,P,Quercus alba,X,X,X,X,X,,5/31/2023,-88.069282,41.816511
-UHA-0187,SH-Q2843,,,392-2006*1,P,Quercus alba,X,X,X,X,X,,1-Jun,-88.068177,41.813475
-UHA-0188,SH-Q2844,,,468-2001*1,P,Quercus alba,X,X,X,X,X,,7-Jun,-88.062587,41.814651
-UHA-0189,SH-Q3118,,,468-2001*2,P,Quercus alba,X,,,,,,9/1/2023,-88.063049,41.815225
-UHA-0190,SH-Q3119,,,468-2001*3,P,Quercus alba,X,,,,,,9/1/2023,-88.062965,41.81532
-UHA-0191,SH-Q2845,,,755-79*2,P,Quercus alba,X,X,X,X,X,,1-Jun,-88.066559,41.813961
-UHA-0192,,,,530-2008*7,P,Quercus aliena var. acutiserrata,No tissue,,,,,,,-88.062315,41.81588
-UHA-0193,SH-Q2846,,,1278-2004*1,P,Quercus bicolor,X,X,X,X,Rerun,,5/31/2023,-88.068569,41.814118
-UHA-0194,SH-Q2847,,,1278-2004*3,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.068624,41.813697
-UHA-0195,SH-Q2848,,,1278-2004*4,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.068607,41.81373
-UHA-0196,SH-Q2849,,,1278-2004*5,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.068609,41.813769
-UHA-0197,SH-Q2850,,,1294-2004*1,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.069395,41.813639
-UHA-0198,SH-Q2851,,,1294-2004*2,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.069494,41.813636
-UHA-0199,SH-Q3120,,,135-U*10,P,Quercus bicolor,X,,,,,,9/1/2023,-88.06093,41.813936
-UHA-0200,,,,135-U*12,P,Quercus bicolor,No tissue,,,,,Removed - 9/1/23,Removed,-88.060932,41.813977
-UHA-0201,,,,135-U*13,P,Quercus bicolor,No tissue,,,,,Removed - 9/1/23,removed,-88.060952,41.814018
-UHA-0202,SH-Q2852,QUBI-MT7,,135-U*3,P,Quercus bicolor,X,X,X,X,X,,5/31/2023,-88.069315,41.816016
-UHA-0203,SH-Q3135,,,135-U*8,P,Quercus bicolor,X,,,,,,9/1/2023,-88.060924,41.813812
-UHA-0204,SH-Q3136,,,135-U*9,P,Quercus bicolor,X,,,,,,9/1/2023,-88.060928,41.813895
-UHA-0205,SH-Q2853,QUBI-MT3,,393-2006*1,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.069529,41.813432
-UHA-0206,SH-Q2854,QUBI-MT5,,393-2006*2,P,Quercus bicolor,X,X,X,X,X,,5/31/2023,-88.069997,41.814384
-UHA-0207,SH-Q2855,QUBI-MT2,,463-84*5,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.065546,41.814944
-UHA-0208,SH-Q2856,,,525-32*1,P,Quercus bicolor,X,X,X,X,X,,5/31/2023,-88.069329,41.816331
-UHA-0209,SH-Q2857,,,551-2005*3,P,Quercus bicolor,X,X,X,X,X,,6/1/2023,-88.068131,41.813429
-UHA-0210,SH-Q2858,,,616-30*3,P,Quercus x deamii,X,X,X,X,X,,6/8/2023,-88.067528,41.816267
-UHA-0211,SH-Q2859,,,173-2001*1,P,Quercus dentata,X,X,X,X,X,,6/8/2023,-88.0644,41.817529
-UHA-0212,SH-Q2860,,,173-2001*2,P,Quercus dentata,X,X,X,X,X,,6/8/2023,-88.064301,41.817535
-UHA-0213,SH-Q2861,,,210-91*1,P,Quercus prinoides,X,X,X,X,X,,6/7/2023,-88.062858,41.814562
-UHA-0214,SH-Q2862,,,210-91*5,P,Quercus prinoides,X,X,X,X,X,,6/7/2023,-88.062814,41.814484
-UHA-0215,SH-Q2863,,,699-50*1,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.06631,41.811194
-UHA-0216,SH-Q2864,,,699-50*2,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.066252,41.81119
-UHA-0217,SH-Q2865,,,699-50*3,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.066283,41.810901
-UHA-0218,SH-Q2866,,,699-50*4,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.066205,41.81098
-UHA-0219,SH-Q2867,,,699-50*5,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.066246,41.811069
-UHA-0220,SH-Q2868,,,699-50*7,P,Quercus x humidicola,X,X,X,X,X,,5/31/2023,-88.066181,41.811162
-UHA-0221,SH-Q2869,,,35-2007*3,P,Quercus x  macdanielii,X,X,X,X,X,,5/31/2023,-88.070197,41.816389
-UHA-0222,SH-Q2870,,,35-2007*4,P,Quercus x  macdanielii,X,X,X,X,X,,5/31/2023,-88.070287,41.816345
-UHA-0223,SH-Q2871,,,1279-2004*10,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.069986,41.813794
-UHA-0224,SH-Q2872,,,1279-2004*2,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.068949,41.813826
-UHA-0225,SH-Q2873,,,1279-2004*3,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.068608,41.813516
-UHA-0226,SH-Q2874,,,1279-2004*7,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.068387,41.813409
-UHA-0227,SH-Q2875,,,1279-2004*8,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.068512,41.813491
-UHA-0228,SH-Q2876,,,1279-2004*9,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.069115,41.813764
-UHA-0229,SH-Q2877,QUMA-MT4,,"1443-2004*1",P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.071193,41.815018
-UHA-0230,SH-Q2878,QUMA-MT8,,16-2006*1,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.070629,41.816114
-UHA-0231,SH-Q2879,QUMA-MT6,,478-2001*1,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.065699,41.814998
-UHA-0232,SH-Q2880,,,478-2001*3,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.065708,41.81511
-UHA-0233,SH-Q2881,,,527-2000*1,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.064893,41.814113
-UHA-0234,SH-Q3137,,,527-2000*3,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.06334,41.814841
-UHA-0235,SH-Q3138,,,527-2000*4,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.063468,41.814898
-UHA-0236,SH-Q3139,,,527-2000*5,P,Quercus macrocarpa,X,,,,,,9/1/2023,-88.063326,41.814932
-UHA-0237,SH-Q2882,QUMA-MT5,,527-2000*6,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.065539,41.814788
-UHA-0238,SH-Q2883,,,537-82*14,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06646,41.81765
-UHA-0239,SH-Q2884,,,537-82*2,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.066492,41.814429
-UHA-0240,SH-Q2885,,,537-82*3,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.066813,41.814478
-UHA-0241,SH-Q2886,,,54-2007*3,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.070338,41.815844
-UHA-0242,SH-Q2887,,,548-82*2,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.065516,41.814031
-UHA-0243,SH-Q2888,,,548-82*4,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.065452,41.814057
-UHA-0244,SH-Q2889,,,548-82*5,P,Quercus macrocarpa,X,X,Rerun,Rerun,Rerun,"Duplicate inconsistent in all multiplexes, rerun in new dilution plate",6/1/2023,-88.065456,41.814153
-UHA-0245,SH-Q2890,QUMA-MT3,,582-2004*1,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.070533,41.815609
-UHA-0246,SH-Q2891,,,582-2004*3,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.070591,41.815934
-UHA-0247,SH-Q2892,,,582-2004*4,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.070395,41.815801
-UHA-0248,SH-Q2893,,,539-96*8,P,Quercus michauxii,X,X,X,X,X,,6/7/2023,-88.063309,41.814221
-UHA-0249,SH-Q2894,,,539-96*9,P,Quercus michauxii,X,X,X,X,X,,6/7/2023,-88.063408,41.814304
-UHA-0250,,,,333-94*8,P,Quercus mongolica,No tissue,,,,,"Not found, 06/01/23",,-88.068137,41.813888
-UHA-0251,SH-Q2895,,,333-94*9,P,Quercus mongolica,X,X,X,X,X,,6/1/2023,-88.068722,41.813274
-UHA-0252,SH-Q2896,,,343-94*6,P,Quercus mongolica,X,X,X,X,X,,6/1/2023,-88.068983,41.813863
-UHA-0253,,,,852-2005*2,P,Quercus mongolica,No tissue,,,,,"Not found, possibly removed 6/8/23",,,
-UHA-0254,SH-Q2897,,,207-40*1,P,Quercus montana,X,X,X,X,X,,5/31/2023,-88.069208,41.816087
-UHA-0255,SH-Q2898,,,207-40*5,P,Quercus montana,X,X,X,X,X,,6/8/2023,-88.067914,41.816271
-UHA-0256,SH-Q2899,,,474-2001*1,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.065297,41.814547
-UHA-0257,SH-Q2900,QUMU-MT17,,549-82*4,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.06577,41.814038
-UHA-0258,SH-Q2901,,,549-82*6,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.06581,41.814109
-UHA-0259,SH-Q2902,,,550-82*6,P,Quercus muehlenbergii,X,X,X,X,X,,5/31/2023,-88.066622,41.817259
-UHA-0260,SH-Q2903,QUMU-MT7,,570-78*1,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.066314,41.813805
-UHA-0261,SH-Q2904,QUMU-MT16,,570-78*3,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.066218,41.813887
-UHA-0262,SH-Q2905,QUMU-MT14,,704-46*10,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.064,41.811708
-UHA-0263,SH-Q2906,,,704-46*11,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.063389,41.811663
-UHA-0264,SH-Q2907,QUMU-MT10,,704-46*15,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.063301,41.811734
-UHA-0265,SH-Q2908,QUMU-MT12,,704-46*16,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.063121,41.811813
-UHA-0266,SH-Q2909,QUMU-MT11,,704-46*17,P,Quercus muehlenbergii,X,X,X,X,X,,6/1/2023,-88.063221,41.811843
-UHA-0267,SH-Q2910,QUMU-MT5,,704-46*9,P,Quercus muehlenbergii,X,X,X,X,X,,5/31/2023,-88.066639,41.813953
-UHA-0268,SH-Q3140,,,120-2001*2,P,Quercus prinoides,X,,,,,,9/1/2023,-88.063133,41.813314
-UHA-0269,SH-Q3141,,,120-2001*3,P,Quercus prinoides,X,,,,,,9/1/2023,-88.063184,41.813308
-UHA-0270,SH-Q3142,,,365-2007*1,P,Quercus prinoides,X,,,,,,9/1/2023,-88.062577,41.814501
-UHA-0271,SH-Q3143,,,365-2007*5,P,Quercus prinoides,X,,,,,,9/1/2023,-88.062582,41.814539
-UHA-0272,SH-Q3144,,,365-2007*6,P,Quercus prinoides,X,,,,,,9/1/2023,-88.062539,41.814551
-UHA-0273,SH-Q2911,,,563-32*1,P,Quercus robur,X,X,X,X,X,,5/31/2023,-88.068934,41.816519
-UHA-0274,,,,28-93*1,P,Quercus stellata,No tissue ,,,,,"Not found, possibly removed 6/8/23",,-88.064469,41.816202
-UHA-0275,,,,65-2008*2,P,Quercus stellata,No tissue ,,,,,"Not found, possibly removed 6/8/23",,-88.066476,41.816334
-UHA-0276,SH-Q3133,,,479-2001*1,P,Quercus stellata,X,,,,,,9/1/2023,-88.062894,41.815127
-UHA-0277,SH-Q3134,,,479-2001*2,P,Quercus stellata,X,,,,,,9/1/2023,-88.062878,41.815243
-UHA-0278,,,,479-2001*3,P,Quercus stellata,,,,,,,9/1/2023,-88.062778,41.815141
-UHA-0279,,,,NA,P,Quercus alba,,,,,,,5/31/2023,-88.06474148,41.81779825
-UHA-0280,,,,NA,P,Quercus macrocarpa,,,,,,,5/31/2023,-88.06499704,41.81788699
-UHA-0281,SH-Q2912,,,NA,P,Quercus macrocarpa,X,X,X,Rerun,Rerun,,5/31/2023,-88.0649243,41.8173828
-UHA-0282,SH-Q2913,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06512606,41.81753361
-UHA-0283,SH-Q2914,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.0654367,41.81729735
-UHA-0284,SH-Q2915,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06558142,41.81742825
-UHA-0285,SH-Q2916,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06560829,41.81749585
-UHA-0286,SH-Q2917,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06581009,41.81762027
-UHA-0287,SH-Q2918,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06579826,41.81764784
-UHA-0288,SH-Q2919,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06577984,41.81780834
-UHA-0289,SH-Q2920,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.0656644,41.81788654
-UHA-0290,SH-Q2921,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,5/31/2023,-88.06549382,41.81793322
-UHA-0291,,,,NA,P,Quercus macrocarpa,,,,,,,5/31/2023,-88.06555743,41.81785163
-UHA-0292,,,,NA,P,Quercus macrocarpa,No tissue,,,,,,Could not reach,,
-UHA-0293,,,,NA,P,Quercus macrocarpa,No tissue,,,,,,Could not reach,,
-UHA-0294,SH-Q2922,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.06416,41.813413
-UHA-0295,SH-Q2923,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/1/2023,-88.06459,41.81353
-UHA-0296,,,,NA,P,Quercus macrocarpa,No tissue,,,,,,Could not reach,,
-UHA-0297,,,,NA,P,Quercus macrocarpa,No tissue,,,,,,Could not reach,,
-UHA-0298,SH-Q2924,QUMU-MT18-0023,,549-82*5-0009,P,Quercus muehlenbergii,X,X,X,X,X,,,,
-UHA-0299,SH-Q2925,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.064494,41.813903
-UHA-0300,SH-Q2926,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.0643,41.813909
-UHA-0301,SH-Q2927,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06422,41.813675
-UHA-0302,SH-Q2928,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.0638,41.81362
-UHA-0303,SH-Q2929,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.0638,41.813691
-UHA-0304,SH-Q2930,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06386,41.813757
-UHA-0305,SH-Q2931,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06401,41.813752
-UHA-0306,SH-Q2932,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06395,41.813922
-UHA-0307,SH-Q2933,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06395,41.813945
-UHA-0308,SH-Q2934,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06395,41.813866
-UHA-0309,SH-Q2935,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06402,41.813894
-UHA-0310,SH-Q2936,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06379,41.814067
-UHA-0311,SH-Q2937,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06376,41.813932
-UHA-0312,SH-Q2938,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.0637,41.813737
-UHA-0313,SH-Q2939,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06341939,41.8136972
-UHA-0314,SH-Q2940,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06374,41.813847
-UHA-0315,,,,NA,P,Quercus macrocarpa,,,,,,,6/7/2023,-88.0636,41.813918
-UHA-0316,SH-Q2941,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06376,41.814118
-UHA-0317,SH-Q2942,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06372,41.814205
-UHA-0318,SH-Q2943,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06364,41.814211
-UHA-0319,SH-Q2944,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06345,41.814117
-UHA-0320,SH-Q2945,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06344,41.814103
-UHA-0321,SH-Q2946,,,NA,P,Quercus macrocarpa,X,X,X,X,Rerun,,6/7/2023,-88.06338,41.814086
-UHA-0322,SH-Q2947,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06337,41.81395
-UHA-0323,SH-Q2948,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06326915,41.813979
-UHA-0324,SH-Q2949,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06324,41.813891
-UHA-0325,SH-Q2950,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06322,41.813828
-UHA-0326,SH-Q2951,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06325,41.813788
-UHA-0327,SH-Q2952,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06331,41.813775
-UHA-0328,,,,NA,P,Quercus macrocarpa,,,,,,,6/7/2023,-88.06316,41.813579
-UHA-0329,SH-Q2953,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.063,41.813551
-UHA-0330,SH-Q2954,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.063,41.813547
-UHA-0331,SH-Q2955,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06296,41.813562
-UHA-0332,SH-Q2956,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.063,41.813641
-UHA-0333,SH-Q2957,,,NA,P,Quercus alba,X,X,X,X,X,,6/7/2023,-88.06308,41.813999
-UHA-0334,SH-Q2958,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06283,41.81392
-UHA-0335,SH-Q2959,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/7/2023,-88.06291,41.813803
-UHA-0336,SH-Q2960,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06598,41.816622
-UHA-0337,SH-Q2961,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06571,41.816617
-UHA-0338,SH-Q2962,,,NA,P,Quercus alba,X,X,X,X,X,,6/8/2023,-88.06609,41.817023
-UHA-0339,SH-Q2963,,,NA,P,Quercus alba,X,X,X,X,X,,6/8/2023,-88.06616,41.817179
-UHA-0340,SH-Q2964,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06613,41.817527
-UHA-0341,SH-Q2965,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06573,41.817747
-UHA-0342,SH-Q2966,,,NA,P,Quercus alba,X,,,,,,6/8/2023,-88.06579,41.817635
-UHA-0343,SH-Q2967,,,NA,P,Quercus alba,X,X,X,X,X,,6/8/2023,-88.06582,41.817477
-UHA-0344,,,,,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.05994208,41.81375691
-UHA-0345,SH-Q2968,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06521,41.8166
-UHA-0346,SH-Q2969,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06532,41.816887
-UHA-0347,SH-Q2970,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06525,41.817111
-UHA-0348,SH-Q2971,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.0612,41.817125
-UHA-0349,SH-Q2972,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06503,41.817183
-UHA-0350,SH-Q2973,,,NA,P,Quercus alba,X,X,X,X,X,,6/8/2023,-88.06501,41.816957
-UHA-0351,,QUMU-MT18,,549-82*5,P,Quercus muehlenbergii,,,,,,,6/8/2023,-88.065622,41.814004
-UHA-0352,SH-Q2975,,,NA,P,Quercus alba,X,X,X,X,X,,6/8/2023,-88.0647,41.816869
-UHA-0353,SH-Q2976,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06464,41.816713
-UHA-0354,SH-Q2974,,,NA,P,Quercus macrocarpa,X,X,X,X,X,,6/8/2023,-88.06459,41.816609
-UHA-0355,SH-Q3145,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06451,41.81648
-UHA-0356,SH-Q3146,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06439,41.816623
-UHA-0357,SH-Q3147,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06454,41.816754
-UHA-0358,SH-Q3148,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06445,41.816729
-UHA-0359,SH-Q3149,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06443,41.816754
-UHA-0360,SH-Q3150,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.0644,41.816808
-UHA-0361,SH-Q3151,,,NA,P,Quercus alba,X,,,,,,6/8/2023,-88.0643,41.816827
-UHA-0362,SH-Q3152,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06424,41.81692
-UHA-0363,SH-Q3153,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06436,41.816998
-UHA-0364,,,,NA,P,Quercus alba,No tissue,,,,,,6/8/2023,-88.06442,41.817207
-UHA-0365,SH-Q3155,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06457,41.817268
-UHA-0366,SH-Q3156,,,NA,P,Quercus macrocarpa,X,,,,,,6/8/2023,-88.06451,41.817313
-UHA-0367,SH-Q3157,,,NA,P,Quercus alba,X,,,,,,6/8/2023,-88.064561,41.817726
-UHA-0368,SH-Q3158,,,NA,P,Quercus alba,X,,,,,,6/8/2023,-88.06448,41.817737
-UHA-0369,SH-Q3159,,,NA,P,Quercus alba,X,,,,,,6/8/2023,-88.06423,41.817718
-UHA-0370,SH-Q3160,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.0642,41.817939
-UHA-0371,SH-Q3161,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06406,41.817675
-UHA-0372,SH-Q3162,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06411,41.817596
-UHA-0373,SH-Q3163,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06411,41.817565
-UHA-0374,SH-Q3164,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06409,41.817508
-UHA-0375,SH-Q3165,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06399,41.81746
-UHA-0376,SH-Q3166,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06393,41.817468
-UHA-0377,SH-Q3167,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06384,41.817421
-UHA-0378,SH-Q3168,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06389,41.817349
-UHA-0379,SH-Q3154,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06374,41.817496
-UHA-0380,SH-Q3169,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06365,41.81752
-UHA-0381,SH-Q3170,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06365,41.817544
-UHA-0382,SH-Q3171,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06371,41.817476
-UHA-0383,SH-Q3172,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06361,41.817641
-UHA-0384,SH-Q3173,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06366,41.81772
-UHA-0385,SH-Q3174,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06371,41.817699
-UHA-0386,SH-Q3175,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06349,41.817588
-UHA-0387,SH-Q3176,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.0636,41.817741
-UHA-0388,SH-Q3177,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06357,41.817834
-UHA-0389,SH-Q3178,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06376,41.817836
-UHA-0390,SH-Q3179,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06376,41.817961
-UHA-0391,SH-Q3180,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06385,41.817913
-UHA-0392,SH-Q3181,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06367,41.817336
-UHA-0393,SH-Q3182,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06375,41.817302
-UHA-0394,SH-Q3183,,,NA,P,Quercus alba,X,,,,,,6/12/2023,-88.06338,41.817052
-UHA-0395,SH-Q3184,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06334,41.817027
-UHA-0396,SH-Q3185,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06334,41.816967
-UHA-0397,SH-Q3186,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.0633,41.817031
-UHA-0398,SH-Q3187,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06335,41.816836
-UHA-0399,SH-Q3188,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.066352,41.817021
-UHA-0400,SH-Q3189,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06377,41.816928
-UHA-0401,SH-Q3190,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.0638,41.816811
-UHA-0402,SH-Q3191,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06373,41.816748
-UHA-0403,SH-Q3192,,,NA,P,Quercus macrocarpa,X,,,,,,6/12/2023,-88.06379,41.816833
-UHA-0404,,,,NA,P,Quercus alba,No tissue,,,,,,6/12/2023,-88.06376,41.816613
-UHA-0405,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06396,41.816576
-UHA-0406,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06401,41.81665
-UHA-0407,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06393,41.816695
-UHA-0408,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06401,41.81665
-UHA-0409,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06397,41.816704
-UHA-0410,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06401,41.816732
-UHA-0411,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06388,41.816703
-UHA-0412,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06394,41.816725
-UHA-0413,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06397,41.816803
-UHA-0414,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06388,41.816895
-UHA-0415,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06384,41.81706
-UHA-0416,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06396,41.817027
-UHA-0417,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.0639,41.817109
-UHA-0418,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06396,41.817178
-UHA-0419,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06419,41.816857
-UHA-0420,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06417,41.816727
-UHA-0421,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06417,41.816624
-UHA-0422,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06418,41.816514
-UHA-0423,,,,NA,P,Quercus alba,,,,,,,6/12/2023,-88.06416,41.816475
-UHA-0424,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06434,41.816443
-UHA-0425,,,,NA,P,Quercus macrocarpa,,,,,,,6/12/2023,-88.06443,41.816484
-UHA-0426,,QUMU-MT1-0001,,NA,O,Quercus muehlenbergii ,,,,,,,6/23/2023,,
-UHA-0427,,QUMU-MT9-0007,,NA,O,Quercus muehlenbergii ,,,,,,,6/23/2023,,
-UHA-0428,,QUMU-MT9-1-0027,,NA,O,Quercus muehlenbergii ,,,,,,,6/23/2023,,
-UHA-0429,,QUMU-MT4-0003,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0430,,QUMU-MT4-0006,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0431,,QUMU-MT4-0008,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0432,,QUMU-MT4-0011,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0433,,QUMU-MT4-0013,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0434,,QUMU-MT4-0017,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0435,,QUMU-MT2-1-0006,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0436,,QUMU-MT2-1-0013,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0437,,QUMU-MT2-1-0021,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0438,,QUMU-MT2-1-0022,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0439,,QUMU-MT2-1-0023,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0440,,QUMU-MT7-1-0004,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0441,,QUMU-MT7-1-0008,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0442,,QUMU-MT7-1-0014,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0443,,QUMU-MT7-1-0017,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0444,,QUMU-MT7-1-0018,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0445,,QUMU-MT7-1-0023,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0446,,QUMU-MT7-1-0031,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0447,,QUMU-MT7-1-0033,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0448,,QUMU-MT7-1-0036,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0449,,QUMU-MT7-1-0039,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0450,,QUMU-MT7-1-0040,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0451,,QUMU-MT7-1-0042,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0452,,QUMU-MT7-1-0043,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0453,,QUMU-MT7-1-0049,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0454,,QUMU-MT17-0007,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0455,,QUMU-MT17-0008,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0456,,QUMU-MT17-0012,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0457,,QUMU-MT17-0013,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0458,,QUMU-MT17-0022,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0459,,QUMU-MT17-0024,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0460,,QUMU-MT17-0025,,NA,O,Quercus muehlenbergii ,,,,,,,,,
-UHA-0461,,,,NA,P,Quercus alba,,,,,,,9/14/2023,-88.06055052,41.81410261
-UHA-0462,,,,NA,P,Quercus alba,,,,,,,9/14/2023,-88.06054422,41.8139892
-UHA-0463,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06052961,41.81389979
-UHA-0464,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06047029,41.81373604
-UHA-0465,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06058162,41.81371187
-UHA-0466,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06059105,41.813456
-UHA-0467,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06057382,41.81325802
-UHA-0468,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06048119,41.8131454
-UHA-0469,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06041357,41.81338574
-UHA-0470,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.0603423,41.8134267
-UHA-0471,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06024449,41.81361455
-UHA-0472,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.0602524,41.8132696
-UHA-0473,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06022775,41.8132837
-UHA-0474,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.06001685,41.81384106
-UHA-0475,,,,NA,P,Quercus macrocarpa,,,,,,,9/14/2023,-88.05988183,41.81384017
+Tissue_ID,Accession_Number,Parent_Offspring,Species,Longitude,Latitude
+UHA-0001,755-79*1,P,Quercus alba,-88.066243,41.814518
+UHA-0002,755-79*5,P,Quercus alba,-88.071058,41.815203
+UHA-0003,134-U*72,P,Quercus alba,-88.068732,41.815779
+UHA-0004,463-84*5,P,Quercus bicolor,-88.066721,41.814783
+UHA-0005,789-2004*3,P,Quercus bicolor,-88.064352,41.817355
+UHA-0006,789-2004*2,P,Quercus bicolor,-88.070812,41.815453
+UHA-0007,478-2001*2,P,Quercus macrocarpa,-88.065814,41.815105
+UHA-0008,527-2000*2,P,Quercus macrocarpa,-88.06698,41.81485
+UHA-0009,704-46*5,P,Quercus muehlenbergii,-88.069397,41.814984
+UHA-0010,704-46*8,P,Quercus muehlenbergii,-88.067413,41.816572
+UHA-0011,704-46*7,P,Quercus muehlenbergii,-88.068655,41.815796
+UHA-0012,704-46*1,P,Quercus muehlenbergii,-88.066633,41.81118
+UHA-0013,704-46*6,P,Quercus muehlenbergii,-88.06758,41.815615
+UHA-0014,704-46*13,P,Quercus muehlenbergii,-88.063177,41.811685
+UHA-0015,704-46*12,P,Quercus muehlenbergii,-88.063254,41.81167
+UHA-0016,704-46*14,P,Quercus muehlenbergii,-88.063069,41.811735
+UHA-0017,1443-2004*1,P,Quercus macrocarpa,-88.071193,41.815018
+UHA-0018,316-85*1,P,Quercus macrocarpa,,
+UHA-0020,570-78*3-0002,O,Quercus muehlenbergii,,
+UHA-0021,570-78*3-0003,O,Quercus muehlenbergii,,
+UHA-0022,570-78*3-0004,O,Quercus muehlenbergii,,
+UHA-0023,570-78*3-0005,O,Quercus muehlenbergii,,
+UHA-0025,570-78*3-0007,O,Quercus muehlenbergii,,
+UHA-0026,570-78*3-0008,O,Quercus muehlenbergii,,
+UHA-0027,570-78*3-0009,O,Quercus muehlenbergii,,
+UHA-0028,570-78*3-0010,O,Quercus muehlenbergii,,
+UHA-0029,570-78*3-0011,O,Quercus muehlenbergii,,
+UHA-0036,570-78*3-0018,O,Quercus muehlenbergii,,
+UHA-0037,570-78*3-0019,O,Quercus muehlenbergii,,
+UHA-0038,570-78*3-0020,O,Quercus muehlenbergii,,
+UHA-0040,570-78*3-0022,O,Quercus muehlenbergii,,
+UHA-0041,570-78*3-0023,O,Quercus muehlenbergii,,
+UHA-0043,570-78*1-0001,O,Quercus muehlenbergii,,
+UHA-0045,570-78*1-0003,O,Quercus muehlenbergii,,
+UHA-0047,570-78*1-0005,O,Quercus muehlenbergii,,
+UHA-0048,570-78*1-0006,O,Quercus muehlenbergii,,
+UHA-0049,570-78*1-0007,O,Quercus muehlenbergii,,
+UHA-0050,570-78*1-0008,O,Quercus muehlenbergii,,
+UHA-0052,570-78*1-0010,O,Quercus muehlenbergii,,
+UHA-0053,570-78*1-0011,O,Quercus muehlenbergii,,
+UHA-0054,570-78*1-0012,O,Quercus muehlenbergii,,
+UHA-0055,570-78*1-0013,O,Quercus muehlenbergii,,
+UHA-0056,570-78*1-0014,O,Quercus muehlenbergii,,
+UHA-0058,570-78*1-0016,O,Quercus muehlenbergii,,
+UHA-0059,570-78*1-0017,O,Quercus muehlenbergii,,
+UHA-0063,570-78*1-0021,O,Quercus muehlenbergii,,
+UHA-0068,704-46*13-0002,O,Quercus muehlenbergii,,
+UHA-0069,704-46*13-0003,O,Quercus muehlenbergii,,
+UHA-0070,704-46*13-0004,O,Quercus muehlenbergii,,
+UHA-0071,704-46*13-0005,O,Quercus muehlenbergii,,
+UHA-0072,704-46*13-0006,O,Quercus muehlenbergii,,
+UHA-0073,704-46*13-0007,O,Quercus muehlenbergii,,
+UHA-0074,704-46*13-0008,O,Quercus muehlenbergii,,
+UHA-0075,704-46*13-0009,O,Quercus muehlenbergii,,
+UHA-0076,704-46*13-0010,O,Quercus muehlenbergii,,
+UHA-0077,704-46*13-0011,O,Quercus muehlenbergii,,
+UHA-0079,704-46*13-0013,O,Quercus muehlenbergii,,
+UHA-0080,704-46*13-0014,O,Quercus muehlenbergii,,
+UHA-0081,704-46*13-0015,O,Quercus muehlenbergii,,
+UHA-0082,704-46*13-0016,O,Quercus muehlenbergii,,
+UHA-0083,704-46*13-0017,O,Quercus muehlenbergii,,
+UHA-0084,704-46*13-0018,O,Quercus muehlenbergii,,
+UHA-0085,704-46*13-0019,O,Quercus muehlenbergii,,
+UHA-0086,704-46*13-0020,O,Quercus muehlenbergii,,
+UHA-0087,704-46*13-0021,O,Quercus muehlenbergii,,
+UHA-0088,704-46*13-0022,O,Quercus muehlenbergii,,
+UHA-0089,704-46*13-0023,O,Quercus muehlenbergii,,
+UHA-0090,704-46*13-0024,O,Quercus muehlenbergii,,
+UHA-0091,704-46*13-0025,O,Quercus muehlenbergii,,
+UHA-0093,704-46*12-0002,O,Quercus muehlenbergii,,
+UHA-0094,704-46*12-0003,O,Quercus muehlenbergii,,
+UHA-0095,704-46*12-0004,O,Quercus muehlenbergii,,
+UHA-0096,704-46*12-0005,O,Quercus muehlenbergii,,
+UHA-0097,704-46*12-0006,O,Quercus muehlenbergii,,
+UHA-0098,549-82*4-0001,O,Quercus muehlenbergii,,
+UHA-0099,549-82*4-0002,O,Quercus muehlenbergii,,
+UHA-0100,549-82*4-0003,O,Quercus muehlenbergii,,
+UHA-0101,549-82*4-0004,O,Quercus muehlenbergii,,
+UHA-0102,549-82*4-0005,O,Quercus muehlenbergii,,
+UHA-0105,549-82*4-0008,O,Quercus muehlenbergii,,
+UHA-0106,549-82*4-0009,O,Quercus muehlenbergii,,
+UHA-0109,549-82*4-0012,O,Quercus muehlenbergii,,
+UHA-0110,549-82*4-0013,O,Quercus muehlenbergii,,
+UHA-0111,549-82*4-0014,O,Quercus muehlenbergii,,
+UHA-0112,549-82*4-0015,O,Quercus muehlenbergii,,
+UHA-0113,549-82*4-0016,O,Quercus muehlenbergii,,
+UHA-0114,549-82*4-0017,O,Quercus muehlenbergii,,
+UHA-0115,549-82*5-0001,O,Quercus muehlenbergii,,
+UHA-0116,549-82*5-0002,O,Quercus muehlenbergii,,
+UHA-0118,549-82*5-0004,O,Quercus muehlenbergii,,
+UHA-0119,549-82*5-0005,O,Quercus muehlenbergii,,
+UHA-0120,549-82*5-0006,O,Quercus muehlenbergii,,
+UHA-0121,549-82*5-0007,O,Quercus muehlenbergii,,
+UHA-0122,549-82*5-0008,O,Quercus muehlenbergii,,
+UHA-0123,704-46*8-0001,O,Quercus muehlenbergii,,
+UHA-0124,704-46*8-0002,O,Quercus muehlenbergii,,
+UHA-0125,704-46*8-0003,O,Quercus muehlenbergii,,
+UHA-0126,704-46*8-0004,O,Quercus muehlenbergii,,
+UHA-0127,704-46*8-0005,O,Quercus muehlenbergii,,
+UHA-0128,704-46*8-0006,O,Quercus muehlenbergii,,
+UHA-0129,704-46*8-0007,O,Quercus muehlenbergii,,
+UHA-0130,704-46*8-0008,O,Quercus muehlenbergii,,
+UHA-0131,704-46*8-0009,O,Quercus muehlenbergii,,
+UHA-0132,704-46*8-0010,O,Quercus muehlenbergii,,
+UHA-0133,704-46*8-0011,O,Quercus muehlenbergii,,
+UHA-0134,704-46*8-0012,O,Quercus muehlenbergii,,
+UHA-0135,704-46*8-0013,O,Quercus muehlenbergii,,
+UHA-0136,704-46*8-0014,O,Quercus muehlenbergii,,
+UHA-0137,704-46*8-0015,O,Quercus muehlenbergii,,
+UHA-0138,704-46*8-0016,O,Quercus muehlenbergii,,
+UHA-0139,704-46*8-0017,O,Quercus muehlenbergii,,
+UHA-0140,704-46*8-0018,O,Quercus muehlenbergii,,
+UHA-0141,704-46*8-0019,O,Quercus muehlenbergii,,
+UHA-0143,704-46*8-0021,O,Quercus muehlenbergii,,
+UHA-0144,704-46*8-0022,O,Quercus muehlenbergii,,
+UHA-0146,704-46*8-0024,O,Quercus muehlenbergii,,
+UHA-0147,704-46*8-0025,O,Quercus muehlenbergii,,
+UHA-0148,704-46*1-0001,O,Quercus muehlenbergii,,
+UHA-0150,704-46*1-0003,O,Quercus muehlenbergii,,
+UHA-0151,704-46*1-0004,O,Quercus muehlenbergii,,
+UHA-0152,704-46*1-0005,O,Quercus muehlenbergii,,
+UHA-0153,704-46*1-0006,O,Quercus muehlenbergii,,
+UHA-0154,704-46*1-0007,O,Quercus muehlenbergii,,
+UHA-0155,704-46*1-0008,O,Quercus muehlenbergii,,
+UHA-0156,704-46*1-0009,O,Quercus muehlenbergii,,
+UHA-0157,704-46*1-0010,O,Quercus muehlenbergii,,
+UHA-0158,704-46*1-0011,O,Quercus muehlenbergii,,
+UHA-0159,704-46*1-0012,O,Quercus muehlenbergii,,
+UHA-0160,704-46*1-0013,O,Quercus muehlenbergii,,
+UHA-0161,704-46*1-0014,O,Quercus muehlenbergii,,
+UHA-0162,704-46*1-0015,O,Quercus muehlenbergii,,
+UHA-0163,704-46*1-0016,O,Quercus muehlenbergii,,
+UHA-0164,704-46*14-0001,O,Quercus muehlenbergii,,
+UHA-0165,704-46*14-0002,O,Quercus muehlenbergii,,
+UHA-0166,704-46*6-0001,O,Quercus muehlenbergii,,
+UHA-0167,704-46*6-0002,O,Quercus muehlenbergii,,
+UHA-0169,704-46*6-0004,O,Quercus muehlenbergii,,
+UHA-0172,NA,P,Quercus x humidicola,-88.06630278,41.81127634
+UHA-0174,NA,P,Quercus macrocarpa,-88.0668092,41.8109505
+UHA-0175,NA,P,Quercus macrocarpa,-88.06674185,41.81093655
+UHA-0176,NA,P,Quercus x humidicola,-88.0663978,41.8109425
+UHA-0177,NA,P,Quercus macrocarpa,-88.06620011,41.8109599
+UHA-0178,NA,P,Quercus macrocarpa,-88.06612306,41.81090792
+UHA-0179,NA,P,Quercus macrocarpa,-88.06617062,41.81120789
+UHA-0180,NA,P,Quercus macrocarpa,-88.06016294,41.81331623
+UHA-0181,NA,P,Quercus macrocarpa,-88.05990421,41.81349473
+UHA-0182,NA,P,Quercus macrocarpa,-88.0599728,41.8137023
+UHA-0183,1277-2004*1,P,Quercus alba,-88.069844,41.813993
+UHA-0184,1277-2004*3,P,Quercus alba,-88.069869,41.814047
+UHA-0186,239-42*1,P,Quercus alba,-88.069282,41.816511
+UHA-0187,392-2006*1,P,Quercus alba,-88.068177,41.813475
+UHA-0188,468-2001*1,P,Quercus alba,-88.062587,41.814651
+UHA-0189,468-2001*2,P,Quercus alba,-88.063049,41.815225
+UHA-0190,468-2001*3,P,Quercus alba,-88.062965,41.81532
+UHA-0191,755-79*2,P,Quercus alba,-88.066559,41.813961
+UHA-0193,1278-2004*1,P,Quercus bicolor,-88.068569,41.814118
+UHA-0194,1278-2004*3,P,Quercus bicolor,-88.068624,41.813697
+UHA-0195,1278-2004*4,P,Quercus bicolor,-88.068607,41.81373
+UHA-0196,1278-2004*5,P,Quercus bicolor,-88.068609,41.813769
+UHA-0197,1294-2004*1,P,Quercus bicolor,-88.069395,41.813639
+UHA-0198,1294-2004*2,P,Quercus bicolor,-88.069494,41.813636
+UHA-0199,135-U*10,P,Quercus bicolor,-88.06093,41.813936
+UHA-0202,135-U*3,P,Quercus bicolor,-88.069315,41.816016
+UHA-0203,135-U*8,P,Quercus bicolor,-88.060924,41.813812
+UHA-0204,135-U*9,P,Quercus bicolor,-88.060928,41.813895
+UHA-0205,393-2006*1,P,Quercus bicolor,-88.069529,41.813432
+UHA-0207,463-84*5,P,Quercus bicolor,-88.065546,41.814944
+UHA-0208,525-32*1,P,Quercus bicolor,-88.069329,41.816331
+UHA-0210,616-30*3,P,Quercus x deamii,-88.067528,41.816267
+UHA-0211,173-2001*1,P,Quercus dentata,-88.0644,41.817529
+UHA-0212,173-2001*2,P,Quercus dentata,-88.064301,41.817535
+UHA-0213,210-91*1,P,Quercus prinoides,-88.062858,41.814562
+UHA-0214,210-91*5,P,Quercus prinoides,-88.062814,41.814484
+UHA-0215,699-50*1,P,Quercus x humidicola,-88.06631,41.811194
+UHA-0216,699-50*2,P,Quercus x humidicola,-88.066252,41.81119
+UHA-0217,699-50*3,P,Quercus x humidicola,-88.066283,41.810901
+UHA-0218,699-50*4,P,Quercus x humidicola,-88.066205,41.81098
+UHA-0219,699-50*5,P,Quercus x humidicola,-88.066246,41.811069
+UHA-0220,699-50*7,P,Quercus x humidicola,-88.066181,41.811162
+UHA-0221,35-2007*3,P,Quercus x  macdanielii,-88.070197,41.816389
+UHA-0222,35-2007*4,P,Quercus x  macdanielii,-88.070287,41.816345
+UHA-0223,1279-2004*10,P,Quercus macrocarpa,-88.069986,41.813794
+UHA-0224,1279-2004*2,P,Quercus macrocarpa,-88.068949,41.813826
+UHA-0225,1279-2004*3,P,Quercus macrocarpa,-88.068608,41.813516
+UHA-0226,1279-2004*7,P,Quercus macrocarpa,-88.068387,41.813409
+UHA-0227,1279-2004*8,P,Quercus macrocarpa,-88.068512,41.813491
+UHA-0228,1279-2004*9,P,Quercus macrocarpa,-88.069115,41.813764
+UHA-0229,"1443-2004*1",P,Quercus macrocarpa,-88.071193,41.815018
+UHA-0230,16-2006*1,P,Quercus macrocarpa,-88.070629,41.816114
+UHA-0231,478-2001*1,P,Quercus macrocarpa,-88.065699,41.814998
+UHA-0232,478-2001*3,P,Quercus macrocarpa,-88.065708,41.81511
+UHA-0233,527-2000*1,P,Quercus macrocarpa,-88.064893,41.814113
+UHA-0234,527-2000*3,P,Quercus macrocarpa,-88.06334,41.814841
+UHA-0235,527-2000*4,P,Quercus macrocarpa,-88.063468,41.814898
+UHA-0236,527-2000*5,P,Quercus macrocarpa,-88.063326,41.814932
+UHA-0238,537-82*14,P,Quercus macrocarpa,-88.06646,41.81765
+UHA-0239,537-82*2,P,Quercus macrocarpa,-88.066492,41.814429
+UHA-0240,537-82*3,P,Quercus macrocarpa,-88.066813,41.814478
+UHA-0241,54-2007*3,P,Quercus macrocarpa,-88.070338,41.815844
+UHA-0242,548-82*2,P,Quercus macrocarpa,-88.065516,41.814031
+UHA-0243,548-82*4,P,Quercus macrocarpa,-88.065452,41.814057
+UHA-0244,548-82*5,P,Quercus macrocarpa,-88.065456,41.814153
+UHA-0245,582-2004*1,P,Quercus macrocarpa,-88.070533,41.815609
+UHA-0246,582-2004*3,P,Quercus macrocarpa,-88.070591,41.815934
+UHA-0247,582-2004*4,P,Quercus macrocarpa,-88.070395,41.815801
+UHA-0248,539-96*8,P,Quercus michauxii,-88.063309,41.814221
+UHA-0249,539-96*9,P,Quercus michauxii,-88.063408,41.814304
+UHA-0251,333-94*9,P,Quercus mongolica,-88.068722,41.813274
+UHA-0252,343-94*6,P,Quercus mongolica,-88.068983,41.813863
+UHA-0254,207-40*1,P,Quercus montana,-88.069208,41.816087
+UHA-0255,207-40*5,P,Quercus montana,-88.067914,41.816271
+UHA-0256,474-2001*1,P,Quercus muehlenbergii,-88.065297,41.814547
+UHA-0257,549-82*4,P,Quercus muehlenbergii,-88.06577,41.814038
+UHA-0258,549-82*6,P,Quercus muehlenbergii,-88.06581,41.814109
+UHA-0259,550-82*6,P,Quercus muehlenbergii,-88.066622,41.817259
+UHA-0260,570-78*1,P,Quercus muehlenbergii,-88.066314,41.813805
+UHA-0261,570-78*3,P,Quercus muehlenbergii,-88.066218,41.813887
+UHA-0262,704-46*10,P,Quercus muehlenbergii,-88.064,41.811708
+UHA-0263,704-46*11,P,Quercus muehlenbergii,-88.063389,41.811663
+UHA-0264,704-46*15,P,Quercus muehlenbergii,-88.063301,41.811734
+UHA-0265,704-46*16,P,Quercus muehlenbergii,-88.063121,41.811813
+UHA-0266,704-46*17,P,Quercus muehlenbergii,-88.063221,41.811843
+UHA-0267,704-46*9,P,Quercus muehlenbergii,-88.066639,41.813953
+UHA-0268,120-2001*2,P,Quercus prinoides,-88.063133,41.813314
+UHA-0269,120-2001*3,P,Quercus prinoides,-88.063184,41.813308
+UHA-0270,365-2007*1,P,Quercus prinoides,-88.062577,41.814501
+UHA-0271,365-2007*5,P,Quercus prinoides,-88.062582,41.814539
+UHA-0272,365-2007*6,P,Quercus prinoides,-88.062539,41.814551
+UHA-0273,563-32*1,P,Quercus robur,-88.068934,41.816519
+UHA-0276,479-2001*1,P,Quercus stellata,-88.062894,41.815127
+UHA-0277,479-2001*2,P,Quercus stellata,-88.062878,41.815243
+UHA-0278,479-2001*3,P,Quercus stellata,-88.062778,41.815141
+UHA-0279,NA,P,Quercus alba,-88.06474148,41.81779825
+UHA-0280,NA,P,Quercus macrocarpa,-88.06499704,41.81788699
+UHA-0282,NA,P,Quercus macrocarpa,-88.06512606,41.81753361
+UHA-0283,NA,P,Quercus macrocarpa,-88.0654367,41.81729735
+UHA-0284,NA,P,Quercus macrocarpa,-88.06558142,41.81742825
+UHA-0285,NA,P,Quercus macrocarpa,-88.06560829,41.81749585
+UHA-0286,NA,P,Quercus macrocarpa,-88.06581009,41.81762027
+UHA-0287,NA,P,Quercus macrocarpa,-88.06579826,41.81764784
+UHA-0288,NA,P,Quercus macrocarpa,-88.06577984,41.81780834
+UHA-0289,NA,P,Quercus macrocarpa,-88.0656644,41.81788654
+UHA-0291,NA,P,Quercus macrocarpa,-88.06555743,41.81785163
+UHA-0294,NA,P,Quercus macrocarpa,-88.06416,41.813413
+UHA-0295,NA,P,Quercus macrocarpa,-88.06459,41.81353
+UHA-0298,,O,Quercus muehlenbergii,,
+UHA-0299,NA,P,Quercus macrocarpa,-88.064494,41.813903
+UHA-0300,NA,P,Quercus alba,-88.0643,41.813909
+UHA-0301,NA,P,Quercus macrocarpa,-88.06422,41.813675
+UHA-0302,NA,P,Quercus macrocarpa,-88.0638,41.81362
+UHA-0303,NA,P,Quercus macrocarpa,-88.0638,41.813691
+UHA-0304,NA,P,Quercus macrocarpa,-88.06386,41.813757
+UHA-0305,NA,P,Quercus macrocarpa,-88.06401,41.813752
+UHA-0306,NA,P,Quercus macrocarpa,-88.06395,41.813922
+UHA-0307,NA,P,Quercus macrocarpa,-88.06395,41.813945
+UHA-0308,NA,P,Quercus macrocarpa,-88.06395,41.813866
+UHA-0309,NA,P,Quercus macrocarpa,-88.06402,41.813894
+UHA-0310,NA,P,Quercus macrocarpa,-88.06379,41.814067
+UHA-0311,NA,P,Quercus alba,-88.06376,41.813932
+UHA-0312,NA,P,Quercus macrocarpa,-88.0637,41.813737
+UHA-0313,NA,P,Quercus macrocarpa,-88.06341939,41.8136972
+UHA-0314,NA,P,Quercus alba,-88.06374,41.813847
+UHA-0315,NA,P,Quercus macrocarpa,-88.0636,41.813918
+UHA-0316,NA,P,Quercus macrocarpa,-88.06376,41.814118
+UHA-0317,NA,P,Quercus macrocarpa,-88.06372,41.814205
+UHA-0318,NA,P,Quercus macrocarpa,-88.06364,41.814211
+UHA-0319,NA,P,Quercus alba,-88.06345,41.814117
+UHA-0320,NA,P,Quercus alba,-88.06344,41.814103
+UHA-0321,NA,P,Quercus macrocarpa,-88.06338,41.814086
+UHA-0322,NA,P,Quercus macrocarpa,-88.06337,41.81395
+UHA-0323,NA,P,Quercus alba,-88.06326915,41.813979
+UHA-0324,NA,P,Quercus alba,-88.06324,41.813891
+UHA-0325,NA,P,Quercus alba,-88.06322,41.813828
+UHA-0326,NA,P,Quercus alba,-88.06325,41.813788
+UHA-0327,NA,P,Quercus alba,-88.06331,41.813775
+UHA-0328,NA,P,Quercus macrocarpa,-88.06316,41.813579
+UHA-0329,NA,P,Quercus alba,-88.063,41.813551
+UHA-0330,NA,P,Quercus macrocarpa,-88.063,41.813547
+UHA-0331,NA,P,Quercus alba,-88.06296,41.813562
+UHA-0332,NA,P,Quercus macrocarpa,-88.063,41.813641
+UHA-0333,NA,P,Quercus alba,-88.06308,41.813999
+UHA-0334,NA,P,Quercus macrocarpa,-88.06283,41.81392
+UHA-0335,NA,P,Quercus macrocarpa,-88.06291,41.813803
+UHA-0337,NA,P,Quercus macrocarpa,-88.06571,41.816617
+UHA-0338,NA,P,Quercus alba,-88.06609,41.817023
+UHA-0339,NA,P,Quercus alba,-88.06616,41.817179
+UHA-0340,NA,P,Quercus macrocarpa,-88.06613,41.817527
+UHA-0343,NA,P,Quercus alba,-88.06582,41.817477
+UHA-0344,NA,P,Quercus macrocarpa,-88.05994208,41.81375691
+UHA-0345,NA,P,Quercus macrocarpa,-88.06521,41.8166
+UHA-0346,NA,P,Quercus macrocarpa,-88.06532,41.816887
+UHA-0347,NA,P,Quercus macrocarpa,-88.06525,41.817111
+UHA-0348,NA,P,Quercus macrocarpa,-88.0612,41.817125
+UHA-0349,NA,P,Quercus macrocarpa,-88.06503,41.817183
+UHA-0350,NA,P,Quercus alba,-88.06501,41.816957
+UHA-0351,549-82*5,P,Quercus muehlenbergii,-88.065622,41.814004
+UHA-0352,NA,P,Quercus alba,-88.0647,41.816869
+UHA-0353,NA,P,Quercus macrocarpa,-88.06464,41.816713
+UHA-0354,NA,P,Quercus macrocarpa,-88.06459,41.816609
+UHA-0355,NA,P,Quercus macrocarpa,-88.06451,41.81648
+UHA-0356,NA,P,Quercus macrocarpa,-88.06439,41.816623
+UHA-0357,NA,P,Quercus macrocarpa,-88.06454,41.816754
+UHA-0358,NA,P,Quercus macrocarpa,-88.06445,41.816729
+UHA-0359,NA,P,Quercus macrocarpa,-88.06443,41.816754
+UHA-0361,NA,P,Quercus alba,-88.0643,41.816827
+UHA-0362,NA,P,Quercus macrocarpa,-88.06424,41.81692
+UHA-0363,NA,P,Quercus macrocarpa,-88.06436,41.816998
+UHA-0365,NA,P,Quercus macrocarpa,-88.06457,41.817268
+UHA-0366,NA,P,Quercus macrocarpa,-88.06451,41.817313
+UHA-0367,NA,P,Quercus alba,-88.064561,41.817726
+UHA-0368,NA,P,Quercus alba,-88.06448,41.817737
+UHA-0369,NA,P,Quercus alba,-88.06423,41.817718
+UHA-0370,NA,P,Quercus alba,-88.0642,41.817939
+UHA-0371,NA,P,Quercus alba,-88.06406,41.817675
+UHA-0372,NA,P,Quercus macrocarpa,-88.06411,41.817596
+UHA-0373,NA,P,Quercus macrocarpa,-88.06411,41.817565
+UHA-0374,NA,P,Quercus macrocarpa,-88.06409,41.817508
+UHA-0375,NA,P,Quercus macrocarpa,-88.06399,41.81746
+UHA-0376,NA,P,Quercus macrocarpa,-88.06393,41.817468
+UHA-0377,NA,P,Quercus alba,-88.06384,41.817421
+UHA-0378,NA,P,Quercus alba,-88.06389,41.817349
+UHA-0379,NA,P,Quercus alba,-88.06374,41.817496
+UHA-0380,NA,P,Quercus alba,-88.06365,41.81752
+UHA-0381,NA,P,Quercus alba,-88.06365,41.817544
+UHA-0382,NA,P,Quercus alba,-88.06371,41.817476
+UHA-0383,NA,P,Quercus alba,-88.06361,41.817641
+UHA-0384,NA,P,Quercus alba,-88.06366,41.81772
+UHA-0385,NA,P,Quercus alba,-88.06371,41.817699
+UHA-0386,NA,P,Quercus alba,-88.06349,41.817588
+UHA-0387,NA,P,Quercus alba,-88.0636,41.817741
+UHA-0388,NA,P,Quercus alba,-88.06357,41.817834
+UHA-0389,NA,P,Quercus alba,-88.06376,41.817836
+UHA-0390,NA,P,Quercus alba,-88.06376,41.817961
+UHA-0391,NA,P,Quercus alba,-88.06385,41.817913
+UHA-0392,NA,P,Quercus alba,-88.06367,41.817336
+UHA-0393,NA,P,Quercus alba,-88.06375,41.817302
+UHA-0394,NA,P,Quercus alba,-88.06338,41.817052
+UHA-0395,NA,P,Quercus macrocarpa,-88.06334,41.817027
+UHA-0396,NA,P,Quercus macrocarpa,-88.06334,41.816967
+UHA-0397,NA,P,Quercus macrocarpa,-88.0633,41.817031
+UHA-0398,NA,P,Quercus macrocarpa,-88.06335,41.816836
+UHA-0399,NA,P,Quercus macrocarpa,-88.066352,41.817021
+UHA-0400,NA,P,Quercus macrocarpa,-88.06377,41.816928
+UHA-0401,NA,P,Quercus macrocarpa,-88.0638,41.816811
+UHA-0402,NA,P,Quercus macrocarpa,-88.06373,41.816748
+UHA-0404,NA,P,Quercus alba,-88.06376,41.816613
+UHA-0405,NA,P,Quercus macrocarpa,-88.06396,41.816576
+UHA-0406,NA,P,Quercus macrocarpa,-88.06401,41.81665
+UHA-0407,NA,P,Quercus macrocarpa,-88.06393,41.816695
+UHA-0408,NA,P,Quercus alba,-88.06401,41.81665
+UHA-0409,NA,P,Quercus macrocarpa,-88.06397,41.816704
+UHA-0410,NA,P,Quercus alba,-88.06401,41.816732
+UHA-0411,NA,P,Quercus macrocarpa,-88.06388,41.816703
+UHA-0412,NA,P,Quercus alba,-88.06394,41.816725
+UHA-0413,NA,P,Quercus macrocarpa,-88.06397,41.816803
+UHA-0414,NA,P,Quercus alba,-88.06388,41.816895
+UHA-0415,NA,P,Quercus alba,-88.06384,41.81706
+UHA-0416,NA,P,Quercus alba,-88.06396,41.817027
+UHA-0417,NA,P,Quercus alba,-88.0639,41.817109
+UHA-0418,NA,P,Quercus alba,-88.06396,41.817178
+UHA-0419,NA,P,Quercus alba,-88.06419,41.816857
+UHA-0420,NA,P,Quercus macrocarpa,-88.06417,41.816727
+UHA-0421,NA,P,Quercus macrocarpa,-88.06417,41.816624
+UHA-0422,NA,P,Quercus alba,-88.06418,41.816514
+UHA-0423,NA,P,Quercus alba,-88.06416,41.816475
+UHA-0424,NA,P,Quercus macrocarpa,-88.06434,41.816443
+UHA-0425,NA,P,Quercus macrocarpa,-88.06443,41.816484
+UHA-0426,NA,O,Quercus muehlenbergii ,,
+UHA-0427,NA,O,Quercus muehlenbergii ,,
+UHA-0428,NA,O,Quercus muehlenbergii ,,
+UHA-0429,NA,O,Quercus muehlenbergii ,,
+UHA-0430,NA,O,Quercus muehlenbergii ,,
+UHA-0431,NA,O,Quercus muehlenbergii ,,
+UHA-0432,NA,O,Quercus muehlenbergii ,,
+UHA-0433,NA,O,Quercus muehlenbergii ,,
+UHA-0434,NA,O,Quercus muehlenbergii ,,
+UHA-0435,NA,O,Quercus muehlenbergii ,,
+UHA-0436,NA,O,Quercus muehlenbergii ,,
+UHA-0437,NA,O,Quercus muehlenbergii ,,
+UHA-0438,NA,O,Quercus muehlenbergii ,,
+UHA-0439,NA,O,Quercus muehlenbergii ,,
+UHA-0440,NA,O,Quercus muehlenbergii ,,
+UHA-0441,NA,O,Quercus muehlenbergii ,,
+UHA-0442,NA,O,Quercus muehlenbergii ,,
+UHA-0443,NA,O,Quercus muehlenbergii ,,
+UHA-0444,NA,O,Quercus muehlenbergii ,,
+UHA-0445,NA,O,Quercus muehlenbergii ,,
+UHA-0446,NA,O,Quercus muehlenbergii ,,
+UHA-0447,NA,O,Quercus muehlenbergii ,,
+UHA-0448,NA,O,Quercus muehlenbergii ,,
+UHA-0449,NA,O,Quercus muehlenbergii ,,
+UHA-0450,NA,O,Quercus muehlenbergii ,,
+UHA-0451,NA,O,Quercus muehlenbergii ,,
+UHA-0452,NA,O,Quercus muehlenbergii ,,
+UHA-0453,NA,O,Quercus muehlenbergii ,,
+UHA-0454,NA,O,Quercus muehlenbergii ,,
+UHA-0455,NA,O,Quercus muehlenbergii ,,
+UHA-0456,NA,O,Quercus muehlenbergii ,,
+UHA-0457,NA,O,Quercus muehlenbergii ,,
+UHA-0458,NA,O,Quercus muehlenbergii ,,
+UHA-0459,NA,O,Quercus muehlenbergii ,,
+UHA-0460,NA,O,Quercus muehlenbergii ,,
+UHA-0461,NA,P,Quercus alba,-88.06055052,41.81410261
+UHA-0462,NA,P,Quercus alba,-88.06054422,41.8139892
+UHA-0463,NA,P,Quercus macrocarpa,-88.06052961,41.81389979
+UHA-0464,NA,P,Quercus macrocarpa,-88.06047029,41.81373604
+UHA-0465,NA,P,Quercus macrocarpa,-88.06058162,41.81371187
+UHA-0466,NA,P,Quercus macrocarpa,-88.06059105,41.813456
+UHA-0467,NA,P,Quercus macrocarpa,-88.06057382,41.81325802
+UHA-0468,NA,P,Quercus macrocarpa,-88.06048119,41.8131454
+UHA-0469,NA,P,Quercus macrocarpa,-88.06041357,41.81338574
+UHA-0470,NA,P,Quercus macrocarpa,-88.0603423,41.8134267
+UHA-0471,NA,P,Quercus macrocarpa,-88.06024449,41.81361455
+UHA-0472,NA,P,Quercus macrocarpa,-88.0602524,41.8132696
+UHA-0473,NA,P,Quercus macrocarpa,-88.06022775,41.8132837
+UHA-0474,NA,P,Quercus macrocarpa,-88.06001685,41.81384106
+UHA-0475,NA,P,Quercus macrocarpa,-88.05988183,41.81384017

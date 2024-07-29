@@ -13,39 +13,57 @@ library(geosphere)
 setwd("../..")
 
 #load in the tissue database, remove offspring which have no coordinates
-UHA_db <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
+UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
 
-#read in cleaned data file
-UHA_score_clean_df <- read.csv("Data_Files/CSV_Files/UHA_score_clean_df.csv")  
+#load in score data frames 
+score_df <- list.files(path = "Data_Files/CSV_Files", 
+                            pattern = "genotype_df")
 
-#load in parentage results 
-parentage_results <- read.csv("Data_Files/CSV_Files/UHA_full_parentage.csv")
+#loop in the score data frames 
+score_df_list <- list()
+
+for(sc_df in seq_along(score_df)){
+  
+  #read csvs
+  score_df_list[[sc_df]] <- read.csv(paste0("Data_Files/CSV_Files/", score_df[[sc_df]]))
+  
+}
+
+par_df <- read.csv("Data_Files/CSV_Files/UHA_all_loci_analysis_df.csv")
 
 ###################################
 #     Reorganize data frames      #
 ###################################
-#remove individuals with too much missing data
-UHA_clean_df <- UHA_db[UHA_db$Tissue_ID %in% UHA_score_clean_df$Tissue_ID,]
 
-#remove offspring from the data frame
-UHA_par_df <- UHA_clean_df %>% 
-                filter(!is.na(Longitude) | !is.na(Latitude))
+#Loop over all data files 
+for(par in seq_along(par_scen_df)){
+  
+  temp_score_df <- score_df_list[[1]]
+  
+  #remove offspring from the data frame
+  UHA_par_df <- UHA_database %>% 
+    filter(Parent_Offspring == "P")
+  
+  #create data frame for offspring 
+  # UHA_clean_par_df <- par_df %>% 
+  #   rename(Father_ID = Candidate_father_ID) %>%
+  #   filter(!is.na(Father_ID)) 
+  
+  offspring_df <- par_df %>%
+                    filter(!is.na(Candidate_father_ID))
+  
+  ###Create data frames with distances
+  #Create a column of the crosses of every parent individual
+  all_potential_combo <- crossing(UHA_par_df$Tissue_ID, 
+                                  UHA_par_df$Tissue_ID)
+  
+  colnames(all_potential_combo) <- c("Parent_1", "Parent_2")
+  
+}
 
-#update parentage analysis df
-UHA_clean_par_df <- parentage_results %>% 
-                      rename(Father_ID = Candidate_father_ID) %>%
-                            filter(!is.na(Father_ID)) 
 
-#########################################
-#     Prepare for Distance Analysis     #
-#########################################
 
-###Create data frames with distances
-#Create a column of the crosses of every parent individual
-all_potential_combo <- crossing(UHA_par_df$Tissue_ID, 
-                                UHA_par_df$Tissue_ID)
 
-colnames(all_potential_combo) <- c("Parent_1", "Parent_2")
 
 #remove rows where the parents are the same individual (selfing)
 potential_combo_dedup <- filter(all_potential_combo, Parent_1 != Parent_2)
