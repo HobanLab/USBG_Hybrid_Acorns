@@ -338,3 +338,24 @@ species_count_list[[4]] %>%
        x="Candidate Father Species") +
   theme_bw()
 dev.off()
+
+################## Unused Loops ------------- 
+for(scen in seq_along(full_scen)){
+  
+  mat_off <- par_scen_df[[scen]] %>%
+    ggplot() +
+    geom_bar(aes(y = sort(Candidate_father_ID))) +
+    facet_wrap(~`Mother_ID`) + 
+    scale_x_continuous(n.breaks = 9) +
+    labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
+         y = "Candidate Father ID", x = "Count of Offspring")
+  
+  png(paste0("Results/Parentage_Figures/", full_scen[[scen]], "_mat_off.png"), 
+      width = 5000, height = 3500, res = 600)
+  
+  mat_off
+  
+}
+dev.off()
+
+
