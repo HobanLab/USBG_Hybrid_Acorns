@@ -8,6 +8,10 @@ We performed a study analyzing the parentage of acorns produced by maternal <i>Q
 ### Analysis:
 - Parentage_Analysis
 - RScripts
+    - 01_data_cleaning_for_parentage.R
+    - 02_data_cleaning_post_parentage.R
+    - 03_figures.R
+    - 04_dist_analysis.R
 
 ### Archive:
 The Archive folder includes all files that are **not** integral to the analysis of this project. Inside it, there are three folders: Data_Files_Archive, UHA_Attempted_md_Analysis, and UHA_nomd_PolyPatEx_Analysis. The organization of the Archive folder is as follows:
