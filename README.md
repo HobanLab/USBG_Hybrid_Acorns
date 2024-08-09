@@ -5,6 +5,10 @@ We performed a study analyzing the parentage of acorns produced by maternal <i>Q
 
 ## Folder Descriptions
 
+### Analysis:
+- Parentage_Analysis
+- RScripts
+
 ### Archive:
 The Archive folder includes all files that are **not** integral to the analysis of this project. Inside it, there are three folders: Data_Files_Archive, UHA_Attempted_md_Analysis, and UHA_nomd_PolyPatEx_Analysis. The organization of the Archive folder is as follows:
 
@@ -19,9 +23,4 @@ The Data_Files folder includes two subfolers: Clean_Data_Files and Data_Cleaning
   - Clean_Data_Files → This folder contains two subfolders, Clean_csv and Clean_xlsx. The files are the same, just in two different forms. These files are the results from the Data_Cleaning_Code folder.
   - Data_Cleaning_Code → The Data_Cleaning_Code folder contains an important script: UHA_datacleaning.R, written by Emily Schumacher. This R script cleans the data in order to make it useable for the analysis. The files directly involved with the data cleaning R script are "UHA_Final_Scores.arp", "UHA_Final_Scores.gen", and "UHA_Final_Scores_nomd_genalex.csv". The other csv files that were not directly involved with this script have minor adjustments made to them so they can be used in analysis as well. These files are "UHA_Final_Scores_nomd_df.csv" and "UHA_Final_Scores_GenAlEx.csv".
 
-### Paternity_Analysis:
-The Paternity_Analysis folder includes the cleaned data file used for analysis and code for the CERVUS analysis. The organization of the paternity analysis is as follows:
-
-  - Results → This folder contains a R Markdown script written by Mikaely Evans that was used to create the final figures for this project. These figures were used in her symposium presentation, but are now outdated because this project is still in process. This folder also contains "UHA_parentage_results.csv" which is the csv file used to create these figures. It includes variables like Offspring ID, Mother ID, Candidate father ID, and Candidate father species.
-  
-  - UHA_nomd_CERVUS_Analysis → This folder contains the final no missing data parentage analysis input and output files from this study. CERVUS is a software made specifically for parentage analysis and it uses the three specific data sets mentioned in the CERVUS_Input_Files folder.
+### Results:
