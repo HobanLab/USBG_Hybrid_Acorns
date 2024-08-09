@@ -1,7 +1,7 @@
 ## Project Description
-This github project analyzes oak seedlings to detect hybridization using DNA markers. Oak trees are critical ecosystem creators and are of very high conservation value. Additionally, oaks are an exceptional species, meaning they cannot be seedbanked using traditional methods and can only be conserved in living collections like botanic gardens or arboreta. Maintaining living collections of rare and endangered oaks is a challenging task because they may frequently hybridize with other oak species. In other words, seedlings collected from a maternal tree in a botanic garden may be unintentional hybrid offspring that are not ideal for conservation purposes. This limits conservationists ability to use seeds produced in ex situ collections for restoration of threatened and endangered plant species unless the parentage is verified and the seedlings are not hybrids. 
+This GitHub repository is a combination of the analyses that were used to detect hybrids in the offspring of 9 _Quercus muehlenbergii_ trees sampled at the Morton Arboretum in Fall of 2022. These analyses were performed through 2023 - 2024 by a combination of collaborators: Sean Hoban, Ash Hamilton, Mikaely Evans, and Emily Schumacher. Our study was mostly concerned with quantifying the levels of hybridization within the botanic garden collections of Morton Arboretum white oaks to provide a model system for protecting oaks in living collections without producing hybrid offspring. 
 
-We performed a study analyzing the parentage of acorns produced by maternal <i>Quercus muehlenbergii</i> individuals at the Morton Arboretum to identify if (1) any offspring individuals were hybrids and (2) what factors contribute to the parentage of offspring produced in living collections. We collected a total of 385 seeds, grew them to seedling stage, and sampled leaf tissue from the seedlings. Using 14 microsatellite loci, we performed parentage analysis using CERVUS software.
+We performed a study analyzing the parentage of acorns produced by maternal <i>Quercus muehlenbergii</i> individuals at the Morton Arboretum to identify if (1) any offspring individuals were hybrids and (2) what factors contribute to the parentage of offspring produced in living collections. We collected a total of 385 seeds, grew them to seedling stage, and sampled leaf tissue from the seedlings. Using 13 microsatellite loci, we performed parentage analysis using CERVUS software. Following this analysis, we produced multiple figures comparing the distance between candidate fathers, mothers, and hybrid production. 
 
 ## Folder Descriptions
 
@@ -14,7 +14,7 @@ We performed a study analyzing the parentage of acorns produced by maternal <i>Q
     - 04_dist_analysis.R
 
 ### Archive:
-The Archive folder includes all files that are **not** integral to the analysis of this project. Inside it, there are three folders: Data_Files_Archive, UHA_Attempted_md_Analysis, and UHA_nomd_PolyPatEx_Analysis. The organization of the Archive folder is as follows:
+The Archive folder includes all files that are **not** integral to the analysis of this project. 
 
   - Data_Files_Archive → This folder contains two duplicate data files that are not used in the final analysis.
   - UHA_Attempted_md_Analysis → This folder contains two folders: UHA_Cervus_Attempts and UHA_PolyPatEx_Attempts. The analysis included in these folders was done with files that had too much missing data so they are not relevant to the rest of our study. The purpose of the files was only for practicing the types of analysis with the data we had at the time. 
