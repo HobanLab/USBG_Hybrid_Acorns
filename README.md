@@ -35,7 +35,7 @@ We performed a study analyzing the parentage of acorns produced by maternal <i>Q
     - 04_dist_analysis.R
 
 ### Archive:
-The Archive folder includes all files that are **not** integral to the analysis of this project. 
+The Archive folder includes files that were generated in the process of this 
 
   - Data_Files_Archive → This folder contains two duplicate data files that are not used in the final analysis.
   - UHA_Attempted_md_Analysis → This folder contains two folders: UHA_Cervus_Attempts and UHA_PolyPatEx_Attempts. The analysis included in these folders was done with files that had too much missing data so they are not relevant to the rest of our study. The purpose of the files was only for practicing the types of analysis with the data we had at the time. 
