@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 7/16/2024 8:41:52 AM
+Parentage analysis completed 8/6/2024 9:33:15 PM
 
 
 **** Summary statistics ****
@@ -12,32 +12,32 @@ Father alone (all offspring):
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            1.58       97 (    134)      63%    ( 86%)
-Relaxed              80.00            0.00      138 (    149)      89%    ( 96%)
-Unassigned                                       17 (      6)      11%    (  4%)
+Strict               95.00            3.96       80 (     42)      52%    ( 27%)
+Relaxed              80.00            1.42      111 (     92)      72%    ( 59%)
+Unassigned                                       44 (     63)      28%    ( 41%)
 Total                                           155 (    155)     100%    (100%)
 
 Father given known mother:
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            0.00      107 (    144)      69%    ( 93%)
-Relaxed              80.00            0.00      107 (    144)      69%    ( 93%)
-Unassigned                                       48 (     11)      31%    (  7%)
+Strict               95.00            3.34      114 (     87)      74%    ( 56%)
+Relaxed              80.00            0.54      132 (    133)      85%    ( 86%)
+Unassigned                                       23 (     22)      15%    ( 14%)
 Total                                           155 (    155)     100%    (100%)
 
 
 **** Number of individuals tested ****
 
 Offspring (total):                                           155
-  Tested (typed at 6 or more loci):                          155
-    Known mother typed at 6 or more loci:                    155
-    Known mother typed at fewer than 6 loci:                   0
-  Not tested (typed at fewer than 6 loci):                     0
+  Tested (typed at 4 or more loci):                          155
+    Known mother typed at 4 or more loci:                    155
+    Known mother typed at fewer than 4 loci:                   0
+  Not tested (typed at fewer than 4 loci):                     0
 
 Candidate fathers (total):                                   262
-  Tested (typed at 6 or more loci):                          262
-  Not tested (typed at fewer than 6 loci):                     0
+  Tested (typed at 4 or more loci):                          262
+  Not tested (typed at fewer than 4 loci):                     0
   Average number of candidate fathers per offspring:         261
   Average proportion of sampled candidate fathers:             1.0000
 
@@ -48,8 +48,8 @@ Input
   Offspring file:                 UHA_offspring2.csv
     (includes candidate parent data)
   Genotype file:                  UHA_red_loci_genotype_df.csv
-  Allele frequency file:          red_loci_allfreq.alf
-  Simulation data file:           red_loci_sim.sim
+  Allele frequency file:          UHA_red_loci.alf
+  Simulation data file:           UHA_red_loci_sim.sim
 
 Output
   Parentage summary file:         red_loci_par_sum.txt
@@ -58,17 +58,15 @@ Output
 
 **** Loci ****
 
-       1  QS03797...
-       2  MSQ13...
-       3  QrZAG20...
-       4  QS00314...
-       5  QpZAG9...
-       6  QS1904...
-       7  MSQ4...
-       8  QS00562...
-       9  QpZAG119...
-      10  QpZAG1.5...
-      11  QM69.2M1...
+       1  QS03797_
+       2  MSQ13_
+       3  QrZAG20_
+       4  QpZAG9_
+       5  QS1904_
+       6  MSQ4_
+       7  QpZAG119_
+       8  QpZAG1_5_
+       9  QM69_2M1_
 
 
 **** Simulation parameters ****
@@ -76,12 +74,12 @@ Output
 Input
   Number of offspring:                                     10000
   Number of candidate fathers:                               262
-  Proportion of candidate fathers sampled:                     0.9000
+  Proportion of candidate fathers sampled:                     0.8000
 
-  Proportion of loci typed:                                    0.90000000
+  Proportion of loci typed:                                    0.80000000
   Proportion of loci mistyped:                                 0.01000000
   Error rate in likelihood calculations:                       0.01000000
-  Minimum number of typed loci:                                6
+  Minimum number of typed loci:                                4
 
 Output
   Confidence determined using:                             Delta
@@ -253,158 +251,85 @@ UHA-0351 for offspring UHA-0298
 TOTAL: 155
 
 
-**** Missing allele frequencies ****
-
-Alleles in the genotype file not found in the allele frequency file:
-
-ID               Locus       Allele
-UHA-0321         QS00562...  128   
-UHA-0370         QS00314...  229   
-
-TOTAL: 2
-
-
 **** Known parent-offspring mismatches ****
 
 Locus name  Offspring ID     Genotype        Known parent ID  Genotype        Null
-QS00314...  UHA-0126         173     253     UHA-0010         179     243     
-QS00562...  UHA-0135         223     98      UHA-0010         225     116     
-QS1904...   UHA-0166         139     212     UHA-0013         137     200     
-QpZAG119...  UHA-0169         90      112     UHA-0013         114     100     
-QS00314...  UHA-0058         173     257     UHA-0260         179     243     
-QS1904...   UHA-0020         149     206     UHA-0261         139     198     
-QpZAG9...   UHA-0025         261     139     UHA-0261         249     137     
-QS00314...  UHA-0026         173     249     UHA-0261         179     243     
-QS1904...   UHA-0029         137     208     UHA-0261         139     198     
-QS1904...   UHA-0043         137     198     UHA-0260         149     206     
-QS1904...   UHA-0045         137     216     UHA-0260         149     206     
-MSQ4...     UHA-0047         206     202     UHA-0260         216     200     
-QS03797...  UHA-0050         142     142     UHA-0260         144     184     
-QS1904...   UHA-0050         139     216     UHA-0260         149     206     
-QS03797...  UHA-0056         146     146     UHA-0260         144     184     
-QS00314...  UHA-0068         173     253     UHA-0014         179     251     
-QS00314...  UHA-0080         173     253     UHA-0014         179     251     
-MSQ4...     UHA-0095         214     200     UHA-0015         216     202     
-MSQ4...     UHA-0097         214     200     UHA-0015         216     202     
-QS00314...  UHA-0098         176     243     UHA-0015         173     253     
-QS1904...   UHA-0098         149     208     UHA-0015         139     200     
-QS00562...  UHA-0098         223     90      UHA-0015         225     86      
-MSQ4...     UHA-0111         214     200     UHA-0257         210     202     
-QS03797...  UHA-0112         146     146     UHA-0257         144     144     Y   
-QrZAG20...  UHA-0112         177     177     UHA-0257         155     173     
-QS00314...  UHA-0112         173     253     UHA-0257         179     257     
-MSQ4...     UHA-0112         200     200     UHA-0257         210     202     
-QM69.2M1...  UHA-0112         232     236     UHA-0257         222     238     
-QpZAG9...   UHA-0021         243     139     UHA-0261         249     137     
-QS1904...   UHA-0021         149     216     UHA-0261         139     198     
-QS1904...   UHA-0022         137     210     UHA-0261         139     198     
-QS1904...   UHA-0048         137     210     UHA-0260         149     206     
-MSQ13...    UHA-0049         234     234     UHA-0260         230     230     Y   
-QS00314...  UHA-0049         176     257     UHA-0260         179     243     
-MSQ13...    UHA-0055         234     234     UHA-0260         230     230     Y   
-QS00314...  UHA-0069         173     253     UHA-0014         179     251     
-QS00314...  UHA-0073         173     253     UHA-0014         179     251     
-MSQ4...     UHA-0074         208     202     UHA-0014         200     200     
-QS00314...  UHA-0100         176     261     UHA-0257         179     257     
-MSQ4...     UHA-0100         214     200     UHA-0257         210     202     
-QS1904...   UHA-0102         139     210     UHA-0257         137     208     
-MSQ4...     UHA-0102         214     200     UHA-0257         210     202     
-MSQ4...     UHA-0106         216     200     UHA-0257         210     202     
-MSQ4...     UHA-0110         214     200     UHA-0257         210     202     
-QS1904...   UHA-0036         137     210     UHA-0261         139     198     
-MSQ4...     UHA-0037         210     202     UHA-0261         216     200     
-QS00562...  UHA-0037         225     110     UHA-0261         223     84      
-QS00562...  UHA-0038         225     110     UHA-0261         223     84      
-QS00314...  UHA-0089         173     253     UHA-0014         179     251     
-MSQ13...    UHA-0059         232     232     UHA-0260         230     230     Y   
-QS03797...  UHA-0063         142     146     UHA-0260         144     184     
-MSQ13...    UHA-0063         206     206     UHA-0260         230     230     Y   
-QrZAG20...  UHA-0063         161     177     UHA-0260         157     179     
-QS00314...  UHA-0063         173     251     UHA-0260         179     243     
-QS1904...   UHA-0063         137     198     UHA-0260         149     206     
-MSQ4...     UHA-0063         198     202     UHA-0260         216     200     
-QpZAG1.5...  UHA-0063         165     167     UHA-0260         169     181     
-QM69.2M1...  UHA-0063         238     240     UHA-0260         222     222     
-QS00562...  UHA-0087         223     112     UHA-0014         225     90      
-QS1904...   UHA-0114         149     206     UHA-0257         137     208     
-MSQ4...     UHA-0114         208     200     UHA-0257         210     202     
-QS00314...  UHA-0116         173     243     UHA-0351         179     257     
-QS1904...   UHA-0116         149     206     UHA-0351         139     200     
-MSQ4...     UHA-0118         216     200     UHA-0351         214     198     
-QS1904...   UHA-0119         137     208     UHA-0351         139     200     
-QS00562...  UHA-0123         223     112     UHA-0010         225     116     
-QS1904...   UHA-0124         137     216     UHA-0010         139     198     
-QS00562...  UHA-0125         223     94      UHA-0010         225     116     
-QS1904...   UHA-0128         137     200     UHA-0010         139     198     
-QS00314...  UHA-0131         173     253     UHA-0010         179     243     
-QpZAG9...   UHA-0131         257     139     UHA-0010         253     137     
-QpZAG9...   UHA-0132         257     139     UHA-0010         253     137     
-QS00562...  UHA-0133         223     90      UHA-0010         225     116     
-QS1904...   UHA-0134         137     200     UHA-0010         139     198     
-QS1904...   UHA-0138         137     200     UHA-0010         139     198     
-QS00562...  UHA-0138         223     86      UHA-0010         225     116     
-QS00562...  UHA-0139         223     90      UHA-0010         225     116     
-QS00562...  UHA-0140         223     102     UHA-0010         225     116     
-QS00562...  UHA-0141         223     98      UHA-0010         225     116     
-QS00562...  UHA-0143         223     112     UHA-0010         225     116     
-QS1904...   UHA-0146         137     216     UHA-0010         139     198     
-QS00314...  UHA-0163         179     257     UHA-0012         173     253     
-QS00314...  UHA-0158         179     269     UHA-0012         173     253     
-QS00562...  UHA-0158         225     98      UHA-0012         223     78      
-QS00314...  UHA-0159         179     243     UHA-0012         173     253     
-QS00314...  UHA-0160         176     265     UHA-0012         173     253     
-MSQ4...     UHA-0160         210     202     UHA-0012         242     200     
-QS00314...  UHA-0426         179     249     UHA-0009         173     253     
-QS00314...  UHA-0428         179     263     UHA-0015         173     253     
-QS00314...  UHA-0431         179     257     UHA-0012         173     253     
-QpZAG9...   UHA-0435         269     139     UHA-0010         253     137     
-QS00562...  UHA-0435         223     100     UHA-0010         225     116     
-QS00562...  UHA-0437         223     112     UHA-0010         225     116     
-QS00562...  UHA-0438         223     112     UHA-0010         225     116     
-QS1904...   UHA-0439         137     216     UHA-0010         139     198     
-QS00562...  UHA-0439         223     68      UHA-0010         225     116     
-QS1904...   UHA-0440         139     216     UHA-0260         149     206     
-QS1904...   UHA-0441         139     216     UHA-0260         149     206     
-MSQ13...    UHA-0443         234     234     UHA-0260         230     230     Y   
-QS1904...   UHA-0443         137     208     UHA-0260         149     206     
-MSQ13...    UHA-0444         234     234     UHA-0260         230     230     Y   
-QS00314...  UHA-0444         176     257     UHA-0260         179     243     
-QS1904...   UHA-0444         137     208     UHA-0260         149     206     
-QS1904...   UHA-0445         137     210     UHA-0260         149     206     
-QS00314...  UHA-0447         176     257     UHA-0260         179     243     
-MSQ4...     UHA-0449         210     202     UHA-0260         216     200     
-MSQ13...    UHA-0451         234     234     UHA-0260         230     230     Y   
-QS00314...  UHA-0451         176     257     UHA-0260         179     243     
-QS1904...   UHA-0451         137     210     UHA-0260         149     206     
-MSQ13...    UHA-0452         232     232     UHA-0260         230     230     Y   
-QS1904...   UHA-0452         137     210     UHA-0260         149     206     
-QS00314...  UHA-0453         176     257     UHA-0260         179     243     
-QS1904...   UHA-0453         137     208     UHA-0260         149     206     
-MSQ4...     UHA-0455         216     200     UHA-0257         210     202     
-MSQ4...     UHA-0456         216     200     UHA-0257         210     202     
-QS1904...   UHA-0457         139     210     UHA-0257         137     208     
-MSQ4...     UHA-0458         214     200     UHA-0257         210     202     
-QS1904...   UHA-0460         149     210     UHA-0257         137     208     
+QpZAG119_   UHA-0126         112     112     UHA-0010         116     116     Y   
+QpZAG119_   UHA-0127         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0135         98      112     UHA-0010         116     116     
+QpZAG119_   UHA-0020         90      110     UHA-0261         84      84      
+QpZAG119_   UHA-0023         90      90      UHA-0261         84      84      Y   
+QpZAG119_   UHA-0028         98      110     UHA-0261         84      84      
+QpZAG119_   UHA-0029         114     114     UHA-0261         84      84      Y   
+QS03797_    UHA-0050         142     142     UHA-0260         144     184     
+QS03797_    UHA-0056         146     146     UHA-0260         144     184     
+MSQ4_       UHA-0097         214     214     UHA-0015         200     216     
+QpZAG9_     UHA-0098         243     257     UHA-0015         253     263     
+QS03797_    UHA-0112         146     146     UHA-0257         144     144     Y   
+QrZAG20_    UHA-0112         177     177     UHA-0257         155     173     
+QpZAG9_     UHA-0112         253     255     UHA-0257         257     265     
+MSQ4_       UHA-0112         200     200     UHA-0257         208     210     
+QpZAG119_   UHA-0112         90      116     UHA-0257         98      114     
+QM69_2M1_   UHA-0112         232     236     UHA-0257         222     238     
+QpZAG119_   UHA-0021         68      82      UHA-0261         84      84      
+MSQ13_      UHA-0049         234     234     UHA-0260         230     230     Y   
+MSQ13_      UHA-0055         234     234     UHA-0260         230     230     Y   
+QpZAG119_   UHA-0036         98      110     UHA-0261         84      84      
+QpZAG119_   UHA-0037         110     114     UHA-0261         84      84      
+QpZAG119_   UHA-0038         110     114     UHA-0261         84      84      
+QpZAG119_   UHA-0040         110     114     UHA-0261         84      84      
+MSQ13_      UHA-0059         232     232     UHA-0260         230     230     Y   
+QS03797_    UHA-0063         142     146     UHA-0260         144     184     
+MSQ13_      UHA-0063         206     206     UHA-0260         230     230     Y   
+QrZAG20_    UHA-0063         161     177     UHA-0260         157     179     
+QpZAG9_     UHA-0063         251     255     UHA-0260         243     257     
+MSQ4_       UHA-0063         198     198     UHA-0260         206     216     
+QpZAG1_5_   UHA-0063         165     167     UHA-0260         169     181     
+QM69_2M1_   UHA-0063         238     240     UHA-0260         222     222     
+QpZAG119_   UHA-0087         112     112     UHA-0014         90      114     
+QpZAG119_   UHA-0123         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0125         94      112     UHA-0010         116     116     
+MSQ4_       UHA-0128         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0128         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0130         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0131         76      112     UHA-0010         116     116     
+QpZAG119_   UHA-0132         76      76      UHA-0010         116     116     Y   
+MSQ4_       UHA-0134         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0136         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0137         112     120     UHA-0010         116     116     
+MSQ4_       UHA-0138         200     212     UHA-0010         198     216     
+QpZAG119_   UHA-0140         102     112     UHA-0010         116     116     
+QpZAG119_   UHA-0143         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0165         90      112     UHA-0016         116     116     
+MSQ4_       UHA-0148         198     198     UHA-0012         200     242     
+MSQ4_       UHA-0156         202     202     UHA-0012         200     242     
+QpZAG119_   UHA-0159         68      110     UHA-0012         78      112     
+QpZAG119_   UHA-0435         100     112     UHA-0010         116     116     
+QpZAG119_   UHA-0437         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0438         112     122     UHA-0010         116     116     
+QpZAG119_   UHA-0439         68      112     UHA-0010         116     116     
+MSQ13_      UHA-0443         234     234     UHA-0260         230     230     Y   
+MSQ13_      UHA-0444         234     234     UHA-0260         230     230     Y   
+MSQ13_      UHA-0451         234     234     UHA-0260         230     230     Y   
+MSQ13_      UHA-0452         232     232     UHA-0260         230     230     Y   
 
-TOTAL: 118
+TOTAL: 58
 
 
 **** Error rate analysis ****
 
 Locus name  N compared  N mismatching  N null   Detection prob.  Est. error rate
-QS03797...         155              4        1       0.19690812       0.06552917
-MSQ13...           154              8        8       0.55990632       0.04638995
-QrZAG20...         155              2        0       0.69560281       0.00927485
-QS00314...         145             26        0       0.66130791       0.13557251
-QpZAG9...          149              5        0       0.42053206       0.03989832
-QS1904...          148             32        0       0.45997896       0.23502838
-MSQ4...            117             19        0       0.60760219       0.13363445
-QS00562...         138             18        0       0.55850813       0.11677071
-QpZAG119...         152              1        0       0.60000065       0.00548245
-QpZAG1.5...         155              1        0       0.55800567       0.00578096
-QM69.2M1...         155              2        0       0.54749605       0.01178385
+QS03797_           155              4        1       0.19690812       0.06552917
+MSQ13_             154              8        8       0.55990632       0.04638995
+QrZAG20_           155              2        0       0.69560281       0.00927485
+QpZAG9_            149              3        0       0.70749331       0.01422927
+QS1904_            155              0        0       0.03812909       0.00000000
+MSQ4_              148              8        0       0.60385952       0.04475714
+QpZAG119_          152             30        4       0.83084380       0.11877589
+QpZAG1_5_          155              1        0       0.55800567       0.00578096
+QM69_2M1_          155              2        0       0.54749605       0.01178385
 
-Mean observed error rate across loci:                          0.07319505
+Mean observed error rate across loci:                          0.03516901
   (assumes all known parent-offspring pairs are equally independent)
 
 

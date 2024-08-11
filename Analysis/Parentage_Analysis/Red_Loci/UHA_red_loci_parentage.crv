@@ -11,7 +11,7 @@ Code=
 [FileInfo]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\UHA_red_loci_parentage.crv
 FileType=.crv
-CreationDate=7/16/2024 8:43:32 AM
+CreationDate=8/6/2024 9:35:20 PM
 
 [GenotypeFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_genotype_df.csv
@@ -19,7 +19,7 @@ HeaderRow=1
 ReadLocusNames=1
 FirstAlleleColumnNumber=4
 IDColumnNumber=1
-NLoci=11
+NLoci=9
 PropLociTyped=0
 ColumnsPerLocus=2
 SexColumn=0
@@ -32,7 +32,7 @@ UseSameCodingForAllLoci=1
 GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_genotype_df.csv
 
 [AlleleFrequencySummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_allfreq.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci.txt
 DoHardyWeinberg=1
 HWMinExpectedFrequency=5
 UseYatesCorrection=1
@@ -40,19 +40,19 @@ UseBonferroniCorrection=1
 DoNullAllele=1
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
 NOffspring=10000
 NCandidateMales=262
-PropCandidateMalesSampled=0.9
+PropCandidateMalesSampled=0.8
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.9
+PropLociTyped=0.8
 PropLociMistyped=0.01
-MinTypedLoci=6
+MinTypedLoci=4
 CriticalStatisticName=Delta
 TruncateAtZero=1
 RelaxedConfidence=80
@@ -74,10 +74,10 @@ UseMistypingRateAsLikelihoodErrorRate=1
 LikelihoodErrorRate=0.01
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\red_loci_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBGHybridAcornsREU2023\Analysis\Parentage_Analysis\Red_Loci\Input_Files\UHA_red_loci_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -98,7 +98,7 @@ AnalysisType=Paternity
 UseSimulationParameters=1
 CalculateConfidenceLevels=1
 AlwaysTestSelfing=0
-MinTypedLoci=6
+MinTypedLoci=4
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=0
 LikelihoodErrorRate=0.01
