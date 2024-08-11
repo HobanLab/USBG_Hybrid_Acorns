@@ -1,4 +1,4 @@
-### This RScript is 
+### This RScript is used to 
 
 #####################
 #     Libraries     #
@@ -164,10 +164,3 @@ for(garden in 1:length(QUoc)){
       
   }
 }
-
-
-
-
-
-
-
