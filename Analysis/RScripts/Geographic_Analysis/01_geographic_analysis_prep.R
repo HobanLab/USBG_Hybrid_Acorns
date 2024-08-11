@@ -1,3 +1,5 @@
+### This RScript is 
+
 #####################
 #     Libraries     #
 #####################
@@ -8,10 +10,11 @@ library(sjmisc)
 ###########################
 #     Load Data Files     #
 ###########################
-#setwd("USBG_Hybrid_Acorn/Data_Files/Geographic_Files")
+setwd("../..")
 
-#
-QUoc <- list.files(pattern = "_QUocc.csv")
+#load in Quercus occurrence data frames for each garden 
+QUoc_list <- list.files(pattern = "_QUocc.csv",
+                   path = "Data_Files/CSV_Files/Geographic_Analysis_Files")
 
 red_oak_names <- c("Quercus acerifolia", "Quercus acutifolia", "Quercus agrifolia", 
                    "Quercus albocincta", "Quercus aristata", "Quercus arkansana", 
