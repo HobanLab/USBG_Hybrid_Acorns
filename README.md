@@ -27,16 +27,14 @@ This folder is divided into 3 separate analysis sections that cover a different 
         - Description: This R Script was used to generate overview data frames of the oak species in Starhill Arboretum, UC Davis Campus, and the Morton Arboreutm - oak individuals above 10 years of age to visualize candidate sampling areas.    
     - 03_TMA_all_trees.R
         - Description: This script was used to visualize candidate sites for acorn sampling once the Morton Arboretum was decided to be the best site for this project.
-    - Parentage_analysis
-    - STRUCTURE
+- Parentage_analysis
+    - 01_data_cleaning_for_parentage.R
+    - 02_data_cleaning_post_parentage.R
+    - 03_figures.R
+- STRUCTURE
     
   
 ### Archive:
-The Archive folder includes files that were generated in the process of this 
-
-  - Data_Files_Archive → This folder contains two duplicate data files that are not used in the final analysis.
-  - UHA_Attempted_md_Analysis → This folder contains two folders: UHA_Cervus_Attempts and UHA_PolyPatEx_Attempts. The analysis included in these folders was done with files that had too much missing data so they are not relevant to the rest of our study. The purpose of the files was only for practicing the types of analysis with the data we had at the time. 
-  - UHA_nomd_PolyPatEx_Analysis → This folder contains the fully cleaned data set analysis using PolyPatEx. For this project, using the CERVUS analysis gave us better, more accurate parentage assignment results, so we decided against using the PolyPatEx results. All the data and code files can be found here for PolyPatEx analysis.
 
 ### Data_Files:
 
