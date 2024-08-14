@@ -19,7 +19,17 @@ This project went through several stages, and so the workflow through the data f
 ## Folder Descriptions
 
 ### Analysis:
-This folder is divided into 3 separate analyssi sections. 
+This folder is divided into 3 separate analysis sections that cover a different set of analyses. 
+    - Geographic_Analysis
+        - 01_geographic_analysis_prep.R
+            - Description: This R Script was used to visualize oak species in botanic gardens Starhill Arboretum, UC Davis Campus, and the Morton Arboreutm. These data files were used to generate color coded maps stored in the project guide for this project.
+        - 02_garden_summary_dfs.R
+            - Description: This R Script was used to generate overview data frames of the oak species in Starhill Arboretum, UC Davis Campus, and the Morton Arboreutm - oak individuals above 10 years of age to visualize candidate sampling areas.
+        - 03_TMA_all_trees.R
+            - Description: This script was used to visualize candidate sites for acorn sampling once the Morton Arboretum was decided to be the best site for this project.
+    - Parentage_analysis
+    - STRUCTURE
+    
   
 ### Archive:
 The Archive folder includes files that were generated in the process of this 
