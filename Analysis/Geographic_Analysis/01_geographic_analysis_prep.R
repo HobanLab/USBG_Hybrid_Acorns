@@ -14,7 +14,7 @@ setwd("../..")
 
 #load in Quercus occurrence data frames for each garden 
 QUoc_list <- list.files(pattern = "_QUocc.csv",
-                   path = "Data_Files/CSV_Files/Geographic_Analysis_Files")
+                   path = "Data_Files/Geographic_Files")
 
 red_oak_names <- c("Quercus acerifolia", "Quercus acutifolia", "Quercus agrifolia", 
                    "Quercus albocincta", "Quercus aristata", "Quercus arkansana", 
@@ -102,10 +102,10 @@ sp_limited_names <- list()
 
 garden <- 3
 
-for(garden in 1:length(QUoc)){
+for(garden in seq_along(QUoc_list)){
   
   #load in each garden data frame 
-  garden_df <- read.csv(QUoc[[garden]])
+  garden_df <- read.csv(paste0("./Data_Files/Geographic_Files/",QUoc_list[[garden]]))
   
   #create a column for red oaks 
   garden_df$red_oak_t <- str_contains(red_oak_names, garden_df$Species_Name)
@@ -129,7 +129,7 @@ for(garden in 1:length(QUoc)){
   garden_df[garden_df$cerris_oaks_t == TRUE,]$Section <- "cerris_oak"
   
   #write out data frames with the sections added
-  write.csv(garden_df, paste0("../../Analyses/", gsub("_.*",'', QUoc[[garden]]),
+  write.csv(garden_df, paste0("./Results/Geographic_Analyses/", gsub("_.*",'', QUoc_list[[garden]]),
                               "_occ_df.csv"))
   
   dup_df <- garden_df[duplicated(garden_df$Species_Name) == TRUE,]
@@ -157,8 +157,8 @@ for(garden in 1:length(QUoc)){
     #limit data frame by this column 
     garden_occ_limited_df <- garden_df[garden_df$limit_names == TRUE,]
     
-    write.csv(garden_occ_limited_df, paste0("../../Analyses/Geographic_Results/",
-                                            gsub("_.*",'', QUoc[[garden]]), 
+    write.csv(garden_occ_limited_df, paste0("./Results/Geographic_Analyses/",
+                                            gsub("_.*",'', QUoc_list[[garden]]), 
                                            "_limited_occ_df.csv"), 
               row.names = FALSE)
       
