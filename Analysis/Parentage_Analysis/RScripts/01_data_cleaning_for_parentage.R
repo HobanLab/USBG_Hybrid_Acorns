@@ -1,3 +1,6 @@
+###This RScript processes genotyope files generated from geneious to
+##clean for 
+
 #####################
 #     Libraries     #
 #####################
@@ -12,7 +15,7 @@ library(tidyverse)
 ###########################
 
 #set working directoy
-setwd("../..")
+setwd("../../..")
 
 #load in genepop file as a genind object
 UHA_genind <- read.genepop("Data_Files/Genotype_Files/2024_07_genepop.gen", ncode = 2)
@@ -81,7 +84,7 @@ na_loci <- rownames(na_reorg_df[which(na_reorg_df$`Observed frequency` > 15),])
 
 
 #generate input data frame for parentage - all loci
-write.csv(UHA_scores_clean_df, "Analysis/Parentage_Analysis/All_Loci/Input_Files/UHA_all_loci_genotype_df.csv",
+write.csv(UHA_scores_clean_df, "Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_all_loci_clean_genotype_df.csv",
           row.names = FALSE)
 
 #generate a data frame removing loci with high null allele %
@@ -89,6 +92,6 @@ UHA_red_loci_df <- UHA_scores_clean_df %>%
                     dplyr::select(-contains(na_loci))
 
 #generate parentage input data without loci with high null allele %
-write.csv(UHA_red_loci_df, "Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv",
+write.csv(UHA_red_loci_df, "Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Input_Files/UHA_red_loci_clean_genotype_df.csv",
           row.names = FALSE)
 
