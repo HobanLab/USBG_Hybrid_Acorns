@@ -26,14 +26,13 @@ setwd("../..")
 #par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
 
 #load parentage results - all loci = al
-UHA_al_par <- read.csv("Analysis/Parentage_Analysis/All_Loci/Output_Files/all_loci_par_sum.csv",
-                       row.names = NULL)
+UHA_al_par <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Output_Files/all_loci_par_sum.csv")
 
 #remove periods from UHA data frame
 colnames(UHA_al_par) <- gsub("\\.", "_", colnames(UHA_al_par))
 
 #load parentage results - reduced loci = rl
-UHA_rl_par <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Output_Files/red_loci_par_sum.csv")
+UHA_rl_par <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Output_Files/red_loci_par_sum.csv")
 
 #remove periods from colnames
 colnames(UHA_rl_par) <- gsub("\\.", "_", colnames(UHA_rl_par))
@@ -76,10 +75,10 @@ for(df in par_sum_list){
 
 ##load score data frames
 #All loci
-al_score_df <- read.csv("Analysis/Parentage_Analysis/All_Loci/Input_Files/UHA_all_loci_genotype_df.csv")
+al_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_all_loci_clean_genotype_df.csv")
 
 #Reduced loci
-rl_score_df <- read.csv("Analysis/Parentage_Analysis/Red_Loci/Input_Files/UHA_red_loci_genotype_df.csv")
+rl_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Input_Files/UHA_red_loci_clean_genotype_df.csv")
 
 #combine into a list 
 score_df_list <- list(al_score_df, rl_score_df)
