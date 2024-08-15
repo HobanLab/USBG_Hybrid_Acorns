@@ -14,7 +14,7 @@ library(ggplot2)
 ###########################
 
 #set working directory
-setwd("../..")
+setwd("../../..")
 
 #load parentage result dfs
 par_scen_df_list <- list.files(path = "Data_Files/CSV_Files/",pattern = "analysis_df.csv")
