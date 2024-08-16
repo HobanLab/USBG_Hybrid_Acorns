@@ -69,7 +69,7 @@ for(df in seq_along(par_scen_df_list)){
   
   ## create a summary data frame with the maternal IDs
   par_sum_stat_df <- matrix(nrow = length(mat_ids),
-                            ncol = 7)
+                            ncol = 11)
   
   #add the maternal ids in a column
   par_sum_stat_df[,1] <- mat_ids
@@ -91,19 +91,46 @@ for(df in seq_along(par_scen_df_list)){
     par_sum_stat_df[mat,6] <- length(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Offspring_ID)
     par_sum_stat_df[mat,7] <- length(unique(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Candidate_father_ID))
     
+      if(par_sum_stat_df[mat,2] == 0){
+        par_sum_stat_df[mat,8] <- 0
+        par_sum_stat_df[mat,9] <- 0
+        par_sum_stat_df[mat,10] <- 0
+        par_sum_stat_df[mat,11] <- 0
+        
+      }else{
+      
+        par_sum_stat_df[mat,8] <- min(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par)
+        par_sum_stat_df[mat,9] <- max(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par)
+        
+        #recode hybrid status of min distance 
+        par_sum_stat_df[mat,10] <- length(par_scen_df[[df]][par_scen_df[[df]]$dist_par == min(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par) & par_scen_df[[df]]$Hybrid_Status == TRUE,]$Candidate_Father_Species)
+        #recode hybrid status of min distance 
+        par_sum_stat_df[mat,11] <- length(par_scen_df[[df]][par_scen_df[[df]]$dist_par == max(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par) & par_scen_df[[df]]$Hybrid_Status == TRUE,]$Candidate_Father_Species)
+        
+    }
+    #add min and max dist columns for parents
+    
+    
+    
     # #add colnames
     colnames(par_sum_stat_df) <- c("MT_ID", "Off_N",
-                                   "Fathers_N", "Hybrid_Off_N",
-                                   "Hybrid_Father_N", "Half_Sib_Off_N", 
-                                   "Half_Sib_Father_N")
+                                  "Fathers_N", "Hybrid_Off_N",
+                                  "Hybrid_Father_N", "Half_Sib_Off_N",
+                                  "Half_Sib_Father_N", "Min_Dist", "Max_Dist",
+                                  "Hybrid_Min", "Hybrid_Max")
     # #write out summary data frame with scenario 
     write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/", full_scen[[df]], '_par_sum_stat_df.csv'),
-              row.names = FALSE)
+             row.names = FALSE)
   }
   
   
   
 }
+
+###################
+#     Figures     #
+##################
+
 
 
 
@@ -315,16 +342,7 @@ for(scen in 1:length(full_scen)){
   
 }
 
-#now plot species count table
-png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_hybrid_barplot.png"),
-    res = 600, width = 5000, height = 3500)
-species_count_list[[1]] %>%
-  ggplot(aes(x = Species, y=Count))+
-  geom_bar(stat = "identity", fill = "darkgreen") + 
-  labs(title="Count of Candidate Father Trees per Species", 
-       x="Candidate Father Species") +
-  theme_bw()
-dev.off()
+
 
 png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_hybrid_barplot.png"),
     res = 600, width = 5000, height = 3500)
