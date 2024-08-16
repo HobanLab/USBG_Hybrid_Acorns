@@ -30,68 +30,85 @@ full_scen <- c("all_loci_AF", #all loci included with all father assignments
                "red_loci_HCF" #reduce loci with only high confidence father assignments included
                )
 
+#list of maternal IDs 
+mat_ids <- c("MT1", "MT2", "MT3", "MT4", "MT5", 
+             "MT6", "MT7", "MT8", "MT9", "MT10", "MT11")
+
+mat_UHA_ids <- c("UHA-0009","UHA-0010", "UHA-0012", "UHA-0013", "UHA-0014", 
+                 "UHA-0015", "UHA-0016", "UHA-0257", "UHA-0260", "UHA-0261", 
+                 "UHA-0351")
+
 #read in these files as CSVs
 par_scen_df <- list()
 
-for(df in 1:length(par_scen_df_list)){
+for(df in seq_along(par_scen_df_list)){
   
   par_scen_df[[df]] <- read.csv(paste0("Data_Files/CSV_Files/", par_scen_df_list[[df]]))
   
+  #add MT ID column 
+  par_scen_df[[df]]$MT_ID <- NA
+  
+  for(mat in seq_along(mat_ids)){
+    
+    #add MT IDs 
+    par_scen_df[[df]][par_scen_df[[df]]$Mother_ID == mat_UHA_ids[[mat]],"MT_ID"] <- mat_ids[[mat]]
+    
+  }
+  
+  
 }
 
-###########################
-#     Visualizations      #
-###########################
+###################################
+#     Summary Table Creation      #
+###################################
+mat <- 1 
+df <- 1
 
-####barplots of candidate fathers for each mother, over scenario 
+#loop over all parentage scenarios with a summary data file 
+for(df in seq_along(par_scen_df_list)){
+  
+  ## create a summary data frame with the maternal IDs
+  par_sum_stat_df <- matrix(nrow = length(mat_ids),
+                            ncol = 7)
+  
+  #add the maternal ids in a column
+  par_sum_stat_df[,1] <- mat_ids
+  
+  #loop over each maternal individual to create data frame 
+  for(mat in seq_along(mat_ids)){
+    
+    #add a column for the offspring counts by mom 
+    par_sum_stat_df[mat,2] <- length(par_scen_df[[df]][par_scen_df[[df]]$MT_ID == mat_ids[[mat]],"MT_ID"])
+    
+    #add a column for number of dads per mom 
+    par_sum_stat_df[mat,3] <- length(unique(par_scen_df[[df]][par_scen_df[[df]]$MT_ID == mat_ids[[mat]],]$Candidate_father_ID))
+    
+    #add columns with the number of hybrid per mom and the number of hybrid fathers
+    par_sum_stat_df[mat,4] <- length(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Hybrid_Status == TRUE),]$Candidate_Father_Species)
+    par_sum_stat_df[mat,5] <- length(unique(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Hybrid_Status == TRUE),]$Candidate_Father_Species))
+  
+    #add half-sib columns 
+    par_sum_stat_df[mat,6] <- length(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Offspring_ID)
+    par_sum_stat_df[mat,7] <- length(unique(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Candidate_father_ID))
+    
+    # #add colnames
+    colnames(par_sum_stat_df) <- c("MT_ID", "Off_N",
+                                   "Fathers_N", "Hybrid_Off_N",
+                                   "Hybrid_Father_N", "Half_Sib_Off_N", 
+                                   "Half_Sib_Father_N")
+    # #write out summary data frame with scenario 
+    write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/", full_scen[[df]], '_par_sum_stat_df.csv'),
+              row.names = FALSE)
+  }
+  
+  
+  
+}
 
-#plot bar graphs of the offspring count for each mother and which individual is the father
-png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_mat_off.png"), 
-    width = 5000, height = 3500, res = 600)
-par_scen_df[[1]] %>%
-  ggplot() +
-  geom_bar(aes(y = sort(Candidate_father_ID))) +
-  facet_wrap(~`Mother_ID`) + 
-  scale_x_continuous(n.breaks = 9) +
-  labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
-       y = "Candidate Father ID", x = "Count of Offspring")
-dev.off()
 
-png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_mat_off.png"), 
-    width = 5000, height = 3500, res = 600)
-par_scen_df[[2]] %>%
-  ggplot() +
-  geom_bar(aes(y = sort(Candidate_father_ID))) +
-  facet_wrap(~`Mother_ID`) + 
-  scale_x_continuous(n.breaks = 9) +
-  labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
-       y = "Candidate Father ID", x = "Count of Offspring")
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_mat_off.png"), 
-    width = 5000, height = 3500, res = 600)
-par_scen_df[[3]] %>%
-  ggplot() +
-  geom_bar(aes(y = sort(Candidate_father_ID))) +
-  facet_wrap(~`Mother_ID`) + 
-  scale_x_continuous(n.breaks = 9) +
-  labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
-       y = "Candidate Father ID", x = "Count of Offspring")
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_mat_off.png"), 
-    width = 5000, height = 3500, res = 600)
-par_scen_df[[4]] %>%
-  ggplot() +
-  geom_bar(aes(y = sort(Candidate_father_ID))) +
-  facet_wrap(~`Mother_ID`) + 
-  scale_x_continuous(n.breaks = 9) +
-  labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
-       y = "Candidate Father ID", x = "Count of Offspring")
-dev.off()
 
 ###### Boxplot of distances between parents 
-png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_dist_par.png"), 
+png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
     res = 600, width = 5000, height = 3500)
 par_scen_df[[1]] %>%
   group_by(c(Mother_ID)) %>% # 
@@ -277,6 +294,7 @@ par_scen_df[[4]] %>%
 
 dev.off()
 
+
 ##create a list for 
 #table to present the candidate fathers 
 species_count_list <- list()
@@ -292,11 +310,10 @@ for(scen in 1:length(full_scen)){
   
   #organize data frame 
   species_count_list[[scen]]$Species <- factor(species_count_list[[scen]]$Species, 
-                                  levels=species_count_list[[scen]]$Species[order(-species_count_list[[scen]]$Count)])
+                                               levels=species_count_list[[scen]]$Species[order(-species_count_list[[scen]]$Count)])
   
   
 }
-
 
 #now plot species count table
 png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_hybrid_barplot.png"),
