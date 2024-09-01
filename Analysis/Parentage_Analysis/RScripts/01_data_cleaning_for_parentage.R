@@ -8,6 +8,7 @@
 library(adegenet)
 library(poppr)
 library(PopGenReport)
+library(hierfstat)
 library(tidyverse)
 
 ###########################
@@ -22,6 +23,9 @@ UHA_genind <- read.genepop("Data_Files/Genotype_Files/2024_07_genepop.gen", ncod
 
 #load score df
 UHA_scores_df <- read.csv("Data_Files/CSV_Files/2024_07_UHA_database.csv")
+
+#load in UHA database
+UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 
 ###############################
 #     Data Cleaning steps     #
@@ -41,6 +45,17 @@ UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in%
 
 #write out 
 write.csv(UHA_scores_clean_df, "Data_Files/CSV_Files/UHA_score_clean_df.csv")
+
+
+#######################################
+#     Write out Summary Database      #
+#######################################
+
+#organized 
+UHA_species <- as.data.frame(table(UHA_database$Species))
+
+write.csv(UHA_species, "./Results/Preliminary_Genotyping_Analysis/UHA_species.csv")
+
 
 ###########################
 #     Score Analysis      #
@@ -65,6 +80,50 @@ UHA_ld_df <- data.frame(round(UHA_ld, digits = 2))
 
 #write out ld df 
 write.csv(UHA_ld_df, "Results/Preliminary_Genotyping_Analysis/ld_df.csv")
+
+#########################
+#     Pop Gen Stats     #
+#########################
+
+#create data table 
+gendiv_sum_stats <- matrix(nrow = 3, ncol = 5)
+
+#create poppr data file 
+gendiv_poppr <- poppr(UHA_genind_nomd)
+
+#number of individuals 
+gendiv_sum_stats[1,1] <- gendiv_poppr$N[[1]]
+gendiv_sum_stats[2,1] <- gendiv_poppr$N[[2]]
+gendiv_sum_stats[3,1] <- gendiv_poppr$N[[3]]
+
+#MLG
+gendiv_sum_stats[1,2] <- gendiv_poppr$MLG[[1]]
+gendiv_sum_stats[2,2] <- gendiv_poppr$MLG[[2]]
+gendiv_sum_stats[3,2] <- gendiv_poppr$MLG[[3]]
+
+#number of alleles 
+gendiv_sum_stats[1,3] <- summary(UHA_genind_nomd)[[4]][[1]]
+gendiv_sum_stats[2,3] <- summary(UHA_genind_nomd)[[4]][[2]]
+gendiv_sum_stats[3,3] <- sum(nAll(UHA_genind_nomd))
+
+#allrich
+gendiv_sum_stats[1,4] <- mean(allelic.richness(UHA_genind_nomd)$Ar[,1])
+gendiv_sum_stats[2,4] <- mean(allelic.richness(UHA_genind_nomd)$Ar[,2])
+gendiv_sum_stats[3,4] <- mean(rowMeans(allelic.richness(UHA_genind_nomd)$Ar))
+
+#expected heterozygosity
+gendiv_sum_stats[1,5] <- gendiv_poppr$Hexp[[1]]
+gendiv_sum_stats[2,5] <- gendiv_poppr$Hexp[[2]]
+gendiv_sum_stats[3,5] <- gendiv_poppr$Hexp[[3]]
+
+#name rows and columns 
+rownames(gendiv_sum_stats) <- c("Offspring", "Parents", "Total")
+colnames(gendiv_sum_stats) <- c("N", "MLG", "nAll", "Allelic Richness",
+                                "Expected Heterozygosity")
+
+#write out summary data file 
+write.csv(gendiv_sum_stats, "Results/Preliminary_Genotyping_Analysis/gendiv_sum_stats.csv")
+
 
 #########################################
 #     Prep Data Files for Parentage     #
