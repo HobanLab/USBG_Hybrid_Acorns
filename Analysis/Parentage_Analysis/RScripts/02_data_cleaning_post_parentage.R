@@ -57,7 +57,7 @@ for(sc in 1:length(scen)){
 }
  
 #load in all parentage summary data frames 
-par_sum_list <- list.files(path = "Results/Parentage_Results/CSV_Files/", pattern = "par_sum")
+par_sum_list <- list.files(path = "Results/Parentage_Results/CSV_Files/", pattern = "par_sum.csv")
 
 #reorder list 
 par_sum_list <- list(par_sum_list[[2]], par_sum_list[[1]], 
