@@ -17,7 +17,7 @@ library(ggplot2)
 setwd("../../..")
 
 #load parentage result dfs
-par_scen_df_list <- list.files(path = "Data_Files/CSV_Files/",pattern = "analysis_df.csv")
+par_scen_df_list <- list.files(path = "Results/Parentage_Results/CSV_Files",pattern = "analysis_df.csv")
 
 #reorder 
 par_scen_df_list <- list(par_scen_df_list[[1]], par_scen_df_list[[2]],
@@ -43,7 +43,7 @@ par_scen_df <- list()
 
 for(df in seq_along(par_scen_df_list)){
   
-  par_scen_df[[df]] <- read.csv(paste0("Data_Files/CSV_Files/", par_scen_df_list[[df]]))
+  par_scen_df[[df]] <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", par_scen_df_list[[df]]))
   
   #add MT ID column 
   par_scen_df[[df]]$MT_ID <- NA
@@ -57,6 +57,48 @@ for(df in seq_along(par_scen_df_list)){
   
   
 }
+
+###################################################
+#     Sumamry of Non Exculsion Probabilities      #
+###################################################
+
+#load in all parental summary data frames
+par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
+                         pattern = "par_sum.csv")
+
+#reorg list 
+par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
+                   par_sum_df[[4]], par_sum_df[[3]])
+
+#create matrix to store non-exclusion probabilities
+exc_prob_df <- matrix(nrow = length(par_sum_df),
+                      ncol = 2)
+
+par <- 1
+
+for(par in seq_along(par_sum_df)){
+  
+  #load in par sum_df
+  temp_df <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", 
+                                     par_sum_df[[par]]))
+  #rename colnames
+  colnames(temp_df) <- gsub("\\.","_", colnames(temp_df))
+  
+  #now sum the columns 
+  exc_prob_df[par,1] <- mean(temp_df[["First_parent_non_exclusion_probability"]])
+  exc_prob_df[par,2] <- mean(temp_df[["Second_parent_non_exclusion_probability"]])
+  
+  
+  
+}
+
+#name columns and rows 
+rownames(exc_prob_df) <- c("all_loci", "all_loci_HCF", "red_loci", "red_loci_HCF")
+colnames(exc_prob_df) <- c("First_parent_non_exclusion_probability",
+                           "Second_parent_non_exclusion_probability")
+
+#write out table 
+write.csv(exc_prob_df, "./Results/Parentage_Results/CSV_Files/non_exclusion_probabilities.csv")
 
 ###################################
 #     Summary Table Creation      #
