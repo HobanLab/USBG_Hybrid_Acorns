@@ -16,66 +16,27 @@ library(ggplot2)
 #set working directory
 setwd("../../..")
 
-#load parentage result dfs
-par_scen_df_list <- list.files(path = "Results/Parentage_Results/CSV_Files",pattern = "analysis_df.csv")
+#read in summary df for final figures
+UHA_res_df <- read.csv("Results/Parentage_Results/CSV_Files/all_loci_HCF_par_sum.csv")
 
-#reorder 
-par_scen_df_list <- list(par_scen_df_list[[1]], par_scen_df_list[[2]],
-                         par_scen_df_list[[4]], par_scen_df_list[[3]])
+#load in list of parentage summary results CSVs
+par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
+                         pattern = "par_sum.csv")
 
-#load full scenario data frames 
-full_scen <- c("all_loci_AF", #all loci included with all father assignments 
-               "all_loci_HCF", #all loci with only high confidence fathers included
-               "red_loci_AF", #reduced loci with all father assignments
-               "red_loci_HCF" #reduce loci with only high confidence father assignments included
-               )
-
-#list of maternal IDs 
-mat_ids <- c("MT1", "MT2", "MT3", "MT4", "MT5", 
-             "MT6", "MT7", "MT8", "MT9", "MT10", "MT11")
-
-mat_UHA_ids <- c("UHA-0009","UHA-0010", "UHA-0012", "UHA-0013", "UHA-0014", 
-                 "UHA-0015", "UHA-0016", "UHA-0257", "UHA-0260", "UHA-0261", 
-                 "UHA-0351")
-
-#read in these files as CSVs
-par_scen_df <- list()
-
-for(df in seq_along(par_scen_df_list)){
-  
-  par_scen_df[[df]] <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", par_scen_df_list[[df]]))
-  
-  #add MT ID column 
-  par_scen_df[[df]]$MT_ID <- NA
-  
-  for(mat in seq_along(mat_ids)){
-    
-    #add MT IDs 
-    par_scen_df[[df]][par_scen_df[[df]]$Mother_ID == mat_UHA_ids[[mat]],"MT_ID"] <- mat_ids[[mat]]
-    
-  }
-  
-  
-}
+#reorg list to fit order 
+par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
+                   par_sum_df[[4]], par_sum_df[[3]])
 
 ###################################################
 #     Sumamry of Non Exculsion Probabilities      #
 ###################################################
 
-#load in all parental summary data frames
-par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
-                         pattern = "par_sum.csv")
-
-#reorg list 
-par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
-                   par_sum_df[[4]], par_sum_df[[3]])
-
+##first, create a data frame to compare non-exclusion probablities
 #create matrix to store non-exclusion probabilities
 exc_prob_df <- matrix(nrow = length(par_sum_df),
                       ncol = 2)
 
-par <- 1
-
+#loop over all parentage summary data frames 
 for(par in seq_along(par_sum_df)){
   
   #load in par sum_df
@@ -100,11 +61,9 @@ colnames(exc_prob_df) <- c("First_parent_non_exclusion_probability",
 #write out table 
 write.csv(exc_prob_df, "./Results/Parentage_Results/CSV_Files/non_exclusion_probabilities.csv")
 
-###################################
-#     Summary Table Creation      #
-###################################
-mat <- 1 
-df <- 1
+########################################
+#     Summary Stat Table Creation      #
+########################################
 
 #loop over all parentage scenarios with a summary data file 
 for(df in seq_along(par_scen_df_list)){
@@ -171,7 +130,7 @@ for(df in seq_along(par_scen_df_list)){
 
 ###################
 #     Figures     #
-##################
+###################
 
 
 
