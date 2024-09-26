@@ -120,7 +120,7 @@ for(sc in seq_along(full_scen)){
   
   #join maternal information with the parentage summary 
   par_temp_df <- left_join(par_temp_df, UHA_database, 
-                           by=c('Offspring_ID' = 'Mother_ID'))
+                           by=c('Mother_ID' = 'Tissue_ID'))
   
   #rename the species data frame to the maternal species 
   par_temp_df <- par_temp_df %>% rename("Maternal_Species" = "Species",
@@ -148,7 +148,7 @@ for(sc in seq_along(full_scen)){
                               "Candidate_Father_Longitude" = "Longitude",
                               "Candidate_Father_Latitude" = "Latitude",
                               "Candidate_Father_Accession" = "Accession_Number",
-                              "Maternal_ID" = "Mother_ID_x", 
+                              "Maternal_ID" = "Mother_ID", 
                               "DBH1_Paternal" = "DBH1",
                               "DBH2_Paternal" = "DBH2",
                               "DBH3_Paternal" = "DBH3",
