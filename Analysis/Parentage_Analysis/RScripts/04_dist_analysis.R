@@ -13,57 +13,50 @@ library(geosphere)
 setwd("../..")
 
 #load in the tissue database, remove offspring which have no coordinates
-UHA_database <- read.csv("Data_Files/CSV_Files/ARCHIVED_USBG_Hybrid_Acorn_Tissue_Database.csv")
+UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 
-#load in score data frames 
-score_df <- list.files(path = "Data_Files/CSV_Files", 
-                            pattern = "genotype_df")
+# #load in score data frames 
+# score_df <- list.files(path = "Data_Files/CSV_Files", 
+#                             pattern = "genotype_df")
+# 
+# #loop in the score data frames 
+# score_df_list <- list()
+# 
+# for(sc_df in seq_along(score_df)){
+#   
+#   #read csvs
+#   score_df_list[[sc_df]] <- read.csv(paste0("Data_Files/CSV_Files/", score_df[[sc_df]]))
+#   
+# }
 
-#loop in the score data frames 
-score_df_list <- list()
+#limit to one case right now 
+genotype_df <- read.csv("Data_Files/CSV_Files/UHA_all_loci_genotype_df.csv")
 
-for(sc_df in seq_along(score_df)){
-  
-  #read csvs
-  score_df_list[[sc_df]] <- read.csv(paste0("Data_Files/CSV_Files/", score_df[[sc_df]]))
-  
-}
-
-par_df <- read.csv("Data_Files/CSV_Files/UHA_all_loci_analysis_df.csv")
+par_df <- read.csv("Results/Parentage_Results/CSV_Files/UHA_all_loci_analysis_df.csv")
 
 ###################################
 #     Reorganize data frames      #
 ###################################
 
-#Loop over all data files 
-for(par in seq_along(par_scen_df)){
+# #Loop over all data files 
+# for(par in seq_along(par_scen_df)){
+#   
+#   temp_score_df <- score_df_list[[1]]
   
-  temp_score_df <- score_df_list[[1]]
+#remove offspring from the data frame - only modeling parents
+UHA_par_df <- UHA_database %>% 
+                filter(Parent_Offspring == "P")
   
-  #remove offspring from the data frame
-  UHA_par_df <- UHA_database %>% 
-    filter(Parent_Offspring == "P")
-  
-  #create data frame for offspring 
-  # UHA_clean_par_df <- par_df %>% 
-  #   rename(Father_ID = Candidate_father_ID) %>%
-  #   filter(!is.na(Father_ID)) 
-  
-  offspring_df <- par_df %>%
+#create data frame for offspring 
+offspring_df <- par_df %>%
                     filter(!is.na(Candidate_father_ID))
-  
-  ###Create data frames with distances
-  #Create a column of the crosses of every parent individual
-  all_potential_combo <- crossing(UHA_par_df$Tissue_ID, 
+
+###Create data frames with distances
+#Create a column of the crosses of every parent individual
+all_potential_combo <- crossing(UHA_par_df$Tissue_ID, 
                                   UHA_par_df$Tissue_ID)
-  
-  colnames(all_potential_combo) <- c("Parent_1", "Parent_2")
-  
-}
-
-
-
-
+#rename columns
+colnames(all_potential_combo) <- c("Parent_1", "Parent_2")
 
 #remove rows where the parents are the same individual (selfing)
 potential_combo_dedup <- filter(all_potential_combo, Parent_1 != Parent_2)
@@ -75,12 +68,14 @@ potential_combo_dedup$Parent_2_species <- NA
 
 #loop to calculate distance between parents 
 for(d in 1:nrow(potential_combo_dedup)){
+  
+  #initialize first and second parent
   Parent_1 <- potential_combo_dedup$Parent_1[d]
   Parent_2 <- potential_combo_dedup$Parent_2[d]
   
   #access the original tissue database via the parents
-  Parent_1_Database_row <- filter(UHA_clean_df, Tissue_ID == Parent_1)
-  Parent_2_Database_row <- filter(UHA_clean_df, Tissue_ID == Parent_2)
+  Parent_1_Database_row <- filter(UHA_database, Tissue_ID == Parent_1)
+  Parent_2_Database_row <- filter(UHA_database, Tissue_ID == Parent_2)
   
   #use distGeo to get distance in m between the lat long points of the 2 parents
   potential_combo_dedup$dist[d] <- distGeo(c(Parent_1_Database_row$Longitude, Parent_1_Database_row$Latitude),
@@ -95,24 +90,23 @@ for(d in 1:nrow(potential_combo_dedup)){
 #reorganize the combination data frame to fix species naming conventions and to
 #have a hybrid column 
 potential_combo_info <- potential_combo_dedup %>%
-  mutate(Parent_1_species = str_replace_all(Parent_1_species, "Quercus", "Q."), 
-         Parent_2_species = str_replace_all(Parent_2_species, "Quercus", "Q.")) %>% #replace all instances of Quercus with Q. to ensure all species names are formatted the same
+  mutate(Parent_1_species = str_replace_all(Parent_1_species, "Q.", "Quercus"), 
+         Parent_2_species = str_replace_all(Parent_2_species, "Q.", "Quercus")) %>% #replace all instances of Q.
   mutate(Parental_species_match = case_when(Parent_1_species == Parent_2_species ~ "Conspecific",
                                             Parent_1_species != Parent_2_species ~ "Heterospecific")) #if the species of the two parents matches then they are conspecific, if not they are heterospecific
 
 #list of maternal names
-mom_IDs <- unique(parentage_results$Mother_ID) 
+mom_IDs <- unique(par_df$Maternal_ID) 
 #filter combintation df by the possible mothers 
 relevant_potential_combos <- potential_combo_info %>%
                                 filter(Parent_1 %in% mom_IDs) 
 
 #replaces relevant_parentage_results
 #combine all columns for distance analysis 
-par_results_df <- left_join(UHA_clean_par_df, 
-                                        select(relevant_potential_combos, 
+par_results_df <- left_join(par_df, select(relevant_potential_combos, 
                                                c(Parent_1, Parent_2, dist)), 
-                                                  join_by(Mother_ID == Parent_1,
-                                                      Father_ID == Parent_2))
+                                                  join_by(Maternal_ID == Parent_1,
+                                                          Candidate_father_ID == Parent_2))
 
 ############### Create data frames
 # right now just taking the mean dist of successful dads vs possible dads
@@ -120,13 +114,13 @@ par_results_df <- left_join(UHA_clean_par_df,
 #maternal tree (without ties, only possible with slice_min, using
 #that instead of top_n)
 rf_mean_small_df <- par_results_df %>%
-                          group_by(Mother_ID) %>%
+                          group_by(Maternal_ID) %>%
                             slice_min(dist, n =5, with_ties = FALSE) %>%
                               summarise(Mean_smallest_real_dists = mean(dist, 
                                                                         na.rm=TRUE))
 #same as above but doing 5 farthest dists
 rf_mean_large_df <- par_results_df %>% 
-                      group_by(Mother_ID) %>%
+                      group_by(Maternal_ID) %>%
                        slice_max(dist, n =5, with_ties = FALSE) %>%
                         summarise(Mean_largest_real_dists = mean(dist, na.rm=TRUE))
 
@@ -155,13 +149,13 @@ pf_mean_large_df <- relevant_potential_combos %>%
 #summarize data by mean and min distance to real fathers and by proportion of 
 #offspring that are hybrids (with heterospecific fathers)
 rf_df <- par_results_df %>%
-          group_by(Mother_ID) %>%
+          group_by(Maternal_ID) %>%
           summarise(Mean_real_dist = mean(dist, na.rm=TRUE), 
             Min_real_dist = min(dist, na.rm=TRUE), 
             Max_real_dist = max(dist, na.rm=TRUE), 
-            Prop_hybrids = mean(Hybrid, na.rm = TRUE)) %>%
-            left_join(., rf_mean_small_df, join_by(Mother_ID == Mother_ID)) %>% #add the Mean_smallest_dists data 
-            left_join(., rf_mean_large_df, join_by(Mother_ID == Mother_ID)) #add the Mean_largest_dists data 
+            Prop_hybrids = mean(Hybrid_Status, na.rm = TRUE)) %>%
+            left_join(., rf_mean_small_df, join_by(Maternal_ID == Maternal_ID)) %>% #add the Mean_smallest_dists data 
+            left_join(., rf_mean_large_df, join_by(Maternal_ID == Maternal_ID)) #add the Mean_largest_dists data 
 
 # Make dataset ("potential_fathers_summary") containing all of the desired 
 #summarized categories from the possible combinations of mothers and fathers 
@@ -180,7 +174,7 @@ pf_df <- relevant_potential_combos %>%
             Max_potential_dist = max(dist, na.rm=TRUE))  %>%
   left_join(., pf_mean_small_df, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_smallest_dists data
   left_join(., pf_mean_large_df, join_by(Parent_1 == Parent_1, Parental_species_match == Parental_species_match)) %>% #add the Mean_largest_dists data
-  left_join(., select(rf_df, c(Mother_ID, Prop_hybrids)), join_by(Parent_1 == Mother_ID)) #add the proportion of hybrids had by each mother (from real_fathers_summary)
+  left_join(., select(rf_df, c(Maternal_ID, Prop_hybrids)), join_by(Parent_1 == Maternal_ID)) #add the proportion of hybrids had by each mother (from real_fathers_summary)
 
 #now summarize this 
 # The linear model for the mean distance of real fathers to a 
@@ -343,10 +337,10 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
 #parents (from parents_dists_table_full)
 
 parentage_results_for_hists <- par_results_df %>%
-  rename(Mom = Mother_ID, 
-         Dad = Father_ID) %>%
-  select(Mom, Dad, dist, Hybrid) %>%
-  filter(Hybrid == F) %>%  #we are only looking at distance between conspecific pairs in this analysis (no hydrbid offspring)
+  rename(Mom = Maternal_ID, 
+         Dad = Candidate_father_ID) %>%
+  select(Mom, Dad, dist, Hybrid_Status) %>%
+  filter(Hybrid_Status == F) %>%  #we are only looking at distance between conspecific pairs in this analysis (no hydrbid offspring)
   filter(!is.na(dist))  #remove entries where dist is NA because some trees that we have tissue from do not have long/lat values
 
 #Create the a histogram that shows the difference in the real and theoretical distances between parents 
@@ -370,4 +364,7 @@ dist_hist
 
 dev.off()
 
+#compare relationships 
+ks.test(x = parentage_results_for_hists$dist, 
+        y = parents_dists_table_full$dist)
 

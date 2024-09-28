@@ -145,15 +145,11 @@ UHA_father_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
 #rename 
 colnames(UHA_father_df) <- c("Species", "Count")
 
-
-UHA_father_df2 <- UHA_father_df %>%
-                    dplyr::arrange(desc(Count))
-
 ###### Hybrid status x mating distance -------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
     res = 600, width = 5200, height = 3500)
 
-UHA_father_df2 %>%
+UHA_father_df %>%
   ggplot(aes(x = forcats::fct_rev(Species), y=Count))+
   geom_bar(stat = "identity", fill = "darkgreen") + 
   geom_text(aes(label = paste("n =", Count)), vjust = -0.5) +  
