@@ -140,13 +140,32 @@ for(df in seq_along(par_scen_df_list)){
 #     Figures     #
 ###################
 
-###### Hybrid status x mating distance -------------------
+###### Hybrid species barplot -------------------
 
-#replace column text for halfsibs
-UHA_res_df[["Offspring Is"]] <- dplyr::case_when(
-  UHA_res_df$Hybrid_Status == TRUE ~ "Hybrid",
-  UHA_res_df$Hybrid_Status == FALSE ~ "Not Hybrid"
-)
+UHA_res_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
+#rename 
+colnames(UHA_res_df) <- c("Species", "Count")
+
+###### Hybrid status x mating distance -------------------
+png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
+    res = 600, width = 5200, height = 3500)
+
+UHA_res_df %>%
+  ggplot(aes(x = Species, y=Count))+
+  geom_bar(stat = "identity", fill = "darkgreen") + 
+  geom_text(aes(label = paste("n =", Count)), vjust = -0.5) +  
+  labs(title="Count of Offspring Produced by Each Candidate Father Tree Species", 
+       x="Candidate Father Species") +
+  theme_bw() +
+  scale_y_continuous(limits = c(0,150)) +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 1))
+dev.off()
 
 #figure code
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.png"),
