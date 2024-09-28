@@ -140,6 +140,37 @@ for(df in seq_along(par_scen_df_list)){
 #     Figures     #
 ###################
 
+###### Hybrid status x mating distance -------------------
+
+#replace column text for halfsibs
+UHA_res_df[["Offspring Is"]] <- dplyr::case_when(
+  UHA_res_df$Hybrid_Status == TRUE ~ "Hybrid",
+  UHA_res_df$Hybrid_Status == FALSE ~ "Not Hybrid"
+)
+
+#figure code
+png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.png"),
+    res = 600, width = 5000, height = 3500)
+UHA_res_df %>%
+  ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), 
+             y = dist_par, 
+             fill = `Offspring Is`)) +  
+  geom_boxplot() +
+  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+  expand_limits(y = c(0, 650)) +  # set limits for graph
+  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+  labs(title = "Distribution of Mating Distances Between Hybridizing Parents") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.5))
+
+dev.off()
+
 ###### Boxplot of distances between parents ------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par.png"),
     res = 600, width = 5200, height = 3500)
