@@ -168,16 +168,32 @@ dev.off()
 
 ###### Boxplot of distances and half siblings ------------------
 
-#loop to add half sibling info to par scen data frames 
+#replace column text for halfsibs
+UHA_res_df[["Parents Are"]] <- dplyr::case_when(
+  UHA_res_df$Half_Sibs == TRUE ~ "Half Siblings",
+  UHA_res_df$Half_Sibs == FALSE ~ "Not Half Siblings"
+)
 
-for(scen in 1:length(full_scen)){
-  par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
-    mutate(`Parents Are:` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
-                                      TRUE ~ "Half Siblings", 
-                                      NA ~ "No Accession Number")
-    )
-}
-
+#graph of half-sibling matings group by maternal ID
+png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_halfsib.png"),
+    res = 600, width = 5200, height = 3500)
+UHA_res_df %>%
+  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
+  ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), y = dist_par, fill = `Parents Are`)) +  
+  geom_jitter(aes(fill = `Parents Are`), width = 0.2, size = 3, shape = 21, color = "black") +
+  expand_limits(y = c(0, 650)) +  # set limits for graph
+  scale_fill_manual(values = c("cadetblue", "navy")) +
+  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+  labs(title = "Fig. 3: Distribution of Mating Distances Between Half-Sibling Parents") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.3))
+dev.off()
 
 # ###### Boxplot of distances between parents 
 # png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
