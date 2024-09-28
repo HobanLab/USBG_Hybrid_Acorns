@@ -1,12 +1,13 @@
-###This script creates barplots of the plots presented in the manuscript
-##This code was developed and tested by Mikaely Evans in 2023 
-
+###This script creates summarization files and figures for the final publication
+##of this study. Summary data file code was created by Emily Schumacher and 
+#figure code was created by Mikaely Evans. 
 
 #####################
 #     Libraries     #
 #####################
 
 library(tidyverse)
+library(dplyr)
 library(ggplot2)
 
 ###########################
@@ -117,10 +118,7 @@ for(df in seq_along(par_scen_df_list)){
         par_sum_stat_df[mat,11] <- length(par_scen_df[[df]][par_scen_df[[df]]$dist_par == max(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par) & par_scen_df[[df]]$Hybrid_Status == TRUE,]$Candidate_Father_Species)
         
     }
-    #add min and max dist columns for parents
-    
-    
-    
+     
     # #add colnames
     colnames(par_sum_stat_df) <- c("MT_ID", "Off_N",
                                   "Fathers_N", "Hybrid_Off_N",
@@ -142,16 +140,21 @@ for(df in seq_along(par_scen_df_list)){
 
 ###### Hybrid species barplot -------------------
 
+#create summary father data frame 
 UHA_father_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
 #rename 
 colnames(UHA_father_df) <- c("Species", "Count")
+
+
+UHA_father_df2 <- UHA_father_df %>%
+                    dplyr::arrange(desc(Count))
 
 ###### Hybrid status x mating distance -------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
     res = 600, width = 5200, height = 3500)
 
-UHA_father_df %>%
-  ggplot(aes(x = Species, y=Count))+
+UHA_father_df2 %>%
+  ggplot(aes(x = forcats::fct_rev(Species), y=Count))+
   geom_bar(stat = "identity", fill = "darkgreen") + 
   geom_text(aes(label = paste("n =", Count)), vjust = -0.5) +  
   labs(title="Count of Offspring Produced by Each Candidate Father Tree Species", 
