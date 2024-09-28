@@ -142,15 +142,15 @@ for(df in seq_along(par_scen_df_list)){
 
 ###### Hybrid species barplot -------------------
 
-UHA_res_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
+UHA_father_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
 #rename 
-colnames(UHA_res_df) <- c("Species", "Count")
+colnames(UHA_father_df) <- c("Species", "Count")
 
 ###### Hybrid status x mating distance -------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
     res = 600, width = 5200, height = 3500)
 
-UHA_res_df %>%
+UHA_father_df %>%
   ggplot(aes(x = Species, y=Count))+
   geom_bar(stat = "identity", fill = "darkgreen") + 
   geom_text(aes(label = paste("n =", Count)), vjust = -0.5) +  
@@ -205,7 +205,7 @@ UHA_res_df %>%
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") + 
   scale_fill_manual(values = c("TRUE" = "hotpink", "FALSE" = "grey"),
                     labels = c("TRUE" = "Hybrid", "FALSE" = "Not a hybrid")) + # set color and titles for Hybrid Status
-  labs(fill = "Offspring is: ", title = "Fig. 2: Distribution of Mating Distances Between Maternal and Paternal Trees") +
+  labs(fill = "Offspring is: ", title = "Distribution of Mating Distances Between Maternal and Paternal Trees") +
   theme(axis.title.x = element_text(size = 16),
         axis.title.y = element_text(size = 16),
         axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
@@ -234,7 +234,7 @@ UHA_res_df %>%
   expand_limits(y = c(0, 650)) +  # set limits for graph
   scale_fill_manual(values = c("cadetblue", "navy")) +
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  labs(title = "Fig. 3: Distribution of Mating Distances Between Half-Sibling Parents") +
+  labs(title = "Distribution of Mating Distances Between Half-Sibling Parents") +
   theme_bw() +
   theme(axis.title.x = element_text(size = 16),
         axis.title.y = element_text(size = 16),
@@ -245,6 +245,144 @@ UHA_res_df %>%
         plot.title = element_text(size = 18, hjust = 0.3))
 dev.off()
 
+#### Candidate Father Count Figure ------------------
+
+#create table of fathers and DBH
+png(paste0("Results/Parentage_Results/Figures/AL_HCF_count_by_father.png"),
+    res = 600, width = 5200, height = 3500)
+UHA_res_df %>%
+  ggplot(aes(x = fct_infreq(Candidate_father_ID), fill = Candidate_Father_Species)) +
+  geom_bar(stat = "count") + 
+  scale_fill_manual(values = c("darkseagreen4", "deepskyblue3", "goldenrod3")) +
+  labs(title = "Offspring Count By Father") +
+  theme_bw() +
+  xlab("Candidate Father ID") + ylab("Offspring Count") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.3)) +
+  scale_y_continuous(limits = c(0, 30))  # set limits for graph
+  #  geom_text(data = . %>% count(Candidate_father_ID), aes(label = paste("n =", n), y = 40), vjust = -0.5)
+dev.off()
+
+
+
+#create count df
+cf_list <- unique(UHA_res_df$Candidate_father_ID)
+
+#set up data frame
+count_df <- matrix(nrow = length(cf_list),
+                   ncol = 4)
+#first column - candidate father list
+count_df[,1] <- cf_list
+
+#loop over all cases 
+for(cf in seq_along(cf_list)){
+  
+  #second column - count 
+  count_df[cf,2] <- length(UHA_res_df[UHA_res_df$Candidate_father_ID == cf_list[[cf]],"Offspring_ID"])
+  
+  #add in dbh
+  count_df[cf,3] <- unique(UHA_res_df[UHA_res_df$Candidate_father_ID == cf_list[[cf]],"DBH_avg"])
+  
+  #add in species ID
+  count_df[cf,4] <- unique(UHA_res_df[UHA_res_df$Candidate_father_ID == cf_list[[cf]],"Candidate_Father_Species"])
+  
+}
+#name columns 
+colnames(count_df) <- c("Candidate_Father_ID", "Count", "DBH_avg", "Species")
+#coerce to data frame
+count_df <- as.data.frame(count_df)
+#change dbh to numberic
+class(count_df$Count) <- "numeric"
+class(count_df$DBH_avg) <- "numeric"
+
+#histogram DBHs
+#create a plot of the DBH across fathers 
+png("Results/Parentage_Results/Figures/AL_HCF_barplot_DBH.png",
+    res = 600, width = 5200, height = 3500)
+
+count_df %>%
+  ggplot(aes(x = fct_infreq(Candidate_Father_ID), y = DBH_avg, fill = Species)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("deepskyblue3", "darkseagreen4", "goldenrod3")) +
+  labs(title = "Offspring Count By Father") +
+  theme_bw() +
+  xlab("Candidate Father ID") + ylab("Offspring Count") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.3)) +
+  scale_y_continuous(limits = c(0, 90))  # set limits for graph
+dev.off()
+
+#plot linear regression - loop over numeric
+species_list <- unique(count_df$Species)
+#create color list 
+color_list <- c("darkseagreen4", "deepskyblue3", "goldenrod3")
+
+#count df color 
+count_df$color <- NA
+
+for(sp in seq_along(species_list)){
+  
+  count_df[count_df$Species == species_list[[sp]],"color"] <- color_list[[sp]]
+  
+}
+
+#save out linear regression info 
+reg <- lm(count_df$Count ~ count_df$DBH_avg)
+sum_reg <- summary(reg)
+#save out r2 and p value 
+adj_r2 <- sum_reg$adj.r.squared
+pvalue <- sum_reg$coefficients[[8]]
+
+#create legend
+rp <- vector('expression',2)
+rp[1] <- substitute(expression(italic(R)^2 == MYVALUE), 
+                            list(MYVALUE = format(adj_r2,dig=3)))[2]
+rp[2] = substitute(expression(italic(p) == MYOTHERVALUE), 
+                           list(MYOTHERVALUE = format(pvalue, digits = 2)))[2]
+#write out 
+png("Results/Parentage_Results/Figures/AL_HCF_dbh_offspring_count.png")
+#plot linear regression based on color
+plot(x = count_df[count_df$Species == species_list[[1]],]$DBH_avg, 
+     y = count_df[count_df$Species == species_list[[1]],]$Count,
+     pch = 17, 
+     col = count_df[count_df$Species == species_list[[1]],]$color,
+     ylim = c(0,30),
+     xlab = "Average DBH (cm)",
+     ylab = "Offspring Count",
+     xlim = c(0,100))
+points(x = count_df[count_df$Species == species_list[[2]],]$DBH_avg, 
+       y = count_df[count_df$Species == species_list[[2]],]$Count,
+       pch = 17, 
+       col = count_df[count_df$Species == species_list[[2]],]$color)
+points(x = count_df[count_df$Species == species_list[[3]],]$DBH_avg, 
+       y = count_df[count_df$Species == species_list[[3]],]$Count,
+       pch = 17, 
+       col = count_df[count_df$Species == species_list[[3]],]$color)
+
+#add regression 
+abline(reg, col = "blue", lwd = 2)
+
+#add legend - r2 and pvalue
+legend("topleft", legend = rp, bty = 'n', border = "black", 
+       pt.cex = 1.5, cex = 0.8, pch = 17, col = "blue")
+#add species legend
+legend('left', legend = species_list, 
+       pch = 17, col = color_list, size = 2)
+dev.off()
+
+############## Not currently in use ----------------------
 # ###### Boxplot of distances between parents 
 # png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
 #     res = 600, width = 5000, height = 3500)
