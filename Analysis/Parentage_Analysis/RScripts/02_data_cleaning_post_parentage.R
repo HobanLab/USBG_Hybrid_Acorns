@@ -107,7 +107,6 @@ UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 full_scen <- c("all_loci", "HCF_all_loci", 
                "red_loci", "HCF_red_loci")
 
-sc <- 1
 #loop over four scenarios
 for(sc in seq_along(full_scen)){
   

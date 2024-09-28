@@ -17,7 +17,7 @@ library(ggplot2)
 setwd("../../..")
 
 #read in summary df for final figures
-UHA_res_df <- read.csv("Results/Parentage_Results/CSV_Files/all_loci_HCF_par_sum.csv")
+UHA_res_df <- read.csv("Results/Parentage_Results/CSV_Files/UHA_HCF_all_loci_analysis_df.csv")
 
 #load in list of parentage summary results CSVs
 par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
@@ -26,6 +26,14 @@ par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
 #reorg list to fit order 
 par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
                    par_sum_df[[4]], par_sum_df[[3]])
+
+#load full scenario data frames 
+full_scen <- c("all_loci_AF", #all loci included with all father assignments 
+               "all_loci_HCF", #all loci with only high confidence fathers included
+               "red_loci_AF", #reduced loci with all father assignments
+               "red_loci_HCF" #reduce loci with only high confidence father assignments included
+)
+
 
 ###################################################
 #     Sumamry of Non Exculsion Probabilities      #
@@ -132,266 +140,302 @@ for(df in seq_along(par_scen_df_list)){
 #     Figures     #
 ###################
 
-
-
-
-###### Boxplot of distances between parents 
-png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[1]] %>%
-  group_by(c(Mother_ID)) %>% # 
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
-  expand_limits(y = c(0, 650)) +  # set limits for graph
+###### Boxplot of distances between parents ------------------
+png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par.png"),
+    res = 600, width = 5200, height = 3500)
+UHA_res_df %>%
+  group_by(c(Maternal_ID)) %>% # 
+  ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), y = dist_par)) +  
+  expand_limits(y = c(0, 675)) +  # set limits for graph
   #theme_minimal() +  # set theme
   theme_bw() +  # set theme
-  geom_boxplot(fill="darkolivegreen4") +
-  geom_jitter(color = "grey", fill = "black", width = 0.3) +
-  geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+  geom_boxplot(fill="darkolivegreen4", outlier.shape = NA) + # set color and remove outliers
+  geom_jitter(aes(fill = Hybrid_Status), width = 0.2, size = 3.25, shape = 21, color = "black") +
+  geom_text(data = . %>% count(Maternal_ID), aes(label = paste("n =", n), y = 665), vjust = -0.5) + 
+  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") + 
+  scale_fill_manual(values = c("TRUE" = "hotpink", "FALSE" = "grey"),
+                    labels = c("TRUE" = "Hybrid", "FALSE" = "Not a hybrid")) + # set color and titles for Hybrid Status
+  labs(fill = "Offspring is: ", title = "Fig. 2: Distribution of Mating Distances Between Maternal and Paternal Trees") +
+  theme(axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 14),
+        legend.text = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        plot.title = element_text(size = 18, hjust = 0.3))  # center the title
 
 dev.off()
 
-png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_dist_par.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[2]] %>%
-  group_by(c(Mother_ID)) %>% # 
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  #theme_minimal() +  # set theme
-  theme_bw() +  # set theme
-  geom_boxplot(fill="darkolivegreen4") +
-  geom_jitter(color = "grey", fill = "black", width = 0.3) +
-  geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+###### Boxplot of distances and half siblings ------------------
 
-dev.off()
+#loop to add half sibling info to par scen data frames 
+
+for(scen in 1:length(full_scen)){
+  par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
+    mutate(`Parents Are:` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
+                                      TRUE ~ "Half Siblings", 
+                                      NA ~ "No Accession Number")
+    )
+}
 
 
-png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_dist_par.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[3]] %>%
-  group_by(c(Mother_ID)) %>% # 
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  #theme_minimal() +  # set theme
-  theme_bw() +  # set theme
-  geom_boxplot(fill="darkolivegreen4") +
-  geom_jitter(color = "grey", fill = "black", width = 0.3) +
-  geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
-
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_dist_par.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[4]] %>%
-  group_by(c(Mother_ID)) %>% # 
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  #theme_minimal() +  # set theme
-  theme_bw() +  # set theme
-  geom_boxplot(fill="darkolivegreen4") +
-  geom_jitter(color = "grey", fill = "black", width = 0.3) +
-  geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
-
-dev.off()
+# ###### Boxplot of distances between parents 
+# png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[1]] %>%
+#   group_by(c(Mother_ID)) %>% # 
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   #theme_minimal() +  # set theme
+#   theme_bw() +  # set theme
+#   geom_boxplot(fill="darkolivegreen4") +
+#   geom_jitter(color = "grey", fill = "black", width = 0.3) +
+#   geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+# 
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_dist_par.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[2]] %>%
+#   group_by(c(Mother_ID)) %>% # 
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   #theme_minimal() +  # set theme
+#   theme_bw() +  # set theme
+#   geom_boxplot(fill="darkolivegreen4") +
+#   geom_jitter(color = "grey", fill = "black", width = 0.3) +
+#   geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+# 
+# dev.off()
+# 
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_dist_par.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[3]] %>%
+#   group_by(c(Mother_ID)) %>% # 
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   #theme_minimal() +  # set theme
+#   theme_bw() +  # set theme
+#   geom_boxplot(fill="darkolivegreen4") +
+#   geom_jitter(color = "grey", fill = "black", width = 0.3) +
+#   geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+# 
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_dist_par.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[4]] %>%
+#   group_by(c(Mother_ID)) %>% # 
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   #theme_minimal() +  # set theme
+#   theme_bw() +  # set theme
+#   geom_boxplot(fill="darkolivegreen4") +
+#   geom_jitter(color = "grey", fill = "black", width = 0.3) +
+#   geom_text(data = . %>% count(Mother_ID), aes(label = n, y = 645), vjust = -0.5) + 
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)")
+# 
+# dev.off()
 
 #loop over for all cases 
-
-for(scen in 1:length(full_scen)){
-  par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
-  mutate(`Parents Are` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
-                                                TRUE ~ "Half Siblings", 
-                                                NA ~ "No Accession Number")
-  )
-}
-
-#graph of half-sibling matings group by maternal ID
-png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_halfsib_dist.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[1]] %>%
-  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
-  ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
-  geom_jitter(width = 0.2) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  scale_color_manual(values = c("cadetblue", "navy")) +
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw()
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_halfsib_dist.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[2]] %>%
-  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
-  ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
-  geom_jitter(width = 0.2) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  scale_color_manual(values = c("cadetblue", "navy")) +
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw()
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_halfsib_dist.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[3]] %>%
-  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
-  ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
-  geom_jitter(width = 0.2) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  scale_color_manual(values = c("cadetblue", "navy")) +
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw()
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_halfsib_dist.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[4]] %>%
-  group_by(`Parents Are`) %>%  # group by half siblings to compare the status
-  ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
-  geom_jitter(width = 0.2) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  scale_color_manual(values = c("cadetblue", "navy")) +
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw()
-dev.off()
-
-#loop to add hybrid status to data frame 
-for(scen in 1:length(full_scen)){
-  
-  par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
-    mutate(`Offspring Hybrid Status` = case_when(Hybrid_Status == FALSE ~ "Not Hybrid",
-                                                 TRUE ~ "Hybrid"))
-  
-}
-
-#####barplots of the percentage of hybrids 
-png(paste0("Results/Parentage_Figures/", full_scen[[1]],"_hybrid_boxplot.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[1]] %>%
-ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
-                                    y = dist_par, 
-                                  fill = `Offspring Hybrid Status`)) +  
-  geom_boxplot() +
-  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw() 
-
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[2]],"_hybrid_boxplot.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[2]] %>%
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
-             y = dist_par, 
-             fill = `Offspring Hybrid Status`)) +  
-  geom_boxplot() +
-  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw() 
-
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[3]],"_hybrid_boxplot.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[3]] %>%
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
-             y = dist_par, 
-             fill = `Offspring Hybrid Status`)) +  
-  geom_boxplot() +
-  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw() 
-
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[4]],"_hybrid_boxplot.png"), 
-    res = 600, width = 5000, height = 3500)
-par_scen_df[[4]] %>%
-  ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
-             y = dist_par, 
-             fill = `Offspring Hybrid Status`)) +  
-  geom_boxplot() +
-  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  theme_bw() 
-
-dev.off()
-
-
-##create a list for 
-#table to present the candidate fathers 
-species_count_list <- list()
-
-#loop to create species count lists for parent assignments
-for(scen in 1:length(full_scen)){
-  
-  #create a data frame 
-  species_count_list[[scen]] <- as.data.frame(table(par_scen_df[[scen]]$Candidate_Father_Species))
-  
-  #rename columns 
-  names(species_count_list[[scen]]) <- c("Species", "Count")
-  
-  #organize data frame 
-  species_count_list[[scen]]$Species <- factor(species_count_list[[scen]]$Species, 
-                                               levels=species_count_list[[scen]]$Species[order(-species_count_list[[scen]]$Count)])
-  
-  
-}
-
-
-
-png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_hybrid_barplot.png"),
-    res = 600, width = 5000, height = 3500)
-species_count_list[[2]] %>%
-  ggplot(aes(x = Species, y=Count))+
-  geom_bar(stat = "identity", fill = "darkgreen") + 
-  labs(title="Count of Candidate Father Trees per Species", 
-       x="Candidate Father Species") +
-  theme_bw()
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_hybrid_barplot.png"),
-    res = 600, width = 5000, height = 3500)
-species_count_list[[3]] %>%
-  ggplot(aes(x = Species, y=Count))+
-  geom_bar(stat = "identity", fill = "darkgreen") + 
-  labs(title="Count of Candidate Father Trees per Species", 
-       x="Candidate Father Species") +
-  theme_bw()
-dev.off()
-
-png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_hybrid_barplot.png"),
-    res = 600, width = 5000, height = 3500)
-species_count_list[[4]] %>%
-  ggplot(aes(x = Species, y=Count))+
-  geom_bar(stat = "identity", fill = "darkgreen") + 
-  labs(title="Count of Candidate Father Trees per Species", 
-       x="Candidate Father Species") +
-  theme_bw()
-dev.off()
-
-################## Unused Loops ------------- 
-for(scen in seq_along(full_scen)){
-  
-  mat_off <- par_scen_df[[scen]] %>%
-    ggplot() +
-    geom_bar(aes(y = sort(Candidate_father_ID))) +
-    facet_wrap(~`Mother_ID`) + 
-    scale_x_continuous(n.breaks = 9) +
-    labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
-         y = "Candidate Father ID", x = "Count of Offspring")
-  
-  png(paste0("Results/Parentage_Figures/", full_scen[[scen]], "_mat_off.png"), 
-      width = 5000, height = 3500, res = 600)
-  
-  mat_off
-  
-}
-dev.off()
-
+# 
+# for(scen in 1:length(full_scen)){
+#   par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
+#   mutate(`Parents Are` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
+#                                                 TRUE ~ "Half Siblings", 
+#                                                 NA ~ "No Accession Number")
+#   )
+# }
+# 
+# #graph of half-sibling matings group by maternal ID
+# png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_halfsib_dist.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[1]] %>%
+#   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
+#   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
+#   geom_jitter(width = 0.2) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   scale_color_manual(values = c("cadetblue", "navy")) +
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw()
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_halfsib_dist.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[2]] %>%
+#   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
+#   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
+#   geom_jitter(width = 0.2) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   scale_color_manual(values = c("cadetblue", "navy")) +
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw()
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_halfsib_dist.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[3]] %>%
+#   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
+#   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
+#   geom_jitter(width = 0.2) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   scale_color_manual(values = c("cadetblue", "navy")) +
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw()
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_halfsib_dist.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[4]] %>%
+#   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
+#   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
+#   geom_jitter(width = 0.2) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   scale_color_manual(values = c("cadetblue", "navy")) +
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw()
+# dev.off()
+# 
+# #loop to add hybrid status to data frame 
+# for(scen in 1:length(full_scen)){
+#   
+#   par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
+#     mutate(`Offspring Hybrid Status` = case_when(Hybrid_Status == FALSE ~ "Not Hybrid",
+#                                                  TRUE ~ "Hybrid"))
+#   
+# }
+# 
+# #####barplots of the percentage of hybrids 
+# png(paste0("Results/Parentage_Figures/", full_scen[[1]],"_hybrid_boxplot.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[1]] %>%
+# ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
+#                                     y = dist_par, 
+#                                   fill = `Offspring Hybrid Status`)) +  
+#   geom_boxplot() +
+#   scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw() 
+# 
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[2]],"_hybrid_boxplot.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[2]] %>%
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
+#              y = dist_par, 
+#              fill = `Offspring Hybrid Status`)) +  
+#   geom_boxplot() +
+#   scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw() 
+# 
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[3]],"_hybrid_boxplot.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[3]] %>%
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
+#              y = dist_par, 
+#              fill = `Offspring Hybrid Status`)) +  
+#   geom_boxplot() +
+#   scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw() 
+# 
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[4]],"_hybrid_boxplot.png"), 
+#     res = 600, width = 5000, height = 3500)
+# par_scen_df[[4]] %>%
+#   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
+#              y = dist_par, 
+#              fill = `Offspring Hybrid Status`)) +  
+#   geom_boxplot() +
+#   scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
+#   expand_limits(y = c(0, 650)) +  # set limits for graph
+#   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
+#   theme_bw() 
+# 
+# dev.off()
+# 
+# 
+# ##create a list for 
+# #table to present the candidate fathers 
+# species_count_list <- list()
+# 
+# #loop to create species count lists for parent assignments
+# for(scen in 1:length(full_scen)){
+#   
+#   #create a data frame 
+#   species_count_list[[scen]] <- as.data.frame(table(par_scen_df[[scen]]$Candidate_Father_Species))
+#   
+#   #rename columns 
+#   names(species_count_list[[scen]]) <- c("Species", "Count")
+#   
+#   #organize data frame 
+#   species_count_list[[scen]]$Species <- factor(species_count_list[[scen]]$Species, 
+#                                                levels=species_count_list[[scen]]$Species[order(-species_count_list[[scen]]$Count)])
+#   
+#   
+# }
+# 
+# 
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_hybrid_barplot.png"),
+#     res = 600, width = 5000, height = 3500)
+# species_count_list[[2]] %>%
+#   ggplot(aes(x = Species, y=Count))+
+#   geom_bar(stat = "identity", fill = "darkgreen") + 
+#   labs(title="Count of Candidate Father Trees per Species", 
+#        x="Candidate Father Species") +
+#   theme_bw()
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_hybrid_barplot.png"),
+#     res = 600, width = 5000, height = 3500)
+# species_count_list[[3]] %>%
+#   ggplot(aes(x = Species, y=Count))+
+#   geom_bar(stat = "identity", fill = "darkgreen") + 
+#   labs(title="Count of Candidate Father Trees per Species", 
+#        x="Candidate Father Species") +
+#   theme_bw()
+# dev.off()
+# 
+# png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_hybrid_barplot.png"),
+#     res = 600, width = 5000, height = 3500)
+# species_count_list[[4]] %>%
+#   ggplot(aes(x = Species, y=Count))+
+#   geom_bar(stat = "identity", fill = "darkgreen") + 
+#   labs(title="Count of Candidate Father Trees per Species", 
+#        x="Candidate Father Species") +
+#   theme_bw()
+# dev.off()
+# 
+# ################## Unused Loops ------------- 
+# for(scen in seq_along(full_scen)){
+#   
+#   mat_off <- par_scen_df[[scen]] %>%
+#     ggplot() +
+#     geom_bar(aes(y = sort(Candidate_father_ID))) +
+#     facet_wrap(~`Mother_ID`) + 
+#     scale_x_continuous(n.breaks = 9) +
+#     labs(title = "Count of Offspring per Candidate Father and Maternal Tree Pairs", 
+#          y = "Candidate Father ID", x = "Count of Offspring")
+#   
+#   png(paste0("Results/Parentage_Figures/", full_scen[[scen]], "_mat_off.png"), 
+#       width = 5000, height = 3500, res = 600)
+#   
+#   mat_off
+#   
+# }
+# dev.off()
+# 
 
