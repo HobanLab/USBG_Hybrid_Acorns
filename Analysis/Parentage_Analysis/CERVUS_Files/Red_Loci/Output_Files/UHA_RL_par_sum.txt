@@ -1,0 +1,410 @@
+Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
+Distributed by Field Genetics Ltd - www.fieldgenetics.com
+Licensed for non-commercial use only
+
+Parentage analysis completed 11/14/2024 1:06:27 PM
+
+
+**** Summary statistics ****
+
+
+Father alone (all offspring):
+
+Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
+                                            Observed Expected  Observed Expected
+Strict               95.00            3.89       31 (     39)      20%    ( 25%)
+Relaxed              80.00            1.46       75 (     87)      49%    ( 56%)
+Unassigned                                       79 (     67)      51%    ( 44%)
+Total                                           154 (    154)     100%    (100%)
+
+Father given known mother:
+
+Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
+                                            Observed Expected  Observed Expected
+Strict               95.00            3.33       49 (     84)      32%    ( 54%)
+Relaxed              80.00            0.67       84 (    129)      55%    ( 84%)
+Unassigned                                       70 (     25)      45%    ( 16%)
+Total                                           154 (    154)     100%    (100%)
+
+
+**** Number of individuals tested ****
+
+Offspring (total):                                           154
+  Tested (typed at 4 or more loci):                          154
+    Known mother typed at 4 or more loci:                    154
+    Known mother typed at fewer than 4 loci:                   0
+  Not tested (typed at fewer than 4 loci):                     0
+
+Candidate fathers (total):                                   314
+  Tested (typed at 4 or more loci):                          314
+  Not tested (typed at fewer than 4 loci):                     0
+  Average number of candidate fathers per offspring:         313
+  Average proportion of sampled candidate fathers:             1.0000
+
+
+**** Files ****
+
+Input
+  Offspring file:                 UHA_offspring.csv
+    (includes candidate parent data)
+  Genotype file:                  UHA_RL_genotype_df.csv
+  Allele frequency file:          UHA_RL_allfreq.alf
+  Simulation data file:           UHA_RL_sim.sim
+
+Output
+  Parentage summary file:         UHA_RL_par_sum.txt
+  Parentage data file:            UHA_RL_par_sum.csv
+
+
+**** Loci ****
+
+       1  QS03797_
+       2  MSQ13_
+       3  QrZAG20_
+       4  QpZAG9_
+       5  QS1904_
+       6  MSQ4_
+       7  QpZAG119_
+       8  QpZAG1/5_
+       9  QM69-2M1_
+
+
+**** Simulation parameters ****
+
+Input
+  Number of offspring:                                    100000
+  Number of candidate fathers:                               314
+  Proportion of candidate fathers sampled:                     0.8000
+
+  Proportion of loci typed:                                    0.80000000
+  Proportion of loci mistyped:                                 0.01000000
+  Error rate in likelihood calculations:                       0.01000000
+  Minimum number of typed loci:                                4
+
+Output
+  Confidence determined using:                             Delta
+  Relaxed confidence level:                                   80.00%
+  Strict confidence level:                                    95.00%
+
+
+**** Known parents excluded as candidate parents ****
+
+The following known mother IDs were removed  from the list of candidate fathers
+  for the offspring specified:
+
+UHA-0009 for offspring UHA-0426
+UHA-0010 for offspring UHA-0123
+UHA-0010 for offspring UHA-0124
+UHA-0010 for offspring UHA-0125
+UHA-0010 for offspring UHA-0126
+UHA-0010 for offspring UHA-0127
+UHA-0010 for offspring UHA-0128
+UHA-0010 for offspring UHA-0129
+UHA-0010 for offspring UHA-0130
+UHA-0010 for offspring UHA-0131
+UHA-0010 for offspring UHA-0132
+UHA-0010 for offspring UHA-0133
+UHA-0010 for offspring UHA-0134
+UHA-0010 for offspring UHA-0135
+UHA-0010 for offspring UHA-0136
+UHA-0010 for offspring UHA-0137
+UHA-0010 for offspring UHA-0138
+UHA-0010 for offspring UHA-0139
+UHA-0010 for offspring UHA-0140
+UHA-0010 for offspring UHA-0141
+UHA-0010 for offspring UHA-0142
+UHA-0010 for offspring UHA-0143
+UHA-0010 for offspring UHA-0144
+UHA-0010 for offspring UHA-0146
+UHA-0010 for offspring UHA-0147
+UHA-0010 for offspring UHA-0435
+UHA-0010 for offspring UHA-0436
+UHA-0010 for offspring UHA-0437
+UHA-0010 for offspring UHA-0438
+UHA-0010 for offspring UHA-0439
+UHA-0012 for offspring UHA-0148
+UHA-0012 for offspring UHA-0150
+UHA-0012 for offspring UHA-0151
+UHA-0012 for offspring UHA-0152
+UHA-0012 for offspring UHA-0153
+UHA-0012 for offspring UHA-0154
+UHA-0012 for offspring UHA-0155
+UHA-0012 for offspring UHA-0156
+UHA-0012 for offspring UHA-0157
+UHA-0012 for offspring UHA-0158
+UHA-0012 for offspring UHA-0159
+UHA-0012 for offspring UHA-0160
+UHA-0012 for offspring UHA-0161
+UHA-0012 for offspring UHA-0162
+UHA-0012 for offspring UHA-0163
+UHA-0012 for offspring UHA-0429
+UHA-0012 for offspring UHA-0430
+UHA-0012 for offspring UHA-0431
+UHA-0012 for offspring UHA-0432
+UHA-0012 for offspring UHA-0433
+UHA-0012 for offspring UHA-0434
+UHA-0013 for offspring UHA-0166
+UHA-0013 for offspring UHA-0167
+UHA-0013 for offspring UHA-0169
+UHA-0014 for offspring UHA-0068
+UHA-0014 for offspring UHA-0069
+UHA-0014 for offspring UHA-0070
+UHA-0014 for offspring UHA-0071
+UHA-0014 for offspring UHA-0072
+UHA-0014 for offspring UHA-0073
+UHA-0014 for offspring UHA-0074
+UHA-0014 for offspring UHA-0075
+UHA-0014 for offspring UHA-0076
+UHA-0014 for offspring UHA-0077
+UHA-0014 for offspring UHA-0079
+UHA-0014 for offspring UHA-0080
+UHA-0014 for offspring UHA-0081
+UHA-0014 for offspring UHA-0088
+UHA-0014 for offspring UHA-0089
+UHA-0014 for offspring UHA-0090
+UHA-0014 for offspring UHA-0091
+UHA-0015 for offspring UHA-0093
+UHA-0015 for offspring UHA-0094
+UHA-0015 for offspring UHA-0095
+UHA-0015 for offspring UHA-0096
+UHA-0015 for offspring UHA-0097
+UHA-0015 for offspring UHA-0427
+UHA-0015 for offspring UHA-0428
+UHA-0016 for offspring UHA-0164
+UHA-0016 for offspring UHA-0165
+UHA-0257 for offspring UHA-0098
+UHA-0257 for offspring UHA-0099
+UHA-0257 for offspring UHA-0100
+UHA-0257 for offspring UHA-0101
+UHA-0257 for offspring UHA-0102
+UHA-0257 for offspring UHA-0103
+UHA-0257 for offspring UHA-0105
+UHA-0257 for offspring UHA-0106
+UHA-0257 for offspring UHA-0109
+UHA-0257 for offspring UHA-0110
+UHA-0257 for offspring UHA-0111
+UHA-0257 for offspring UHA-0112
+UHA-0257 for offspring UHA-0113
+UHA-0257 for offspring UHA-0114
+UHA-0257 for offspring UHA-0454
+UHA-0257 for offspring UHA-0455
+UHA-0257 for offspring UHA-0456
+UHA-0257 for offspring UHA-0457
+UHA-0257 for offspring UHA-0458
+UHA-0257 for offspring UHA-0459
+UHA-0257 for offspring UHA-0460
+UHA-0260 for offspring UHA-0043
+UHA-0260 for offspring UHA-0044
+UHA-0260 for offspring UHA-0045
+UHA-0260 for offspring UHA-0046
+UHA-0260 for offspring UHA-0047
+UHA-0260 for offspring UHA-0048
+UHA-0260 for offspring UHA-0049
+UHA-0260 for offspring UHA-0050
+UHA-0260 for offspring UHA-0051
+UHA-0260 for offspring UHA-0052
+UHA-0260 for offspring UHA-0053
+UHA-0260 for offspring UHA-0054
+UHA-0260 for offspring UHA-0055
+UHA-0260 for offspring UHA-0056
+UHA-0260 for offspring UHA-0058
+UHA-0260 for offspring UHA-0059
+UHA-0260 for offspring UHA-0440
+UHA-0260 for offspring UHA-0441
+UHA-0260 for offspring UHA-0442
+UHA-0260 for offspring UHA-0443
+UHA-0260 for offspring UHA-0444
+UHA-0260 for offspring UHA-0445
+UHA-0260 for offspring UHA-0446
+UHA-0260 for offspring UHA-0447
+UHA-0260 for offspring UHA-0448
+UHA-0260 for offspring UHA-0449
+UHA-0260 for offspring UHA-0450
+UHA-0260 for offspring UHA-0451
+UHA-0260 for offspring UHA-0452
+UHA-0260 for offspring UHA-0453
+UHA-0261 for offspring UHA-0020
+UHA-0261 for offspring UHA-0021
+UHA-0261 for offspring UHA-0022
+UHA-0261 for offspring UHA-0023
+UHA-0261 for offspring UHA-0024
+UHA-0261 for offspring UHA-0025
+UHA-0261 for offspring UHA-0026
+UHA-0261 for offspring UHA-0027
+UHA-0261 for offspring UHA-0028
+UHA-0261 for offspring UHA-0029
+UHA-0261 for offspring UHA-0036
+UHA-0261 for offspring UHA-0037
+UHA-0261 for offspring UHA-0038
+UHA-0261 for offspring UHA-0040
+UHA-0261 for offspring UHA-0041
+UHA-0351 for offspring UHA-0115
+UHA-0351 for offspring UHA-0116
+UHA-0351 for offspring UHA-0118
+UHA-0351 for offspring UHA-0119
+UHA-0351 for offspring UHA-0120
+UHA-0351 for offspring UHA-0121
+UHA-0351 for offspring UHA-0122
+UHA-0351 for offspring UHA-0298
+
+TOTAL: 154
+
+
+**** Known parent-offspring mismatches ****
+
+Locus name  Offspring ID     Genotype        Known parent ID  Genotype        Null
+QS03797_    UHA-0020         142     184     UHA-0261         144     146     
+QpZAG9_     UHA-0020         243     243     UHA-0261         251     253     
+QpZAG119_   UHA-0020         90      110     UHA-0261         84      84      
+QrZAG20_    UHA-0021         157     175     UHA-0261         177     179     
+QpZAG9_     UHA-0021         243     243     UHA-0261         251     253     
+QpZAG119_   UHA-0021         68      82      UHA-0261         84      84      
+QrZAG20_    UHA-0022         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0022         243     257     UHA-0261         251     253     
+QpZAG9_     UHA-0023         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0023         90      90      UHA-0261         84      84      Y   
+QrZAG20_    UHA-0024         155     157     UHA-0261         177     179     
+QpZAG9_     UHA-0024         243     257     UHA-0261         251     253     
+QM69-2M1_   UHA-0024         230     234     UHA-0261         222     222     
+QrZAG20_    UHA-0025         163     175     UHA-0261         177     179     
+QpZAG9_     UHA-0025         243     261     UHA-0261         251     253     
+QpZAG9_     UHA-0026         249     257     UHA-0261         251     253     
+QrZAG20_    UHA-0027         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0027         243     265     UHA-0261         251     253     
+QpZAG9_     UHA-0028         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0028         98      110     UHA-0261         84      84      
+QpZAG9_     UHA-0029         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0029         114     114     UHA-0261         84      84      Y   
+QpZAG9_     UHA-0036         243     265     UHA-0261         251     253     
+QpZAG119_   UHA-0036         98      110     UHA-0261         84      84      
+QrZAG20_    UHA-0037         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0037         249     257     UHA-0261         251     253     
+QpZAG119_   UHA-0037         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0038         249     257     UHA-0261         251     253     
+QpZAG119_   UHA-0038         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0040         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0040         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0041         243     243     UHA-0261         251     253     
+QrZAG20_    UHA-0045         157     165     UHA-0260         175     177     
+QpZAG9_     UHA-0045         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0046         155     157     UHA-0260         175     177     
+QrZAG20_    UHA-0047         165     179     UHA-0260         175     177     
+QrZAG20_    UHA-0048         155     157     UHA-0260         175     177     
+MSQ13_      UHA-0049         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0049         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0049         257     265     UHA-0260         243     249     
+MSQ13_      UHA-0051         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0051         157     163     UHA-0260         175     177     
+QpZAG9_     UHA-0051         253     257     UHA-0260         243     249     
+QrZAG20_    UHA-0052         157     165     UHA-0260         175     177     
+QrZAG20_    UHA-0053         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0053         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0054         157     173     UHA-0260         175     177     
+QpZAG9_     UHA-0054         257     257     UHA-0260         243     249     
+QS03797_    UHA-0055         146     184     UHA-0260         142     144     
+MSQ13_      UHA-0055         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0055         179     179     UHA-0260         175     177     
+QS03797_    UHA-0056         146     146     UHA-0260         142     144     
+QpZAG9_     UHA-0056         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0058         165     179     UHA-0260         175     177     
+QpZAG9_     UHA-0058         257     257     UHA-0260         243     249     
+MSQ13_      UHA-0059         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0059         155     157     UHA-0260         175     177     
+QpZAG9_     UHA-0059         257     257     UHA-0260         243     249     
+MSQ4_       UHA-0097         214     214     UHA-0015         200     216     
+QrZAG20_    UHA-0098         155     179     UHA-0257         163     177     
+MSQ13_      UHA-0101         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0101         155     157     UHA-0257         163     177     
+QrZAG20_    UHA-0102         155     165     UHA-0257         163     177     
+MSQ13_      UHA-0103         234     236     UHA-0257         232     232     
+QrZAG20_    UHA-0103         157     173     UHA-0257         163     177     
+QpZAG119_   UHA-0103         66      68      UHA-0257         98      114     
+QrZAG20_    UHA-0106         155     179     UHA-0257         163     177     
+QpZAG9_     UHA-0106         243     265     UHA-0257         257     261     
+QpZAG9_     UHA-0109         243     265     UHA-0257         257     261     
+MSQ13_      UHA-0112         216     234     UHA-0257         232     232     
+QpZAG9_     UHA-0112         253     255     UHA-0257         257     261     
+MSQ4_       UHA-0112         200     200     UHA-0257         208     210     
+QpZAG119_   UHA-0112         90      116     UHA-0257         98      114     
+QM69-2M1_   UHA-0112         232     236     UHA-0257         222     238     
+QrZAG20_    UHA-0113         155     179     UHA-0257         163     177     
+MSQ13_      UHA-0114         234     234     UHA-0257         232     232     Y   
+QrZAG20_    UHA-0114         155     157     UHA-0257         163     177     
+MSQ4_       UHA-0116         206     206     UHA-0351         200     214     
+QpZAG119_   UHA-0123         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0125         94      112     UHA-0010         116     116     
+QpZAG119_   UHA-0126         112     112     UHA-0010         116     116     Y   
+QpZAG119_   UHA-0127         112     120     UHA-0010         116     116     
+MSQ4_       UHA-0128         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0128         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0130         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0131         76      112     UHA-0010         116     116     
+QpZAG119_   UHA-0132         76      76      UHA-0010         116     116     Y   
+MSQ4_       UHA-0134         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0135         98      112     UHA-0010         116     116     
+QpZAG119_   UHA-0136         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0137         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0140         102     112     UHA-0010         116     116     
+QpZAG119_   UHA-0143         112     120     UHA-0010         116     116     
+MSQ4_       UHA-0148         198     198     UHA-0012         200     242     
+MSQ4_       UHA-0154         212     212     UHA-0012         200     242     
+MSQ4_       UHA-0156         202     202     UHA-0012         200     242     
+QpZAG119_   UHA-0159         68      110     UHA-0012         78      112     
+QpZAG119_   UHA-0165         90      112     UHA-0016         116     116     
+QpZAG9_     UHA-0167         257     263     UHA-0013         253     261     
+QpZAG119_   UHA-0435         100     112     UHA-0010         116     116     
+QpZAG119_   UHA-0437         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0438         112     122     UHA-0010         116     116     
+QpZAG119_   UHA-0439         68      112     UHA-0010         116     116     
+QrZAG20_    UHA-0440         165     179     UHA-0260         175     177     
+MSQ13_      UHA-0443         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0443         173     179     UHA-0260         175     177     
+MSQ13_      UHA-0444         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0444         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0444         257     265     UHA-0260         243     249     
+QrZAG20_    UHA-0445         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0445         257     257     UHA-0260         243     249     
+QS03797_    UHA-0446         146     184     UHA-0260         142     144     
+QrZAG20_    UHA-0446         157     169     UHA-0260         175     177     
+QrZAG20_    UHA-0447         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0447         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0448         155     179     UHA-0260         175     177     
+QrZAG20_    UHA-0449         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0449         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0450         155     179     UHA-0260         175     177     
+MSQ13_      UHA-0451         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0451         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0451         257     265     UHA-0260         243     249     
+MSQ13_      UHA-0452         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0452         155     157     UHA-0260         175     177     
+QpZAG9_     UHA-0452         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0453         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0453         257     265     UHA-0260         243     249     
+QrZAG20_    UHA-0454         157     173     UHA-0257         163     177     
+QrZAG20_    UHA-0455         157     173     UHA-0257         163     177     
+MSQ13_      UHA-0456         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0456         173     179     UHA-0257         163     177     
+MSQ13_      UHA-0460         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0460         157     173     UHA-0257         163     177     
+
+TOTAL: 133
+
+
+**** Error rate analysis ****
+
+Locus name  N compared  N mismatching  N null   Detection prob.  Est. error rate
+QS03797_           154              4        0       0.19966059       0.06504545
+MSQ13_             154             14        1       0.56260910       0.08079241
+QrZAG20_           154             41        0       0.69480773       0.19158809
+QpZAG9_            151             34        0       0.71352393       0.15778417
+QS1904_            154              0        0       0.04267258       0.00000000
+MSQ4_              147              8        0       0.60662310       0.04485633
+QpZAG119_          151             30        4       0.82931740       0.11978254
+QpZAG1/5_          154              0        0       0.56434125       0.00000000
+QM69-2M1_          154              2        0       0.55196860       0.01176427
+
+Mean observed error rate across loci:                          0.07462370
+  (assumes all known parent-offspring pairs are equally independent)
+
+
+********************************************************************************

@@ -75,7 +75,7 @@ for(df in par_sum_list){
 
 ##load score data frames
 #All loci
-al_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_all_loci_clean_genotype_df.csv")
+al_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_genotype_file.csv")
 
 #Reduced loci
 rl_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Input_Files/UHA_red_loci_clean_genotype_df.csv")

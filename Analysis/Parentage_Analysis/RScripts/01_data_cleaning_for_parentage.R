@@ -16,13 +16,13 @@ library(tidyverse)
 ###########################
 
 #set working directoy
-setwd("../../..")
+# setwd("../../..")
 
 #load in genepop file as a genind object
-UHA_genind <- read.genepop("Data_Files/Genotype_Files/2024_07_genepop.gen", ncode = 2)
+UHA_genind <- read.genepop("Data_Files/Genotype_Files/UHA_raw_genotype.gen", ncode = 2)
 
 #load score df
-UHA_scores_df <- read.csv("Data_Files/CSV_Files/2024_07_UHA_database.csv")
+UHA_scores_df <- read.csv("Data_Files/CSV_Files/UHA_score_database.csv")
 
 #load in UHA database
 UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
@@ -37,7 +37,7 @@ UHA_genind_nomd <- missingno(UHA_genind, type = "geno",
 
 #write out genind object as a genalex file
 genind2genalex(UHA_genind_nomd,
-               "Data_Files/CSV_Files/UHA_genalex_clean.csv")
+               "Data_Files/Genotype_Files/UHA_genalex_clean.csv")
 
 #limit by the cleaned individuals
 UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in% 
@@ -139,7 +139,7 @@ na_reorg_df <- as.data.frame(t(null_all_df))
 rownames(na_reorg_df) <- gsub("\\...*", "",rownames(na_reorg_df))
 
 #list of loci with > 15% null alleles 
-na_loci <- rownames(na_reorg_df[which(na_reorg_df$`Observed frequency` > 15),])
+na_loci <- gsub("\\_.*","",rownames(na_reorg_df[which(na_reorg_df$`Observed frequency` > 15),]))
 
 
 #generate input data frame for parentage - all loci
