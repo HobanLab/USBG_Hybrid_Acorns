@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 11/14/2024 1:06:27 PM
+Parentage analysis completed 11/14/2024 2:21:56 PM
 
 
 **** Summary statistics ****
@@ -12,18 +12,18 @@ Father alone (all offspring):
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            3.89       31 (     39)      20%    ( 25%)
-Relaxed              80.00            1.46       75 (     87)      49%    ( 56%)
-Unassigned                                       79 (     67)      51%    ( 44%)
+Strict               95.00            3.95       16 (     12)      10%    (  8%)
+Relaxed              80.00            2.19       50 (     34)      32%    ( 22%)
+Unassigned                                      104 (    120)      68%    ( 78%)
 Total                                           154 (    154)     100%    (100%)
 
 Father given known mother:
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            3.33       49 (     84)      32%    ( 54%)
-Relaxed              80.00            0.67       84 (    129)      55%    ( 84%)
-Unassigned                                       70 (     25)      45%    ( 16%)
+Strict               95.00            3.66       56 (     34)      36%    ( 22%)
+Relaxed              80.00            1.69       86 (     70)      56%    ( 45%)
+Unassigned                                       68 (     84)      44%    ( 55%)
 Total                                           154 (    154)     100%    (100%)
 
 
@@ -77,8 +77,8 @@ Input
   Proportion of candidate fathers sampled:                     0.8000
 
   Proportion of loci typed:                                    0.80000000
-  Proportion of loci mistyped:                                 0.01000000
-  Error rate in likelihood calculations:                       0.01000000
+  Proportion of loci mistyped:                                 0.10000000
+  Error rate in likelihood calculations:                       0.10000000
   Minimum number of typed loci:                                4
 
 Output

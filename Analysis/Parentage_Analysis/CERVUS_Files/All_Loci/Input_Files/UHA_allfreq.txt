@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Allele frequency analysis completed 11/13/2024 4:09:42 PM
+Allele frequency analysis completed 11/14/2024 1:47:21 PM
 
 
 **** Summary statistics ****
@@ -42,8 +42,8 @@ Input
   Genotype data file:             UHA_input_genotype_df.csv
 
 Output
-  Summary text file:              UHA_AL_allfreq.txt
-  Allele frequency file:          UHA_AL_allfreq.alf
+  Summary text file:              UHA_allfreq.txt
+  Allele frequency file:          UHA_allfreq.alf
 
 
 **** Loci ****

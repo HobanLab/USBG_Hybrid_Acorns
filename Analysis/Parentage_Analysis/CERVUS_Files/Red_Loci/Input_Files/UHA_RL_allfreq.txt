@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Allele frequency analysis completed 11/14/2024 1:01:39 PM
+Allele frequency analysis completed 11/14/2024 2:18:50 PM
 
 
 **** Summary statistics ****

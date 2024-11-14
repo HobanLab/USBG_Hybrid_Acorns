@@ -11,7 +11,7 @@ Code=
 [FileInfo]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\UHA_AL_parentage.crv
 FileType=.crv
-CreationDate=11/13/2024 4:24:08 PM
+CreationDate=11/14/2024 2:18:31 PM
 
 [GenotypeFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_input_genotype_df.csv
@@ -32,7 +32,7 @@ UseSameCodingForAllLoci=1
 GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_input_genotype_df.csv
 
 [AlleleFrequencySummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_allfreq.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_allfreq.txt
 DoHardyWeinberg=1
 HWMinExpectedFrequency=5
 UseYatesCorrection=1
@@ -40,18 +40,18 @@ UseBonferroniCorrection=1
 DoNullAllele=1
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_allfreq.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
-NOffspring=100000
+NOffspring=10000
 NCandidateMales=314
-PropCandidateMalesSampled=0.8
+PropCandidateMalesSampled=0.9
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.8
-PropLociMistyped=0.01
+PropLociTyped=0.9
+PropLociMistyped=0.1
 MinTypedLoci=6
 CriticalStatisticName=Delta
 TruncateAtZero=1
@@ -71,13 +71,13 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.01
+LikelihoodErrorRate=0.1
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -101,7 +101,7 @@ AlwaysTestSelfing=0
 MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=0
-LikelihoodErrorRate=0.01
+LikelihoodErrorRate=0.1
 CriticalStatisticName=Delta
 TruncateAtZero=1
 
@@ -135,7 +135,7 @@ FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Paren
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Output_Files\UHA_AL_par_sum.csv
 OutputType=The most-likely parent
 SortedBy=Joint LOD score
-IncludeNonExclusionProbabilities=1
+IncludeNonExclusionProbabilities=0
 
 [IdentityParameters]
 TestSexesSeparately=0

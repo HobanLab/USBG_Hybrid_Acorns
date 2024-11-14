@@ -1,0 +1,439 @@
+[33mcommit cccdc46db0fd0b0f03833d7d01b447a7620e8915[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Nov 14 13:08:55 2024 -0600
+
+    update repo with the changes and final scores
+
+[33mcommit 16f8e68dcce9c9c48c44863c29d47706a68acd18[m
+Merge: d6128ae b915045
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 17:56:37 2024 -0500
+
+    Merge branch 'main' of https://github.com/HobanLab/USBG_Hybrid_Acorns
+
+[33mcommit d6128aef839063013ff277d61e7171dc2180e7b1[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 17:56:26 2024 -0500
+
+    updated distance analysis code
+
+[33mcommit b9150453ebc14d2633f35d8441fdc07ba75df53d[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 17:17:32 2024 -0500
+
+    Update README.md
+
+[33mcommit 4b21f7529df10b198344dafc69cd8b235aa3ba48[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 16:40:25 2024 -0500
+
+    updated the naming of the script for making results and figures
+
+[33mcommit f45d12efca5385e49d1fba20d6f093a35faa841f[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 14:03:52 2024 -0500
+
+    updating code with DBH processing code
+
+[33mcommit 5a56903512c304b3636f80ebcf9459599e772dda[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 11:56:53 2024 -0500
+
+    updating figure code for the updated figure code
+
+[33mcommit 3d5ada1abc74200b62a84b51da3e126e67ee3ca1[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 10:45:46 2024 -0500
+
+    updating figure code for is hybrid with distance plot
+
+[33mcommit 05313c32bfd30f1ad67e276c38073251cb55d77a[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 10:37:27 2024 -0500
+
+    update code to update figure creation code for distance x half-sibling mating events
+
+[33mcommit ac432139dc31270bc993bf1709d2ae7b46bced6e[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Sep 28 10:26:57 2024 -0500
+
+    update code to generate distance between parents boxplot for all offspring
+
+[33mcommit 46e98d0080479d59db966340008d5c787cba688e[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Sep 26 11:08:05 2024 -0500
+
+    pushing fixes to the errors in the data cleaning/analysis report generating script (2). Had problems with the wrong columns being joined:
+
+[33mcommit b36438fd117c532abd039633fab2dffdc0d8b952[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Sep 26 10:39:31 2024 -0500
+
+    writing loops to create summary data frames and fixing looping code to generate these results
+
+[33mcommit 189316111f0b8cacba2304c03b50e0f9154fdb9d[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Sep 12 13:09:48 2024 -0500
+
+    updating the figures script to include non-exclusion probabilities:
+
+[33mcommit 023059c3f148f0ea3798ddd234bb7777aa7f08fd[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Sep 11 20:57:52 2024 -0500
+
+    updating parentange summary data files
+
+[33mcommit 428579a741421bcca79b263c63fcf92e03ca1375[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Sep 11 20:51:44 2024 -0500
+
+    updating file pathways to export in the results folder from the data processing post-parentage, additionally fixing data processing loops to generate this'
+
+[33mcommit 3986197df1a01df6d1610acdce6eaa1373b99ae6[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Sep 1 18:04:36 2024 -0500
+
+    update script to generate summary gendiv stats
+
+[33mcommit 74deda1bc30ab2df2cfff400acb5b20b8b5eb9d7[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 16 12:47:10 2024 -0500
+
+    updates to the loop for summary data frame
+
+[33mcommit c21e554ca63d512bbc3aa948db75ab0951c17edd[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 16 11:57:52 2024 -0500
+
+    adding summary stat data frame
+
+[33mcommit bf83a10bfd9ef6a443e00239e85034bc5249d74f[m
+Merge: 70b3d6e be27dd5
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 12:52:11 2024 -0500
+
+    Merge branch 'main' of https://github.com/ekschumacher/USBGHybridAcornsREU2023
+
+[33mcommit 70b3d6ed65c523a1c378b19c4ab4cfda5b5fca2d[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 12:51:59 2024 -0500
+
+    updating the file pathways in the RScripts
+
+[33mcommit be27dd5f6f9322198ecdc6de20271c5aaf0bc2f9[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 12:49:58 2024 -0500
+
+    Update README.md
+
+[33mcommit 04ccf6035edaf4978184291ece49514de30c2fac[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 12:49:03 2024 -0500
+
+    Update README.md
+
+[33mcommit 792974e815422d550ef33d0e3a7d3d0a8fbd5c50[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 10:55:42 2024 -0500
+
+    Update README.md
+
+[33mcommit 6119aa0e5f42ea103962d5983d22fa14dc85a9d4[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 10:55:17 2024 -0500
+
+    updating file pathways in data processing script in R
+
+[33mcommit 5b685079ef34a3174552aca54f0e030c95f81a54[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 10:36:01 2024 -0500
+
+    updating file pathways to write to newly organized results files
+
+[33mcommit 35adde9edcd2b9819921a014b91d0f6fd76d3a2e[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 10:23:18 2024 -0500
+
+    Update README.md
+
+[33mcommit f839c619d02097ea7e149780f7ca501a3507e797[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Thu Aug 15 10:12:35 2024 -0500
+
+    Update README.md
+
+[33mcommit 0e03f7efaf8f18d77680a9b956f28ca0c0d84e94[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 16:19:23 2024 -0500
+
+    Update README.md
+
+[33mcommit 6500f502c05d35665e7a52dfdf5e88217248e572[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 16:05:06 2024 -0500
+
+    updating file pathways
+    
+    updating file pathways for the new folders that were created, additionally fixing character problems in the "TMA all trees" file
+
+[33mcommit f23799edcfd5c4144bcd9c4391c9a56c6a0dee38[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 16:01:41 2024 -0500
+
+    Update README.md
+
+[33mcommit 47bca451dcb2ed47084b6d86bc364a06cfd4620e[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 15:59:24 2024 -0500
+
+    Update README.md
+
+[33mcommit 65c660819dc3506f539a5078c44b2f2785e435e2[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 15:57:56 2024 -0500
+
+    Update README.md
+
+[33mcommit 8aaf68f409f652e26a96107299a64d05def3bfbb[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 14:50:29 2024 -0500
+
+    updating file pathways
+    
+    within this document, updating the file pathways to the new project folders created
+
+[33mcommit 704ca3a197f7a27d7dbb477bfc1f9bda9dd234d4[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Aug 14 14:39:11 2024 -0500
+
+    updated pathways
+    
+    Updated pathways in geographic processing file with the newly added pathways
+
+[33mcommit b66325b9c5cd1eed54787d37291d251e72fd719f[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 10:20:33 2024 -0500
+
+    reorg updates
+
+[33mcommit 24ba4da70c158537d17e2de8b3485194641bbb67[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 10:14:29 2024 -0500
+
+    Update README.md
+
+[33mcommit 4642a196022a84d4b688940fe6ffe7316a3f5a19[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 10:08:26 2024 -0500
+
+    Update README.md
+
+[33mcommit a63956e7d70d4ca1ebab0655f051537df62513ef[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 09:21:05 2024 -0500
+
+    adding the geographic analysis results files
+
+[33mcommit 9f311ec1aec2a0957c9b7796144bb9e0232fc055[m
+Merge: 4994ed1 bd3e66e
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 08:59:24 2024 -0500
+
+    Merge branch 'main' of https://github.com/ekschumacher/USBGHybridAcornsREU2023
+    
+    Updating branch with README updates.
+
+[33mcommit 4994ed198fc77e1aa0cfa15c55e6acd11c02f5ea[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Aug 11 08:59:08 2024 -0500
+
+    updating the repo to include Emily's geographic processing files
+
+[33mcommit bd3e66e849419ccee73e2b938e0293c56543b535[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 9 15:00:55 2024 -0500
+
+    Update README.md
+
+[33mcommit 9e9e44bc95dba694af472922e23222625aa949ba[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 9 13:39:50 2024 -0500
+
+    Update README.md
+
+[33mcommit 88b213d05d0b4a7ffd7195a5dfb357d8169fd4a8[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 9 13:15:11 2024 -0500
+
+    Update README.md
+
+[33mcommit 1a149ea8257ee08b1438441c293980a062224fb0[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 9 13:05:06 2024 -0500
+
+    Update README.md
+
+[33mcommit 4ab01fde630e4be6174bf3b46ec6bce63adac86c[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Aug 9 13:03:30 2024 -0500
+
+    Update README.md
+
+[33mcommit 8e020de24675d8a62d993e7639fb781fa06291a8[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jul 29 18:32:02 2024 -0500
+
+    updating the archive folder
+
+[33mcommit a975901ca923227edfec1b6aef0e06c248e54645[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jul 29 18:21:06 2024 -0500
+
+    adding loop
+
+[33mcommit 51c93041abda8eef26b99dc02e09fd49c4e129ed[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jul 29 18:16:58 2024 -0500
+
+    updating figures with assignments
+
+[33mcommit cc77d9da0fc66bf31539fb78bf5e9aa06418b899[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jul 29 18:07:53 2024 -0500
+
+    updating the list of parentage analysis data frames to be in the correct order
+
+[33mcommit 9475d13c1a0fea66b9c839f94e6f0766dd3ef5ef[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Jul 24 20:19:18 2024 -0500
+
+    updating figures script and exporting figures to this file
+
+[33mcommit 0e19d2cda51d683046b9f087ff5de77e54f6da00[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Jul 24 19:29:34 2024 -0500
+
+    fixing loop with parentage summary data files and removing Q. from species names
+
+[33mcommit 743152e3235c73781d5eaf688d7edd4831ba9833[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jul 22 13:08:26 2024 -0500
+
+    adding updated code for HCF
+
+[33mcommit 34484c805ca32621b7d979147d09c7cb44b7e843[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat Jul 13 09:20:50 2024 -0500
+
+    adding updates genotype files
+
+[33mcommit 150d83352c27125404754560e226fab62544138d[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Jul 3 14:34:46 2024 -0500
+
+    adding code to generate plots from multiple scenarios
+    
+    Going over scenarios with reduced allele counts and only high confidence assignments
+
+[33mcommit a50b6fca11bf034b6e35a871f62776c9bd3e6e79[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Wed Jul 3 10:53:02 2024 -0500
+
+    updating with looped over code
+
+[33mcommit bc4304d1eef9aafd38c31a78370106afcdd1f5ca[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jun 17 17:42:58 2024 -0500
+
+    adding half-sib code to the loop
+
+[33mcommit 225008f2ce3e116ba28feb6bf157721f51c08057[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jun 17 17:28:21 2024 -0500
+
+    updating the processing loop to add all of the necessary columns
+
+[33mcommit 51338ade7e963b01b0addcf77b87cb76da36799f[m
+Merge: 0916ff4 0ee18f3
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jun 17 16:54:50 2024 -0500
+
+    Merge branch 'main' of https://github.com/ekschumacher/USBGHybridAcornsREU2023
+
+[33mcommit 0916ff4bdffb0a57a6eee36b80794680632e82dd[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Mon Jun 17 16:46:11 2024 -0500
+
+    updating scripts with loops for removing low confidence results
+
+[33mcommit 0ee18f3605bd971d0381ccbdb816942b9b6a19cf[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Fri Jun 7 12:09:11 2024 -0500
+
+    Updating the scripts to loop over reduced and full loci
+
+[33mcommit d36d4ad1d5ed9763c85d9b30e573da20974d4c32[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Jun 2 14:29:36 2024 -0500
+
+    re-running parentage analysis with and without reduced loci data set
+
+[33mcommit 08ab49e9981f82d5ab81e620f6ff38aa0a6614ce[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Jun 2 13:41:58 2024 -0500
+
+    updating file processing data frame to include scripts for generating parentage input data files that have all loci included or reduced numbers of loci for those loci with a high percentage of null alleles
+
+[33mcommit fe632fd8b7b5aee4e23510aae0a9403d6b78df55[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Jun 2 13:14:00 2024 -0500
+
+    adding information for comparative histogram
+
+[33mcommit 9e23ee97f085c5d5d8bc39d42439ea7d73d251ee[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun Jun 2 13:09:50 2024 -0500
+
+    finishing script to write out distance models
+
+[33mcommit c4e5f92c08f6fa6bdc7ecd1f5742c69322fc8b1e[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat May 25 13:04:07 2024 -0500
+
+    updating the distance between parents analysis
+
+[33mcommit 0638775f434c1fa15e6cb3b3a9807c8be426376c[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat May 25 12:48:53 2024 -0500
+
+    updating the distance analysis script to include updated data frame names and store results
+
+[33mcommit 2b75df2bfd29f195be19f1f0d9674062974c9640[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat May 11 12:19:36 2024 -0500
+
+    adding code to reorganize data frame for distance analysis
+
+[33mcommit a7e85bb1a8b319824df2db824c8e6d2a7d113e6a[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat May 11 11:56:10 2024 -0500
+
+    create R script for Ash Hamilton's distance analysis, updating script with file pathways and reorganization for analyses
+
+[33mcommit f75defb11ec284889d7228093b1e265ef7ea3ef1[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sat May 11 11:38:20 2024 -0500
+
+    updated figures script - finalization
+
+[33mcommit 0581dd632313c416aa2c8d08f5b58a751c8322f7[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun May 5 22:02:43 2024 -0500
+
+    updating hybrid offspring boxplot code as well as functions reorganizing the tibble
+
+[33mcommit 311d40c7c8f0adbde674c2f1bd3d02c64640886f[m
+Author: Emily Schumacher <62253972+ekschumacher@users.noreply.github.com>
+Date:   Sun May 5 21:30:39 2024 -0500
+
+    updating the code for creating figures for the manuscript - exporting the figures as well as organizing the data frame. This is just copying code in from Mikaely's work off of GitHub and adding comments by EKS

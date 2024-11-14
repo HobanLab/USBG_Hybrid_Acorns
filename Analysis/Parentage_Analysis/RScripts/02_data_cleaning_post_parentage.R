@@ -43,19 +43,21 @@ par_res_list <- list(UHA_al_par, UHA_rl_par)
 #create a list of scenarios 
 scen <- c("all_loci", "red_loci")
 
+sc <- 1
+
 #loop to reduce the parental summary data frames for low confidence father assignments
-for(sc in 1:length(scen)){
+for(sc in seq_along(scen)){
   
   temp_df <- par_res_list[[sc]]
   
   #first, join genotype files with parentage results 
-  HCF_df  <- temp_df[((temp_df$Pair_LOD_score > 0) & (temp_df$Trio_LOD_score > 0)),]
+  HCF_df <- temp_df[temp_df$Pair_LOD_score > 0 & temp_df$Trio_LOD_score > 0,]
   
   #write out data frame 
   write.csv(HCF_df, paste0("Results/Parentage_Results/CSV_Files/", scen[[sc]], "_HCF_par_sum.csv"))
   
 }
- 
+
 #load in all parentage summary data frames 
 par_sum_list <- list.files(path = "Results/Parentage_Results/CSV_Files/", pattern = "par_sum.csv")
 
@@ -66,7 +68,7 @@ par_sum_list <- list(par_sum_list[[2]], par_sum_list[[1]],
 #read CSVs 
 par_sum_df_list <- list()
 
-#Loop over 
+#Loop over to read in all summary parentage data frame results 
 for(df in par_sum_list){
   
   par_sum_df_list[[df]] <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", df))
@@ -75,10 +77,10 @@ for(df in par_sum_list){
 
 ##load score data frames
 #All loci
-al_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_genotype_file.csv")
+al_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_AL_genotype_df.csv")
 
 #Reduced loci
-rl_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Input_Files/UHA_red_loci_clean_genotype_df.csv")
+rl_score_df <- read.csv("Analysis/Parentage_Analysis/CERVUS_Files/Red_Loci/Input_Files/UHA_RL_genotype_df.csv")
 
 #combine into a list 
 score_df_list <- list(al_score_df, rl_score_df)
@@ -106,6 +108,8 @@ UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 #all scenarios 
 full_scen <- c("all_loci", "HCF_all_loci", 
                "red_loci", "HCF_red_loci")
+
+sc <- 1
 
 #loop over four scenarios
 for(sc in seq_along(full_scen)){
@@ -139,6 +143,10 @@ for(sc in seq_along(full_scen)){
   par_temp_df <- left_join(par_temp_df, UHA_database, 
                               by=c('Candidate_father_ID' = 'Tissue_ID')) 
   
+  #remove other columns 
+  par_temp_df <- par_temp_df %>%
+                  dplyr::select(!c("Maternal_ID","DNA_ID"))
+  
   #replace periods with underscores
   colnames(par_temp_df) <- gsub("\\.", "_", colnames(par_temp_df))
   
@@ -147,11 +155,11 @@ for(sc in seq_along(full_scen)){
                               "Candidate_Father_Longitude" = "Longitude",
                               "Candidate_Father_Latitude" = "Latitude",
                               "Candidate_Father_Accession" = "Accession_Number",
-                              "Maternal_ID" = "Mother_ID", 
-                              "DBH1_Paternal" = "DBH1",
-                              "DBH2_Paternal" = "DBH2",
-                              "DBH3_Paternal" = "DBH3",
-                              "DBH4_Paternal" = "DBH4")
+                              "Maternal_ID" = "Mother_ID",
+                              "DBH1_Paternal" = "DBH_1",
+                              "DBH2_Paternal" = "DBH_2",
+                              "DBH3_Paternal" = "DBH_3",
+                              "DBH4_Paternal" = "DBH_4")
   
   #reduce by empty columns 
   keep_col_ID2 <- c("Offspring_ID","Maternal_ID", "Candidate_father_ID",
