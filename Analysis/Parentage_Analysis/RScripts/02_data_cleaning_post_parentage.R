@@ -20,7 +20,7 @@ library(geosphere)
 #     Load Data Files     #
 ###########################
 #set working directory 
-setwd("../../..")
+#setwd("../../..")
 
 #load parentage results - replacing:
 #par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
@@ -42,8 +42,6 @@ par_res_list <- list(UHA_al_par, UHA_rl_par)
 
 #create a list of scenarios 
 scen <- c("all_loci", "red_loci")
-
-sc <- 1
 
 #loop to reduce the parental summary data frames for low confidence father assignments
 for(sc in seq_along(scen)){
@@ -109,8 +107,6 @@ UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 full_scen <- c("all_loci", "HCF_all_loci", 
                "red_loci", "HCF_red_loci")
 
-sc <- 1
-
 #loop over four scenarios
 for(sc in seq_along(full_scen)){
   
@@ -134,7 +130,7 @@ for(sc in seq_along(full_scen)){
   #Adding in Species Information for Maternal and Paternal trees
   keep_col_ID <- c("Offspring_ID","Mother_ID", "Candidate_father_ID", 
                    "Maternal_Species", "Maternal_Longitude",
-                   "Maternal_Latitude", "Maternal_Accession")
+                   "Maternal_Latitude", "Maternal_Accession","MT_ID")
   
   # Narrowing the data again after the join of data sets
   par_temp_df <- par_temp_df[keep_col_ID] 

@@ -11,7 +11,7 @@ Code=
 [FileInfo]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\UHA_RL_parentage.crv
 FileType=.crv
-CreationDate=11/14/2024 1:07:02 PM
+CreationDate=11/14/2024 3:02:59 PM
 
 [GenotypeFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_genotype_df.csv
@@ -51,7 +51,7 @@ PropCandidateMalesSampled=0.8
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
 PropLociTyped=0.8
-PropLociMistyped=0.01
+PropLociMistyped=0.1
 MinTypedLoci=4
 CriticalStatisticName=Delta
 TruncateAtZero=1
@@ -71,7 +71,7 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.01
+LikelihoodErrorRate=0.1
 
 [SimulationSummaryFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_sim.txt
@@ -101,7 +101,7 @@ AlwaysTestSelfing=0
 MinTypedLoci=4
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=0
-LikelihoodErrorRate=0.01
+LikelihoodErrorRate=0.1
 CriticalStatisticName=Delta
 TruncateAtZero=1
 
@@ -135,7 +135,7 @@ FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Paren
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Output_Files\UHA_RL_par_sum.csv
 OutputType=The most-likely parent
 SortedBy=Joint LOD score
-IncludeNonExclusionProbabilities=0
+IncludeNonExclusionProbabilities=1
 
 [IdentityParameters]
 TestSexesSeparately=0

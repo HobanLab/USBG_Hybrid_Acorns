@@ -7,8 +7,6 @@
 #####################
 
 library(tidyverse)
-library(dplyr)
-library(ggplot2)
 
 ###########################
 #     Load Data Files     #
@@ -28,6 +26,14 @@ par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
 par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
                    par_sum_df[[4]], par_sum_df[[3]])
 
+#list out analysis data frames 
+par_sum_analysis <- list.files(path = "Results/Parentage_Results/CSV_Files",
+                               pattern = "analysis_df")
+
+#order list 
+par_sum_analysis <- c(par_sum_analysis[[1]], par_sum_analysis[[2]],
+                      par_sum_analysis[[4]], par_sum_analysis[[3]])
+
 #load full scenario data frames 
 full_scen <- c("all_loci_AF", #all loci included with all father assignments 
                "all_loci_HCF", #all loci with only high confidence fathers included
@@ -35,6 +41,20 @@ full_scen <- c("all_loci_AF", #all loci included with all father assignments
                "red_loci_HCF" #reduce loci with only high confidence father assignments included
 )
 
+#pull in UHA database 
+UHA_database <- read.csv("./Data_Files/CSV_Files/UHA_database.csv")
+
+#save out list of maternal IDs 
+mat_n_ids <- paste0("MT",1:11)
+
+#list out the mt ids 
+mat_ids <- list()
+
+for(mat in mat_n_ids){
+  
+  mat_ids[[mat]] <- UHA_database[UHA_database$MT_ID == mat,"Tissue_ID"]
+  
+}
 
 ###################################################
 #     Sumamry of Non Exculsion Probabilities      #
@@ -74,32 +94,36 @@ write.csv(exc_prob_df, "./Results/Parentage_Results/CSV_Files/non_exclusion_prob
 #     Summary Stat Table Creation      #
 ########################################
 
+## create a summary data frame with the maternal IDs
+par_sum_stat_df <- matrix(nrow = length(mat_ids),
+                          ncol = 11)
+
+#add the maternal ids in a column
+par_sum_stat_df[,1] <-  as.character(mat_ids)
+
+par <- 1
+
 #loop over all parentage scenarios with a summary data file 
-for(df in seq_along(par_scen_df_list)){
+for(par in seq_along(par_sum_df)){
   
-  ## create a summary data frame with the maternal IDs
-  par_sum_stat_df <- matrix(nrow = length(mat_ids),
-                            ncol = 11)
-  
-  #add the maternal ids in a column
-  par_sum_stat_df[,1] <- mat_ids
+  temp_df <- read.csv(paste0("./Results/Parentage_Results/CSV_Files/",par_sum_analysis[[par]]))
   
   #loop over each maternal individual to create data frame 
   for(mat in seq_along(mat_ids)){
     
     #add a column for the offspring counts by mom 
-    par_sum_stat_df[mat,2] <- length(par_scen_df[[df]][par_scen_df[[df]]$MT_ID == mat_ids[[mat]],"MT_ID"])
+    par_sum_stat_df[mat,2] <- length(temp_df[temp_df$Maternal_ID == mat_ids[[mat]],"Offspring_ID"])
     
     #add a column for number of dads per mom 
-    par_sum_stat_df[mat,3] <- length(unique(par_scen_df[[df]][par_scen_df[[df]]$MT_ID == mat_ids[[mat]],]$Candidate_father_ID))
+    par_sum_stat_df[mat,3] <- length(unique(temp_df[temp_df$Maternal_ID == mat_ids[[mat]],"Candidate_father_ID"]))
     
     #add columns with the number of hybrid per mom and the number of hybrid fathers
-    par_sum_stat_df[mat,4] <- length(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Hybrid_Status == TRUE),]$Candidate_Father_Species)
-    par_sum_stat_df[mat,5] <- length(unique(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Hybrid_Status == TRUE),]$Candidate_Father_Species))
+    par_sum_stat_df[mat,4] <- length(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]) & (temp_df$Hybrid_Status == TRUE),"Candidate_father_ID"])
+    par_sum_stat_df[mat,5] <- length(unique(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]) & (temp_df$Hybrid_Status == TRUE),"Candidate_father_ID"]))
   
     #add half-sib columns 
-    par_sum_stat_df[mat,6] <- length(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Offspring_ID)
-    par_sum_stat_df[mat,7] <- length(unique(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]) & (par_scen_df[[df]]$Half_Sibs == TRUE),]$Candidate_father_ID))
+    par_sum_stat_df[mat,6] <- length(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]) & (temp_df$Half_Sibs == TRUE),"Candidate_father_ID"])
+    par_sum_stat_df[mat,7] <- length(unique(temp_df[(temp_df$MT_ID == mat_ids[[mat]]) & (temp_df$Half_Sibs == TRUE),"Candidate_father_ID"]))
     
       if(par_sum_stat_df[mat,2] == 0){
         par_sum_stat_df[mat,8] <- 0
@@ -109,13 +133,13 @@ for(df in seq_along(par_scen_df_list)){
         
       }else{
       
-        par_sum_stat_df[mat,8] <- min(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par)
-        par_sum_stat_df[mat,9] <- max(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par)
+        par_sum_stat_df[mat,8] <- min(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]),"dist_par"])
+        par_sum_stat_df[mat,9] <- max(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]),"dist_par"])
         
         #recode hybrid status of min distance 
-        par_sum_stat_df[mat,10] <- length(par_scen_df[[df]][par_scen_df[[df]]$dist_par == min(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par) & par_scen_df[[df]]$Hybrid_Status == TRUE,]$Candidate_Father_Species)
+        par_sum_stat_df[mat,10] <- length(temp_df[temp_df$dist_par == min(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]),"dist_par"]) & temp_df$Hybrid_Status == TRUE,"Candidate_Father_Species"])
         #recode hybrid status of min distance 
-        par_sum_stat_df[mat,11] <- length(par_scen_df[[df]][par_scen_df[[df]]$dist_par == max(par_scen_df[[df]][(par_scen_df[[df]]$MT_ID == mat_ids[[mat]]),]$dist_par) & par_scen_df[[df]]$Hybrid_Status == TRUE,]$Candidate_Father_Species)
+        par_sum_stat_df[mat,11] <- length(temp_df[temp_df$dist_par == max(temp_df[(temp_df$Maternal_ID == mat_ids[[mat]]),"dist_par"]) & temp_df$Hybrid_Status == TRUE,"Candidate_Father_Species"])
         
     }
      
@@ -126,7 +150,7 @@ for(df in seq_along(par_scen_df_list)){
                                   "Half_Sib_Father_N", "Min_Dist", "Max_Dist",
                                   "Hybrid_Min", "Hybrid_Max")
     # #write out summary data frame with scenario 
-    write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/", full_scen[[df]], '_par_sum_stat_df.csv'),
+    write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/", full_scen[[par]], '_par_sum_stat_df.csv'),
              row.names = FALSE)
   }
   
@@ -144,40 +168,52 @@ for(df in seq_along(par_scen_df_list)){
 UHA_father_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
 #rename 
 colnames(UHA_father_df) <- c("Species", "Count")
+#fix deamii 
+levels(UHA_father_df$Species)[[1]] <- "Quercus x deamii"
+
+#resort data frame 
+UHA_father_df <- UHA_father_df %>%
+                   dplyr::arrange(across("Count",desc))
+
 
 ###### Hybrid status x mating distance -------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
     res = 600, width = 5200, height = 3500)
 
 UHA_father_df %>%
-  ggplot(aes(x = forcats::fct_rev(Species), y=Count))+
-  geom_bar(stat = "identity", fill = "darkgreen") + 
-  geom_text(aes(label = paste("n =", Count)), vjust = -0.5) +  
-  labs(title="Count of Offspring Produced by Each Candidate Father Tree Species", 
-       x="Candidate Father Species") +
-  theme_bw() +
+  ggplot(aes(x = fct_rev(fct_reorder(Species, Count)), y = Count)) +
+  geom_col(fill="forestgreen") +
+  geom_text(aes(label = paste("n =", Count)), vjust = -0.5) + 
   scale_y_continuous(limits = c(0,150)) +
+  theme_bw() +
+  labs(x="Candidate Father Species",y = "Number of Offspring") +
   theme(axis.title.x = element_text(size = 16),
         axis.title.y = element_text(size = 16),
-        axis.text.x = element_text(size = 14),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
         axis.text.y = element_text(size = 14),
         legend.text = element_text(size = 14),
         legend.title = element_text(size = 16),
         plot.title = element_text(size = 18, hjust = 1))
-dev.off()
+
+#dev.off()
 
 #figure code
+UHA_res_df$hybrid_update <- NA
+UHA_res_df[UHA_res_df$Hybrid_Status == "TRUE","Hybrid Status"] <- "Hybrid"
+UHA_res_df[UHA_res_df$Hybrid_Status == "FALSE","Hybrid Status"] <- "Not Hybrid"
+
+
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.png"),
     res = 600, width = 5000, height = 3500)
+
 UHA_res_df %>%
-  ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), 
+  ggplot(aes(x = Maternal_ID, 
              y = dist_par, 
-             fill = `Offspring Is`)) +  
+             fill = `Hybrid Status`)) +  
   geom_boxplot() +
   scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
+  expand_limits(y = c(0, 650)) +  # set limits for graph 
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
-  labs(title = "Distribution of Mating Distances Between Hybridizing Parents") +
   theme_bw() +
   theme(axis.title.x = element_text(size = 16),
         axis.title.y = element_text(size = 16),
@@ -192,6 +228,7 @@ dev.off()
 ###### Boxplot of distances between parents ------------------
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par.png"),
     res = 600, width = 5200, height = 3500)
+
 UHA_res_df %>%
   group_by(c(Maternal_ID)) %>% # 
   ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), y = dist_par)) +  
@@ -385,7 +422,7 @@ dev.off()
 # ###### Boxplot of distances between parents 
 # png(paste0("Results/Parentage_Results/", full_scen[[1]], "_dist_par.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[1]] %>%
+# par_sum_df[[1]] %>%
 #   group_by(c(Mother_ID)) %>% # 
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
 #   expand_limits(y = c(0, 650)) +  # set limits for graph
@@ -400,7 +437,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_dist_par.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[2]] %>%
+# par_sum_df[[2]] %>%
 #   group_by(c(Mother_ID)) %>% # 
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
 #   expand_limits(y = c(0, 650)) +  # set limits for graph
@@ -416,7 +453,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_dist_par.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[3]] %>%
+# par_sum_df[[3]] %>%
 #   group_by(c(Mother_ID)) %>% # 
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
 #   expand_limits(y = c(0, 650)) +  # set limits for graph
@@ -431,7 +468,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_dist_par.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[4]] %>%
+# par_sum_df[[4]] %>%
 #   group_by(c(Mother_ID)) %>% # 
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), y = dist_par)) +  
 #   expand_limits(y = c(0, 650)) +  # set limits for graph
@@ -447,7 +484,7 @@ dev.off()
 #loop over for all cases 
 # 
 # for(scen in 1:length(full_scen)){
-#   par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
+#   par_sum_df[[scen]] <- par_sum_df[[scen]] %>%
 #   mutate(`Parents Are` = case_when(Half_Sibs == FALSE ~ "Not Half Siblings",
 #                                                 TRUE ~ "Half Siblings", 
 #                                                 NA ~ "No Accession Number")
@@ -457,7 +494,7 @@ dev.off()
 # #graph of half-sibling matings group by maternal ID
 # png(paste0("Results/Parentage_Figures/", full_scen[[1]], "_halfsib_dist.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[1]] %>%
+# par_sum_df[[1]] %>%
 #   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
 #   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
 #   geom_jitter(width = 0.2) +
@@ -469,7 +506,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[2]], "_halfsib_dist.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[2]] %>%
+# par_sum_df[[2]] %>%
 #   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
 #   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
 #   geom_jitter(width = 0.2) +
@@ -481,7 +518,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[3]], "_halfsib_dist.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[3]] %>%
+# par_sum_df[[3]] %>%
 #   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
 #   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
 #   geom_jitter(width = 0.2) +
@@ -493,7 +530,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[4]], "_halfsib_dist.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[4]] %>%
+# par_sum_df[[4]] %>%
 #   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
 #   ggplot(aes(x = Mother_ID, y = dist_par, color = `Parents Are`)) +  
 #   geom_jitter(width = 0.2) +
@@ -506,7 +543,7 @@ dev.off()
 # #loop to add hybrid status to data frame 
 # for(scen in 1:length(full_scen)){
 #   
-#   par_scen_df[[scen]] <- par_scen_df[[scen]] %>%
+#   par_sum_df[[scen]] <- par_sum_df[[scen]] %>%
 #     mutate(`Offspring Hybrid Status` = case_when(Hybrid_Status == FALSE ~ "Not Hybrid",
 #                                                  TRUE ~ "Hybrid"))
 #   
@@ -515,7 +552,7 @@ dev.off()
 # #####barplots of the percentage of hybrids 
 # png(paste0("Results/Parentage_Figures/", full_scen[[1]],"_hybrid_boxplot.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[1]] %>%
+# par_sum_df[[1]] %>%
 # ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
 #                                     y = dist_par, 
 #                                   fill = `Offspring Hybrid Status`)) +  
@@ -529,7 +566,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[2]],"_hybrid_boxplot.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[2]] %>%
+# par_sum_df[[2]] %>%
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
 #              y = dist_par, 
 #              fill = `Offspring Hybrid Status`)) +  
@@ -543,7 +580,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[3]],"_hybrid_boxplot.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[3]] %>%
+# par_sum_df[[3]] %>%
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
 #              y = dist_par, 
 #              fill = `Offspring Hybrid Status`)) +  
@@ -557,7 +594,7 @@ dev.off()
 # 
 # png(paste0("Results/Parentage_Figures/", full_scen[[4]],"_hybrid_boxplot.png"), 
 #     res = 600, width = 5000, height = 3500)
-# par_scen_df[[4]] %>%
+# par_sum_df[[4]] %>%
 #   ggplot(aes(x = fct_rev(fct_infreq(Mother_ID)), 
 #              y = dist_par, 
 #              fill = `Offspring Hybrid Status`)) +  
@@ -578,7 +615,7 @@ dev.off()
 # for(scen in 1:length(full_scen)){
 #   
 #   #create a data frame 
-#   species_count_list[[scen]] <- as.data.frame(table(par_scen_df[[scen]]$Candidate_Father_Species))
+#   species_count_list[[scen]] <- as.data.frame(table(par_sum_df[[scen]]$Candidate_Father_Species))
 #   
 #   #rename columns 
 #   names(species_count_list[[scen]]) <- c("Species", "Count")
@@ -625,7 +662,7 @@ dev.off()
 # ################## Unused Loops ------------- 
 # for(scen in seq_along(full_scen)){
 #   
-#   mat_off <- par_scen_df[[scen]] %>%
+#   mat_off <- par_sum_df[[scen]] %>%
 #     ggplot() +
 #     geom_bar(aes(y = sort(Candidate_father_ID))) +
 #     facet_wrap(~`Mother_ID`) + 

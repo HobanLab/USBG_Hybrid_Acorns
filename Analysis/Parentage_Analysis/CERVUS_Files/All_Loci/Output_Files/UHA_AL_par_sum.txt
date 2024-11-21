@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 11/14/2024 2:15:16 PM
+Parentage analysis completed 11/14/2024 3:01:53 PM
 
 
 **** Summary statistics ****
@@ -47,7 +47,7 @@ Candidate fathers (total):                                   314
 Input
   Offspring file:                 UHA_offspring.csv
     (includes candidate parent data)
-  Genotype file:                  UHA_input_genotype_df.csv
+  Genotype file:                  UHA_AL_genotype_df.csv
   Allele frequency file:          UHA_allfreq.alf
   Simulation data file:           UHA_sim.sim
 
