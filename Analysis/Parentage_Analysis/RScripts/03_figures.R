@@ -175,8 +175,7 @@ levels(UHA_father_df$Species)[[1]] <- "Quercus x deamii"
 UHA_father_df <- UHA_father_df %>%
                    dplyr::arrange(across("Count",desc))
 
-
-###### Hybrid status x mating distance -------------------
+#### Now write out figures 
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
     res = 600, width = 5200, height = 3500)
 
@@ -195,24 +194,27 @@ UHA_father_df %>%
         legend.title = element_text(size = 16),
         plot.title = element_text(size = 18, hjust = 1))
 
-#dev.off()
+dev.off()
 
-#figure code
+
+###### Hybrid status x distance jitter figure -------------------
 UHA_res_df$hybrid_update <- NA
 UHA_res_df[UHA_res_df$Hybrid_Status == "TRUE","Hybrid Status"] <- "Hybrid"
 UHA_res_df[UHA_res_df$Hybrid_Status == "FALSE","Hybrid Status"] <- "Not Hybrid"
 
-
+## write out figure text to compare hybrid status/distance by mother
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.png"),
     res = 600, width = 5000, height = 3500)
 
 UHA_res_df %>%
   ggplot(aes(x = Maternal_ID, 
-             y = dist_par, 
-             fill = `Hybrid Status`)) +  
-  geom_boxplot() +
-  scale_fill_manual(values = c("darkseagreen", "darkgreen")) +
-  expand_limits(y = c(0, 650)) +  # set limits for graph 
+             y = dist_par)) +  
+  geom_boxplot(fill = "darkolivegreen4") +
+  geom_jitter(aes(fill = `Hybrid Status`), width = 0.2, size = 3, shape = 21, color = "black") +
+  scale_y_continuous(limits = c(0,1000)) +  # set limits for graph
+  scale_fill_manual(values = c("deeppink", "grey")) +
+  geom_text(data = . %>% count(Maternal_ID), 
+            aes(label = paste("n =", n), y = 665), vjust = -3) + 
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
   theme_bw() +
   theme(axis.title.x = element_text(size = 16),
@@ -223,32 +225,6 @@ UHA_res_df %>%
         legend.title = element_text(size = 16),
         plot.title = element_text(size = 18, hjust = 0.5))
 
-dev.off()
-
-###### Boxplot of distances between parents ------------------
-png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par.png"),
-    res = 600, width = 5200, height = 3500)
-
-UHA_res_df %>%
-  group_by(c(Maternal_ID)) %>% # 
-  ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), y = dist_par)) +  
-  expand_limits(y = c(0, 675)) +  # set limits for graph
-  #theme_minimal() +  # set theme
-  theme_bw() +  # set theme
-  geom_boxplot(fill="darkolivegreen4", outlier.shape = NA) + # set color and remove outliers
-  geom_jitter(aes(fill = Hybrid_Status), width = 0.2, size = 3.25, shape = 21, color = "black") +
-  geom_text(data = . %>% count(Maternal_ID), aes(label = paste("n =", n), y = 665), vjust = -0.5) + 
-  xlab("Maternal Tree ID") + ylab("Distance between parents (m)") + 
-  scale_fill_manual(values = c("TRUE" = "hotpink", "FALSE" = "grey"),
-                    labels = c("TRUE" = "Hybrid", "FALSE" = "Not a hybrid")) + # set color and titles for Hybrid Status
-  labs(fill = "Offspring is: ", title = "Distribution of Mating Distances Between Maternal and Paternal Trees") +
-  theme(axis.title.x = element_text(size = 16),
-        axis.title.y = element_text(size = 16),
-        axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
-        axis.text.y = element_text(size = 14),
-        legend.text = element_text(size = 14),
-        legend.title = element_text(size = 16),
-        plot.title = element_text(size = 18, hjust = 0.3))  # center the title
 
 dev.off()
 
@@ -259,6 +235,8 @@ UHA_res_df[["Parents Are"]] <- dplyr::case_when(
   UHA_res_df$Half_Sibs == TRUE ~ "Half Siblings",
   UHA_res_df$Half_Sibs == FALSE ~ "Not Half Siblings"
 )
+UHA_res_df[is.na(UHA_res_df$`Parents Are`),]$`Parents Are` <- "Unknown"
+
 
 #graph of half-sibling matings group by maternal ID
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_halfsib.png"),
@@ -266,9 +244,10 @@ png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_halfsib.png"),
 UHA_res_df %>%
   group_by(`Parents Are`) %>%  # group by half siblings to compare the status
   ggplot(aes(x = fct_rev(fct_infreq(Maternal_ID)), y = dist_par, fill = `Parents Are`)) +  
+  geom_boxplot(fill = "azure2")+
   geom_jitter(aes(fill = `Parents Are`), width = 0.2, size = 3, shape = 21, color = "black") +
-  expand_limits(y = c(0, 650)) +  # set limits for graph
-  scale_fill_manual(values = c("cadetblue", "navy")) +
+  expand_limits(y = c(0, 800)) +  # set limits for graph
+  scale_fill_manual(values = c("cadetblue", "navy","white")) +
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
   labs(title = "Distribution of Mating Distances Between Half-Sibling Parents") +
   theme_bw() +
@@ -283,15 +262,25 @@ dev.off()
 
 #### Candidate Father Count Figure ------------------
 
-#create table of fathers and DBH
+#replace column text for candidate father species
+UHA_res_df[["Candidate Father Species"]] <- as.factor(UHA_res_df$Candidate_Father_Species)
+levels(UHA_res_df$`Candidate Father Species`)[[1]] <- "Quercus x deamii"
+
+#make a factor column to enable easier counting of the fathers
+UHA_res_df$Candidate_father_ID2 <- as.factor(UHA_res_df$Candidate_father_ID)
+
+#write out count by father figure
 png(paste0("Results/Parentage_Results/Figures/AL_HCF_count_by_father.png"),
     res = 600, width = 5200, height = 3500)
+
 UHA_res_df %>%
-  ggplot(aes(x = fct_infreq(Candidate_father_ID), fill = Candidate_Father_Species)) +
-  geom_bar(stat = "count") + 
-  scale_fill_manual(values = c("darkseagreen4", "deepskyblue3", "goldenrod3")) +
-  labs(title = "Offspring Count By Father") +
-  theme_bw() +
+  ggplot(aes(x = fct_infreq(Candidate_father_ID2))) +
+  geom_bar(aes(fill = `Candidate Father Species`)) +
+  scale_fill_manual(values=c("darkseagreen4", "deepskyblue3", "goldenrod3","lightgoldenrod1")) +
+  geom_text(data = . %>% count(Candidate_father_ID2), 
+            aes(label = paste("n =", n), y = 24), vjust = -3,
+            size = 3) +
+  scale_y_continuous(limits = c(0,35)) +  # set limits for graph
   xlab("Candidate Father ID") + ylab("Offspring Count") +
   theme_bw() +
   theme(axis.title.x = element_text(size = 16),
@@ -300,12 +289,8 @@ UHA_res_df %>%
         axis.text.y = element_text(size = 14),
         legend.text = element_text(size = 14),
         legend.title = element_text(size = 16),
-        plot.title = element_text(size = 18, hjust = 0.3)) +
-  scale_y_continuous(limits = c(0, 30))  # set limits for graph
-  #  geom_text(data = . %>% count(Candidate_father_ID), aes(label = paste("n =", n), y = 40), vjust = -0.5)
+        plot.title = element_text(size = 18, hjust = 0.3))
 dev.off()
-
-
 
 #create count df
 cf_list <- unique(UHA_res_df$Candidate_father_ID)
