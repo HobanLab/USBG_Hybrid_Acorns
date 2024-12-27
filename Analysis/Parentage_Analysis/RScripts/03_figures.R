@@ -70,7 +70,7 @@ for(par in seq_along(par_sum_df)){
   
   #load in par sum_df
   temp_df <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", 
-                                     par_sum_df[[par]]))
+                                     par_sum_df[[par]]))[,-1]
   #rename colnames
   colnames(temp_df) <- gsub("\\.","_", colnames(temp_df))
   
@@ -100,8 +100,6 @@ par_sum_stat_df <- matrix(nrow = length(mat_ids),
 
 #add the maternal ids in a column
 par_sum_stat_df[,1] <-  as.character(mat_ids)
-
-par <- 1
 
 #loop over all parentage scenarios with a summary data file 
 for(par in seq_along(par_sum_df)){
@@ -150,7 +148,7 @@ for(par in seq_along(par_sum_df)){
                                   "Half_Sib_Father_N", "Min_Dist", "Max_Dist",
                                   "Hybrid_Min", "Hybrid_Max")
     # #write out summary data frame with scenario 
-    write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/", full_scen[[par]], '_par_sum_stat_df.csv'),
+    write.csv(par_sum_stat_df, paste0("Results/Parentage_Results/CSV_Files/", full_scen[[par]], '_par_sum_stat_df.csv'),
              row.names = FALSE)
   }
   
@@ -276,7 +274,7 @@ png(paste0("Results/Parentage_Results/Figures/AL_HCF_count_by_father.png"),
 UHA_res_df %>%
   ggplot(aes(x = fct_infreq(Candidate_father_ID2))) +
   geom_bar(aes(fill = `Candidate Father Species`)) +
-  scale_fill_manual(values=c("darkseagreen4", "deepskyblue3", "goldenrod3","lightgoldenrod1")) +
+  scale_fill_manual(values=c("deepskyblue3", "goldenrod3","darkseagreen4","lightgoldenrod1")) +
   geom_text(data = . %>% count(Candidate_father_ID2), 
             aes(label = paste("n =", n), y = 24), vjust = -3,
             size = 3) +

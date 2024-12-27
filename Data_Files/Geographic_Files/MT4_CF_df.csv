@@ -1,0 +1,4 @@
+Offspring_ID,Maternal_ID,MT_ID,Candidate_father_ID,CF_ID,Maternal_Species,Maternal_Longitude,Maternal_Latitude,Maternal_Accession,Candidate_Father_Species,Candidate_Father_Longitude,Candidate_Father_Latitude,Candidate_Father_Accession,DBH1_Paternal,DBH2_Paternal,DBH3_Paternal,DBH4_Paternal,Half_Sibs,M_Accession_Abrv,F_Accession_Abrv,dist_par,Hybrid_Status
+UHA-0167,UHA-0013,MT4,UHA-0260,MT9,Quercus muehlenbergii,-88.06758,41.815615,704-46*6,Quercus muehlenbergii,-88.066314,41.813805,570-78*1,66.6,NA,NA,NA,FALSE,704-46,570-78,226.894363,FALSE
+UHA-0166,UHA-0013,MT4,UHA-0263,CF9,Quercus muehlenbergii,-88.06758,41.815615,704-46*6,Quercus muehlenbergii,-88.063389,41.811663,704-46*11,61.1,NA,NA,NA,TRUE,704-46,704-46,560.3079843,FALSE
+UHA-0169,UHA-0013,MT4,UHA-0269,CF15,Quercus muehlenbergii,-88.06758,41.815615,704-46*6,Quercus prinoides,-88.063184,41.813308,120-2001*3,16.4,8.1,NA,NA,FALSE,704-46,120-20,446.1821668,TRUE

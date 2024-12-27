@@ -98,8 +98,12 @@ for(o in 1:length(score_df_list)){
   
 }
 
+#save relate df
+UHA_relate <- read.csv("./Data_Files/CSV_Files/UHA_spatial_distance_analysis.csv")
+
 #load UHA database 
 UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
+#UHA_database <- UHA_database[1:528,]
 
 ######### Create analysis data frame -------------------
 
@@ -139,10 +143,6 @@ for(sc in seq_along(full_scen)){
   par_temp_df <- left_join(par_temp_df, UHA_database, 
                               by=c('Candidate_father_ID' = 'Tissue_ID')) 
   
-  #remove other columns 
-  par_temp_df <- par_temp_df %>%
-                  dplyr::select(!c("Maternal_ID","DNA_ID"))
-  
   #replace periods with underscores
   colnames(par_temp_df) <- gsub("\\.", "_", colnames(par_temp_df))
   
@@ -152,10 +152,10 @@ for(sc in seq_along(full_scen)){
                               "Candidate_Father_Latitude" = "Latitude",
                               "Candidate_Father_Accession" = "Accession_Number",
                               "Maternal_ID" = "Mother_ID",
-                              "DBH1_Paternal" = "DBH_1",
-                              "DBH2_Paternal" = "DBH_2",
-                              "DBH3_Paternal" = "DBH_3",
-                              "DBH4_Paternal" = "DBH_4")
+                              "DBH1_Paternal" = "DBH1",
+                              "DBH2_Paternal" = "DBH2",
+                              "DBH3_Paternal" = "DBH3",
+                              "DBH4_Paternal" = "DBH4")
   
   #reduce by empty columns 
   keep_col_ID2 <- c("Offspring_ID","Maternal_ID", "Candidate_father_ID",
@@ -163,7 +163,7 @@ for(sc in seq_along(full_scen)){
                     "Maternal_Accession", "Candidate_Father_Species", 
                     "Candidate_Father_Longitude", "Candidate_Father_Latitude",
                     "Candidate_Father_Accession", "DBH1_Paternal", "DBH2_Paternal",
-                    "DBH3_Paternal", "DBH4_Paternal")
+                    "DBH3_Paternal", "DBH4_Paternal","DBH_avg")
   
   #reduce data frame by populated columns
   par_temp_df <- par_temp_df[keep_col_ID2]
@@ -185,6 +185,16 @@ for(sc in seq_along(full_scen)){
   par_temp_df <- par_temp_df %>%
     mutate("Half_Sibs" = case_when(M_Accession_Abrv == F_Accession_Abrv ~ TRUE,
                                    M_Accession_Abrv != F_Accession_Abrv ~ FALSE))
+  
+  #reduce by empty columns 
+  keep_col_ID2 <- c("Offspring_ID","Maternal_ID", "Candidate_father_ID",
+                    "Maternal_Species", "Maternal_Longitude", "Maternal_Latitude",
+                    "Maternal_Accession", "Candidate_Father_Species", 
+                    "Candidate_Father_Longitude", "Candidate_Father_Latitude",
+                    "Candidate_Father_Accession", "DBH_avg")
+  
+  #reduce data frame by populated columns
+  par_temp_df <- par_temp_df[keep_col_ID2]
   
   ##Add geographic information 
   #create a column for distance between mom and dad 

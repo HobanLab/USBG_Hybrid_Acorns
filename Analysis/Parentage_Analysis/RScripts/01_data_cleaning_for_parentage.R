@@ -1,5 +1,6 @@
-###This RScript processes genotyope files generated from geneious to
-##clean for 
+###This RScript processes genotyope files generated from geneious.
+##Cleaning files for individuals with too much missing data and 
+
 
 #####################
 #     Libraries     #
@@ -27,6 +28,17 @@ UHA_scores_df <- read.csv("Data_Files/CSV_Files/UHA_score_database.csv")
 #load in UHA database
 UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 
+#individual removal list 
+ind_rem <- c("UHA-0229","UHA-0018","UHA-0348","UHA-0279","UHA-0280","UHA-0283",
+             "UHA-0286","UHA-0289","UHA-0290","UHA-0291","UHA-0294","UHA-0304",
+             "UHA-0310","UHA-0316","UHA-0324","UHA-0325","UHA-0326","UHA-0327",
+             "UHA-0342","UHA-0347","UHA-0356","UHA-0360","UHA-0369","UHA-0374",
+             "UHA-0377","UHA-0379","UHA-0382","UHA-0386","UHA-0394","UHA-0395",
+             "UHA-0396","UHA-0397","UHA-0400","UHA-0401","UHA-0402","UHA-0403",
+             "UHA-0404","UHA-0405","UHA-0406","UHA-0407","UHA-0408","UHA-0409",
+             "UHA-0410","UHA-0411","UHA-0412","UHA-0413","UHA-0414","UHA-0415",
+             "UHA-0416")
+
 ###############################
 #     Data Cleaning steps     #
 ###############################
@@ -34,6 +46,10 @@ UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
 #reduce genind file for individuals with greater than 25% missing data 
 UHA_genind_nomd <- missingno(UHA_genind, type = "geno", 
                                 cutoff = 0.25, quiet = FALSE, freq = FALSE)
+
+#write list of inds to remove
+UHA_genind_nomd <- UHA_genind_nomd[!UHA_genind_nomd@tab %in% ]
+
 
 #write out genind object as a genalex file
 genind2genalex(UHA_genind_nomd,
