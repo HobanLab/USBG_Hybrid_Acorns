@@ -11,16 +11,17 @@ library(poppr)
 library(PopGenReport)
 library(hierfstat)
 library(tidyverse)
+library(naturalsort)
 
 ###########################
 #     Load Data Files     #
 ###########################
 
 #set working directoy
-# setwd("../../..")
+setwd("../../..")
 
 #load in genepop file as a genind object
-UHA_genind <- read.genepop("Data_Files/Genotype_Files/UHA_raw_genotype.gen", ncode = 2)
+UHA_genind <- read.genepop("Data_Files/Genotype_Files/UHA_genepop.gen", ncode = 2)
 
 #load score df
 UHA_scores_df <- read.csv("Data_Files/CSV_Files/UHA_score_database.csv")
@@ -48,12 +49,12 @@ UHA_genind_nomd <- missingno(UHA_genind, type = "geno",
                                 cutoff = 0.25, quiet = FALSE, freq = FALSE)
 
 #write list of inds to remove
-UHA_genind_nomd <- UHA_genind_nomd[!UHA_genind_nomd@tab %in% ]
-
+UHA_genind_nomd <- UHA_genind_nomd[!rownames(UHA_genind_nomd@tab) %in% ind_rem,]
 
 #write out genind object as a genalex file
 genind2genalex(UHA_genind_nomd,
-               "Data_Files/Genotype_Files/UHA_genalex_clean.csv")
+               "Data_Files/Genotype_Files/UHA_genalex_clean.csv",
+               overwrite = TRUE)
 
 #limit by the cleaned individuals
 UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in% 
@@ -62,13 +63,24 @@ UHA_scores_clean_df <- UHA_scores_df[UHA_scores_df[,1] %in%
 #write out 
 write.csv(UHA_scores_clean_df, "Data_Files/CSV_Files/UHA_score_clean_df.csv")
 
+#limit database here 
+UHA_database_clean <- UHA_database %>%
+                        dplyr::filter(Tissue_ID %in% rownames(UHA_genind_nomd@tab)) %>%
+                          as.data.frame()
+
+#write out 
+write.csv(UHA_database_clean, "Data_Files/CSV_Files/UHA_database_clean.csv")
+
 
 #######################################
 #     Write out Summary Database      #
 #######################################
 
-#organized 
-UHA_species <- as.data.frame(table(UHA_database$Species))
+#summarize by count
+UHA_species <- UHA_database_clean %>% 
+                dplyr::filter(PO == "P") %>%
+                group_by(Species) %>%
+                  summarize(Count=n()) 
 
 write.csv(UHA_species, "./Results/Preliminary_Genotyping_Analysis/UHA_species.csv")
 

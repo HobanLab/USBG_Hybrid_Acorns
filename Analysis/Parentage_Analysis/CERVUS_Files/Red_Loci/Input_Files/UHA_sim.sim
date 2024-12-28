@@ -9,27 +9,27 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_sim.sim
 FileType=.sim
-CreationDate=11/14/2024 2:21:16 PM
+CreationDate=12/28/2024 4:29:28 PM
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_allfreq.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
-NOffspring=100000
-NCandidateMales=314
-PropCandidateMalesSampled=0.8
+NOffspring=10000
+NCandidateMales=270
+PropCandidateMalesSampled=0.9
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.8
-PropLociMistyped=0.1
-MinTypedLoci=4
+PropLociTyped=0.9
+PropLociMistyped=0.05
+MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.1
+LikelihoodErrorRate=0.05
 CriticalStatisticName=Delta
 TruncateAtZero=1
 RelaxedConfidence=80
@@ -48,10 +48,10 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -68,10 +68,10 @@ MaxStatistic=0
 FileName=
 
 [MaleParentAlone]
-RelaxedCriterion=2.1903076171875
-StrictCriterion=3.950439453125
-NRelaxed=22155
-NStrict=7914
+RelaxedCriterion=0.875
+StrictCriterion=2.837158203125
+NRelaxed=7532
+NStrict=4365
 
 [FemaleParentAlone]
 RelaxedCriterion=999
@@ -80,10 +80,10 @@ NRelaxed=0
 NStrict=0
 
 [MaleParentGivenFemaleParent]
-RelaxedCriterion=1.6923828125
-StrictCriterion=3.6632080078125
-NRelaxed=45271
-NStrict=21792
+RelaxedCriterion=0
+StrictCriterion=2.16748046875
+NRelaxed=9709
+NStrict=7426
 
 [FemaleParentGivenMaleParent]
 RelaxedCriterion=999

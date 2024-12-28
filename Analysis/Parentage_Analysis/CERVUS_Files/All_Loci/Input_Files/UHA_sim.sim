@@ -11,7 +11,7 @@ Code=
 [FileInfo]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.sim
 FileType=.sim
-CreationDate=11/14/2024 2:15:04 PM
+CreationDate=12/28/2024 4:31:28 PM
 
 [AlleleFrequencyDataFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_allfreq.alf
@@ -20,16 +20,16 @@ HeaderRow=1
 [SimulationParameters]
 AnalysisType=Paternity
 NOffspring=10000
-NCandidateMales=314
-PropCandidateMalesSampled=0.9
+NCandidateMales=270
+PropCandidateMalesSampled=0.8
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.9
-PropLociMistyped=0.1
+PropLociTyped=0.8
+PropLociMistyped=0.05
 MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.1
+LikelihoodErrorRate=0.05
 CriticalStatisticName=Delta
 TruncateAtZero=1
 RelaxedConfidence=80
@@ -68,10 +68,10 @@ MaxStatistic=0
 FileName=
 
 [MaleParentAlone]
-RelaxedCriterion=1.041015625
-StrictCriterion=2.931640625
-NRelaxed=6911
-NStrict=3977
+RelaxedCriterion=1.3916015625
+StrictCriterion=3.4832763671875
+NRelaxed=5948
+NStrict=3167
 
 [FemaleParentAlone]
 RelaxedCriterion=999
@@ -80,10 +80,10 @@ NRelaxed=0
 NStrict=0
 
 [MaleParentGivenFemaleParent]
-RelaxedCriterion=0.185546875
-StrictCriterion=2.287109375
-NRelaxed=9584
-NStrict=6845
+RelaxedCriterion=0.7890625
+StrictCriterion=2.99951171875
+NRelaxed=8206
+NStrict=5614
 
 [FemaleParentGivenMaleParent]
 RelaxedCriterion=999

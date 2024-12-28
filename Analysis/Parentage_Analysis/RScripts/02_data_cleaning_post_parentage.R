@@ -20,19 +20,19 @@ library(geosphere)
 #     Load Data Files     #
 ###########################
 #set working directory 
-#setwd("../../..")
+setwd("../../..")
 
 #load parentage results - replacing:
 #par_results <- read.csv("Analysis/Parentage_Analysis/Initial_Run/Output_Files/UHA_parentage_sumary.csv")
 
 #load parentage results - all loci = al
-UHA_al_par <- read.csv("Results/Parentage_Results/CSV_Files/all_loci_par_sum.csv")
+UHA_al_par <- read.csv("./Results/Parentage_Results/CSV_Files/UHA_AL_par_sum.csv")
 
 #remove periods from UHA data frame
 colnames(UHA_al_par) <- gsub("\\.", "_", colnames(UHA_al_par))
 
 #load parentage results - reduced loci = rl
-UHA_rl_par <- read.csv("Results/Parentage_Results/CSV_Files/red_loci_par_sum.csv")
+UHA_rl_par <- read.csv("./Results/Parentage_Results/CSV_Files/UHA_RL_par_sum.csv")
 
 #remove periods from colnames
 colnames(UHA_rl_par) <- gsub("\\.", "_", colnames(UHA_rl_par))
@@ -49,10 +49,12 @@ for(sc in seq_along(scen)){
   temp_df <- par_res_list[[sc]]
   
   #first, join genotype files with parentage results 
-  HCF_df <- temp_df[temp_df$Pair_LOD_score > 0 & temp_df$Trio_LOD_score > 0,]
+  HCF_df <- temp_df[temp_df$Pair_LOD_score_1 > 0 & temp_df$Trio_LOD_score > 0,]
   
   #write out data frame 
-  write.csv(HCF_df, paste0("Results/Parentage_Results/CSV_Files/", scen[[sc]], "_HCF_par_sum.csv"))
+  write.csv(HCF_df, paste0("Results/Parentage_Results/CSV_Files/", 
+                           scen[[sc]], "_HCF_par_sum.csv"),
+            row.names = FALSE)
   
 }
 
@@ -60,16 +62,18 @@ for(sc in seq_along(scen)){
 par_sum_list <- list.files(path = "Results/Parentage_Results/CSV_Files/", pattern = "par_sum.csv")
 
 #reorder list 
-par_sum_list <- list(par_sum_list[[2]], par_sum_list[[1]], 
-                     par_sum_list[[4]], par_sum_list[[3]])
+par_sum_list <- list(par_sum_list[[4]], par_sum_list[[2]], 
+                     par_sum_list[[3]], par_sum_list[[1]])
 
 #read CSVs 
 par_sum_df_list <- list()
 
 #Loop over to read in all summary parentage data frame results 
-for(df in par_sum_list){
+for(df in seq_along(par_sum_list)){
   
-  par_sum_df_list[[df]] <- read.csv(paste0("Results/Parentage_Results/CSV_Files/", df))
+  #now save parsum list
+  par_sum_df_list[[df]] <- read.csv(paste0("./Results/Parentage_Results/CSV_Files/", 
+                                           par_sum_list[[df]]))
   
 }
 
@@ -102,8 +106,7 @@ for(o in 1:length(score_df_list)){
 UHA_relate <- read.csv("./Data_Files/CSV_Files/UHA_spatial_distance_analysis.csv")
 
 #load UHA database 
-UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
-#UHA_database <- UHA_database[1:528,]
+UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database_clean.csv")
 
 ######### Create analysis data frame -------------------
 
@@ -191,10 +194,32 @@ for(sc in seq_along(full_scen)){
                     "Maternal_Species", "Maternal_Longitude", "Maternal_Latitude",
                     "Maternal_Accession", "Candidate_Father_Species", 
                     "Candidate_Father_Longitude", "Candidate_Father_Latitude",
-                    "Candidate_Father_Accession", "DBH_avg")
+                    "Candidate_Father_Accession", "Half_Sibs", "M_Accession_Abrv",
+                    "F_Accession_Abrv","DBH_avg")
   
   #reduce data frame by populated columns
   par_temp_df <- par_temp_df[keep_col_ID2]
+  
+  #compare to the UHA relate
+  par_temp_df <- dplyr::left_join(par_temp_df, UHA_relate,
+                                   by = c("Maternal_ID" = "Ind1", 
+                                            "Candidate_father_ID" = "Ind2"))
+  par_temp_df <- dplyr::left_join(par_temp_df, UHA_relate,
+                                   by = c("Candidate_father_ID" = "Ind1", 
+                                          "Maternal_ID" = "Ind2"))
+  
+  #compare half-sib coeff status and accession number
+  par_temp_df$comp_status <- dplyr::case_when(
+    
+    par_temp_df$Half_Sibs == TRUE & par_temp_df$relate_coef.x >= 0.25 ~ 1,
+    par_temp_df$Half_Sibs == TRUE & par_temp_df$relate_coef.y >= 0.25 ~ 1,
+    par_temp_df$Half_Sibs == TRUE & par_temp_df$relate_coef.x < 0.25 ~ 2,
+    par_temp_df$Half_Sibs == TRUE & par_temp_df$relate_coef.y < 0.25 ~ 2,
+    par_temp_df$Half_Sibs == FALSE & par_temp_df$relate_coef.x >= 0.25 ~ 3,
+    par_temp_df$Half_Sibs == FALSE & par_temp_df$relate_coef.y >= 0.25 ~ 3,
+    par_temp_df$Half_Sibs == FALSE & par_temp_df$relate_coef.x < 0.25 ~ 4,
+    par_temp_df$Half_Sibs == FALSE & par_temp_df$relate_coef.y < 0.25 ~ 4
+  )
   
   ##Add geographic information 
   #create a column for distance between mom and dad 

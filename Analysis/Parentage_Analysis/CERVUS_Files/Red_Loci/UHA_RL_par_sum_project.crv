@@ -9,17 +9,17 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\UHA_AL_parentage.crv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\UHA_RL_par_sum_project.crv
 FileType=.crv
-CreationDate=11/14/2024 3:02:38 PM
+CreationDate=12/28/2024 4:30:56 PM
 
 [GenotypeFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_genotype_df.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_genotype_df.csv
 HeaderRow=1
 ReadLocusNames=1
-FirstAlleleColumnNumber=3
+FirstAlleleColumnNumber=6
 IDColumnNumber=1
-NLoci=13
+NLoci=9
 PropLociTyped=0
 ColumnsPerLocus=2
 SexColumn=0
@@ -29,10 +29,10 @@ UnknownSexLabel=
 FileName=
 HeaderRow=1
 UseSameCodingForAllLoci=1
-GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_genotype_df.csv
+GenotypeFileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_RL_genotype_df.csv
 
 [AlleleFrequencySummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_allfreq.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_allfreq.txt
 DoHardyWeinberg=1
 HWMinExpectedFrequency=5
 UseYatesCorrection=1
@@ -40,18 +40,18 @@ UseBonferroniCorrection=1
 DoNullAllele=1
 
 [AlleleFrequencyDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_allfreq.alf
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_allfreq.alf
 HeaderRow=1
 
 [SimulationParameters]
 AnalysisType=Paternity
 NOffspring=10000
-NCandidateMales=314
+NCandidateMales=270
 PropCandidateMalesSampled=0.9
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
 PropLociTyped=0.9
-PropLociMistyped=0.1
+PropLociMistyped=0.05
 MinTypedLoci=6
 CriticalStatisticName=Delta
 TruncateAtZero=1
@@ -71,13 +71,13 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.1
+LikelihoodErrorRate=0.05
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_sim.txt
 
 [SimulationDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.sim
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_sim.sim
 
 [SimulationOutput]
 RepeatSimulation=0
@@ -101,12 +101,12 @@ AlwaysTestSelfing=0
 MinTypedLoci=6
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=0
-LikelihoodErrorRate=0.1
+LikelihoodErrorRate=0.05
 CriticalStatisticName=Delta
 TruncateAtZero=1
 
 [OffspringFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_offspring.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Input_Files\UHA_offspring.csv
 HeaderRow=1
 OffspringIDColumnNumber=1
 IncludesKnownParents=1
@@ -129,10 +129,10 @@ OffspringIDColumnNumber=0
 CandidateParentIDColumnNumber=0
 
 [ParentageSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Output_Files\UHA_AL_par_sum.txt
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Output_Files\UHA_RL_par_sum.txt
 
 [ParentageDataFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Output_Files\UHA_AL_par_sum.csv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\Red_Loci\Output_Files\UHA_RL_par_sum.csv
 OutputType=The most-likely parent
 SortedBy=Joint LOD score
 IncludeNonExclusionProbabilities=1
