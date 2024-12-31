@@ -10,27 +10,13 @@ library(geosphere)
 ######################
 
 #set working directory
-setwd("../..")
+setwd("../../..")
 
 #load in the tissue database, remove offspring which have no coordinates
-UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database.csv")
-
-# #load in score data frames 
-# score_df <- list.files(path = "Data_Files/CSV_Files", 
-#                             pattern = "genotype_df")
-# 
-# #loop in the score data frames 
-# score_df_list <- list()
-# 
-# for(sc_df in seq_along(score_df)){
-#   
-#   #read csvs
-#   score_df_list[[sc_df]] <- read.csv(paste0("Data_Files/CSV_Files/", score_df[[sc_df]]))
-#   
-# }
+UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database_clean.csv")
 
 #limit to one case right now 
-genotype_df <- read.csv("Data_Files/CSV_Files/UHA_all_loci_genotype_df.csv")
+genotype_df <- read.csv("Data_Files/CSV_Files/UHA_AL_par_sum.csv")
 
 par_df <- read.csv("Results/Parentage_Results/CSV_Files/UHA_all_loci_analysis_df.csv")
 

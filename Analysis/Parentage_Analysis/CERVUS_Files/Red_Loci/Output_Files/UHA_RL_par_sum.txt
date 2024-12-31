@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 12/28/2024 4:29:41 PM
+Parentage analysis completed 12/28/2024 10:04:05 PM
 
 
 **** Summary statistics ****
@@ -12,18 +12,18 @@ Father alone (all offspring):
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            2.84       63 (     67)      41%    ( 44%)
-Relaxed              80.00            0.88      119 (    116)      77%    ( 75%)
-Unassigned                                       35 (     38)      23%    ( 25%)
+Strict               95.00            2.84       41 (     67)      27%    ( 44%)
+Relaxed              80.00            0.88       95 (    116)      62%    ( 75%)
+Unassigned                                       59 (     38)      38%    ( 25%)
 Total                                           154 (    154)     100%    (100%)
 
 Father given known mother:
 
 Level       Confidence (%)  Critical Delta  Assignments        Assignment Rate  
                                             Observed Expected  Observed Expected
-Strict               95.00            2.17       58 (    114)      38%    ( 74%)
-Relaxed              80.00            0.00      152 (    150)      99%    ( 97%)
-Unassigned                                        2 (      4)       1%    (  3%)
+Strict               95.00            2.17       74 (    114)      48%    ( 74%)
+Relaxed              80.00            0.00      129 (    150)      84%    ( 97%)
+Unassigned                                       25 (      4)      16%    (  3%)
 Total                                           154 (    154)     100%    (100%)
 
 
@@ -35,8 +35,8 @@ Offspring (total):                                           154
     Known mother typed at fewer than 6 loci:                   0
   Not tested (typed at fewer than 6 loci):                     0
 
-Candidate fathers (total):                                   269
-  Tested (typed at 6 or more loci):                          269
+Candidate fathers (total):                                   270
+  Tested (typed at 6 or more loci):                          270
   Not tested (typed at fewer than 6 loci):                     0
   Average number of candidate fathers per offspring:         269
   Average proportion of sampled candidate fathers:             1.0000
@@ -87,945 +87,323 @@ Output
   Strict confidence level:                                    95.00%
 
 
+**** Known parents excluded as candidate parents ****
+
+The following known mother IDs were removed  from the list of candidate fathers
+  for the offspring specified:
+
+UHA-0009 for offspring UHA-0426
+UHA-0010 for offspring UHA-0123
+UHA-0010 for offspring UHA-0124
+UHA-0010 for offspring UHA-0125
+UHA-0010 for offspring UHA-0126
+UHA-0010 for offspring UHA-0127
+UHA-0010 for offspring UHA-0128
+UHA-0010 for offspring UHA-0129
+UHA-0010 for offspring UHA-0130
+UHA-0010 for offspring UHA-0131
+UHA-0010 for offspring UHA-0132
+UHA-0010 for offspring UHA-0133
+UHA-0010 for offspring UHA-0134
+UHA-0010 for offspring UHA-0135
+UHA-0010 for offspring UHA-0136
+UHA-0010 for offspring UHA-0137
+UHA-0010 for offspring UHA-0138
+UHA-0010 for offspring UHA-0139
+UHA-0010 for offspring UHA-0140
+UHA-0010 for offspring UHA-0141
+UHA-0010 for offspring UHA-0142
+UHA-0010 for offspring UHA-0143
+UHA-0010 for offspring UHA-0144
+UHA-0010 for offspring UHA-0146
+UHA-0010 for offspring UHA-0147
+UHA-0010 for offspring UHA-0435
+UHA-0010 for offspring UHA-0436
+UHA-0010 for offspring UHA-0437
+UHA-0010 for offspring UHA-0438
+UHA-0010 for offspring UHA-0439
+UHA-0012 for offspring UHA-0148
+UHA-0012 for offspring UHA-0150
+UHA-0012 for offspring UHA-0151
+UHA-0012 for offspring UHA-0152
+UHA-0012 for offspring UHA-0153
+UHA-0012 for offspring UHA-0154
+UHA-0012 for offspring UHA-0155
+UHA-0012 for offspring UHA-0156
+UHA-0012 for offspring UHA-0157
+UHA-0012 for offspring UHA-0158
+UHA-0012 for offspring UHA-0159
+UHA-0012 for offspring UHA-0160
+UHA-0012 for offspring UHA-0161
+UHA-0012 for offspring UHA-0162
+UHA-0012 for offspring UHA-0163
+UHA-0012 for offspring UHA-0429
+UHA-0012 for offspring UHA-0430
+UHA-0012 for offspring UHA-0431
+UHA-0012 for offspring UHA-0432
+UHA-0012 for offspring UHA-0433
+UHA-0012 for offspring UHA-0434
+UHA-0013 for offspring UHA-0166
+UHA-0013 for offspring UHA-0167
+UHA-0013 for offspring UHA-0169
+UHA-0014 for offspring UHA-0068
+UHA-0014 for offspring UHA-0069
+UHA-0014 for offspring UHA-0070
+UHA-0014 for offspring UHA-0071
+UHA-0014 for offspring UHA-0072
+UHA-0014 for offspring UHA-0073
+UHA-0014 for offspring UHA-0074
+UHA-0014 for offspring UHA-0075
+UHA-0014 for offspring UHA-0076
+UHA-0014 for offspring UHA-0077
+UHA-0014 for offspring UHA-0079
+UHA-0014 for offspring UHA-0080
+UHA-0014 for offspring UHA-0081
+UHA-0014 for offspring UHA-0088
+UHA-0014 for offspring UHA-0089
+UHA-0014 for offspring UHA-0090
+UHA-0014 for offspring UHA-0091
+UHA-0015 for offspring UHA-0093
+UHA-0015 for offspring UHA-0094
+UHA-0015 for offspring UHA-0095
+UHA-0015 for offspring UHA-0096
+UHA-0015 for offspring UHA-0097
+UHA-0015 for offspring UHA-0427
+UHA-0015 for offspring UHA-0428
+UHA-0016 for offspring UHA-0164
+UHA-0016 for offspring UHA-0165
+UHA-0257 for offspring UHA-0098
+UHA-0257 for offspring UHA-0099
+UHA-0257 for offspring UHA-0100
+UHA-0257 for offspring UHA-0101
+UHA-0257 for offspring UHA-0102
+UHA-0257 for offspring UHA-0103
+UHA-0257 for offspring UHA-0105
+UHA-0257 for offspring UHA-0106
+UHA-0257 for offspring UHA-0109
+UHA-0257 for offspring UHA-0110
+UHA-0257 for offspring UHA-0111
+UHA-0257 for offspring UHA-0112
+UHA-0257 for offspring UHA-0113
+UHA-0257 for offspring UHA-0114
+UHA-0257 for offspring UHA-0454
+UHA-0257 for offspring UHA-0455
+UHA-0257 for offspring UHA-0456
+UHA-0257 for offspring UHA-0457
+UHA-0257 for offspring UHA-0458
+UHA-0257 for offspring UHA-0459
+UHA-0257 for offspring UHA-0460
+UHA-0260 for offspring UHA-0043
+UHA-0260 for offspring UHA-0044
+UHA-0260 for offspring UHA-0045
+UHA-0260 for offspring UHA-0046
+UHA-0260 for offspring UHA-0047
+UHA-0260 for offspring UHA-0048
+UHA-0260 for offspring UHA-0049
+UHA-0260 for offspring UHA-0050
+UHA-0260 for offspring UHA-0051
+UHA-0260 for offspring UHA-0052
+UHA-0260 for offspring UHA-0053
+UHA-0260 for offspring UHA-0054
+UHA-0260 for offspring UHA-0055
+UHA-0260 for offspring UHA-0056
+UHA-0260 for offspring UHA-0058
+UHA-0260 for offspring UHA-0059
+UHA-0260 for offspring UHA-0440
+UHA-0260 for offspring UHA-0441
+UHA-0260 for offspring UHA-0442
+UHA-0260 for offspring UHA-0443
+UHA-0260 for offspring UHA-0444
+UHA-0260 for offspring UHA-0445
+UHA-0260 for offspring UHA-0446
+UHA-0260 for offspring UHA-0447
+UHA-0260 for offspring UHA-0448
+UHA-0260 for offspring UHA-0449
+UHA-0260 for offspring UHA-0450
+UHA-0260 for offspring UHA-0451
+UHA-0260 for offspring UHA-0452
+UHA-0260 for offspring UHA-0453
+UHA-0261 for offspring UHA-0020
+UHA-0261 for offspring UHA-0021
+UHA-0261 for offspring UHA-0022
+UHA-0261 for offspring UHA-0023
+UHA-0261 for offspring UHA-0024
+UHA-0261 for offspring UHA-0025
+UHA-0261 for offspring UHA-0026
+UHA-0261 for offspring UHA-0027
+UHA-0261 for offspring UHA-0028
+UHA-0261 for offspring UHA-0029
+UHA-0261 for offspring UHA-0036
+UHA-0261 for offspring UHA-0037
+UHA-0261 for offspring UHA-0038
+UHA-0261 for offspring UHA-0040
+UHA-0261 for offspring UHA-0041
+UHA-0351 for offspring UHA-0115
+UHA-0351 for offspring UHA-0116
+UHA-0351 for offspring UHA-0118
+UHA-0351 for offspring UHA-0119
+UHA-0351 for offspring UHA-0120
+UHA-0351 for offspring UHA-0121
+UHA-0351 for offspring UHA-0122
+UHA-0351 for offspring UHA-0298
+
+TOTAL: 154
+
+
 **** Known parent-offspring mismatches ****
 
 Locus name  Offspring ID     Genotype        Known parent ID  Genotype        Null
-QS03797_    UHA-0020         142     184     UHA-0001         144     144     
-MSQ13_      UHA-0020         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0020         157     177     UHA-0001         163     165     
-QpZAG9_     UHA-0020         243     243     UHA-0001         255     263     
-QpZAG119_   UHA-0020         90      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0020         181     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0020         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0021         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0021         157     175     UHA-0001         163     165     
-QpZAG9_     UHA-0021         243     243     UHA-0001         255     263     
-QS1904_     UHA-0021         139     149     UHA-0001         137     137     
-MSQ4_       UHA-0021         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0021         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0021         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0022         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0022         173     175     UHA-0001         163     165     
-QpZAG9_     UHA-0022         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0022         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0022         84      84      UHA-0001         68      80      
-QpZAG1.5_   UHA-0022         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0022         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0023         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0023         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0023         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0023         90      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0023         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0023         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0024         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0024         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0024         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0024         84      84      UHA-0001         68      80      
-QpZAG1.5_   UHA-0024         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0025         216     232     UHA-0001         206     206     
-QpZAG9_     UHA-0025         243     261     UHA-0001         255     263     
-QS1904_     UHA-0025         139     139     UHA-0001         137     137     Y   
-QpZAG119_   UHA-0025         84      104     UHA-0001         68      80      
-QpZAG1.5_   UHA-0025         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0025         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0026         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0026         249     257     UHA-0001         255     263     
-MSQ4_       UHA-0026         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0026         84      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0026         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0026         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0027         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0027         173     175     UHA-0001         163     165     
-QpZAG9_     UHA-0027         243     265     UHA-0001         255     263     
-QpZAG119_   UHA-0027         84      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0027         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0027         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0028         216     234     UHA-0001         206     206     
-QrZAG20_    UHA-0028         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0028         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0028         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0028         98      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0028         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0028         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0029         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0029         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0029         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0029         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0029         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0029         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0029         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0036         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0036         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0036         243     265     UHA-0001         255     263     
-MSQ4_       UHA-0036         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0036         98      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0036         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0036         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0037         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0037         173     175     UHA-0001         163     165     
-QpZAG9_     UHA-0037         249     257     UHA-0001         255     263     
-QpZAG119_   UHA-0037         110     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0037         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0037         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0038         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0038         249     257     UHA-0001         255     263     
-MSQ4_       UHA-0038         214     216     UHA-0001         198     206     
-QpZAG119_   UHA-0038         110     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0038         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0038         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0040         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0040         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0040         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0040         110     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0040         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0040         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0041         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0041         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0041         243     243     UHA-0001         255     263     
-QpZAG119_   UHA-0041         84      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0041         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0041         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0043         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0043         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0043         249     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0043         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0043         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0044         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0044         157     175     UHA-0001         163     165     
-QpZAG9_     UHA-0044         243     243     UHA-0001         255     263     
-QS1904_     UHA-0044         139     149     UHA-0001         137     137     
-MSQ4_       UHA-0044         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0044         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0044         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0045         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0045         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0045         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0045         90      96      UHA-0001         68      80      
-QpZAG1.5_   UHA-0045         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0045         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0046         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0046         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0046         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0046         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0046         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0046         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0047         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0047         243     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0047         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0047         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0048         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0048         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0048         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0048         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0048         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0048         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0048         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0049         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0049         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0049         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0049         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0049         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0049         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0049         222     238     UHA-0001         234     244     
-QS03797_    UHA-0050         142     142     UHA-0001         144     144     Y   
-MSQ13_      UHA-0050         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0050         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0050         243     249     UHA-0001         255     263     
-MSQ4_       UHA-0050         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0050         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0050         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0051         232     232     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0051         253     257     UHA-0001         255     263     
-QpZAG119_   UHA-0051         90      98      UHA-0001         68      80      
-QM69.2M1_   UHA-0051         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0052         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0052         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0052         90      102     UHA-0001         68      80      
-QpZAG1.5_   UHA-0052         169     175     UHA-0001         165     167     
-QM69.2M1_   UHA-0052         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0053         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0053         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0053         257     257     UHA-0001         255     263     
-QpZAG119_   UHA-0053         90      96      UHA-0001         68      80      
-QpZAG1.5_   UHA-0053         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0053         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0054         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0054         157     173     UHA-0001         163     165     
-QpZAG9_     UHA-0054         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0054         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0054         90      96      UHA-0001         68      80      
-QpZAG1.5_   UHA-0054         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0054         222     230     UHA-0001         234     244     
-QS03797_    UHA-0055         146     184     UHA-0001         144     144     
-MSQ13_      UHA-0055         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0055         179     179     UHA-0001         163     165     
-QpZAG9_     UHA-0055         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0055         90      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0055         169     175     UHA-0001         165     167     
-QM69.2M1_   UHA-0055         222     230     UHA-0001         234     244     
-QS03797_    UHA-0056         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0056         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0056         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0056         257     257     UHA-0001         255     263     
-QpZAG119_   UHA-0056         90      100     UHA-0001         68      80      
-QM69.2M1_   UHA-0056         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0058         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0058         257     257     UHA-0001         255     263     
-QS1904_     UHA-0058         139     149     UHA-0001         137     137     
-QpZAG1.5_   UHA-0058         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0058         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0059         232     232     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0059         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0059         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0059         210     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0059         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0059         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0068         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0068         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0068         200     204     UHA-0001         198     206     
-QpZAG119_   UHA-0068         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0068         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0069         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0069         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0069         253     265     UHA-0001         255     263     
-MSQ4_       UHA-0069         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0069         90      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0069         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0070         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0070         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0070         251     253     UHA-0001         255     263     
-MSQ4_       UHA-0070         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0070         90      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0070         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0071         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0071         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0071         251     253     UHA-0001         255     263     
-MSQ4_       UHA-0071         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0071         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0071         171     171     UHA-0001         165     167     
-MSQ13_      UHA-0072         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0072         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0072         251     265     UHA-0001         255     263     
-MSQ4_       UHA-0072         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0072         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0072         169     173     UHA-0001         165     167     
-MSQ13_      UHA-0073         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0073         177     179     UHA-0001         163     165     
-MSQ4_       UHA-0073         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0073         112     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0073         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0073         232     232     UHA-0001         234     244     
-MSQ13_      UHA-0074         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0074         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0074         253     265     UHA-0001         255     263     
-MSQ4_       UHA-0074         200     208     UHA-0001         198     206     
-QpZAG119_   UHA-0074         112     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0074         159     169     UHA-0001         165     167     
-MSQ13_      UHA-0075         216     216     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0075         251     257     UHA-0001         255     263     
-MSQ4_       UHA-0075         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0075         90      96      UHA-0001         68      80      
-QpZAG1.5_   UHA-0075         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0075         222     232     UHA-0001         234     244     
-MSQ13_      UHA-0076         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0076         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0076         253     253     UHA-0001         255     263     
-MSQ4_       UHA-0076         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0076         110     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0076         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0077         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0077         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0077         251     257     UHA-0001         255     263     
-MSQ4_       UHA-0077         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0077         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0077         171     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0077         222     232     UHA-0001         234     244     
-MSQ13_      UHA-0079         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0079         179     179     UHA-0001         163     165     
-QpZAG9_     UHA-0079         253     253     UHA-0001         255     263     
-MSQ4_       UHA-0079         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0079         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0079         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0079         232     232     UHA-0001         234     244     
-QS03797_    UHA-0080         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0080         216     234     UHA-0001         206     206     
-QrZAG20_    UHA-0080         177     177     UHA-0001         163     165     
-MSQ4_       UHA-0080         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0080         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0080         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0080         232     236     UHA-0001         234     244     
-MSQ13_      UHA-0081         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0081         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0081         251     253     UHA-0001         255     263     
-MSQ4_       UHA-0081         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0081         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0081         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0088         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0088         179     179     UHA-0001         163     165     
-MSQ4_       UHA-0088         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0088         90      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0088         171     171     UHA-0001         165     167     
-QS03797_    UHA-0089         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0089         216     234     UHA-0001         206     206     
-QrZAG20_    UHA-0089         175     177     UHA-0001         163     165     
-QpZAG9_     UHA-0089         253     253     UHA-0001         255     263     
-MSQ4_       UHA-0089         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0089         110     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0089         171     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0089         230     232     UHA-0001         234     244     
-MSQ13_      UHA-0090         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0090         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0090         253     265     UHA-0001         255     263     
-MSQ4_       UHA-0090         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0090         90      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0090         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0090         230     232     UHA-0001         234     244     
-QS03797_    UHA-0091         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0091         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0091         175     177     UHA-0001         163     165     
-QpZAG9_     UHA-0091         251     265     UHA-0001         255     263     
-MSQ4_       UHA-0091         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0091         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0091         171     171     UHA-0001         165     167     
-QS03797_    UHA-0093         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0093         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0093         177     179     UHA-0001         163     165     
-QpZAG119_   UHA-0093         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0093         169     169     UHA-0001         165     167     
-MSQ13_      UHA-0094         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0094         155     177     UHA-0001         163     165     
-MSQ4_       UHA-0094         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0094         90      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0094         169     173     UHA-0001         165     167     
-MSQ13_      UHA-0095         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0095         155     179     UHA-0001         163     165     
-MSQ4_       UHA-0095         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0095         86      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0095         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0095         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0096         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0096         155     179     UHA-0001         163     165     
-QpZAG119_   UHA-0096         90      110     UHA-0001         68      80      
-QpZAG1.5_   UHA-0096         169     173     UHA-0001         165     167     
-MSQ13_      UHA-0097         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0097         175     179     UHA-0001         163     165     
-MSQ4_       UHA-0097         214     214     UHA-0001         198     206     
-QpZAG119_   UHA-0097         86      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0097         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0097         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0098         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0098         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0098         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0098         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0098         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0098         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0098         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0099         232     232     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0099         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0099         208     210     UHA-0001         198     206     
-QpZAG119_   UHA-0099         104     114     UHA-0001         68      80      
-QM69.2M1_   UHA-0099         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0100         232     232     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0100         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0100         261     265     UHA-0001         255     263     
-MSQ4_       UHA-0100         210     214     UHA-0001         198     206     
-QpZAG119_   UHA-0100         98      104     UHA-0001         68      80      
-QM69.2M1_   UHA-0100         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0101         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0101         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0101         243     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0101         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0101         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0102         216     232     UHA-0001         206     206     
-QpZAG9_     UHA-0102         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0102         210     214     UHA-0001         198     206     
-QpZAG119_   UHA-0102         96      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0102         159     159     UHA-0001         165     167     
-QM69.2M1_   UHA-0102         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0103         234     236     UHA-0001         206     206     
-QrZAG20_    UHA-0103         157     173     UHA-0001         163     165     
-QpZAG9_     UHA-0103         243     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0103         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0103         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0105         232     234     UHA-0001         206     206     
-QrZAG20_    UHA-0105         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0105         261     265     UHA-0001         255     263     
-MSQ4_       UHA-0105         208     210     UHA-0001         198     206     
-QpZAG119_   UHA-0105         98      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0105         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0105         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0106         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0106         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0106         243     265     UHA-0001         255     263     
-MSQ4_       UHA-0106         208     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0106         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0106         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0109         216     232     UHA-0001         206     206     
-QrZAG20_    UHA-0109         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0109         243     265     UHA-0001         255     263     
-QpZAG119_   UHA-0109         84      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0109         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0109         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0110         232     234     UHA-0001         206     206     
-QrZAG20_    UHA-0110         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0110         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0110         210     214     UHA-0001         198     206     
-QpZAG119_   UHA-0110         98      98      UHA-0001         68      80      
-QM69.2M1_   UHA-0110         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0111         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0111         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0111         257     261     UHA-0001         255     263     
-MSQ4_       UHA-0111         208     214     UHA-0001         198     206     
-QpZAG119_   UHA-0111         98      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0111         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0111         222     238     UHA-0001         234     244     
-QS03797_    UHA-0112         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0112         216     234     UHA-0001         206     206     
-QrZAG20_    UHA-0112         177     177     UHA-0001         163     165     
-MSQ4_       UHA-0112         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0112         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0112         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0112         232     236     UHA-0001         234     244     
-MSQ13_      UHA-0113         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0113         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0113         257     265     UHA-0001         255     263     
-QpZAG119_   UHA-0113         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0113         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0113         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0114         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0114         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0114         257     257     UHA-0001         255     263     
-QpZAG119_   UHA-0114         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0114         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0114         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0115         216     232     UHA-0001         206     206     
-QpZAG9_     UHA-0115         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0115         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0115         104     114     UHA-0001         68      80      
-QM69.2M1_   UHA-0115         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0116         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0116         243     257     UHA-0001         255     263     
-QS1904_     UHA-0116         139     149     UHA-0001         137     137     
-QpZAG1.5_   UHA-0116         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0116         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0118         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0118         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0118         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0118         214     216     UHA-0001         198     206     
-QpZAG119_   UHA-0118         84      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0118         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0118         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0119         216     234     UHA-0001         206     206     
-QpZAG9_     UHA-0119         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0119         208     214     UHA-0001         198     206     
-QpZAG119_   UHA-0119         98      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0119         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0119         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0120         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0120         173     173     UHA-0001         163     165     
-QpZAG9_     UHA-0120         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0120         208     214     UHA-0001         198     206     
-QpZAG119_   UHA-0120         114     114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0120         159     159     UHA-0001         165     167     
-QM69.2M1_   UHA-0120         230     238     UHA-0001         234     244     
-MSQ13_      UHA-0121         216     234     UHA-0001         206     206     
-QrZAG20_    UHA-0121         173     173     UHA-0001         163     165     
-QpZAG9_     UHA-0121         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0121         210     214     UHA-0001         198     206     
-QpZAG119_   UHA-0121         96      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0121         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0121         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0122         216     234     UHA-0001         206     206     
-QpZAG9_     UHA-0122         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0122         210     214     UHA-0001         198     206     
-QpZAG119_   UHA-0122         96      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0122         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0122         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0123         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0123         179     179     UHA-0001         163     165     
-QpZAG9_     UHA-0123         243     249     UHA-0001         255     263     
-MSQ4_       UHA-0123         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0123         112     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0123         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0123         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0124         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0124         243     249     UHA-0001         255     263     
-MSQ4_       UHA-0124         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0124         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0124         222     230     UHA-0001         234     244     
-QS03797_    UHA-0125         142     146     UHA-0001         144     144     
-MSQ13_      UHA-0125         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0125         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0125         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0125         212     216     UHA-0001         198     206     
-QpZAG119_   UHA-0125         94      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0125         171     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0125         222     222     UHA-0001         234     244     
-QS03797_    UHA-0126         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0126         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0126         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0126         253     253     UHA-0001         255     263     
-QpZAG119_   UHA-0126         112     112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0126         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0126         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0127         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0127         179     179     UHA-0001         163     165     
-MSQ4_       UHA-0127         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0127         112     120     UHA-0001         68      80      
-MSQ13_      UHA-0128         230     234     UHA-0001         206     206     
-MSQ4_       UHA-0128         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0128         112     120     UHA-0001         68      80      
-MSQ13_      UHA-0129         230     234     UHA-0001         206     206     
-MSQ4_       UHA-0129         216     216     UHA-0001         198     206     
-QS03797_    UHA-0130         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0130         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0130         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0130         249     253     UHA-0001         255     263     
-QpZAG119_   UHA-0130         112     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0130         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0130         222     230     UHA-0001         234     244     
-QS03797_    UHA-0131         142     146     UHA-0001         144     144     
-MSQ13_      UHA-0131         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0131         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0131         253     257     UHA-0001         255     263     
-QS1904_     UHA-0131         139     139     UHA-0001         137     137     Y   
-MSQ4_       UHA-0131         212     216     UHA-0001         198     206     
-QpZAG119_   UHA-0131         76      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0131         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0131         222     230     UHA-0001         234     244     
-QS03797_    UHA-0132         142     146     UHA-0001         144     144     
-MSQ13_      UHA-0132         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0132         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0132         253     257     UHA-0001         255     263     
-QS1904_     UHA-0132         139     139     UHA-0001         137     137     Y   
-QpZAG119_   UHA-0132         76      76      UHA-0001         68      80      
-QpZAG1.5_   UHA-0132         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0132         230     232     UHA-0001         234     244     
-MSQ13_      UHA-0133         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0133         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0133         243     253     UHA-0001         255     263     
-QpZAG119_   UHA-0133         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0133         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0133         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0134         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0134         179     179     UHA-0001         163     165     
-QpZAG9_     UHA-0134         249     253     UHA-0001         255     263     
-MSQ4_       UHA-0134         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0134         116     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0134         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0134         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0135         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0135         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0135         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0135         98      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0135         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0135         230     238     UHA-0001         234     244     
-MSQ13_      UHA-0136         230     234     UHA-0001         206     206     
-MSQ4_       UHA-0136         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0136         112     120     UHA-0001         68      80      
-QS03797_    UHA-0137         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0137         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0137         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0137         249     253     UHA-0001         255     263     
-MSQ4_       UHA-0137         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0137         112     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0137         169     169     UHA-0001         165     167     
-MSQ13_      UHA-0138         230     238     UHA-0001         206     206     
-QrZAG20_    UHA-0138         157     179     UHA-0001         163     165     
-QpZAG9_     UHA-0138         243     259     UHA-0001         255     263     
-QpZAG119_   UHA-0138         86      116     UHA-0001         68      80      
-QM69.2M1_   UHA-0138         228     230     UHA-0001         234     244     
-MSQ13_      UHA-0139         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0139         157     179     UHA-0001         163     165     
-QpZAG9_     UHA-0139         243     243     UHA-0001         255     263     
-QpZAG119_   UHA-0139         90      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0139         181     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0139         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0140         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0140         243     243     UHA-0001         255     263     
-QpZAG119_   UHA-0140         102     112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0140         175     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0140         230     230     UHA-0001         234     244     
-MSQ13_      UHA-0141         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0141         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0141         243     257     UHA-0001         255     263     
-QpZAG119_   UHA-0141         98      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0141         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0141         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0142         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0142         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0142         243     243     UHA-0001         255     263     
-QpZAG119_   UHA-0142         84      116     UHA-0001         68      80      
-QpZAG1.5_   UHA-0142         169     171     UHA-0001         165     167     
-MSQ13_      UHA-0143         230     234     UHA-0001         206     206     
-MSQ4_       UHA-0143         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0143         112     120     UHA-0001         68      80      
-MSQ13_      UHA-0144         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0144         179     179     UHA-0001         163     165     
-QpZAG119_   UHA-0144         116     116     UHA-0001         68      80      
-QS03797_    UHA-0146         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0146         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0146         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0146         243     249     UHA-0001         255     263     
-MSQ4_       UHA-0146         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0146         116     122     UHA-0001         68      80      
-QpZAG1.5_   UHA-0146         169     181     UHA-0001         165     167     
-MSQ13_      UHA-0147         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0147         243     249     UHA-0001         255     263     
-QpZAG119_   UHA-0147         116     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0147         169     181     UHA-0001         165     167     
-MSQ13_      UHA-0148         210     220     UHA-0001         206     206     
-QpZAG9_     UHA-0148         253     259     UHA-0001         255     263     
-QpZAG119_   UHA-0148         62      78      UHA-0001         68      80      
-QM69.2M1_   UHA-0148         222     232     UHA-0001         234     244     
-MSQ13_      UHA-0150         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0150         265     271     UHA-0001         255     263     
-MSQ4_       UHA-0150         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0150         78      110     UHA-0001         68      80      
-QM69.2M1_   UHA-0150         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0151         210     230     UHA-0001         206     206     
-QpZAG9_     UHA-0151         257     271     UHA-0001         255     263     
-MSQ4_       UHA-0151         200     200     UHA-0001         198     206     
-QpZAG119_   UHA-0151         78      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0151         159     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0151         222     230     UHA-0001         234     244     
-QS03797_    UHA-0152         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0152         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0152         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0152         253     257     UHA-0001         255     263     
-QpZAG119_   UHA-0152         78      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0152         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0152         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0153         210     210     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0153         257     271     UHA-0001         255     263     
-QpZAG119_   UHA-0153         78      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0153         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0153         222     222     UHA-0001         234     244     
-QS03797_    UHA-0154         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0154         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0154         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0154         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0154         212     212     UHA-0001         198     206     
-QpZAG119_   UHA-0154         98      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0154         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0154         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0155         210     234     UHA-0001         206     206     
-QrZAG20_    UHA-0155         155     175     UHA-0001         163     165     
-QpZAG9_     UHA-0155         253     265     UHA-0001         255     263     
-MSQ4_       UHA-0155         200     210     UHA-0001         198     206     
-QpZAG119_   UHA-0155         78      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0155         159     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0155         222     238     UHA-0001         234     244     
-QS03797_    UHA-0156         146     176     UHA-0001         144     144     
-MSQ13_      UHA-0156         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0156         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0156         245     253     UHA-0001         255     263     
-MSQ4_       UHA-0156         202     202     UHA-0001         198     206     
-QpZAG119_   UHA-0156         102     112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0156         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0156         219     222     UHA-0001         234     244     
-QS03797_    UHA-0157         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0157         210     232     UHA-0001         206     206     
-QrZAG20_    UHA-0157         175     177     UHA-0001         163     165     
-QpZAG9_     UHA-0157         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0157         200     210     UHA-0001         198     206     
-QpZAG119_   UHA-0157         98      112     UHA-0001         68      80      
-QM69.2M1_   UHA-0157         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0158         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0158         269     271     UHA-0001         255     263     
-MSQ4_       UHA-0158         200     210     UHA-0001         198     206     
-QpZAG119_   UHA-0158         98      112     UHA-0001         68      80      
-MSQ13_      UHA-0159         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0159         243     271     UHA-0001         255     263     
-MSQ4_       UHA-0159         200     216     UHA-0001         198     206     
-QM69.2M1_   UHA-0159         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0160         210     234     UHA-0001         206     206     
-QrZAG20_    UHA-0160         155     175     UHA-0001         163     165     
-QpZAG9_     UHA-0160         265     271     UHA-0001         255     263     
-MSQ4_       UHA-0160         200     210     UHA-0001         198     206     
-QpZAG119_   UHA-0160         78      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0160         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0160         222     238     UHA-0001         234     244     
-QS03797_    UHA-0161         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0161         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0161         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0161         257     271     UHA-0001         255     263     
-MSQ4_       UHA-0161         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0161         78      90      UHA-0001         68      80      
-QM69.2M1_   UHA-0161         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0162         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0162         175     175     UHA-0001         163     165     
-QpZAG9_     UHA-0162         245     253     UHA-0001         255     263     
-QM69.2M1_   UHA-0162         222     228     UHA-0001         234     244     
-MSQ13_      UHA-0163         210     232     UHA-0001         206     206     
-QpZAG9_     UHA-0163         257     271     UHA-0001         255     263     
-MSQ4_       UHA-0163         200     212     UHA-0001         198     206     
-QpZAG119_   UHA-0163         78      98      UHA-0001         68      80      
-QM69.2M1_   UHA-0163         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0164         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0164         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0164         204     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0164         173     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0164         214     222     UHA-0001         234     244     
-MSQ13_      UHA-0165         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0165         155     177     UHA-0001         163     165     
-QpZAG9_     UHA-0165         253     265     UHA-0001         255     263     
-MSQ4_       UHA-0165         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0165         90      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0165         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0165         222     222     UHA-0001         234     244     
-QS03797_    UHA-0166         142     146     UHA-0001         144     144     
-MSQ13_      UHA-0166         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0166         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0166         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0166         212     216     UHA-0001         198     206     
-QpZAG119_   UHA-0166         94      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0166         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0166         232     232     UHA-0001         234     244     
-MSQ13_      UHA-0167         216     216     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0167         157     179     UHA-0001         163     165     
-MSQ4_       UHA-0167         200     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0167         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0167         222     232     UHA-0001         234     244     
-MSQ13_      UHA-0169         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0169         249     253     UHA-0001         255     263     
-MSQ4_       UHA-0169         200     214     UHA-0001         198     206     
-QpZAG1.5_   UHA-0169         169     169     UHA-0001         165     167     
-MSQ13_      UHA-0298         216     230     UHA-0001         206     206     
-QpZAG9_     UHA-0298         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0298         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0298         96      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0298         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0298         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0426         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0426         249     253     UHA-0001         255     263     
-QpZAG119_   UHA-0426         92      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0426         169     169     UHA-0001         165     167     
-QS03797_    UHA-0427         146     184     UHA-0001         144     144     
-MSQ13_      UHA-0427         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0427         157     177     UHA-0001         163     165     
-MSQ4_       UHA-0427         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0427         90      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0427         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0427         222     222     UHA-0001         234     244     
-QS03797_    UHA-0428         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0428         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0428         175     177     UHA-0001         163     165     
-MSQ4_       UHA-0428         200     216     UHA-0001         198     206     
-QpZAG119_   UHA-0428         86      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0428         169     173     UHA-0001         165     167     
-QM69.2M1_   UHA-0428         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0429         230     232     UHA-0001         206     206     
-QpZAG9_     UHA-0429         257     271     UHA-0001         255     263     
-MSQ4_       UHA-0429         210     242     UHA-0001         198     206     
-QpZAG119_   UHA-0429         78      104     UHA-0001         68      80      
-QM69.2M1_   UHA-0429         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0430         210     210     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0430         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0430         200     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0430         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0430         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0431         210     210     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0431         257     271     UHA-0001         255     263     
-MSQ4_       UHA-0431         216     242     UHA-0001         198     206     
-QM69.2M1_   UHA-0431         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0432         230     232     UHA-0001         206     206     
-QpZAG9_     UHA-0432         253     261     UHA-0001         255     263     
-MSQ4_       UHA-0432         200     214     UHA-0001         198     206     
-QpZAG119_   UHA-0432         78      104     UHA-0001         68      80      
-QM69.2M1_   UHA-0432         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0433         230     232     UHA-0001         206     206     
-QpZAG9_     UHA-0433         253     257     UHA-0001         255     263     
-MSQ4_       UHA-0433         200     210     UHA-0001         198     206     
-QpZAG119_   UHA-0433         98      112     UHA-0001         68      80      
-QM69.2M1_   UHA-0433         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0434         210     234     UHA-0001         206     206     
-QpZAG9_     UHA-0434         253     261     UHA-0001         255     263     
-MSQ4_       UHA-0434         200     212     UHA-0001         198     206     
-QpZAG119_   UHA-0434         78      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0434         169     171     UHA-0001         165     167     
-QM69.2M1_   UHA-0434         214     222     UHA-0001         234     244     
-MSQ13_      UHA-0435         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0435         179     179     UHA-0001         163     165     
-QpZAG9_     UHA-0435         243     269     UHA-0001         255     263     
-QS1904_     UHA-0435         139     139     UHA-0001         137     137     Y   
-MSQ4_       UHA-0435         204     216     UHA-0001         198     206     
-QpZAG119_   UHA-0435         100     112     UHA-0001         68      80      
-QM69.2M1_   UHA-0435         222     236     UHA-0001         234     244     
-QS03797_    UHA-0436         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0436         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0436         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0436         249     253     UHA-0001         255     263     
-QpZAG119_   UHA-0436         116     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0436         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0436         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0437         230     234     UHA-0001         206     206     
-QpZAG9_     UHA-0437         243     249     UHA-0001         255     263     
-MSQ4_       UHA-0437         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0437         112     120     UHA-0001         68      80      
-QpZAG1.5_   UHA-0437         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0437         222     222     UHA-0001         234     244     
-QS03797_    UHA-0438         146     146     UHA-0001         144     144     Y   
-MSQ13_      UHA-0438         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0438         177     179     UHA-0001         163     165     
-QpZAG119_   UHA-0438         112     122     UHA-0001         68      80      
-QS03797_    UHA-0439         146     184     UHA-0001         144     144     
-MSQ13_      UHA-0439         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0439         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0439         243     243     UHA-0001         255     263     
-MSQ4_       UHA-0439         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0439         181     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0439         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0440         230     230     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0440         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0440         216     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0440         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0440         222     230     UHA-0001         234     244     
-MSQ13_      UHA-0441         216     230     UHA-0001         206     206     
-QrZAG20_    UHA-0441         175     179     UHA-0001         163     165     
-QpZAG9_     UHA-0441         243     243     UHA-0001         255     263     
-MSQ4_       UHA-0441         216     216     UHA-0001         198     206     
-QpZAG119_   UHA-0441         84      90      UHA-0001         68      80      
-QpZAG1.5_   UHA-0441         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0441         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0442         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0442         177     179     UHA-0001         163     165     
-QpZAG9_     UHA-0442         243     257     UHA-0001         255     263     
-QS1904_     UHA-0442         139     149     UHA-0001         137     137     
-QpZAG1.5_   UHA-0442         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0442         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0443         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0443         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0443         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0443         208     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0443         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0443         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0444         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0444         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0444         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0444         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0444         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0444         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0444         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0445         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0445         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0445         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0445         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0445         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0445         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0445         222     222     UHA-0001         234     244     
-QS03797_    UHA-0446         146     184     UHA-0001         144     144     
-MSQ13_      UHA-0446         230     230     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0446         157     169     UHA-0001         163     165     
-QpZAG9_     UHA-0446         243     249     UHA-0001         255     263     
-QpZAG119_   UHA-0446         90      112     UHA-0001         68      80      
-QpZAG1.5_   UHA-0446         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0446         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0447         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0447         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0447         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0447         208     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0447         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0447         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0448         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0448         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0448         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0448         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0448         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0448         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0448         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0449         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0449         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0449         257     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0449         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0449         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0450         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0450         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0450         243     265     UHA-0001         255     263     
-QpZAG1.5_   UHA-0450         159     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0450         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0451         234     234     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0451         155     179     UHA-0001         163     165     
-QpZAG9_     UHA-0451         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0451         210     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0451         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0451         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0452         232     232     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0452         155     157     UHA-0001         163     165     
-QpZAG9_     UHA-0452         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0452         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0452         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0452         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0452         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0453         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0453         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0453         257     265     UHA-0001         255     263     
-MSQ4_       UHA-0453         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0453         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0453         159     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0453         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0454         230     232     UHA-0001         206     206     
-QrZAG20_    UHA-0454         157     173     UHA-0001         163     165     
-QpZAG9_     UHA-0454         257     257     UHA-0001         255     263     
-QpZAG1.5_   UHA-0454         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0454         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0455         232     232     UHA-0001         206     206     Y   
-QrZAG20_    UHA-0455         157     173     UHA-0001         163     165     
-QpZAG9_     UHA-0455         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0455         208     216     UHA-0001         198     206     
-QpZAG119_   UHA-0455         90      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0455         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0455         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0456         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0456         173     179     UHA-0001         163     165     
-QpZAG9_     UHA-0456         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0456         210     216     UHA-0001         198     206     
-QpZAG1.5_   UHA-0456         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0456         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0457         232     232     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0457         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0457         210     210     UHA-0001         198     206     
-QpZAG119_   UHA-0457         98      98      UHA-0001         68      80      
-QpZAG1.5_   UHA-0457         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0457         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0458         232     232     UHA-0001         206     206     Y   
-QpZAG9_     UHA-0458         257     257     UHA-0001         255     263     
-MSQ4_       UHA-0458         208     214     UHA-0001         198     206     
-QpZAG119_   UHA-0458         98      104     UHA-0001         68      80      
-QpZAG1.5_   UHA-0458         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0458         222     222     UHA-0001         234     244     
-MSQ13_      UHA-0459         232     234     UHA-0001         206     206     
-QrZAG20_    UHA-0459         173     177     UHA-0001         163     165     
-QpZAG9_     UHA-0459         257     261     UHA-0001         255     263     
-MSQ4_       UHA-0459         208     210     UHA-0001         198     206     
-QpZAG119_   UHA-0459         98      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0459         169     169     UHA-0001         165     167     
-QM69.2M1_   UHA-0459         222     238     UHA-0001         234     244     
-MSQ13_      UHA-0460         230     234     UHA-0001         206     206     
-QrZAG20_    UHA-0460         157     173     UHA-0001         163     165     
-QpZAG9_     UHA-0460         243     257     UHA-0001         255     263     
-MSQ4_       UHA-0460         210     216     UHA-0001         198     206     
-QpZAG119_   UHA-0460         90      114     UHA-0001         68      80      
-QpZAG1.5_   UHA-0460         169     181     UHA-0001         165     167     
-QM69.2M1_   UHA-0460         222     238     UHA-0001         234     244     
+QS03797_    UHA-0020         142     184     UHA-0261         144     146     
+QpZAG9_     UHA-0020         243     243     UHA-0261         251     253     
+QpZAG119_   UHA-0020         90      110     UHA-0261         84      84      
+QrZAG20_    UHA-0021         157     175     UHA-0261         177     179     
+QpZAG9_     UHA-0021         243     243     UHA-0261         251     253     
+QpZAG119_   UHA-0021         68      82      UHA-0261         84      84      
+QrZAG20_    UHA-0022         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0022         243     257     UHA-0261         251     253     
+QpZAG9_     UHA-0023         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0023         90      90      UHA-0261         84      84      Y   
+QrZAG20_    UHA-0024         155     157     UHA-0261         177     179     
+QpZAG9_     UHA-0024         243     257     UHA-0261         251     253     
+QM69.2M1_   UHA-0024         230     234     UHA-0261         222     222     
+QrZAG20_    UHA-0025         163     175     UHA-0261         177     179     
+QpZAG9_     UHA-0025         243     261     UHA-0261         251     253     
+QpZAG9_     UHA-0026         249     257     UHA-0261         251     253     
+QrZAG20_    UHA-0027         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0027         243     265     UHA-0261         251     253     
+QpZAG9_     UHA-0028         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0028         98      110     UHA-0261         84      84      
+QpZAG9_     UHA-0029         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0029         114     114     UHA-0261         84      84      Y   
+QpZAG9_     UHA-0036         243     265     UHA-0261         251     253     
+QpZAG119_   UHA-0036         98      110     UHA-0261         84      84      
+QrZAG20_    UHA-0037         173     175     UHA-0261         177     179     
+QpZAG9_     UHA-0037         249     257     UHA-0261         251     253     
+QpZAG119_   UHA-0037         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0038         249     257     UHA-0261         251     253     
+QpZAG119_   UHA-0038         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0040         243     257     UHA-0261         251     253     
+QpZAG119_   UHA-0040         110     114     UHA-0261         84      84      
+QpZAG9_     UHA-0041         243     243     UHA-0261         251     253     
+QrZAG20_    UHA-0045         157     165     UHA-0260         175     177     
+QpZAG9_     UHA-0045         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0046         155     157     UHA-0260         175     177     
+QrZAG20_    UHA-0047         165     179     UHA-0260         175     177     
+QrZAG20_    UHA-0048         155     157     UHA-0260         175     177     
+MSQ13_      UHA-0049         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0049         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0049         257     265     UHA-0260         243     249     
+MSQ13_      UHA-0051         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0051         157     163     UHA-0260         175     177     
+QpZAG9_     UHA-0051         253     257     UHA-0260         243     249     
+QrZAG20_    UHA-0052         157     165     UHA-0260         175     177     
+QrZAG20_    UHA-0053         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0053         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0054         157     173     UHA-0260         175     177     
+QpZAG9_     UHA-0054         257     257     UHA-0260         243     249     
+QS03797_    UHA-0055         146     184     UHA-0260         142     144     
+MSQ13_      UHA-0055         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0055         179     179     UHA-0260         175     177     
+QS03797_    UHA-0056         146     146     UHA-0260         142     144     
+QpZAG9_     UHA-0056         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0058         165     179     UHA-0260         175     177     
+QpZAG9_     UHA-0058         257     257     UHA-0260         243     249     
+MSQ13_      UHA-0059         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0059         155     157     UHA-0260         175     177     
+QpZAG9_     UHA-0059         257     257     UHA-0260         243     249     
+MSQ4_       UHA-0097         214     214     UHA-0015         200     216     
+QrZAG20_    UHA-0098         155     179     UHA-0257         163     177     
+MSQ13_      UHA-0101         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0101         155     157     UHA-0257         163     177     
+QrZAG20_    UHA-0102         155     165     UHA-0257         163     177     
+MSQ13_      UHA-0103         234     236     UHA-0257         232     232     
+QrZAG20_    UHA-0103         157     173     UHA-0257         163     177     
+QpZAG119_   UHA-0103         66      68      UHA-0257         98      114     
+QrZAG20_    UHA-0106         155     179     UHA-0257         163     177     
+QpZAG9_     UHA-0106         243     265     UHA-0257         257     261     
+QpZAG9_     UHA-0109         243     265     UHA-0257         257     261     
+MSQ13_      UHA-0112         216     234     UHA-0257         232     232     
+QpZAG9_     UHA-0112         253     255     UHA-0257         257     261     
+MSQ4_       UHA-0112         200     200     UHA-0257         208     210     
+QpZAG119_   UHA-0112         90      116     UHA-0257         98      114     
+QM69.2M1_   UHA-0112         232     236     UHA-0257         222     238     
+QrZAG20_    UHA-0113         155     179     UHA-0257         163     177     
+MSQ13_      UHA-0114         234     234     UHA-0257         232     232     Y   
+QrZAG20_    UHA-0114         155     157     UHA-0257         163     177     
+MSQ4_       UHA-0116         206     206     UHA-0351         200     214     
+QpZAG119_   UHA-0123         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0125         94      112     UHA-0010         116     116     
+QpZAG119_   UHA-0126         112     112     UHA-0010         116     116     Y   
+QpZAG119_   UHA-0127         112     120     UHA-0010         116     116     
+MSQ4_       UHA-0128         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0128         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0130         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0131         76      112     UHA-0010         116     116     
+QpZAG119_   UHA-0132         76      76      UHA-0010         116     116     Y   
+MSQ4_       UHA-0134         200     200     UHA-0010         198     216     
+QpZAG119_   UHA-0135         98      112     UHA-0010         116     116     
+QpZAG119_   UHA-0136         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0137         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0140         102     112     UHA-0010         116     116     
+QpZAG119_   UHA-0143         112     120     UHA-0010         116     116     
+MSQ4_       UHA-0148         198     198     UHA-0012         200     242     
+MSQ4_       UHA-0154         212     212     UHA-0012         200     242     
+MSQ4_       UHA-0156         202     202     UHA-0012         200     242     
+QpZAG119_   UHA-0159         68      110     UHA-0012         78      112     
+QpZAG119_   UHA-0165         90      112     UHA-0016         116     116     
+QpZAG9_     UHA-0167         257     263     UHA-0013         253     261     
+QpZAG119_   UHA-0435         100     112     UHA-0010         116     116     
+QpZAG119_   UHA-0437         112     120     UHA-0010         116     116     
+QpZAG119_   UHA-0438         112     122     UHA-0010         116     116     
+QpZAG119_   UHA-0439         68      112     UHA-0010         116     116     
+QrZAG20_    UHA-0440         165     179     UHA-0260         175     177     
+MSQ13_      UHA-0443         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0443         173     179     UHA-0260         175     177     
+MSQ13_      UHA-0444         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0444         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0444         257     265     UHA-0260         243     249     
+QrZAG20_    UHA-0445         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0445         257     257     UHA-0260         243     249     
+QS03797_    UHA-0446         146     184     UHA-0260         142     144     
+QrZAG20_    UHA-0446         157     169     UHA-0260         175     177     
+QrZAG20_    UHA-0447         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0447         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0448         155     179     UHA-0260         175     177     
+QrZAG20_    UHA-0449         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0449         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0450         155     179     UHA-0260         175     177     
+MSQ13_      UHA-0451         234     234     UHA-0260         216     230     
+QrZAG20_    UHA-0451         155     179     UHA-0260         175     177     
+QpZAG9_     UHA-0451         257     265     UHA-0260         243     249     
+MSQ13_      UHA-0452         232     232     UHA-0260         216     230     
+QrZAG20_    UHA-0452         155     157     UHA-0260         175     177     
+QpZAG9_     UHA-0452         257     257     UHA-0260         243     249     
+QrZAG20_    UHA-0453         173     179     UHA-0260         175     177     
+QpZAG9_     UHA-0453         257     265     UHA-0260         243     249     
+QrZAG20_    UHA-0454         157     173     UHA-0257         163     177     
+QrZAG20_    UHA-0455         157     173     UHA-0257         163     177     
+MSQ13_      UHA-0456         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0456         173     179     UHA-0257         163     177     
+MSQ13_      UHA-0460         230     234     UHA-0257         232     232     
+QrZAG20_    UHA-0460         157     173     UHA-0257         163     177     
 
-TOTAL: 918
+TOTAL: 133
 
 
 **** Error rate analysis ****
 
 Locus name  N compared  N mismatching  N null   Detection prob.  Est. error rate
-QS03797_           154             28       18       0.20234040       0.44928789
-MSQ13_             154            154       51       0.55919040       0.89414983
-QrZAG20_           154            109        0       0.69631278       0.50824301
-QpZAG9_            151            135        0       0.70770939       0.63164326
-QS1904_            154              9        4       0.04683600       0.62389564
-MSQ4_              149            106        0       0.60847782       0.58458120
-QpZAG119_          151            124        0       0.82579726       0.49721166
-QpZAG1.5_          154            127        0       0.55421351       0.74400507
-QM69.2M1_          154            126        0       0.54111521       0.75601444
+QS03797_           154              4        0       0.20234040       0.06418398
+MSQ13_             154             14        1       0.55919040       0.08128635
+QrZAG20_           154             41        0       0.69631278       0.19117398
+QpZAG9_            151             34        0       0.70770939       0.15908053
+QS1904_            154              0        0       0.04683600       0.00000000
+MSQ4_              147              8        0       0.60847782       0.04471960
+QpZAG119_          151             30        4       0.82579726       0.12029314
+QpZAG1.5_          154              0        0       0.55421351       0.00000000
+QM69.2M1_          154              2        0       0.54111521       0.01200023
 
-Mean observed error rate across loci:                          0.63211467
+Mean observed error rate across loci:                          0.07474865
   (assumes all known parent-offspring pairs are equally independent)
 
 

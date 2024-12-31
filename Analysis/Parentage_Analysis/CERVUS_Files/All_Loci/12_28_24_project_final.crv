@@ -9,9 +9,9 @@ UserCompany=
 Code=
 
 [FileInfo]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\UHA_par_sum_project_AL.crv
+FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\12_28_24_project_final.crv
 FileType=.crv
-CreationDate=12/28/2024 4:32:38 PM
+CreationDate=12/28/2024 10:02:54 PM
 
 [GenotypeFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_AL_genotype_df.csv
@@ -44,15 +44,15 @@ FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Paren
 HeaderRow=1
 
 [SimulationParameters]
-AnalysisType=Paternity
+AnalysisType=
 NOffspring=10000
-NCandidateMales=270
-PropCandidateMalesSampled=0.8
+NCandidateMales=0
+PropCandidateMalesSampled=0
 NCandidateFemales=0
 PropCandidateFemalesSampled=0
-PropLociTyped=0.8
-PropLociMistyped=0.05
-MinTypedLoci=6
+PropLociTyped=0
+PropLociMistyped=0.01
+MinTypedLoci=0
 CriticalStatisticName=Delta
 TruncateAtZero=1
 RelaxedConfidence=80
@@ -71,10 +71,10 @@ MaleRelatedTo=Offspring
 MaleRelatedness=0
 UseCorrectedLikelihoods=1
 UseMistypingRateAsLikelihoodErrorRate=1
-LikelihoodErrorRate=0.05
+LikelihoodErrorRate=0.01
 
 [SimulationSummaryFile]
-FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.txt
+FileName=
 
 [SimulationDataFile]
 FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Parentage_Analysis\CERVUS_Files\All_Loci\Input_Files\UHA_sim.sim
@@ -110,9 +110,9 @@ FileName=C:\Users\eschumacher\Documents\GitHub\USBG_Hybrid_Acorns\Analysis\Paren
 HeaderRow=1
 OffspringIDColumnNumber=1
 IncludesKnownParents=1
-KnownParentIDColumnNumber=2
+KnownParentIDColumnNumber=3
 IncludesCandidateParents=1
-CandidateParentIDColumnNumber=3
+CandidateParentIDColumnNumber=4
 
 [CandidateFemaleFile]
 FileName=

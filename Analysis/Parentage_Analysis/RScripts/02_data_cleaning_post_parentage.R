@@ -62,8 +62,8 @@ for(sc in seq_along(scen)){
 par_sum_list <- list.files(path = "Results/Parentage_Results/CSV_Files/", pattern = "par_sum.csv")
 
 #reorder list 
-par_sum_list <- list(par_sum_list[[4]], par_sum_list[[2]], 
-                     par_sum_list[[3]], par_sum_list[[1]])
+par_sum_list <- list(par_sum_list[[3]], par_sum_list[[1]], 
+                     par_sum_list[[2]], par_sum_list[[4]])
 
 #read CSVs 
 par_sum_df_list <- list()
@@ -122,7 +122,6 @@ for(sc in seq_along(full_scen)){
   
   #replace periods with underscores
   colnames(par_temp_df) <- gsub("\\.", "_", colnames(par_temp_df))
-  
   
   #join maternal information with the parentage summary 
   par_temp_df <- left_join(par_temp_df, UHA_database, 

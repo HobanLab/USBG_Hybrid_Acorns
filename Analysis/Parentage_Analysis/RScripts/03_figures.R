@@ -23,8 +23,8 @@ par_sum_df <- list.files(path = "Results/Parentage_Results/CSV_Files",
                          pattern = "par_sum.csv")
 
 #reorg list to fit order 
-par_sum_df <- list(par_sum_df[[2]], par_sum_df[[1]],
-                   par_sum_df[[4]], par_sum_df[[3]])
+par_sum_df <- list(par_sum_df[[3]], par_sum_df[[1]],
+                   par_sum_df[[4]], par_sum_df[[2]])
 
 #list out analysis data frames 
 par_sum_analysis <- list.files(path = "Results/Parentage_Results/CSV_Files",
@@ -42,7 +42,7 @@ full_scen <- c("all_loci_AF", #all loci included with all father assignments
 )
 
 #pull in UHA database 
-UHA_database <- read.csv("./Data_Files/CSV_Files/UHA_database.csv")
+UHA_database <- read.csv("./Data_Files/CSV_Files/UHA_database_clean.csv")
 
 #save out list of maternal IDs 
 mat_n_ids <- paste0("MT",1:11)
@@ -55,6 +55,28 @@ for(mat in mat_n_ids){
   mat_ids[[mat]] <- UHA_database[UHA_database$MT_ID == mat,"Tissue_ID"]
   
 }
+
+#create MT 
+UHA_res_df$MT_ID <- dplyr::case_when(
+  UHA_res_df$Maternal_ID == "UHA-0009" ~ "MT1",
+  UHA_res_df$Maternal_ID == "UHA-0010" ~ "MT2",
+  UHA_res_df$Maternal_ID == "UHA-0012" ~ "MT3",
+  UHA_res_df$Maternal_ID == "UHA-0013" ~ "MT4",
+  UHA_res_df$Maternal_ID == "UHA-0014" ~ "MT5",
+  UHA_res_df$Maternal_ID == "UHA-0015" ~ "MT6",
+  UHA_res_df$Maternal_ID == "UHA-0016" ~ "MT7",
+  UHA_res_df$Maternal_ID == "UHA-0257" ~ "MT8",
+  UHA_res_df$Maternal_ID == "UHA-0260" ~ "MT9",
+  UHA_res_df$Maternal_ID == "UHA-0261" ~ "MT10",
+  UHA_res_df$Maternal_ID == "UHA-0351" ~ "MT11"
+)
+
+#save as a factor 
+UHA_res_df$MT_ID <- as.factor(UHA_res_df$MT_ID)
+UHA_res_df$MT_ID <- factor(UHA_res_df$MT_ID, 
+                           levels=c("MT1", "MT2", "MT3", "MT4",
+                                    "MT5","MT6","MT7","MT8",
+                                    "MT9","MT10","MT11"))
 
 ###################################################
 #     Sumamry of Non Exculsion Probabilities      #
@@ -174,8 +196,8 @@ UHA_father_df <- UHA_father_df %>%
                    dplyr::arrange(across("Count",desc))
 
 #### Now write out figures 
-png(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.png"),
-    res = 600, width = 5200, height = 3500)
+pdf(paste0("Results/Parentage_Results/Figures/AL_HCF_hybrid_species_count.pdf"),
+    height = 6, width = 8)
 
 UHA_father_df %>%
   ggplot(aes(x = fct_rev(fct_reorder(Species, Count)), y = Count)) +
@@ -201,17 +223,17 @@ UHA_res_df[UHA_res_df$Hybrid_Status == "TRUE","Hybrid Status"] <- "Hybrid"
 UHA_res_df[UHA_res_df$Hybrid_Status == "FALSE","Hybrid Status"] <- "Not Hybrid"
 
 ## write out figure text to compare hybrid status/distance by mother
-png(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.png"),
-    res = 600, width = 5000, height = 3500)
+pdf(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_hybrid.pdf"),
+    height = 6, width = 8)
 
 UHA_res_df %>%
-  ggplot(aes(x = Maternal_ID, 
+  ggplot(aes(x = MT_ID, 
              y = dist_par)) +  
   geom_boxplot(fill = "darkolivegreen4") +
   geom_jitter(aes(fill = `Hybrid Status`), width = 0.2, size = 3, shape = 21, color = "black") +
   scale_y_continuous(limits = c(0,1000)) +  # set limits for graph
   scale_fill_manual(values = c("deeppink", "grey")) +
-  geom_text(data = . %>% count(Maternal_ID), 
+  geom_text(data = . %>% count(MT_ID), 
             aes(label = paste("n =", n), y = 665), vjust = -3) + 
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
   theme_bw() +

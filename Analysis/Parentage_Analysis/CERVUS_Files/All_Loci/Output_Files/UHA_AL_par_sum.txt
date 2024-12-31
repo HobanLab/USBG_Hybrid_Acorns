@@ -2,7 +2,7 @@ Cervus 3.0.7 - (c) Copyright Tristan Marshall 1998-2014
 Distributed by Field Genetics Ltd - www.fieldgenetics.com
 Licensed for non-commercial use only
 
-Parentage analysis completed 12/28/2024 4:31:42 PM
+Parentage analysis completed 12/28/2024 9:59:50 PM
 
 
 **** Summary statistics ****
