@@ -16,22 +16,17 @@ setwd("../../..")
 UHA_database <- read.csv("Data_Files/CSV_Files/UHA_database_clean.csv")
 
 #limit to one case right now 
-genotype_df <- read.csv("Data_Files/CSV_Files/UHA_AL_par_sum.csv")
+genotype_df <- read.csv("./Analysis/Parentage_Analysis/CERVUS_Files/All_Loci/Input_Files/UHA_AL_genotype_df.csv")
 
-par_df <- read.csv("Results/Parentage_Results/CSV_Files/UHA_all_loci_analysis_df.csv")
+par_df <- read.csv("Results/Parentage_Results/CSV_Files/UHA_HCF_all_loci_analysis_df.csv")
 
 ###################################
 #     Reorganize data frames      #
 ###################################
 
-# #Loop over all data files 
-# for(par in seq_along(par_scen_df)){
-#   
-#   temp_score_df <- score_df_list[[1]]
-  
 #remove offspring from the data frame - only modeling parents
 UHA_par_df <- UHA_database %>% 
-                filter(Parent_Offspring == "P")
+                filter(PO == "P")
   
 #create data frame for offspring 
 offspring_df <- par_df %>%
@@ -229,7 +224,7 @@ rf_df %>%
   theme_classic()
 
 # note that when you remove the mom with the largest values (> 500), 
-#still significant
+#still not significant
 summary(lm(formula = Prop_hybrids~Mean_largest_real_dists, 
            data=filter(rf_df, Mean_largest_real_dists < 500)))
 
@@ -302,7 +297,7 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
   
   possible_dads <- mom_specific_combos$Parent_2 #make a vector with a list of all of the possible dads by pulling the Parent_2 column of the mom_specific_combos df
   
-  dads <- sample(possible_dads, size=1000, replace=T)  #randomly draw 1000 samples from all possible dads with replacement
+  dads <- sample(possible_dads, size=270, replace=T)  #randomly draw 1000 samples from all possible dads with replacement
   
   #a for loop that will loop through each of the 1000 sampled dads will make and add a row for the parents_dists_table_small 
   for(x in 1:length(dads)){
@@ -330,23 +325,23 @@ parentage_results_for_hists <- par_results_df %>%
   filter(!is.na(dist))  #remove entries where dist is NA because some trees that we have tissue from do not have long/lat values
 
 #Create the a histogram that shows the difference in the real and theoretical distances between parents 
+##write out histogram 
+pdf("Results/Pairwise_Distance_Analysis/sim_real_dist_hist.pdf", 
+    width = 8, height = 8)
 
-dist_hist <- ggplot() +
+ggplot() +
   geom_histogram(data = parents_dists_table_full, 
                  aes(x = dist, y = ..density.., fill = "theoretical"), 
                  alpha = .5) +
   geom_histogram(data = parentage_results_for_hists, 
                  aes(x = dist, y = ..density.., fill = "real"), 
                  alpha = .5) +
-  labs(fill = "data set") + 
+  xlab("Distance (m)") + 
+  ylab("Proportion of Sample") +
+  scale_y_continuous(limits = c(0,0.015)) +
   scale_fill_manual(values = c("theoretical" = "red", "real" = "blue")) + 
   #facet_wrap(~Mom) +  # facet_wrap by Mom to see how each individual Maternal tree did compared to bootstrap
   theme_classic()
-
-##write out histogram 
-png("Results/Pairwise_Distance_Analysis/sim_real_dist_hist.png", width = 1000, height = 850)
-
-dist_hist
 
 dev.off()
 
