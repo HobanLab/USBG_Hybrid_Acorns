@@ -188,8 +188,6 @@ for(par in seq_along(par_sum_df)){
 UHA_father_df <- as.data.frame(table(UHA_res_df$Candidate_Father_Species))
 #rename 
 colnames(UHA_father_df) <- c("Species", "Count")
-#fix deamii 
-levels(UHA_father_df$Species)[[1]] <- "Quercus x deamii"
 
 #resort data frame 
 UHA_father_df <- UHA_father_df %>%
@@ -284,7 +282,6 @@ dev.off()
 
 #replace column text for candidate father species
 UHA_res_df[["Candidate Father Species"]] <- as.factor(UHA_res_df$Candidate_Father_Species)
-levels(UHA_res_df$`Candidate Father Species`)[[1]] <- "Quercus x deamii"
 
 #make a factor column to enable easier counting of the fathers
 UHA_res_df$Candidate_father_ID2 <- as.factor(UHA_res_df$Candidate_father_ID)
@@ -368,7 +365,7 @@ dev.off()
 #plot linear regression - loop over numeric
 species_list <- unique(count_df$Species)
 #create color list 
-color_list <- c("darkseagreen4", "deepskyblue3", "goldenrod3")
+color_list <- c("darkseagreen4", "deepskyblue3", "goldenrod3", "lightgoldenrod1")
 
 #count df color 
 count_df$color <- NA
@@ -410,7 +407,11 @@ points(x = count_df[count_df$Species == species_list[[2]],]$DBH_avg,
 points(x = count_df[count_df$Species == species_list[[3]],]$DBH_avg, 
        y = count_df[count_df$Species == species_list[[3]],]$Count,
        pch = 17, 
-       col = count_df[count_df$Species == species_list[[3]],]$color)
+       col = count_df[count_df$Species == species_list[[4]],]$color)
+points(x = count_df[count_df$Species == species_list[[4]],]$DBH_avg, 
+       y = count_df[count_df$Species == species_list[[4]],]$Count,
+       pch = 17, 
+       col = count_df[count_df$Species == species_list[[4]],]$color)
 
 #add regression 
 abline(reg, col = "blue", lwd = 2)
@@ -420,7 +421,7 @@ legend("topleft", legend = rp, bty = 'n', border = "black",
        pt.cex = 1.5, cex = 0.8, pch = 17, col = "blue")
 #add species legend
 legend('left', legend = species_list, 
-       pch = 17, col = color_list, size = 2)
+       pch = 17, col = color_list)
 dev.off()
 
 ############## Not currently in use ----------------------
