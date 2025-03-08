@@ -290,10 +290,10 @@ pdf(paste0("Results/Parentage_Results/Figures/AL_HCF_dist_par_halfsib_relanl.pdf
 UHA_res_df %>%
   group_by(sum_relate) %>%  # group by half siblings to compare the status
   ggplot(aes(x = MT_ID, y = dist_par, fill = sum_relate)) +  
-  geom_boxplot(fill = "azure2")+
-  geom_jitter(aes(fill = sum_relate), width = 0.2, size = 3, shape = 21, color = "black") +
+  geom_boxplot(fill = "gray92")+
+  geom_jitter(aes(fill = sum_relate), width = 0.2, size = 5, shape = 21, color = "black") +
   expand_limits(y = c(0, 800)) +  # set limits for graph
-  scale_fill_manual(values = c("cadetblue", "navy","white")) +
+  scale_fill_manual(values = c("moccasin", "cornflowerblue","white")) +
   xlab("Maternal Tree ID") + ylab("Distance between parents (m)") +
   theme_bw() +
   theme(axis.title.x = element_text(size = 16),
