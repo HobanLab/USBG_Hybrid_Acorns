@@ -281,7 +281,6 @@ write.csv(pf_hybrid_prop_dist, "Results/Pairwise_Distance_Analysis/pf_hybrid_pro
 #individuals we have data on) 1000 times 
 #and records the distance between that dad and the given mom 
 
-
 set.seed(2024) #since we are using the sample function, set the seed for repeatability 
 
 #create the table that will hold the results of the for loop with 3 columns: Mom, Dad, and dist
@@ -297,7 +296,7 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
   
   possible_dads <- mom_specific_combos$Parent_2 #make a vector with a list of all of the possible dads by pulling the Parent_2 column of the mom_specific_combos df
   
-  dads <- sample(possible_dads, size=270, replace=T)  #randomly draw 1000 samples from all possible dads with replacement
+  dads <- sample(possible_dads, size=1000, replace=T)  #randomly draw 1000 samples from all possible dads with replacement
   
   #a for loop that will loop through each of the 1000 sampled dads will make and add a row for the parents_dists_table_small 
   for(x in 1:length(dads)){
@@ -312,6 +311,15 @@ for(i in 1:length(unique(relevant_potential_combos$Parent_1))){
   parents_dists_table_full <- rbind(parents_dists_table_full, parents_dists_table_small)  #bind the table of the given given to the  table of all the moms
 }
 
+#add a column to mark each row 
+parents_dists_table_full$name <- 1:length(parents_dists_table_full$Mom)
+
+##random reduce table to 121 offspring 
+off_samp <- sample(parents_dists_table_full$name, size = 121, replace = FALSE)
+
+#now limit parents_dist_table full by this subsample 
+parents_dists_table_full <- parents_dists_table_full %>%
+                              dplyr::filter(name %in% off_samp)
 
 # Make a plot that compares the real distances between parents 
 #(from relevant_parentage_results) to the potential distance between
